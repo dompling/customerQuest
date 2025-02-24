@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.prova_1.app-mergeDebugResources-24:/values-lt/values-lt.xml",
+            "outputFile": "com.herzen.loverquest.app-mergeDebugResources-24:/values-lt/values-lt.xml",
             "map": [
                 {
                     "source": "/home/herzen/.gradle/caches/transforms-3/9560b4392b8a1575165d2e7541c36546/transformed/core-1.13.1/res/values-lt/values-lt.xml",

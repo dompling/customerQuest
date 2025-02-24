@@ -57,22 +57,22 @@ class _PlayMainPageState extends State<PlayMainPage> {
               //------------------------------------------------------------------------------
 
               // SPACER
-              const SizedBox(height: 70),
+              const SizedBox(height: 80),
 
               //------------------------------------------------------------------------------
 
               // APP LOGO
               Image.asset(
-                'images/main_icon.png',
-                width: 170,
-                height: 170,
+                'assets/images/main_icon.png',
+                width: 180,
+                height: 180,
                 fit: BoxFit.contain,
               ),
 
               //------------------------------------------------------------------------------
 
               // SPACER
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
 
               //------------------------------------------------------------------------------
 
@@ -113,15 +113,15 @@ class _PlayMainPageState extends State<PlayMainPage> {
               //------------------------------------------------------------------------------
 
               // SPACER
-              const SizedBox(height: 80),
+              const SizedBox(height: 100),
 
               //------------------------------------------------------------------------------
 
               // BUTTON BOX
-              FractionallySizedBox(
+              SizedBox(
 
                 // DYNAMIC SIZE
-                widthFactor: 0.5,
+                width: 180,
 
                 // BOX CONTENT
                 child: ElevatedButton(
@@ -136,15 +136,15 @@ class _PlayMainPageState extends State<PlayMainPage> {
                     backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
 
                     // MINIMUM SIZE
-                    minimumSize: WidgetStateProperty.all(Size(160, 70)),
+                    minimumSize: WidgetStateProperty.all(Size(160, 60)),
 
                     // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15)),
+                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
 
                     // BORDER RADIUS
                     shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(100),
                       ),
                     ),
 
@@ -179,7 +179,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
                     // TEXT STYLE
                     style: TextStyle(
 
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: FontWeight.w500,
 
                     ),
@@ -193,15 +193,15 @@ class _PlayMainPageState extends State<PlayMainPage> {
               //------------------------------------------------------------------------------
 
               // SPACER
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
 
               //------------------------------------------------------------------------------
 
               // BUTTON BOX
-              FractionallySizedBox(
+              SizedBox(
 
                 // DYNAMIC SIZE
-                widthFactor: 0.5,
+                width: 180,
 
                 // BOX CONTENT
                 child: ElevatedButton(
@@ -213,18 +213,18 @@ class _PlayMainPageState extends State<PlayMainPage> {
                     foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
 
                     // NORMAL BACKGROUND COLOR
-                    backgroundColor: WidgetStateProperty.all(Color.fromRGBO(114, 156, 163, 1)),
+                    backgroundColor: WidgetStateProperty.all(Color.fromRGBO(65, 95, 117, 1.0)),
 
                     // MINIMUM SIZE
-                    minimumSize: WidgetStateProperty.all(Size(160, 70)),
+                    minimumSize: WidgetStateProperty.all(Size(100, 60)),
 
                     // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 10, right: 10, top: 15, bottom: 15)),
+                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
 
                     // BORDER RADIUS
                     shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(100),
                       ),
                     ),
 
@@ -247,7 +247,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
                     // TEXT STYLE
                     style: TextStyle(
 
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: FontWeight.w500,
 
                     ),

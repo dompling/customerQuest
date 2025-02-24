@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/pages/play_pages/play_main_page.dart';
+import 'package:loverquest/pages/decks_pages/deck_list_main_page.dart';
 
 //------------------------------------------------------------------------------
 
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.dark,                      // THEME TYPE
             primary: Colors.white10,                          // PRIMARY COLOR
             onPrimary: Colors.white,                          // ELEMENTS ON PRIMARY COLOR
-            secondary: Color.fromRGBO(181, 70, 70, 1),        // SECONDARY COLOR
+            secondary: Color.fromRGBO(106, 65, 117, 1.0),        // SECONDARY COLOR
             onSecondary: Colors.white,                        // ELEMENTS ON SECONDARY COLOR
             error: Colors.red,                                // ERRORS COLOR
             onError: Colors.white,                            // ELEMENTS ON ERRORS COLOR
@@ -104,7 +105,7 @@ class _MainScreenState extends State<MainScreen> {
   // LIST OF NAVBAR MAIN SCREEN PAGES
   final List<Widget> _screens = [
     const PlayMainPage(),
-    const NotificationsPage(),
+    const DeckSelectionPage(),
     const MessagesPage(),
   ];
 

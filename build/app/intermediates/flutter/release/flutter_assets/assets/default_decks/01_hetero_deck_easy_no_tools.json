@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "name": "Principianti",
+    "description": "Una avvincente avventura di coppia !",
+    "couple_type": "hetero",
+    "total_quests": 25,
+    "average_difficulty": 1,
+    "average_duration": 10,
+    "required_tools": []
+
+  },
+
+
+
+  "quests": [
+    {
+      "id": 1,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": ["benda"],
+      "content": "Quest iniziale."
+    },
+    {
+      "id": 2,
+      "moment": "mid",
+      "difficulty": "medium",
+      "required_tools": ["dadi"],
+      "content": "Quest intermedia."
+    },
+    {
+      "id": 3,
+      "moment": "late",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "content": "Quest avanzata."
+    },
+    {
+      "id": 4,
+      "moment": "end",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "content": "Quest finale."
+    }
+  ]
+
+
+
+}

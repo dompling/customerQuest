@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.prova_1"
+3    package="com.herzen.loverquest"
 4    android:versionCode="1"
 5    android:versionName="1.0.0" >
 6
@@ -38,12 +38,12 @@
 30
 31    <permission
 31-->[androidx.core:core:1.13.1] /home/herzen/.gradle/caches/transforms-3/9560b4392b8a1575165d2e7541c36546/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
-32        android:name="com.example.prova_1.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+32        android:name="com.herzen.loverquest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
 32-->[androidx.core:core:1.13.1] /home/herzen/.gradle/caches/transforms-3/9560b4392b8a1575165d2e7541c36546/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
 33        android:protectionLevel="signature" />
 33-->[androidx.core:core:1.13.1] /home/herzen/.gradle/caches/transforms-3/9560b4392b8a1575165d2e7541c36546/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
 34
-35    <uses-permission android:name="com.example.prova_1.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+35    <uses-permission android:name="com.herzen.loverquest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 35-->[androidx.core:core:1.13.1] /home/herzen/.gradle/caches/transforms-3/9560b4392b8a1575165d2e7541c36546/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
 35-->[androidx.core:core:1.13.1] /home/herzen/.gradle/caches/transforms-3/9560b4392b8a1575165d2e7541c36546/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
 36
@@ -53,10 +53,10 @@
 39-->[androidx.core:core:1.13.1] /home/herzen/.gradle/caches/transforms-3/9560b4392b8a1575165d2e7541c36546/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 40        android:debuggable="true"
 41        android:extractNativeLibs="true"
-42        android:icon="@mipmap/ic_launcher"
-43        android:label="prova_1" >
+42        android:icon="@mipmap/launcher_icon"
+43        android:label="Loverquest" >
 44        <activity
-45            android:name="com.example.prova_1.MainActivity"
+45            android:name="com.herzen.loverquest.MainActivity"
 46            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
 47            android:exported="true"
 48            android:hardwareAccelerated="true"
@@ -106,7 +106,7 @@
 85-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/herzen/.gradle/caches/transforms-3/dbde9cdc77876e4df7bbc93ff1556b43/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
 86            android:name="androidx.startup.InitializationProvider"
 86-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/herzen/.gradle/caches/transforms-3/dbde9cdc77876e4df7bbc93ff1556b43/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:25:13-67
-87            android:authorities="com.example.prova_1.androidx-startup"
+87            android:authorities="com.herzen.loverquest.androidx-startup"
 87-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/herzen/.gradle/caches/transforms-3/dbde9cdc77876e4df7bbc93ff1556b43/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:26:13-68
 88            android:exported="false" >
 88-->[androidx.lifecycle:lifecycle-process:2.7.0] /home/herzen/.gradle/caches/transforms-3/dbde9cdc77876e4df7bbc93ff1556b43/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:27:13-37

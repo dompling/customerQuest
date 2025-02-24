@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "name": "Default 2",
+    "description": "Una avvincente avventura di coppia !",
+    "couple_type": "lesbian",
+    "total_quests": 4,
+    "average_difficulty": 2,
+    "average_duration": 10,
+    "required_tools": ["corda", "benda", "dadi"]
+
+  },
+
+
+
+  "quests": [
+    {
+      "id": 1,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": ["benda"],
+      "content": "Quest iniziale."
+    },
+    {
+      "id": 2,
+      "moment": "mid",
+      "difficulty": "medium",
+      "required_tools": ["dadi"],
+      "content": "Quest intermedia."
+    },
+    {
+      "id": 3,
+      "moment": "late",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "content": "Quest avanzata."
+    },
+    {
+      "id": 4,
+      "moment": "end",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "content": "Quest finale."
+    }
+  ]
+
+
+
+}

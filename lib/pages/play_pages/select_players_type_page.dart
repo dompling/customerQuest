@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/pages/play_pages/define_player_names_page.dart';
+import 'package:loverquest/pages/play_pages/define_players_names_page.dart';
 
 //------------------------------------------------------------------------------
 
@@ -13,8 +13,11 @@ import 'package:loverquest/pages/play_pages/define_player_names_page.dart';
 // SELECT PLAYER PAGE DEFINITION
 class SelectPlayersTypePage extends StatelessWidget {
 
+  // DEFINING THE PREVIOUS PAGE INFO
+  final bool game_type;
+
   // CLASS CONSTRUCTOR
-  const SelectPlayersTypePage ({super.key});
+  const SelectPlayersTypePage ({required this.game_type, super.key});
 
   // LINK TO STATUS WIDGET
   @override
@@ -22,6 +25,9 @@ class SelectPlayersTypePage extends StatelessWidget {
 
     // PAGE CONTENT
     return Scaffold(
+
+      // APP BAR
+      appBar: AppBar(),
 
       // SCAFFOLD CONTENT
       body: SafeArea(
@@ -46,16 +52,11 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                   //------------------------------------------------------------------------------
 
-                  // SPACER
-                  const SizedBox(height: 45),
-
-                  //------------------------------------------------------------------------------
-
                   // PAGE LOGO
                   Image.asset(
-                    'images/player_selection_icon.png',
-                    width: 150,
-                    height: 150,
+                    'assets/images/player_selection_icon.png',
+                    width: 140,
+                    height: 140,
                     fit: BoxFit.contain,
                   ),
 
@@ -82,7 +83,7 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                       // TEXT STYLE
                       style: TextStyle(
-                        fontSize: 27,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
 
                       ),
@@ -142,12 +143,12 @@ class SelectPlayersTypePage extends StatelessWidget {
                       onPressed: () {
 
                         // PAGE LINKER
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => DefinePlayersNamesPage(couple_type: "etero"),
+                            builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: game_type,),
 
                           ),
 
@@ -167,7 +168,7 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                           // CARD ICON
                           Image.asset(
-                            'images/etero_couple_icon.png',
+                            'assets/images/hetero_couple_icon.png',
                             width: 50,
                             height: 50,
                             fit: BoxFit.contain,
@@ -185,10 +186,12 @@ class SelectPlayersTypePage extends StatelessWidget {
                             child: Column(
 
                               // COLUMN ALIGNMENT
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                              crossAxisAlignment:CrossAxisAlignment.start,
 
                               children: [
+
+                                //------------------------------------------------------------------------------
+
                                 // CARD TEXT
                                 Text(
                                   // TEXT
@@ -196,13 +199,17 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                                   // TEXT STYLE
                                   style: TextStyle(
-                                    fontSize: 19,
+                                    fontSize: 18.5,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
 
+                                //------------------------------------------------------------------------------
+
                                 // SPACER
                                 const SizedBox(height: 3),
+
+                                //------------------------------------------------------------------------------
 
                                 // CARD TEXT
                                 Text(
@@ -216,11 +223,33 @@ class SelectPlayersTypePage extends StatelessWidget {
                                   ),
                                 ),
 
+                                //------------------------------------------------------------------------------
+
                               ],
 
                             ),
 
                           ),
+
+                          //------------------------------------------------------------------------------
+
+                          // SPACER
+                          const SizedBox(width: 10),
+
+                          //------------------------------------------------------------------------------
+
+                          // ARROW ICON
+                          Icon(
+
+                            // ICON IMAGE
+                            Icons.arrow_forward,
+
+                            // ICON COLOR
+                            color: Theme.of(context).colorScheme.onPrimary,
+
+                          )
+
+                          //------------------------------------------------------------------------------
 
                         ],
 
@@ -282,12 +311,12 @@ class SelectPlayersTypePage extends StatelessWidget {
                       onPressed: () {
 
                         // PAGE LINKER
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian"),
+                            builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: game_type,),
 
                           ),
 
@@ -307,7 +336,7 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                           // CARD ICON
                           Image.asset(
-                            'images/lesbian_couple_icon.png',
+                            'assets/images/lesbian_couple_icon.png',
                             width: 50,
                             height: 50,
                             fit: BoxFit.contain,
@@ -336,7 +365,7 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                                   // TEXT STYLE
                                   style: TextStyle(
-                                    fontSize: 19,
+                                    fontSize: 18.5,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -361,6 +390,26 @@ class SelectPlayersTypePage extends StatelessWidget {
                             ),
 
                           ),
+
+                          //------------------------------------------------------------------------------
+
+                          // SPACER
+                          const SizedBox(width: 10),
+
+                          //------------------------------------------------------------------------------
+
+                          // ARROW ICON
+                          Icon(
+
+                            // ICON IMAGE
+                            Icons.arrow_forward,
+
+                            // ICON COLOR
+                            color: Theme.of(context).colorScheme.onPrimary,
+
+                          )
+
+                          //------------------------------------------------------------------------------
 
                         ],
 
@@ -422,12 +471,12 @@ class SelectPlayersTypePage extends StatelessWidget {
                       onPressed: () {
 
                         // PAGE LINKER
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => DefinePlayersNamesPage(couple_type: "gay"),
+                            builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: game_type,),
 
                           ),
 
@@ -447,7 +496,7 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                           // CARD ICON
                           Image.asset(
-                            'images/gay_couple_icon.png',
+                            'assets/images/gay_couple_icon.png',
                             width: 50,
                             height: 50,
                             fit: BoxFit.contain,
@@ -469,6 +518,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                               CrossAxisAlignment.start,
 
                               children: [
+
                                 // CARD TEXT
                                 Text(
                                   // TEXT
@@ -476,7 +526,7 @@ class SelectPlayersTypePage extends StatelessWidget {
 
                                   // TEXT STYLE
                                   style: TextStyle(
-                                    fontSize: 19,
+                                    fontSize: 18.5,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -501,6 +551,26 @@ class SelectPlayersTypePage extends StatelessWidget {
                             ),
 
                           ),
+
+                          //------------------------------------------------------------------------------
+
+                          // SPACER
+                          const SizedBox(width: 10),
+
+                          //------------------------------------------------------------------------------
+
+                          // ARROW ICON
+                          Icon(
+
+                            // ICON IMAGE
+                            Icons.arrow_forward,
+
+                            // ICON COLOR
+                            color: Theme.of(context).colorScheme.onPrimary,
+
+                          )
+
+                          //------------------------------------------------------------------------------
 
                         ],
 

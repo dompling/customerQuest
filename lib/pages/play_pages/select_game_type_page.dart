@@ -19,10 +19,10 @@ class SelectGameTypePage extends StatelessWidget {
     // PAGE CONTENT
     return Scaffold(
 
-      // CENTER CONTENT
+      // SCAFFOLD CONTENT
       body: SafeArea(
 
-        // ALIGN CONTENT
+        // SAFE AREA CONTENT
         child: SingleChildScrollView(
 
           // SCROLLABLE CONTAINER CONTENT
@@ -49,9 +49,9 @@ class SelectGameTypePage extends StatelessWidget {
 
                   // PAGE LOGO
                   Image.asset(
-                    'images/select_game_mode_icon.png',
-                    width: 150,
-                    height: 150,
+                    'assets/images/select_game_mode_icon.png',
+                    width: 140,
+                    height: 140,
                     fit: BoxFit.contain,
                   ),
 
@@ -78,7 +78,7 @@ class SelectGameTypePage extends StatelessWidget {
 
                       // TEXT STYLE
                       style: TextStyle(
-                        fontSize: 27,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
 
                       ),
@@ -138,12 +138,12 @@ class SelectGameTypePage extends StatelessWidget {
                       onPressed: () {
 
                         // PAGE LINKER
-                        Navigator.pushReplacement(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => SelectPlayersTypePage(),
+                            builder: (context) => SelectPlayersTypePage(game_type: false,),
 
                             ),
 
@@ -156,74 +156,94 @@ class SelectGameTypePage extends StatelessWidget {
                       // BUTT0N CONTENT
                       child: Row(
 
-                            // ROW CONTENT
-                            children: [
+                        // ROW CONTENT
+                        children: [
 
-                              //------------------------------------------------------------------------------
+                          //------------------------------------------------------------------------------
 
-                              // CARD ICON
-                              Image.asset(
-                                'images/play_presence_icon.png',
-                                width: 50,
-                                height: 50,
-                                fit: BoxFit.contain,
-                              ),
+                          // CARD ICON
+                          Image.asset(
+                            'assets/images/play_presence_icon.png',
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.contain,
+                          ),
 
-                              //------------------------------------------------------------------------------
+                          //------------------------------------------------------------------------------
 
-                              // SPACER
-                              const SizedBox(width: 25),
+                          // SPACER
+                          const SizedBox(width: 25),
 
-                              //------------------------------------------------------------------------------
+                          //------------------------------------------------------------------------------
 
-                              // COLUMN
-                              Expanded(
-                                child: Column(
-                                  //
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                          // COLUMN
+                          Expanded(
+                            child: Column(
 
-                                  children: [
-                                    // CARD TEXT
-                                    Text(
-                                      // TEXT
-                                      'Gioca in presenza',
+                              // ALIGNMENT
+                              crossAxisAlignment: CrossAxisAlignment.start,
 
-                                      // TEXT STYLE
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
+                              children: [
+                                // CARD TEXT
+                                Text(
+                                  // TEXT
+                                  'Gioca in presenza',
 
-                                    // SPACER
-                                    const SizedBox(height: 3),
-
-                                    // CARD TEXT
-                                    Text(
-                                      // TEXT
-                                      'Vivi un eccitante avventura assieme al tuo partner giocando assieme di persona.',
-                                      maxLines: 3,
-                                      // TEXT STYLE
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-
-                                  ],
-
+                                  // TEXT STYLE
+                                  style: TextStyle(
+                                    fontSize: 18.5,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
 
-                              ),
+                                // SPACER
+                                const SizedBox(height: 3),
 
-                            ],
+                                // CARD TEXT
+                                Text(
+                                  // TEXT
+                                  'Vivi un eccitante avventura assieme al tuo partner giocando assieme di persona.',
+                                  maxLines: 3,
+                                  // TEXT STYLE
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+
+                              ],
+
+                            ),
 
                           ),
+
+                          //------------------------------------------------------------------------------
+
+                          // SPACER
+                          const SizedBox(width: 10),
+
+                          //------------------------------------------------------------------------------
+
+                          // ARROW ICON
+                          Icon(
+
+                            // ICON IMAGE
+                            Icons.arrow_forward,
+
+                            // ICON COLOR
+                            color: Theme.of(context).colorScheme.onPrimary,
+
+                          )
+
+                          //------------------------------------------------------------------------------
+
+                        ],
 
                       ),
 
                     ),
+
+                  ),
 
                   //------------------------------------------------------------------------------
 
@@ -275,7 +295,19 @@ class SelectGameTypePage extends StatelessWidget {
 
                       // ON PRESSED CALL
                       onPressed: () {
-                        //print('Ciao ! Questa è una prova !');
+
+                        // PAGE LINKER
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+
+                            // OPEN NEW PAGE
+                            builder: (context) => SelectPlayersTypePage(game_type: true,),
+
+                          ),
+
+                        );
+
                       },
 
                       //------------------------------------------------------------------------------
@@ -290,7 +322,7 @@ class SelectGameTypePage extends StatelessWidget {
 
                           // CARD ICON
                           Image.asset(
-                            'images/play_distance_icon.png',
+                            'assets/images/play_distance_icon.png',
                             width: 50,
                             height: 50,
                             fit: BoxFit.contain,
@@ -318,7 +350,7 @@ class SelectGameTypePage extends StatelessWidget {
 
                                   // TEXT STYLE
                                   style: TextStyle(
-                                    fontSize: 19,
+                                    fontSize: 18.5,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -343,6 +375,26 @@ class SelectGameTypePage extends StatelessWidget {
                             ),
 
                           ),
+
+                          //------------------------------------------------------------------------------
+
+                          // SPACER
+                          const SizedBox(width: 10),
+
+                          //------------------------------------------------------------------------------
+
+                          // ARROW ICON
+                          Icon(
+
+                            // ICON IMAGE
+                            Icons.arrow_forward,
+
+                            // ICON COLOR
+                            color: Theme.of(context).colorScheme.onPrimary,
+
+                          )
+
+                          //------------------------------------------------------------------------------
 
                         ],
 
