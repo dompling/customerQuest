@@ -297,7 +297,7 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
                   leading: const Icon(Icons.paypal),
 
                   // ON TAP FUNCTION CALL
-                  //onTap: () => _launchURL("https://www.buymeacoffee.com/yourprofile"),
+                  onTap: () => open_link("https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C"),
 
                 ),
 

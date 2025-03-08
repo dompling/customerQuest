@@ -381,7 +381,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
                   ),
 
                   // FUNCTION
-                  onPressed: () => open_link("https://www.buymeacoffee.com/yourprofile"),
+                  onPressed: () => open_link("https://github.com/H3rz3n/loverquest/tree/main?tab=readme-ov-file#how-can-i-contribute-to-the-project-"),
 
                   // BUTTON CONTENT
                   child: Text(
