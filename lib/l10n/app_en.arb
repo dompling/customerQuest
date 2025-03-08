@@ -8,6 +8,10 @@
   "donation_reminder_dialog_content": "If you enjoyed Loverquest and want to support it, consider making a donation to help us keep it running and continue improving it.",
   "donation_reminder_dialog_donate_button_label": "Donate",
 
+  "online_play_disclaimer_dialog_title": "Warning !",
+  "online_play_disclaimer_dialog_content": "Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n",
+
+
   "navbar_play_button_label": "Play",
   "navbar_decks_button_label": "Decks",
   "navbar_settings_button_label": "Settings",

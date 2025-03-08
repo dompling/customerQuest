@@ -9,6 +9,8 @@
   "donation_reminder_dialog_content": "Se ti è piaciuto giocare a Loverquest, considerà l'idea di fare una donazione per aiutarci mantenerlo attivo e migliorarlo.",
   "donation_reminder_dialog_donate_button_label": "Supportaci",
 
+  "online_play_disclaimer_dialog_title": "Attenzione !",
+  "online_play_disclaimer_dialog_content": "Attenzione alla condivisione di materiale intimo online. La sicurezza viene prima di tutto. Ricorda che qualsiasi contenuto condiviso su Internet potrebbe rimanere online per sempre, senza possibilità di essere completamente cancellato. Evita di includere dati personali e assicurati che la persona con cui stai giocando sia affidabile prima di inviare qualsiasi materiale intimo.\n\nLoverquest non si assume alcuna responsabilità per eventuali illeciti commessi online, come la diffusione non consensuale di materiale intimo, la condivisione di contenuti pedopornografici o altre violazioni della legge.",
 
   "navbar_play_button_label": "Gioca",
   "navbar_decks_button_label": "Mazzi",

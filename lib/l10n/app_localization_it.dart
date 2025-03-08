@@ -27,6 +27,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get donation_reminder_dialog_donate_button_label => 'Supportaci';
 
   @override
+  String get online_play_disclaimer_dialog_title => 'Attenzione !';
+
+  @override
+  String get online_play_disclaimer_dialog_content => 'Attenzione alla condivisione di materiale intimo online. La sicurezza viene prima di tutto. Ricorda che qualsiasi contenuto condiviso su Internet potrebbe rimanere online per sempre, senza possibilità di essere completamente cancellato. Evita di includere dati personali e assicurati che la persona con cui stai giocando sia affidabile prima di inviare qualsiasi materiale intimo.\n\nLoverquest non si assume alcuna responsabilità per eventuali illeciti commessi online, come la diffusione non consensuale di materiale intimo, la condivisione di contenuti pedopornografici o altre violazioni della legge.';
+
+  @override
   String get navbar_play_button_label => 'Gioca';
 
   @override

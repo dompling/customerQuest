@@ -131,6 +131,18 @@ abstract class AppLocalizations {
   /// **'Donate'**
   String get donation_reminder_dialog_donate_button_label;
 
+  /// No description provided for @online_play_disclaimer_dialog_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning !'**
+  String get online_play_disclaimer_dialog_title;
+
+  /// No description provided for @online_play_disclaimer_dialog_content.
+  ///
+  /// In en, this message translates to:
+  /// **'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n'**
+  String get online_play_disclaimer_dialog_content;
+
   /// No description provided for @navbar_play_button_label.
   ///
   /// In en, this message translates to:

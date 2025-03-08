@@ -297,11 +297,11 @@ class _PlayMainPageState extends State<PlayMainPage> {
       // SHOWING THE DONATION REMINDER DIALOG
       show_donation_dialog(context);
 
-    } else {show_donation_dialog(context);}
+    }
 
   }
 
-  // APP SPLASH SCREEN DIALOG
+  // DONATION REMINDER DIALOG
   void show_donation_dialog(BuildContext context) {
     showDialog(
       context: context,

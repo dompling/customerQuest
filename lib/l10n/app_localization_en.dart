@@ -27,6 +27,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get donation_reminder_dialog_donate_button_label => 'Donate';
 
   @override
+  String get online_play_disclaimer_dialog_title => 'Warning !';
+
+  @override
+  String get online_play_disclaimer_dialog_content => 'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n';
+
+  @override
   String get navbar_play_button_label => 'Play';
 
   @override

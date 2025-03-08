@@ -14,7 +14,7 @@ import 'package:loverquest/pages/play_pages/select_deck_to_play_page.dart';
 
 
 // SELECT PLAYER PAGE DEFINITION
-class SelectPlayersTypePage extends StatelessWidget {
+class SelectPlayersTypePage extends StatefulWidget {
 
   // DEFINING THE PREVIOUS PAGE INFO
   final bool game_type;
@@ -22,7 +22,148 @@ class SelectPlayersTypePage extends StatelessWidget {
   // CLASS CONSTRUCTOR
   const SelectPlayersTypePage ({required this.game_type, super.key});
 
-  // LINK TO STATUS WIDGET
+  @override
+  State<SelectPlayersTypePage> createState() => _SelectPlayersTypePageState();
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+// PAGE CONTENT / STATE
+class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
+
+  //------------------------------------------------------------------------------
+
+  // ONLINE SAFETY DIALOG
+  void show_disclaimer_dialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+
+        // DIALOG
+        return AlertDialog(
+
+          // DIALOG TITLE
+          title: Text(
+
+            // TEXT
+            AppLocalizations.of(context)!.online_play_disclaimer_dialog_title,
+
+            // ALIGNMENT
+            textAlign: TextAlign.center,
+
+            // STYLE
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
+
+          // DIALOG CONTENT
+          content: SingleChildScrollView(
+
+            child: Text(
+
+              // TEXT
+              AppLocalizations.of(context)!.online_play_disclaimer_dialog_content,
+
+              // ALIGNMENT
+              textAlign: TextAlign.center,
+
+              // STYLE
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 17,
+                fontWeight: FontWeight.normal,
+              ),
+
+            ),
+
+          ),
+
+          // DIALOG BUTTONS
+          actions: [
+
+            // BUTTON ROW
+            Row(
+
+              // ALIGN
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+              // ROW CONTENT
+              children: [
+
+                // EXIT BUTTON
+                TextButton(
+
+                  // STYLE
+                  style: ButtonStyle(
+                    foregroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.onPrimary),
+                    backgroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.primary),
+                    padding: WidgetStateProperty.all(
+                        EdgeInsets.symmetric(horizontal: 15, vertical: 10)),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+                  ),
+
+                  // FUNCTION
+                  onPressed: () => Navigator.of(context).pop(),
+
+                  // BUTTON CONTENT
+                  child: Text(
+
+                    // TEXT
+                    AppLocalizations.of(context)!.app_splash_screen_close_button_label,
+
+                  ),
+
+                ),
+
+              ],
+
+            ),
+
+          ],
+
+
+        );
+
+      },
+
+    );
+
+  }
+
+  //------------------------------------------------------------------------------
+
+  // INITIAL PAGE STATE
+  @override
+  void initState()  {
+    super.initState();
+
+    // IF THE GAME TYPE IS ONLINE, SHOW AN INFORMATIVE DIALOG
+    if (widget.game_type) {
+
+      // CHECKING IF IS NECESSARY TO SHOW THE DONATION REMINDER
+      WidgetsBinding.instance.addPostFrameCallback((_){show_disclaimer_dialog(context);});
+
+    }
+
+  }
+
+  //------------------------------------------------------------------------------
+
+  // PAGE CONTENT
   @override
   Widget build(BuildContext context) {
 
@@ -146,7 +287,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                       onPressed: () {
 
                         // CHECKING IF THE GAME IS IN PRESENCE
-                        if (game_type != true) {
+                        if (widget.game_type != true) {
 
                           // PAGE LINKER
                           Navigator.push(
@@ -154,7 +295,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                             MaterialPageRoute(
 
                               // OPEN NEW PAGE
-                              builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: game_type,),
+                              builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: widget.game_type,),
 
                             ),
 
@@ -174,7 +315,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                             MaterialPageRoute(
 
                               // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: game_type, player_1_object: player_tmp_object_1, player_2_object: player_tmp_object_2, first_player: player_tmp_object_2,),
+                              builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: widget.game_type, player_1_object: player_tmp_object_1, player_2_object: player_tmp_object_2, first_player: player_tmp_object_2,),
 
                             ),
 
@@ -339,7 +480,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                       onPressed: () {
 
                         // CHECKING IF THE GAME IS IN PRESENCE
-                        if (game_type != true) {
+                        if (widget.game_type != true) {
 
                           // PAGE LINKER
                           Navigator.push(
@@ -347,7 +488,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                             MaterialPageRoute(
 
                               // OPEN NEW PAGE
-                              builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: game_type,),
+                              builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: widget.game_type,),
 
                             ),
 
@@ -366,7 +507,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                             MaterialPageRoute(
 
                               // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: "lesbian", game_type: game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+                              builder: (context) => DeckSelectionPage(couple_type: "lesbian", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
 
                             ),
 
@@ -523,7 +664,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                       onPressed: () {
 
                         // CHECKING IF THE GAME IS IN PRESENCE
-                        if (game_type != true) {
+                        if (widget.game_type != true) {
 
                           // PAGE LINKER
                           Navigator.push(
@@ -531,7 +672,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                             MaterialPageRoute(
 
                               // OPEN NEW PAGE
-                              builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: game_type,),
+                              builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: widget.game_type,),
 
                             ),
 
@@ -550,7 +691,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                             MaterialPageRoute(
 
                               // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+                              builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
 
                             ),
 
