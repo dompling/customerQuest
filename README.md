@@ -28,7 +28,15 @@ There are two game modes:
 At Loverquest, we believe that love belongs to everyone. To ensure an inclusive and conscious experience, couples are classified **solely based on genitalia**, allowing users to select the deck that best suits their needs. The available categories are:  
 - **Heterosexual couple:** A couple where the partners have different genitalia.  
 - **Lesbian couple:** A couple where both partners have female genitalia.  
-- **Gay couple:** A couple where both partners have male genitalia.  
+- **Gay couple:** A couple where both partners have male genitalia.
+
+<p align="center">
+  <img src="/github_pages/assets/screen_carousel_2.png" alt="Banner" width="1100"/>
+</p>  
 
 ## Creating Custom Decks  
 In addition to the many preset decks available for each type of couple and game mode, Loverquest allows users to create unlimited custom decks and quests, offering a truly unique and exciting experience.  
+
+<p align="center">
+  <img src="/github_pages/assets/screen_carousel_3.png" alt="Banner" width="1100"/>
+</p>
