@@ -1,16 +1,27 @@
-# prova_1
+# Loverquest
 
-A new Flutter project.
+## Alternative page translation
+You can see this page in other languages :
+- Visualizza la pagina in italiano !
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## What is Loverquest
+Loverquest is a digital sexually oriented playboard game. The goal of the game is to complete some actions called _quest_ drawed randomly from a selected _deck_. Every quest will have an action to complete by yourself or with your partner.
 
-A few resources to get you started if this is your first Flutter project:
+## Why should I play it ?
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How play it
+
+
+## Deck and quest personalization
+
+
+## Supported languages
+
+
+## How contribute to the project
+
+
+## How it's made
+
