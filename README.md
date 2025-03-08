@@ -1,5 +1,9 @@
 # Loverquest
 
+<p align="center">
+  <img src="/github_page/assets/banner_loverquest.png" alt="Banner" width="600"/>
+</p>
+
 ## What is Loverquest?  
 Loverquest is a digital board game with an intimate theme, designed to help couples explore their sexuality in a fun and engaging way.  
 
