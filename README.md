@@ -49,5 +49,10 @@ Loverquest currently supports the following languages:
 - **German** - _coming soon_
 - **French** - _coming soon_
 
-## How can I contribute to the app ?
-Community support is essential to us. The best ways to contribute to the project are by helping with translations, developing new features, or making a donation to support the app’s development and maintenance.  
+## How can I contribute to the project ?
+Community support is essential to us. The best ways to contribute to the project are by helping with translations, developing new features, or making a donation to support the app’s development and maintenance.
+- [Donate on PayPal]()
+- [Dontate on BuyMeACoffee]
+
+## What is the project roadmap ?
+You can find all the information about the project roadmap in the [dedicated page](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
