@@ -1,7 +1,5 @@
-# Loverquest
-
 <p align="center">
-  <img src="/github_page/assets/banner_loverquest.png" alt="Banner" width="600"/>
+  <img src="/github_pages/assets/banner_loverquest.png" alt="Banner" width="600"/>
 </p>
 
 ## What is Loverquest?  
