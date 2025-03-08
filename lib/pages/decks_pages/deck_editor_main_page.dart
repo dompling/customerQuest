@@ -1278,7 +1278,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                   MaterialPageRoute(
 
                                     // OPEN NEW PAGE
-                                    builder: (context) => QuestEditPage(selected_deck: current_deck, selected_quest: current_quest),
+                                    builder: (context) => QuestEditPage(selected_deck: current_deck, selected_quest: all_quests_list[index]),
 
                                   )
 
