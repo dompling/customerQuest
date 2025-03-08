@@ -14,6 +14,10 @@ One of its key strengths is its high level of customization: you can choose from
 
 Additionally, Loverquest respects your privacy: it does not collect personal data, does not access the Internet, and does not display ads. For us, intimacy is a serious matter, which is why we are committed to ensuring **maximum privacy**.  
 
+<p align="center">
+  <img src="/github_pages/assets/screen_carousel_1.png" alt="Banner" width="1100"/>
+</p>
+
 ## Game Modes  
 There are two game modes:  
 - **In-person play:** Partners play together physically. After completing an action, the turn passes to the other player.  
