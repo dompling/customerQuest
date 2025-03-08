@@ -4,7 +4,6 @@
 import 'dart:math';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/play_logics/player_class.dart';
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 
 //------------------------------------------------------------------------------
@@ -32,12 +31,12 @@ Quest select_random_quest (List<Quest> quest_list) {
   //------------------------------------------------------------------------------
 
   // GETTING THE QUEST
-  Quest selected_quest = quest_list[random_number];
+  Quest current_quest = quest_list[random_number];
 
   //------------------------------------------------------------------------------
 
   // RETURNING THE SELECTED QUEST
-  return selected_quest;
+  return current_quest;
 
   //------------------------------------------------------------------------------
 
@@ -50,12 +49,12 @@ Quest select_random_quest (List<Quest> quest_list) {
 
 
 // FUNCTION THAT WILL REMOVE FROM THE LIST THE SKIPPED OR DONE QUEST
-List<Quest> remove_skipped_done_quests (List<Quest> quest_list, selected_quest) {
+List<Quest> remove_skipped_done_quests (List<Quest> quest_list, current_quest) {
 
   //------------------------------------------------------------------------------
 
   // REMOVING THE DONE/SKIPPED QUEST FROM THE LIST
-  quest_list.remove(selected_quest);
+  quest_list.remove(current_quest);
 
   //------------------------------------------------------------------------------
 
@@ -72,13 +71,46 @@ List<Quest> remove_skipped_done_quests (List<Quest> quest_list, selected_quest) 
 
 
 
+// FUNCTION THAT WILL CHECK WHICH QUEST LIST THE APP SHOULD USE
+List<Quest> quest_list_switch (Quest current_quest, int partial_score, List<Quest> early_quests_list, int early_quests_total_score, List<Quest> mid_quests_list, int mid_quests_total_score, List<Quest> late_quests_list, int late_quests_total_score, List<Quest> end_quests_list, int end_quests_total_score,) {
+  
+  // CHECKING WHICH QUEST LIST IS IN USE
+  if (current_quest.moment == "early") {
 
+    // CHECKING IF THE PARTIAL SCORE CLAUSE IS PASSED
+    if ((partial_score > (early_quests_total_score/3)*2) || early_quests_list.isEmpty) {
 
+      // SETTING THE NEXT QUEST LIST
+      return mid_quests_list;
 
+    } else {return early_quests_list;}
 
+  } else if (current_quest.moment == "mid") {
 
+    // CHECKING IF THE PARTIAL SCORE CLAUSE IS PASSED
+    if ((partial_score > (mid_quests_total_score/3)*2) || mid_quests_list.isEmpty) {
 
+      // SETTING THE NEXT QUEST LIST
+      return late_quests_list;
 
+    } else {return mid_quests_list;}
+
+  } else if (current_quest.moment == "late") {
+
+    // CHECKING IF THE PARTIAL SCORE CLAUSE IS PASSED
+    if ((partial_score > (late_quests_total_score/3)*2) || late_quests_list.isEmpty) {
+
+      // SETTING THE NEXT QUEST LIST
+      return end_quests_list;
+
+    } else {return late_quests_list;}
+
+  }
+
+  // SETTING THE NEXT QUEST LIST
+  return end_quests_list;
+  
+}
 
 
 

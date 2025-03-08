@@ -2,6 +2,7 @@
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/pages/play_pages/select_players_type_page.dart';
@@ -18,6 +19,9 @@ class SelectGameTypePage extends StatelessWidget {
 
     // PAGE CONTENT
     return Scaffold(
+
+      // APP BAR
+      appBar: AppBar(),
 
       // SCAFFOLD CONTENT
       body: SafeArea(
@@ -39,11 +43,6 @@ class SelectGameTypePage extends StatelessWidget {
 
                 // COLUMN CONTENT
                 children: [
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 45),
 
                   //------------------------------------------------------------------------------
 
@@ -70,8 +69,9 @@ class SelectGameTypePage extends StatelessWidget {
 
                     // TITLE
                     child: Text(
+
                       // TEXT
-                      'Scegli la modalità di gioco',
+                      AppLocalizations.of(context)!.select_game_type_page_title,
 
                       // TEXT ALIGNMENT
                       textAlign: TextAlign.center,
@@ -184,10 +184,12 @@ class SelectGameTypePage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
 
                               children: [
+
                                 // CARD TEXT
                                 Text(
+
                                   // TEXT
-                                  'Gioca in presenza',
+                                  AppLocalizations.of(context)!.select_game_type_presence_mode_title,
 
                                   // TEXT STYLE
                                   style: TextStyle(
@@ -201,9 +203,10 @@ class SelectGameTypePage extends StatelessWidget {
 
                                 // CARD TEXT
                                 Text(
+
                                   // TEXT
-                                  'Vivi un eccitante avventura assieme al tuo partner giocando assieme di persona.',
-                                  maxLines: 3,
+                                  AppLocalizations.of(context)!.select_game_type_presence_mode_subtitle,
+
                                   // TEXT STYLE
                                   style: TextStyle(
                                     fontSize: 15,
@@ -346,7 +349,7 @@ class SelectGameTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Gioca a distanza',
+                                  AppLocalizations.of(context)!.select_game_type_distance_mode_title,
 
                                   // TEXT STYLE
                                   style: TextStyle(
@@ -361,8 +364,8 @@ class SelectGameTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Gioca assieme al tuo partner a distanza nella tua chat preferita e vivi magici momenti di coppia.',
-                                  maxLines: 3,
+                                  AppLocalizations.of(context)!.select_game_type_distance_mode_subtitle,
+
                                   // TEXT STYLE
                                   style: TextStyle(
                                     fontSize: 15,
@@ -412,6 +415,7 @@ class SelectGameTypePage extends StatelessWidget {
                   //------------------------------------------------------------------------------
 
                 ],
+
               )
 
           ),

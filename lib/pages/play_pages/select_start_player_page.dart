@@ -2,6 +2,7 @@
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/pages/play_pages/select_deck_to_play_page.dart';
@@ -80,7 +81,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                   // TITLE
                   child: Text(
                     // TEXT
-                    'Seleziona chi sarà il primo giocatore',
+                    AppLocalizations.of(context)!.select_start_player_page_title,
 
                     // TEXT ALIGNMENT
                     textAlign: TextAlign.center,
@@ -197,7 +198,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                               // CARD TEXT
                               Text(
                                 // TEXT
-                                'Inizierà ${player_1_object.player_alias}',
+                                AppLocalizations.of(context)!.select_start_player_player_one_name(player_1_object.player_alias),
 
                                 // TEXT STYLE
                                 style: TextStyle(
@@ -352,7 +353,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                               // CARD TEXT
                               Text(
                                 // TEXT
-                                'Inizierà ${player_2_object.player_alias}',
+                                AppLocalizations.of(context)!.select_start_player_player_one_name(player_2_object.player_alias),
 
                                 // TEXT STYLE
                                 style: TextStyle(
@@ -508,7 +509,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                               // CARD TEXT
                               Text(
                                 // TEXT
-                                'Casuale',
+                                AppLocalizations.of(context)!.select_start_player_random_player,
 
                                 // TEXT STYLE
                                 style: TextStyle(
@@ -557,6 +558,8 @@ class SelectStartPlayerPage extends StatelessWidget {
                   ),
 
                 ),
+
+                //------------------------------------------------------------------------------
 
               ],
 

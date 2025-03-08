@@ -1,0 +1,119 @@
+{
+  "summary": {
+    "name": "Eheheeh ;)",
+    "description": "Una avvincente avventura di coppia !",
+    "couple_type": "hetero",
+    "play_distance": true,
+    "language": "en",
+    "total_quests": 21,
+    "average_difficulty": 3,
+    "average_duration": 120,
+    "required_tools": ["corda", "benda", "dadi"],
+    "protected": true
+
+  },
+
+
+
+  "quests": [
+    {
+      "id": 1,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 7,
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.."
+    },
+    {
+      "id": 2,
+      "moment": "mid",
+      "difficulty": "medium",
+      "required_tools": ["dadi"],
+      "timer": 0,
+      "content": "Nel cuore della notte, mentre la città dormiva sotto un cielo punteggiato di stelle, Luca camminava lungo le strade deserte con la mente colma di pensieri. Ogni passo risuonava nell’eco silenziosa dei vicoli, mentre la brezza notturna accarezzava i suoi capelli."
+    },
+    {
+      "id": 3,
+      "moment": "late",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "timer": 5,
+      "content": "Non sapeva esattamente dove stesse andando, ma sentiva che quella passeggiata avrebbe portato con sé una risposta che da tempo cercava. Forse il destino aveva deciso di giocare ancora una volta con lui, o forse era solo la notte a rendere tutto più misterioso."
+    },
+    {
+      "id": 4,
+      "moment": "end",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "timer": 2,
+      "content": "Sofia osservava la pioggia battere contro la finestra, tracciando sottili linee d’acqua sul vetro. Il suono delle gocce scandiva il tempo, mentre il profumo della terra bagnata filtrava dalla finestra socchiusa."
+    },
+    {
+      "id": 5,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 7,
+      "content": "Aveva sempre trovato qualcosa di rassicurante nelle giornate di pioggia, come se il mondo intero rallentasse per concederle un momento di tregua. Stringendo la tazza di tè caldo tra le mani, chiuse gli occhi e si lasciò trasportare dai ricordi, mentre il temporale continuava a danzare sopra la città addormentata."
+    },
+    {
+      "id": 6,
+      "moment": "mid",
+      "difficulty": "medium",
+      "required_tools": ["dadi"],
+      "timer": 0,
+      "content": "Il vecchio orologio a pendolo segnava la mezzanotte quando Marco aprì il vecchio baule nascosto in soffitta. La polvere si sollevò nell’aria, danzando tra i raggi di luna che filtravano dalla piccola finestra."
+    },
+    {
+      "id": 7,
+      "moment": "late",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "timer": 5,
+      "content": "Dentro, tra vecchie lettere e fotografie ingiallite, trovò un diario con la copertina di pelle logora. Con mani tremanti, lo aprì alla prima pagina e lesse il nome scritto con inchiostro sbiadito: era quello di suo nonno."
+    },
+    {
+      "id": 8,
+      "moment": "end",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "timer": 2,
+      "content": " Quel ritrovamento era l’inizio di un viaggio nel passato, alla scoperta di segreti che il tempo aveva quasi cancellato."
+    },
+    {
+      "id": 9,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 7,
+      "content": "Il vento soffiava forte sulla scogliera, portando con sé il profumo salmastro del mare. Clara si fermò sul bordo, lasciando che la brezza le scompigliasse i capelli, mentre osservava le onde infrangersi contro le rocce sottostanti. "
+    },
+    {
+      "id": 10,
+      "moment": "mid",
+      "difficulty": "medium",
+      "required_tools": ["dadi"],
+      "timer": 0,
+      "content": "Quel luogo aveva sempre esercitato su di lei un fascino magnetico, come se nascondesse storie dimenticate. Chiuse gli occhi per un istante, ascoltando il richiamo lontano dei gabbiani e il fragore dell’acqua. "
+    },
+    {
+      "id": 11,
+      "moment": "late",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "timer": 5,
+      "content": "Forse, pensò, alcune risposte non si trovano nei libri o nelle parole degli altri, ma nel silenzio di certi momenti, dove tutto sembra fermarsi per un respiro."
+    },
+    {
+      "id": 12,
+      "moment": "end",
+      "difficulty": "hard",
+      "required_tools": ["corda", "benda"],
+      "timer": 2,
+      "content": "Il tramonto incendiava il cielo con sfumature di rosso e arancio, mentre le ombre degli alberi si allungavano lentamente sui sentieri silenziosi del parco."
+    }
+  ]
+
+
+
+}

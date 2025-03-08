@@ -3,11 +3,13 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
 import 'package:loverquest/logics/play_logics/quest_selector.dart';
+import 'package:loverquest/logics/play_logics/save_current_match.dart';
 
 //------------------------------------------------------------------------------
 
@@ -16,6 +18,7 @@ import 'package:loverquest/logics/play_logics/quest_selector.dart';
 class PlayPage extends StatefulWidget {
 
   // CLASS ATTRIBUTES
+  final bool game_type;
   final Players player_1_object;
   final Players player_2_object;
   final Players first_player;
@@ -27,9 +30,12 @@ class PlayPage extends StatefulWidget {
   final int late_quests_total_score;
   final List<Quest> end_quests_list;
   final int end_quests_total_score;
+  final Quest passed_current_quest;
+  final List<Quest> passed_current_quest_list;
 
   // CLASS CONSTRUCTOR
   const PlayPage({
+    required this.game_type,
     required this.player_1_object,
     required this.player_2_object,
     required this.first_player,
@@ -41,6 +47,8 @@ class PlayPage extends StatefulWidget {
     required this.late_quests_total_score,
     required this.end_quests_list,
     required this.end_quests_total_score,
+    required this.passed_current_quest,
+    required this.passed_current_quest_list,
 
     super.key,
   });
@@ -68,68 +76,56 @@ class _PlayPageState extends State<PlayPage> {
   //------------------------------------------------------------------------------
 
   // INITIALIZING TIMER'S VARIABLES
-  int _totalSeconds = 0;
-  int _remainingSeconds = 0;
+  int total_seconds = 0;
+  int remaining_seconds = 0;
   Timer? _timer;
-  bool _isRunning = false;
+  bool is_running = false;
 
   //------------------------------------------------------------------------------
 
   // INITIALIZING THE PLAYERS VARIABLES
   late Players current_player;
+  List<Players> players_list = [];
 
   //------------------------------------------------------------------------------
 
   // INITIALIZING THE TIMER VARIABLE
   late bool show_timer;
+  bool is_pressed = false;
 
   //------------------------------------------------------------------------------
 
   // INITIALIZING THE QUEST VARIABLES
   late Quest current_quest;
-
-  //------------------------------------------------------------------------------
-
-  // START COUNTDOWN FUNCTION
-  void _startCountdown(int minutes) {
-
-    setState(() {
-
-      // CONVERTING THE MINUTES IN SECONDS
-      _totalSeconds = minutes * 60;
-
-      // SETTING THE REMAINING TIME AS THE TOTAL TIME
-      _remainingSeconds = _totalSeconds;
-
-      // SETTING THE TIMER AS RUNNING
-      _isRunning = true;
-
-    });
-
-    // STARTING THE TIMER
-    _resumeCountdown();
-
-  }
+  int partial_score = 0;
+  late List<Quest> current_quest_list;
+  late List<Quest> current_quest_list_tmp;
 
   //------------------------------------------------------------------------------
 
   // RESUME COUNTDOWN FUNCTION
-  void _resumeCountdown() {
+  void resume_countdown() {
+
+    // CHANGING THE BUTTON ICON
+    is_pressed = true;
+
+    // SETTING THE TIMER AS RUNNING
+    is_running = true;
 
     // CREATING A TIMER THAT WILL EXECUTE THE FUNCTION EVERY SECOND
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
 
       // CHECKING IF THE TIMER IS ZERO, IF NOT IT LOWERS THE REMAINING SECONDS OF ONE
-      if (_remainingSeconds > 0) {
+      if (remaining_seconds > 0) {
         setState(() {
-          _remainingSeconds--;
+          remaining_seconds--;
         });
 
         // DELETE THE TIMER AND SET THE RUNNING VAR TO FALSE
       } else {
         _timer?.cancel();
         setState(() {
-          _isRunning = false;
+          is_running = false;
         });
       }
     });
@@ -138,12 +134,19 @@ class _PlayPageState extends State<PlayPage> {
   //------------------------------------------------------------------------------
 
   // PAUSE COUNTDOWN FUNCTION
-  void _pauseCountdown() {
+  void pause_countdown() {
 
     // CANCELLING THE TIMER AND SETTING THE RUNNING VAR TO FALSE
     _timer?.cancel();
+
     setState(() {
-      _isRunning = false;
+
+      // CHANGING THE BUTTON ICON
+      is_pressed = false;
+
+      // SETTING TO OFF THE RUNNING VAR
+      is_running = false;
+
     });
 
   }
@@ -151,15 +154,26 @@ class _PlayPageState extends State<PlayPage> {
   //------------------------------------------------------------------------------
 
   // RESET COUNTDOWN FUNCTION
-  void _resetCountdown() {
+  void reset_countdown() {
 
     // CANCELLING THE TIMER AND SETTING THE RUNNING VAR TO FALSE
     _timer?.cancel();
 
     // RESETTING THE REMAINING SECONDS AND SETTING TO FALSE THE RUNNING VAR
     setState(() {
-      _remainingSeconds = _totalSeconds;
-      _isRunning = false;
+
+      // CHANGING THE BUTTON ICON
+      is_pressed = false;
+
+      // CONVERTING THE MINUTES IN SECONDS
+      total_seconds = current_quest.timer * 60;
+
+      // SETTING THE REMAINING TIME AS THE TOTAL TIME
+      remaining_seconds = total_seconds;
+
+      // SETTING TO OFF THE RUNNING VAR
+      is_running = false;
+
     });
 
   }
@@ -191,8 +205,6 @@ class _PlayPageState extends State<PlayPage> {
 
       setState(() {
 
-        print('DEBUG | I WILL NOT SHOW THE TIMER !');
-
         // HIDING THE TIMER
         show_timer = false;
 
@@ -202,13 +214,11 @@ class _PlayPageState extends State<PlayPage> {
 
       setState(() {
 
-        print('DEBUG | I WILL SHOW THE TIMER !');
-
         // SHOWING THE TIMER
         show_timer = true;
 
         // SETTING THE TIMER VALUE
-        _remainingSeconds = current_quest.timer * 60;
+        remaining_seconds = current_quest.timer * 60;
 
       });
 
@@ -219,7 +229,6 @@ class _PlayPageState extends State<PlayPage> {
   }
 
   //------------------------------------------------------------------------------
-
 
   // CLASS INITIAL STATE
   @override
@@ -246,12 +255,30 @@ class _PlayPageState extends State<PlayPage> {
     //------------------------------------------------------------------------------
 
     // GETTING THE FIRST QUEST
-    current_quest = select_random_quest(widget.early_quests_list);
+    if (widget.passed_current_quest.moment == "none") {
+
+      // SETTING THE INITIAL QUEST
+      current_quest = select_random_quest(widget.early_quests_list);
+
+      // SETTING THE INITIAL QUEST LIST
+      current_quest_list = widget.early_quests_list;
+
+    } else { current_quest = widget.passed_current_quest; current_quest_list = widget.passed_current_quest_list;}
 
     //------------------------------------------------------------------------------
 
     // CHECKING IF IS NECESSARY TO SHOW THE TIMER
     check_if_show_timer(current_quest);
+
+    //------------------------------------------------------------------------------
+
+    // POPULATING THE PLAYERS LIST
+    players_list = [widget.player_1_object, widget.player_2_object, current_player];
+
+    //------------------------------------------------------------------------------
+
+    // SAVING THE CURRENT MATCH DATA
+    await GameStorage.save_game_data(widget.game_type, players_list, widget.early_quests_list, widget.early_quests_total_score, widget.mid_quests_list, widget.mid_quests_total_score, widget.late_quests_list, widget.late_quests_total_score, widget.end_quests_list, widget.end_quests_total_score, partial_score, current_quest, current_quest_list);
 
     //------------------------------------------------------------------------------
 
@@ -305,98 +332,185 @@ class _PlayPageState extends State<PlayPage> {
     //------------------------------------------------------------------------------
 
     // DEFINING THE FUNCTION THAT WILL CHANGE THE CURRENT PLAYER
-    void switch_playing_player(current_player) {
+    void switch_playing_player() async{
 
-      // CHECKING WHO IS THE CURRENT PLAYER
-      if (current_player == widget.player_1_object) {
+      setState(() {
 
-        // SETTING THE OTHER PLAYER TURN
-        current_player = widget.player_2_object;
+        // CHECKING IF THE LIST IS EMPTY
+        if (current_quest_list.isNotEmpty) {
 
-      } else {
+          // CHECKING WHO IS THE CURRENT PLAYER
+          if (current_player == widget.player_1_object) {
 
-        // SETTING THE OTHER PLAYER TURN
-        current_player = widget.player_1_object;
+              // SETTING THE OTHER PLAYER TURN
+              current_player = widget.player_2_object;
 
-      }
+          } else {
 
+              // SETTING THE OTHER PLAYER TURN
+              current_player = widget.player_1_object;
 
+          }
+
+          // ADDING QUEST DONE TO THE PARTIAL SCORE
+          partial_score = partial_score + 10;
+
+          // DELETING THE QUEST FROM LIST
+          current_quest_list = remove_skipped_done_quests(current_quest_list, current_quest);
+
+          // COPYING THE LIST IN THE TMP
+          current_quest_list_tmp = current_quest_list;
+
+          // GETTING THE QUEST LIST TO USE
+          current_quest_list = quest_list_switch(current_quest, partial_score, widget.early_quests_list, widget.early_quests_total_score, widget.mid_quests_list, widget.mid_quests_total_score, widget.late_quests_list, widget.late_quests_total_score, widget.end_quests_list, widget.end_quests_total_score,);
+
+          // CHECKING IF THE LIST IS EMPTY
+          if (current_quest_list.isNotEmpty) {
+
+            // GETTING THE NEW QUEST
+            current_quest = select_random_quest(current_quest_list);
+
+            // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+            check_if_show_timer(current_quest);
+
+          }
+
+          // CHECKING IF THE LIST HAS BEEN CHANGED
+          if (current_quest_list_tmp != current_quest_list) {
+
+            // RESETTING THE PARTIAL SCORE
+            partial_score = 0;
+
+          }
+
+          // CHANGING THE CURRENT PLAYER IN THE PLAYERS LIST
+          players_list[2] = current_player;
+
+        } else {return;}
+
+      });
+
+      // SAVING THE CURRENT MATCH DATA
+      await GameStorage.save_game_data(widget.game_type, players_list, widget.early_quests_list, widget.early_quests_total_score, widget.mid_quests_list, widget.mid_quests_total_score, widget.late_quests_list, widget.late_quests_total_score, widget.end_quests_list, widget.end_quests_total_score, partial_score, current_quest, current_quest_list);
 
     }
 
     //------------------------------------------------------------------------------
 
-    //
+    // SKIP CURRENT QUEST
+    void skip_current_quest () async{
+
+      //------------------------------------------------------------------------------
+
+      // DELETING THE QUEST FROM LIST
+      current_quest_list = remove_skipped_done_quests(current_quest_list, current_quest);
+
+      // COPYING THE LIST IN THE TMP
+      current_quest_list_tmp = current_quest_list;
+
+      // GETTING THE QUEST LIST TO USE
+      current_quest_list = quest_list_switch(current_quest, partial_score, widget.early_quests_list, widget.early_quests_total_score, widget.mid_quests_list, widget.mid_quests_total_score, widget.late_quests_list, widget.late_quests_total_score, widget.end_quests_list, widget.end_quests_total_score,);
+
+      //------------------------------------------------------------------------------
+
+      // CHECKING IF THE LIST IS EMPTY
+      if (current_quest_list.isNotEmpty) {
+
+        // GETTING THE NEW QUEST
+        current_quest = select_random_quest(current_quest_list);
+
+        // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+        check_if_show_timer(current_quest);
+
+      }
+
+      //------------------------------------------------------------------------------
+
+      // CHECKING IF THE LIST HAS BEEN CHANGED
+      if (current_quest_list_tmp != current_quest_list) {
+
+        // RESETTING THE PARTIAL SCORE
+        partial_score = 0;
+
+      }
+
+      //------------------------------------------------------------------------------
+
+      // SAVING THE CURRENT MATCH DATA
+      await GameStorage.save_game_data(widget.game_type, players_list, widget.early_quests_list, widget.early_quests_total_score, widget.mid_quests_list, widget.mid_quests_total_score, widget.late_quests_list, widget.late_quests_total_score, widget.end_quests_list, widget.end_quests_total_score, partial_score, current_quest, current_quest_list);
+
+      //------------------------------------------------------------------------------
+
+    }
 
     //------------------------------------------------------------------------------
 
+    // PAGE CONTENT
     return Scaffold(
 
       // APP BAR
-      appBar: AppBar(),
+      //appBar: AppBar(),
 
       // SCAFFOLD CONTENT
       body: SafeArea(
 
-        child: Container(
+        // SAFE AREA CONTENT
+        child: SingleChildScrollView(
 
-          // PAGE PADDING
-          padding: EdgeInsets.all(10),
+          // SCROLLABLE CONTAINER CONTENT
+          child: Container(
 
-          // PAGE ALIGNMENT
-          alignment: Alignment.topCenter,
+            // PAGE PADDING
+            padding: EdgeInsets.all(10),
 
-          // CONTAINER CONTENT
-          child: Column(
+            // PAGE ALIGNMENT
+            alignment: Alignment.topCenter,
 
-            // ALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            // CONTAINER CONTENT
+            child: Column(
 
-            // COLUMN CONTENT
-            children: [
+              // ALIGNMENT
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
 
-              //------------------------------------------------------------------------------
+              // COLUMN CONTENT
+              children: [
 
-              // QUEST BOX
-              Container(
+                //------------------------------------------------------------------------------
 
-                // SIZE
-                width: double.infinity,
+                // SPACER
+                const SizedBox(height: 30),
 
-                // PADDING
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                //------------------------------------------------------------------------------
 
-                // ALIGNMENT
-                alignment: Alignment.topCenter,
-
-                // STYLING
-                decoration: BoxDecoration(
-
-                  // BACKGROUND COLOR
-                  color: Theme.of(context).colorScheme.primary,
-
-                  // BORDER RADIUS
-                  borderRadius: BorderRadius.circular(20),
-
-                ),
-
-                // CONTAINER CONTENT
-                child: Column(
+                // PLAYER DATA CONTAINER
+                !widget.game_type ?Row(
 
                   // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
 
-                  // COLUMN CONTENT
+                  // ROW CONTENT
                   children: [
 
                     //------------------------------------------------------------------------------
 
-                    // PAGE TITLE CONTAINER
-                    FractionallySizedBox(
+                    // PAGE LOGO
+                    Image.asset(
+                      current_player.player_icon_path,
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.contain,
+                    ),
 
-                      // DYNAMIC WIDTH
-                      widthFactor: 0.8,
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(width: 15),
+
+                    //------------------------------------------------------------------------------
+
+                    // PAGE TITLE CONTAINER
+                    Flexible(
 
                       // TITLE
                       child: Text(
@@ -408,7 +522,8 @@ class _PlayPageState extends State<PlayPage> {
 
                         // TEXT STYLE
                         style: TextStyle(
-                          fontSize: 25,
+
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
 
                         ),
@@ -418,123 +533,573 @@ class _PlayPageState extends State<PlayPage> {
 
                     //------------------------------------------------------------------------------
 
-                    // SPACER
-                    const SizedBox(height: 15),
+                  ],
 
-                    //------------------------------------------------------------------------------
+                ):SizedBox.shrink(),
 
-                    // QUEST TEXT BOX
-                    Text(
+                //------------------------------------------------------------------------------
 
-                      // TEXT
-                      current_quest.content,
+                // SPACER
+                const SizedBox(height: 30),
 
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
+                //------------------------------------------------------------------------------
 
-                      ),
-                    ),
+                // QUEST BOX
+                Container(
 
-                    //------------------------------------------------------------------------------
+                  // SIZE
+                  width: double.infinity,
 
-                    // SPACER
-                    const SizedBox(height: 15),
-
-                    //------------------------------------------------------------------------------
-
-                  ]
-
-                ),
-
-              ),
-
-              //------------------------------------------------------------------------------
-
-              // SPACER
-              const SizedBox(height: 15),
-
-              //------------------------------------------------------------------------------
-
-              // TIMER BOX
-              show_timer ?Container(
-
-                // SIZE
-                width: double.infinity,
-
-                // PADDING
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-
-                // ALIGNMENT
-                alignment: Alignment.topCenter,
-
-                // STYLING
-                decoration: BoxDecoration(
-
-                  // BACKGROUND COLOR
-                  color: Theme.of(context).colorScheme.primary,
-
-                  // BORDER RADIUS
-                  borderRadius: BorderRadius.circular(20),
-
-                ),
-
-                // CONTAINER CONTENT
-                child: Column(
+                  // PADDING
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
 
                   // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  alignment: Alignment.topCenter,
 
-                  // COLUMN CONTENT
-                  children: [
+                  // STYLING
+                  decoration: BoxDecoration(
 
-                    //------------------------------------------------------------------------------
+                    // BACKGROUND COLOR
+                    color: Theme.of(context).colorScheme.primary,
 
-                    // TIMER TEXT
-                    Text(
-                      _formatTime(_remainingSeconds),
-                      style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-                    ),
+                    // BORDER RADIUS
+                    borderRadius: BorderRadius.circular(20),
 
-                    // SPACER
-                    SizedBox(height: 20),
+                  ),
 
-                    // BUTTON ROW
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  // CONTAINER CONTENT
+                  child: Column(
+
+                    // ALIGNMENT
+                      crossAxisAlignment: CrossAxisAlignment.center,
+
+                      // COLUMN CONTENT
                       children: [
-                        ElevatedButton(
-                          onPressed: _isRunning ? _pauseCountdown : () => _resumeCountdown(),
-                          child: Text(_isRunning ? "Pausa" : "Riprendi"),
+
+                        //------------------------------------------------------------------------------
+
+                        // PAGE TITLE CONTAINER
+                        FractionallySizedBox(
+
+                          // DYNAMIC WIDTH
+                          widthFactor: 0.8,
+
+                          // TITLE
+                          child: Text(
+                            // TEXT
+                            AppLocalizations.of(context)!.play_page_title,
+
+                            // TEXT ALIGNMENT
+                            textAlign: TextAlign.center,
+
+                            // TEXT STYLE
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+
+                            ),
+                          ),
+
                         ),
-                        SizedBox(width: 10),
-                        ElevatedButton(
-                          onPressed: _resetCountdown,
-                          child: Text("Reset"),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(height: 15),
+
+                        //------------------------------------------------------------------------------
+
+                        // QUEST TEXT BOX
+                        Text(
+
+                          // TEXT
+                          current_quest.content,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+
+                          ),
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        _startCountdown(2); // Imposta il timer a 2 minuti (modificabile)
-                      },
-                      child: Text("Avvia 2 minuti"),
-                    ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(height: 15),
+
+                        //------------------------------------------------------------------------------
+
+                        // PLAY DISCARD BUTTONS CONTAINER
+                        Container(
+
+                          // SIZE
+                          width: double.infinity,
+
+                          // ALIGNMENT
+                          alignment: Alignment.center,
+
+                          // BUTTON BOX
+                          child: Row(
+
+                            mainAxisAlignment: MainAxisAlignment.center,
+
+                            // BOX CONTENT
+                            children: [
+
+                              //------------------------------------------------------------------------------
+
+                              // QUEST DONE BUTTON BOX
+                              SizedBox(
+
+                                // FIXED WIDTH
+                                width: 140,
+
+                                // QUEST DONE BUTTON
+                                child: ElevatedButton(
+
+                                  // BUTTON STYLE PARAMETERS
+                                    style: ButtonStyle(
+
+                                      // NORMAL TEXT COLOR
+                                      foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                                      // NORMAL BACKGROUND COLOR
+                                      backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
+                                          157, 241, 129, 0.49411764705882355)),
+
+                                      // PADDING
+                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+
+                                      // BORDER RADIUS
+                                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(100),
+                                        ),
+                                      ),
+
+                                    ),
+
+                                    // ON PRESSED CALL
+                                    onPressed: () { switch_playing_player(); },
+
+                                    // BUTTON CONTENT
+                                    child: Row(
+
+                                      // ALIGNMENT
+                                      mainAxisAlignment: MainAxisAlignment.center,
+
+                                      children: [
+
+                                        //------------------------------------------------------------------------------
+
+                                        // SCISSOR ICON
+                                        Icon(
+
+                                          // ICONS
+                                          Icons.verified_rounded,
+
+                                          // ICONS COLOR
+                                          color: Theme.of(context).colorScheme.onPrimary,
+
+                                        ),
+
+                                        //------------------------------------------------------------------------------
+
+                                        // SPACER
+                                        const SizedBox(width: 5),
+
+                                        //------------------------------------------------------------------------------
+
+                                        //BUTTON TEXT CONTAINER
+                                        Flexible(
+
+                                          // BUTTON TEXT
+                                          child: Text(
+
+                                            // TEXT
+                                            AppLocalizations.of(context)!.play_page_completed_button,
+
+                                            // TEXT ALIGNMENT
+                                            textAlign: TextAlign.center,
+
+                                            // TEXT STYLE
+                                            style: TextStyle(
+
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w500,
+
+                                            ),
+
+                                          ),
+
+                                        )
+
+                                        //------------------------------------------------------------------------------
+
+                                      ],
+
+                                    )
+
+                                ),
+
+                              ),
+
+                              //------------------------------------------------------------------------------
+
+                              // SPACER
+                              const SizedBox(width: 15),
+
+                              //------------------------------------------------------------------------------
+
+                              // QUEST DONE BUTTON BOX
+                              SizedBox(
+
+                                // FIXED WIDTH
+                                width: 140,
+
+                                // SKIP QUEST  BUTTON
+                                child: ElevatedButton(
+
+                                  // BUTTON STYLE PARAMETERS
+                                    style: ButtonStyle(
+
+                                      // NORMAL TEXT COLOR
+                                      foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                                      // NORMAL BACKGROUND COLOR
+                                      backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
+                                          219, 157, 80, 0.8784313725490196)),
+
+                                      // PADDING
+                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+
+                                      // BORDER RADIUS
+                                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(100),
+                                        ),
+                                      ),
+
+                                    ),
+
+                                    // ON PRESSED CALL
+                                    onPressed: () { skip_current_quest(); },
+
+                                    // BUTTON CONTENT
+                                    child: Row(
+
+                                      // ALIGNMENT
+                                      mainAxisAlignment: MainAxisAlignment.center,
+
+                                      children: [
+
+                                        //------------------------------------------------------------------------------
+
+                                        // SCISSOR ICON
+                                        Icon(
+
+                                          // ICONS
+                                          Icons.cut,
+
+                                          // ICONS COLOR
+                                          color: Theme.of(context).colorScheme.onPrimary,
+
+                                        ),
+
+                                        //------------------------------------------------------------------------------
+
+                                        // SPACER
+                                        const SizedBox(width: 5),
+
+                                        //------------------------------------------------------------------------------
+
+                                        // BUTTON TEXT CONTAINER
+                                        Flexible(
+
+                                          // BUTTON TEXT
+                                          child: Text(
+
+                                            // TEXT
+                                            AppLocalizations.of(context)!.play_page_replace_button,
+                                            //'',
+
+                                            // TEXT ALIGNMENT
+                                            textAlign: TextAlign.center,
+
+                                            // TEXT STYLE
+                                            style: TextStyle(
+
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w500,
+
+                                            ),
+
+                                          ),
+
+                                        ),
+
+                                        //------------------------------------------------------------------------------
+
+                                      ],
+
+                                    )
+
+                                ),
 
 
-                    //------------------------------------------------------------------------------
+                              ),
 
-                  ]
+                              //------------------------------------------------------------------------------
+
+                            ],
+
+                          ),
+
+                        )
+
+                        //------------------------------------------------------------------------------
+
+                      ]
+
+                  ),
 
                 ),
 
-              ): SizedBox.shrink(),
+                //------------------------------------------------------------------------------
 
-              //------------------------------------------------------------------------------
+                // SPACER
+                const SizedBox(height: 15),
 
-            ],
+                //------------------------------------------------------------------------------
+
+                // TIMER BOX
+                show_timer ?Container(
+
+                  // SIZE
+                  width: double.infinity,
+
+                  // PADDING
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+
+                  // ALIGNMENT
+                  alignment: Alignment.topCenter,
+
+                  // STYLING
+                  decoration: BoxDecoration(
+
+                    // BACKGROUND COLOR
+                    color: Theme.of(context).colorScheme.primary,
+
+                    // BORDER RADIUS
+                    borderRadius: BorderRadius.circular(20),
+
+                  ),
+
+                  // CONTAINER CONTENT
+                  child: Column(
+
+                    // ALIGNMENT
+                      crossAxisAlignment: CrossAxisAlignment.center,
+
+                      // COLUMN CONTENT
+                      children: [
+
+                        //------------------------------------------------------------------------------
+
+                        // TIMER TEXT
+                        Text(
+
+                          // TIMER TEXT
+                          _formatTime(remaining_seconds),
+
+                          // TEXT STYLE
+                          style: TextStyle(
+
+                              fontSize: 48,
+                              fontWeight: FontWeight.bold
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        SizedBox(height: 5),
+
+                        //------------------------------------------------------------------------------
+
+                        // BUTTON ROW
+                        Row(
+
+                          mainAxisAlignment: MainAxisAlignment.center,
+
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // QUEST DONE BUTTON BOX
+                            SizedBox(
+
+                              // FIXED SIZE
+                              width: 60,
+                              height: 60,
+
+                              // QUEST DONE BUTTON
+                              child: ElevatedButton(
+
+                                // BUTTON STYLE PARAMETERS
+                                  style: ButtonStyle(
+
+                                    // NORMAL TEXT COLOR
+                                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                                    // NORMAL BACKGROUND COLOR
+                                    backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
+                                        86, 86, 86, 0.49411764705882355)),
+
+                                    // PADDING
+                                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
+
+                                    // BORDER RADIUS
+                                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(100),
+                                      ),
+                                    ),
+
+                                  ),
+
+                                  // ON PRESSED CALL
+                                  onPressed: is_running ? pause_countdown : () => resume_countdown(),
+
+                                  // BUTTON CONTENT
+                                  child: Row(
+
+                                    // ALIGNMENT
+                                    mainAxisAlignment: MainAxisAlignment.center,
+
+                                    children: [
+
+                                      //------------------------------------------------------------------------------
+
+                                      // SCISSOR ICON
+                                      Icon(
+
+                                        // ICONS
+                                        is_pressed ? Icons.pause : Icons.play_arrow,
+
+                                        // ICONS COLOR
+                                        color: Theme.of(context).colorScheme.onPrimary,
+
+                                        size: 30,
+
+                                      ),
+
+                                      //------------------------------------------------------------------------------
+
+                                    ],
+
+                                  )
+
+                              ),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            SizedBox(width: 15),
+
+                            //------------------------------------------------------------------------------
+
+                            // QUEST DONE BUTTON BOX
+                            SizedBox(
+
+                              // FIXED SIZE
+                              width: 60,
+                              height: 60,
+
+                              // QUEST DONE BUTTON
+                              child: ElevatedButton(
+
+                                // BUTTON STYLE PARAMETERS
+                                  style: ButtonStyle(
+
+                                    // NORMAL TEXT COLOR
+                                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                                    // NORMAL BACKGROUND COLOR
+                                    backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
+                                        86, 86, 86, 0.49411764705882355)),
+
+                                    // PADDING
+                                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
+
+                                    // BORDER RADIUS
+                                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(100),
+                                      ),
+                                    ),
+
+                                  ),
+
+                                  // ON PRESSED CALL
+                                  onPressed: reset_countdown,
+
+                                  // BUTTON CONTENT
+                                  child: Row(
+
+                                    // ALIGNMENT
+                                    mainAxisAlignment: MainAxisAlignment.center,
+
+                                    children: [
+
+                                      //------------------------------------------------------------------------------
+
+                                      // SCISSOR ICON
+                                      Icon(
+
+                                        // ICONS
+                                        Icons.restart_alt_rounded,
+
+                                        // ICONS COLOR
+                                        color: Theme.of(context).colorScheme.onPrimary,
+
+                                        size: 30,
+
+                                      ),
+
+                                      //------------------------------------------------------------------------------
+
+                                    ],
+
+                                  )
+
+                              ),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                          ],
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ]
+
+                  ),
+
+                ): SizedBox.shrink(),
+
+                //------------------------------------------------------------------------------
+
+              ],
+
+            ),
 
           ),
 

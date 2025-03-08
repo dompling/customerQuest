@@ -3,17 +3,23 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
+import 'package:loverquest/l10n/app_localization.dart';
+import 'package:loverquest/logics/settings_logics/language_switch.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/pages/play_pages/play_main_page.dart';
-import 'package:loverquest/pages/decks_pages/deck_list_main_page.dart';
+import 'package:loverquest/pages/homepage_pages/play_main_page.dart';
+import 'package:loverquest/pages/homepage_pages/deck_list_main_page.dart';
+import 'package:loverquest/pages/homepage_pages/settings_main_page.dart';
+
 
 //------------------------------------------------------------------------------
 
 
 
 // APP ENTRY POINT
-void main() {
+void main() async {
 
   // FORCING STATUS BAR LIGHT THEME AND NAVBAR DARK THEME
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -23,8 +29,20 @@ void main() {
     systemNavigationBarIconBrightness: Brightness.light,        // NAVBAR WHITE ICONS
   ));
 
+  WidgetsFlutterBinding.ensureInitialized();
+
+  //
+  final localeProvider = LocaleProvider();
+  await localeProvider.loadLocale();
+
+
   // APP START
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => localeProvider,
+      child: MyApp(),
+    ),
+  );
 
 }
 
@@ -39,36 +57,116 @@ class MyApp extends StatelessWidget {
   // CLASS CONSTRUCTOR
   const MyApp({super.key});
 
-  //
+  // APP CONTENT START
   @override
   Widget build(BuildContext context) {
 
+    // INITIALIZATION OF THE LOCALE INFORMATION
+    final localeProvider = Provider.of<LocaleProvider>(context);
 
+    // APP MAIN SETTINGS
     return MaterialApp(
 
       // HIDING DEBUG LABEL
       debugShowCheckedModeBanner: false,
 
       // DEFINING APP THEME
-        theme : ThemeData(
-          colorScheme: const ColorScheme(
-            brightness: Brightness.dark,                      // THEME TYPE
-            primary: Colors.white10,                          // PRIMARY COLOR
-            onPrimary: Colors.white,                          // ELEMENTS ON PRIMARY COLOR
-            secondary: Color.fromRGBO(106, 65, 117, 1.0),        // SECONDARY COLOR
-            onSecondary: Colors.white,                        // ELEMENTS ON SECONDARY COLOR
-            error: Colors.red,                                // ERRORS COLOR
-            onError: Colors.white,                            // ELEMENTS ON ERRORS COLOR
-            surface: Colors.black,                            // APP MAIN COLOR
-            onSurface: Colors.white,                          // ELEMENTS CON MAIN COLOR
-          ),
+      theme : ThemeData(
+
+        // APP GENERAL THEME
+        colorScheme: const ColorScheme(
+          brightness: Brightness.dark,                      // THEME TYPE
+          primary: Colors.white10,                          // PRIMARY COLOR
+          onPrimary: Colors.white,                          // ELEMENTS ON PRIMARY COLOR
+          secondary: Color.fromRGBO(106, 65, 117, 1.0),     // SECONDARY COLOR
+          onSecondary: Colors.white,                        // ELEMENTS ON SECONDARY COLOR
+          error: Colors.red,                                // ERRORS COLOR
+          onError: Colors.white,                            // ELEMENTS ON ERRORS COLOR
+          surface: Colors.black,                            // APP MAIN COLOR
+          onSurface: Colors.white,                          // ELEMENTS CON MAIN COLOR
         ),
+
+        // POP-UP MENU THEME
+        popupMenuTheme: PopupMenuThemeData(
+
+          // BACKGROUND COLOR
+          color: Colors.grey[900],
+
+          //BORDER SETTINGS
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+
+          // TEXT STYLE
+          textStyle: TextStyle(color: Colors.white),
+
+        ),
+
+        // ALERT DIALOG THEME
+        dialogTheme: DialogTheme(
+
+          // BACKGROUND COLOR
+          backgroundColor: Colors.grey[900],
+
+          //BORDER SETTINGS
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25),
+          ),
+
+          // TEXT STYLE
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+
+        ),
+
+        ),
+
+      // LOADING THE LOCALE INFO
+      locale: localeProvider.locale,
+
+      // LIST OF THE SUPPORTED LOCALIZATION
+      supportedLocales: [
+        Locale('en', ''),
+        Locale('it', ''),
+      ],
+
+      // LOADING THE TRANSLATION
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+
+
+      // CHECKING IF THE USER LANGUAGE IS SUPPORTED, IF NO IT WILL BE REVERTED TO ENGLISH
+      localeResolutionCallback: (locale, supportedLocales) {
+
+        // SCROLLING EVERY SUPPORTED LANGUAGE FROM THE SUPPORTED LANG LIST
+        for (var supportedLocale in supportedLocales) {
+
+          // CHECKING IF THE USER LANGUAGE IS SUPPORTED
+          if (supportedLocale.languageCode == locale?.languageCode) {
+
+            // RETURNING THE USER VALUE
+            return supportedLocale;
+
+          }
+
+        }
+
+        // RETURNING THE DEFAULT VALUE
+        return supportedLocales.first;
+
+      },
+
 
       // DEFINING THE MAIN SCREEN
       home: const MainScreen(),
 
     );
+
   }
+
 }
 
 
@@ -106,7 +204,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     const PlayMainPage(),
     const DeckSelectionPage(),
-    const MessagesPage(),
+    const SettingsMainPage(),
   ];
 
   @override
@@ -134,27 +232,27 @@ class _MainScreenState extends State<MainScreen> {
         selectedIndex: currentPageIndex,
 
         // DEFINING NAVBAR ITEMS
-        destinations: const <Widget>[
+        destinations: <Widget>[
 
           // NAVBAR PLAY PAGE SETTINGS
           NavigationDestination(
             selectedIcon: Icon(Icons.gamepad),
             icon: Icon(Icons.gamepad_outlined),
-            label: 'Gioca',
+            label: AppLocalizations.of(context)!.navbar_play_button_label,
           ),
 
           // NAVBAR DECKS PAGE SETTINGS
           NavigationDestination(
             selectedIcon: Icon(Icons.subscriptions),
             icon: Icon(Icons.subscriptions_outlined),
-            label: 'Decks',
+            label: AppLocalizations.of(context)!.navbar_decks_button_label,
           ),
 
           // NAVBAR SETTINGS PAGE SETTINGS
           NavigationDestination(
             selectedIcon: Icon(Icons.settings),
             icon: Icon(Icons.settings_outlined),
-            label: 'Impostazioni',
+            label: AppLocalizations.of(context)!.navbar_settings_button_label,
           ),
 
         ],
@@ -177,64 +275,3 @@ class _MainScreenState extends State<MainScreen> {
 
 
 //------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 📌 Notifications Page
-class NotificationsPage extends StatelessWidget {
-  const NotificationsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Home Page',
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
-    );
-  }
-}
-
-
-
-// 📌 Messages Page
-class MessagesPage extends StatelessWidget {
-  const MessagesPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Home Page',
-        style: Theme.of(context).textTheme.titleLarge,
-      ),
-    );
-  }
-
-}

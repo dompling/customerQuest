@@ -2,6 +2,7 @@
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/pages/play_pages/select_start_player_page.dart';
@@ -49,6 +50,8 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
     super.dispose();
   }
 
+  //------------------------------------------------------------------------------
+
   // CHECKING CONTINUE TO NEXT PAGE CONDITION
   void alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, couple_type, game_type) {
 
@@ -67,7 +70,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
           content: Row(
 
             // ALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
 
             // SIZE
             mainAxisSize: MainAxisSize.max,
@@ -75,28 +78,17 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
             // ROW CONTENT
             children: [
 
-              // ERROR ICON
-              Image.asset(
-                'assets/images/error_icon.png',
-                width: 50,
-                height: 50,
-                fit: BoxFit.contain,
-              ),
-
-              // SPACER
-              const SizedBox(width: 15),
-
               // ERROR TEXT
               Flexible(
 
                 child: Text(
                   // TEXT
-                  'È necessario compilare tutti i campi',
+                  AppLocalizations.of(context)!.define_players_name_error_label,
 
                   // TEXT STYLE
                   style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
                     color: Color.fromRGBO(226, 226, 226, 1.0),
                   ),
 
@@ -145,6 +137,8 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
 
   }
 
+  //------------------------------------------------------------------------------
+
   @override
   Widget build(BuildContext context) {
 
@@ -170,7 +164,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
 
       // CHANGING IMAGE PATH
       player_1_image_path = "assets/images/female_player_icon.png";
-      player_2_image_path = "assets/images/female_player_icon.png";
+      player_2_image_path = "assets/images/female_player_icon_alt.png";
 
       // SETTING SEX - FALSE MALE - TRUE FEMALE
       player_1_sex = true;
@@ -180,7 +174,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
 
       // CHANGING IMAGE PATH
       player_1_image_path = "assets/images/male_player_icon.png";
-      player_2_image_path = "assets/images/male_player_icon.png";
+      player_2_image_path = "assets/images/male_player_icon_alt.png";
 
       // SETTING SEX - FALSE MALE - TRUE FEMALE
       player_1_sex = false;
@@ -244,7 +238,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                   // TITLE
                   child: Text(
                     // TEXT
-                    'Inserisci gli alias dei giocatori',
+                    AppLocalizations.of(context)!.define_players_name_page_title,
 
                     // TEXT ALIGNMENT
                     textAlign: TextAlign.center,
@@ -321,7 +315,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                             // CARD TEXT
                             Text(
                               // TEXT
-                              'Giocatore 1',
+                              AppLocalizations.of(context)!.define_players_name_player_one_label,
 
                               // TEXT STYLE
                               style: TextStyle(
@@ -353,7 +347,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                               decoration: InputDecoration(
 
                                 // HINT TEXT
-                                hintText: "Inserisci il nickname...",
+                                hintText: AppLocalizations.of(context)!.define_players_name_textfield_hint_label,
 
                                 // HINT TEXT STYLE
                                 hintStyle: TextStyle(
@@ -457,7 +451,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                             // CARD TEXT
                             Text(
                               // TEXT
-                              'Giocatore 2',
+                              AppLocalizations.of(context)!.define_players_name_player_two_label,
 
                               // TEXT STYLE
                               style: TextStyle(
@@ -489,7 +483,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                               decoration: InputDecoration(
 
                                 // HINT TEXT
-                                hintText: "Inserisci il nickname...",
+                                hintText: AppLocalizations.of(context)!.define_players_name_textfield_hint_label,
 
                                 // HINT TEXT STYLE
                                 hintStyle: TextStyle(
@@ -580,10 +574,10 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                     },
 
                     // BUTTON CONTENT
-                    child: const Text(
+                    child: Text(
 
                       // TEXT
-                      'Conferma',
+                      AppLocalizations.of(context)!.define_players_name_confirm_button,
 
                       // TEXT ALIGNMENT
                       textAlign: TextAlign.center,

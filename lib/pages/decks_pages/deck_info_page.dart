@@ -2,6 +2,7 @@
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
@@ -20,8 +21,8 @@ class DeckInfoPage extends StatefulWidget {
   final Players player_2_object;
   final Players first_player;
   final DeckReader selected_deck;
-  final DifficultyInfo difficulty_info_object;
   final bool can_edit;
+  final bool game_type;
 
   // CLASS CONSTRUCTOR
   DeckInfoPage({
@@ -29,8 +30,8 @@ class DeckInfoPage extends StatefulWidget {
     Players? player_2_object,
     Players? first_player,
     required this.selected_deck,
-    required this.difficulty_info_object,
     required this.can_edit,
+    required this.game_type,
     super.key,
 
     // PLAYER 1 PLACEHOLDER
@@ -84,16 +85,107 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
   int late_quests_total_score = 0;
   int end_quests_total_score = 0;
 
-  // INITIALIZING GME TYPE TAG
+  // INITIALIZING GAME TYPE TAG
   String deck_game_type = "";
 
   // INITIALIZING TOOLS NEEDED
   String deck_needed_tools = "";
 
+  // INITIALIZING TOOLS TRANSLATION
+  late List<String> deck_translated_tools;
 
+
+  // INITIALIZING LANGUAGE LABEL
+  late LanguageInfo deck_language_label;
 
   // DEFINING IS LOADING VARIABLE
   bool is_loading = true;
+
+  //------------------------------------------------------------------------------
+
+  // FUNCTION TO TRANSLATE IN MULTIPLE LANGUAGES THE DECKS/QUESTS TOOLS
+  List<String> translate_tools (List<String> required_tools) {
+
+    // GETTING THE LANGUAGE IN USE
+    final localizations = AppLocalizations.of(context)!;
+
+    // TRANSLATING THE TOOLS
+    List<String> translated_tools_list = required_tools.map((tool) {
+
+      switch (tool) {
+
+        case 'female_lingerie':
+          return localizations.quest_tool_female_lingerie;
+        case 'male_lingerie':
+          return localizations.quest_tool_male_lingerie;
+        case 'blindfold':
+          return localizations.quest_tool_blindfold;
+        case 'rope':
+          return localizations.quest_tool_rope;
+        case 'handcuffs':
+          return localizations.quest_tool_handcuffs;
+        case 'dice':
+          return localizations.quest_tool_dice;
+        case 'vibrator':
+          return localizations.quest_tool_vibrator;
+        case 'remote_vibrator':
+          return localizations.quest_tool_remote_vibrator;
+        case 'anal_beads':
+          return localizations.quest_tool_anal_beads;
+        case 'dildo':
+          return localizations.quest_tool_dildo;
+        case 'inflatable_dildo':
+          return localizations.quest_tool_inflatable_dildo;
+        case 'suction_cup_dildo':
+          return localizations.quest_tool_suction_cup_dildo;
+        case 'vibrating_dildo':
+          return localizations.quest_tool_vibrating_dildo;
+        case 'gag':
+          return localizations.quest_tool_gag;
+        case 'feather':
+          return localizations.quest_tool_feather;
+        case 'plug':
+          return localizations.quest_tool_plug;
+        case 'inflatable_plug':
+          return localizations.quest_tool_inflatable_plug;
+        case 'vibrating_plug':
+          return localizations.quest_tool_vibrating_plug;
+        case 'collar_and_leash':
+          return localizations.quest_tool_collar_and_leash;
+        case 'massage_oil':
+          return localizations.quest_tool_massage_oil;
+        case 'lubricants':
+          return localizations.quest_tool_lubricants;
+        case 'strap_on':
+          return localizations.quest_tool_strap_on;
+        case 'nipple_clamps':
+          return localizations.quest_tool_nipple_clamps;
+        case 'nipple_pump':
+          return localizations.quest_tool_nipple_pump;
+        case 'riding_crop':
+          return localizations.quest_tool_riding_crop;
+        case 'flogger':
+          return localizations.quest_tool_flogger;
+        case 'spanking_paddle':
+          return localizations.quest_tool_spanking_paddle;
+        case 'male_chastity_cage':
+          return localizations.quest_tool_male_chastity_cage;
+        case 'female_chastity_cage':
+          return localizations.quest_tool_female_chastity_cage;
+        default:
+          return tool;
+
+      }
+    }).toList();
+
+    // IF THERE ARE NOT TOOLS INSIDE THE DECK/QUEST, SHOW A PROPER LABEL
+    if (translated_tools_list.isEmpty) {
+      translated_tools_list.add(localizations.deck_info_no_tools_label);
+    }
+
+    return translated_tools_list;
+
+  }
 
   //------------------------------------------------------------------------------
 
@@ -121,7 +213,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
         early_quests_list.add(element);
 
         // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        early_quests_total_score = early_quests_total_score + 5;
+        early_quests_total_score = early_quests_total_score + 10;
 
       } else if (element.moment == "mid") {
 
@@ -137,7 +229,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
         late_quests_list.add(element);
 
         // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        late_quests_total_score = late_quests_total_score + 15;
+        late_quests_total_score = late_quests_total_score + 10;
 
       } else {
 
@@ -145,7 +237,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
         end_quests_list.add(element);
 
         // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        end_quests_total_score = end_quests_total_score + 20;
+        end_quests_total_score = end_quests_total_score + 10;
 
       }
 
@@ -154,19 +246,33 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     // ADDING ALL THE LISTS INSIDE THE MAIN LIST
     all_quests_list = early_quests_list + mid_quests_list + late_quests_list + end_quests_list;
 
-    // CONVERTING TO STRING THE NEEDED TOOLS
-    deck_needed_tools = widget.selected_deck.summary.required_tools.join(", ");
-
-    // IF THERE ARE NO TOOLS NEEDED, WRITHE NOTHING
-    if (deck_needed_tools == "") {deck_needed_tools = "Nessuno";}
-
-    // CONVERTING TO STRING TAG THE GAME TYPE
-    if (widget.selected_deck.summary.play_distance) {deck_game_type = "A distanza";} else {deck_game_type = "In presenza";}
-
     // UPDATING THE WIDGET STATUS WITH THE LOADED DATA
     setState(() {
       //loaded_decks_list = tempList;
       is_loading = false;
+    });
+  }
+
+  //------------------------------------------------------------------------------
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    
+    // TRANSLATING THE SUMMARY TOOLS
+    deck_translated_tools = translate_tools(widget.selected_deck.summary.required_tools);
+
+    // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+    deck_translated_tools[0] = deck_translated_tools[0][0].toUpperCase() + deck_translated_tools[0].substring(1);
+
+    setState(() {
+
+      // CONVERTING TO STRING TAG THE GAME TYPE
+      if (widget.selected_deck.summary.play_distance) {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;}
+
+      // GETTING THE LANGUAGE INFO
+      deck_language_label = get_language_info(context, widget.selected_deck.summary.language);
+
     });
   }
 
@@ -273,7 +379,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                       // TITLE
                       child: Text(
                         // TEXT
-                        "Informazioni sul mazzo",
+                        AppLocalizations.of(context)!.deck_info_page_title,
 
                         // TEXT ALIGNMENT
                         textAlign: TextAlign.center,
@@ -333,7 +439,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                           Text.rich(
                             TextSpan (
 
-                                text : "Nome : ",
+                                text : AppLocalizations.of(context)!.deck_info_information_name_label,
                                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                 children: [
@@ -357,46 +463,18 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                           //------------------------------------------------------------------------------
 
-                          // DIFFICULTY TEXT
+                          // DECK LANGUAGE TEXT
                           Text.rich(
                             TextSpan (
 
-                                text : "Difficoltà : ",
+                                text : AppLocalizations.of(context)!.deck_info_information_language_label,
                                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                 children: [
 
                                   TextSpan (
 
-                                    text : widget.difficulty_info_object.label,
-                                    style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                  ),
-
-                                ]
-
-                            ),
-                          ),
-
-                          //------------------------------------------------------------------------------
-
-                          // SPACER
-                          const SizedBox(height: 5),
-
-                          //------------------------------------------------------------------------------
-
-                          // ESTIMATED TIME TEXT
-                          Text.rich(
-                            TextSpan (
-
-                                text : "Tempo stimato : ",
-                                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                children: [
-
-                                  TextSpan (
-
-                                    text : "${widget.selected_deck.summary.average_duration} minuti",
+                                    text : deck_language_label.label,
                                     style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                   ),
@@ -417,7 +495,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                           Text.rich(
                             TextSpan (
 
-                                text : "Tipologia di gioco : ",
+                                text : AppLocalizations.of(context)!.deck_info_information_game_type_label,
                                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                 children: [
@@ -445,14 +523,14 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                           Text.rich(
                             TextSpan (
 
-                                text : "Strumenti richiesti : ",
+                                text : AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
                                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                 children: [
 
                                   TextSpan (
 
-                                    text : deck_needed_tools,
+                                    text : deck_translated_tools.join(", "),
                                     style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                   ),
@@ -473,7 +551,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                           Text.rich(
                             TextSpan (
 
-                                text : "Descrizione : ",
+                                text : AppLocalizations.of(context)!.deck_info_information_description_label,
                                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                 children: [
@@ -541,42 +619,13 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                                 // ON PRESSED CALL
                                 onPressed: () {
-                                  /*
+
                                   // PAGE LINKER
                                   Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(builder: (context) => PlayPage(
-                                      
-                                      player_1_object: widget.player_1_object, 
-                                      player_2_object: widget.player_2_object, 
-                                      first_player: widget.first_player, 
-                                      early_quests_list: early_quests_list, 
-                                      early_quests_total_score: early_quests_total_score,
-                                      mid_quests_list: mid_quests_list,
-                                      mid_quests_total_score: mid_quests_total_score,
-                                      late_quests_list: late_quests_list,
-                                      late_quests_total_score: late_quests_total_score,
-                                      end_quests_list: end_quests_list,
-                                      end_quests_total_score: end_quests_total_score,
-                                    
-                                    )
-                                    
-                                    ),
-                                      
-                                      
-                                      
-                                        (Route<dynamic> route) => false,
-                                  );
-                                  */
 
-                                  // PAGE LINKER
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-
-                                      // OPEN NEW PAGE
-                                      builder: (context) => PlayPage(
-
+                                      game_type: widget.game_type,
                                       player_1_object: widget.player_1_object,
                                       player_2_object: widget.player_2_object,
                                       first_player: widget.first_player,
@@ -588,18 +637,23 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                       late_quests_total_score: late_quests_total_score,
                                       end_quests_list: end_quests_list,
                                       end_quests_total_score: end_quests_total_score,
+                                      passed_current_quest: Quest.empty(),
+                                      passed_current_quest_list: [],
 
-                                      )
                                     )
+
+                                    ),
+
+                                        (Route<dynamic> route) => false,
                                   );
 
                                 },
 
                                 // BUTTON CONTENT
-                                child: const Text(
+                                child: Text(
 
                                   // TEXT
-                                  'Avvia il gioco',
+                                  AppLocalizations.of(context)!.deck_info_start_game_button_label,
 
                                   // TEXT ALIGNMENT
                                   textAlign: TextAlign.center,
@@ -639,7 +693,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                     // CARD TEXT
                     Text(
                       // TEXT
-                      "Lista delle quest",
+                      AppLocalizations.of(context)!.deck_info_quest_list_title,
 
                       // TEXT STYLE
                       style: TextStyle(
@@ -673,11 +727,11 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                     //------------------------------------------------------------------------------
 
-                    // CONVERTING TO STRING THE NEEDED TOOLS
-                    String quest_needed_tools = all_quests_list[index].required_tools.join(", ");
+                    // TRANSLATING THE NEEDED TOOLS
+                    List<String> translated_quest_tools_list = translate_tools(all_quests_list[index].required_tools);
 
-                    // IF THERE ARE NO TOOLS NEEDED, WRITHE NOTHING
-                    if (quest_needed_tools == "") {quest_needed_tools = "Nessuno";}
+                    // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+                    translated_quest_tools_list[0] = translated_quest_tools_list[0][0].toUpperCase() + translated_quest_tools_list[0].substring(1);
 
                     // INITIALIZING THE QUEST TYPE VAR
                     String quest_type;
@@ -686,22 +740,22 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                     if (all_quests_list[index].moment.toLowerCase() == "early") {
 
                       // DEFINING QUEST TYPE TEXT
-                      quest_type = "Quest iniziali";
+                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_early_quest_type;
 
                     } else if (all_quests_list[index].moment.toLowerCase() == "mid") {
 
                       // DEFINING QUEST TYPE TEXT
-                      quest_type = "Quest intermedie";
+                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_mid_quest_type;
 
                     } else if (all_quests_list[index].moment.toLowerCase() == "late") {
 
                       // DEFINING QUEST TYPE TEXT
-                      quest_type = "Quest avanzate";
+                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_late_quest_type;
 
                     } else {
 
                       // DEFINING QUEST TYPE TEXT
-                      quest_type = "Quest finali";
+                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_end_quest_type;
 
                     }
 
@@ -796,7 +850,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                       Text.rich(
                                         TextSpan (
 
-                                            text : "Tipologia : ",
+                                            text : AppLocalizations.of(context)!.deck_info_quest_info_quest_type_label,
                                             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                             children: [
@@ -824,14 +878,14 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                       Text.rich(
                                         TextSpan (
 
-                                            text : "Strumenti richiesti : ",
+                                            text : AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
                                             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                             children: [
 
                                               TextSpan (
 
-                                                text : quest_needed_tools,
+                                                text : translated_quest_tools_list.join(", "),
                                                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                               ),
@@ -852,7 +906,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                       Text.rich(
                                         TextSpan (
 
-                                            text : "Descrizione : ",
+                                            text : AppLocalizations.of(context)!.deck_info_information_description_label,
                                             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
                                             children: [
@@ -880,21 +934,6 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                   ),
 
                                 ),
-
-                                // CHECKING IF THE QUEST IS EDITABLE
-                                !widget.selected_deck.summary.protected ?Icon(
-
-                                    // ICON IMAGE
-                                    Icons.edit,
-
-                                    // ICON COLOR
-                                    color: Theme.of(context).colorScheme.onPrimary,
-
-                                  )
-                              : SizedBox.shrink(),
-
-
-
 
                               ],
 

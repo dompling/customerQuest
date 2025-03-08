@@ -1,1 +1,0 @@
- /home/herzen/Documenti/GitHub/loverquest/.dart_tool/flutter_build/ba63acded4644f22b5d6205fddc4c159/native_assets.yaml: 

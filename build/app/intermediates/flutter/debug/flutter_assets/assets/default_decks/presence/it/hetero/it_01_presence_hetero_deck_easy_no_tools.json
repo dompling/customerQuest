@@ -1,0 +1,91 @@
+{
+  "summary": {
+    "name": "Principianti",
+    "description": "Una divertente avventura per le coppie che vogliono provare qualcosa di nuovo senza uscire dalla propria zona di comfort.",
+    "couple_type": "hetero",
+    "play_distance": false,
+    "language": "it",
+    "total_quests": 25,
+    "average_difficulty": 1,
+    "average_duration": 10,
+    "required_tools": [],
+    "protected": true
+
+  },
+
+
+
+  "quests": [
+
+    {
+      "id": 1,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 2,
+      "content": "L'altro giocatore tiene gli occhi chiusi mentre gli sussurri qualcosa di eccitante e lo accarrezzi sensualmente. Segui il tempo indicato dal timer."
+
+    },
+
+    {
+      "id": 2,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 2,
+      "content": "L'altro giocatore tiene gli occhi chiusi mentre gli sussurri qualcosa di eccitante e lo accarrezzi sensualmente. Segui il tempo indicato dal timer."
+
+    },
+
+    {
+      "id":3,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 2,
+      "content": "Spegni le luci e pomicia con il tuo partner in piedi contro un muro accarezzandovi dolcemente. Segui il tempo indicato dal timer."
+    },
+
+    {
+      "id":4,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 2,
+      "content": "Spegni le luci e pomicia con il tuo partner in piedi contro un muro accarezzandovi dolcemente. Segui il tempo indicato dal timer."
+    },
+
+    {
+      "id": 5,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 0,
+      "content": "Scrivi su un bigliettino o sulle note dello smarphone qualcosa di eccitante che vorresti provare o dire all'altro giocatore. Faglielo leggere alla fine del gioco."
+    },
+
+    {
+      "id": 6,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 0,
+      "content": "Scrivi su un bigliettino o sulle note dello smarphone qualcosa di eccitante che vorresti provare o dire all'altro giocatore. Faglielo leggere alla fine del gioco."
+    },
+
+    {
+      "id": 7,
+      "moment": "early",
+      "difficulty": "easy",
+      "required_tools": [],
+      "timer": 0,
+      "content": ""
+    }
+
+
+
+  ]
+
+
+
+}

@@ -2,9 +2,12 @@
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/pages/play_pages/define_players_names_page.dart';
+import 'package:loverquest/logics/play_logics/player_class.dart';
+import 'package:loverquest/pages/play_pages/select_deck_to_play_page.dart';
 
 //------------------------------------------------------------------------------
 
@@ -76,7 +79,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                     // TITLE
                     child: Text(
                       // TEXT
-                      'Seleziona il sesso dei giocatori',
+                      AppLocalizations.of(context)!.select_players_type_title,
 
                       // TEXT ALIGNMENT
                       textAlign: TextAlign.center,
@@ -142,17 +145,42 @@ class SelectPlayersTypePage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
-                        // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
+                        // CHECKING IF THE GAME IS IN PRESENCE
+                        if (game_type != true) {
 
-                            // OPEN NEW PAGE
-                            builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: game_type,),
+                          // PAGE LINKER
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
 
-                          ),
+                              // OPEN NEW PAGE
+                              builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: game_type,),
 
-                        );
+                            ),
+
+                          );
+
+                          // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
+                        } else {
+
+                          // CREATING TMP DATA
+                          Players player_tmp_object_1 = Players(player_icon_path: "assets/images/coin_flip_icon.png", player_alias: "player_alias:_1", player_sex: true);
+                          Players player_tmp_object_2 = Players(player_icon_path: "assets/images/deck_info.png", player_alias: "player_alias_2", player_sex: true);
+
+
+                          // PAGE LINKER
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+
+                              // OPEN NEW PAGE
+                              builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: game_type, player_1_object: player_tmp_object_1, player_2_object: player_tmp_object_2, first_player: player_tmp_object_2,),
+
+                            ),
+
+                          );
+
+                        }
 
                       },
 
@@ -195,7 +223,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Coppia etero',
+                                  AppLocalizations.of(context)!.select_players_type_hetero_couple_title,
 
                                   // TEXT STYLE
                                   style: TextStyle(
@@ -214,8 +242,8 @@ class SelectPlayersTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Una coppia in cui i partner hanno genitali differenti.',
-                                  maxLines: 3,
+                                  AppLocalizations.of(context)!.select_players_type_hetero_couple_subtitle,
+
                                   // TEXT STYLE
                                   style: TextStyle(
                                     fontSize: 15,
@@ -310,17 +338,41 @@ class SelectPlayersTypePage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
-                        // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
+                        // CHECKING IF THE GAME IS IN PRESENCE
+                        if (game_type != true) {
 
-                            // OPEN NEW PAGE
-                            builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: game_type,),
+                          // PAGE LINKER
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
 
-                          ),
+                              // OPEN NEW PAGE
+                              builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: game_type,),
 
-                        );
+                            ),
+
+                          );
+
+                          // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
+                        } else {
+
+                          // CREATING TMP DATA
+                          Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
+
+
+                          // PAGE LINKER
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+
+                              // OPEN NEW PAGE
+                              builder: (context) => DeckSelectionPage(couple_type: "lesbian", game_type: game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+
+                            ),
+
+                          );
+
+                        }
 
                       },
 
@@ -361,7 +413,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Coppia lesbica',
+                                  AppLocalizations.of(context)!.select_players_type_lesbian_couple_title,
 
                                   // TEXT STYLE
                                   style: TextStyle(
@@ -376,8 +428,8 @@ class SelectPlayersTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Una coppia in cui entrambi i partner hanno genitali femminili.',
-                                  maxLines: 3,
+                                  AppLocalizations.of(context)!.select_players_type_lesbian_couple_subtitle,
+
                                   // TEXT STYLE
                                   style: TextStyle(
                                     fontSize: 15,
@@ -470,17 +522,41 @@ class SelectPlayersTypePage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
-                        // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
+                        // CHECKING IF THE GAME IS IN PRESENCE
+                        if (game_type != true) {
 
-                            // OPEN NEW PAGE
-                            builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: game_type,),
+                          // PAGE LINKER
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
 
-                          ),
+                              // OPEN NEW PAGE
+                              builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: game_type,),
 
-                        );
+                            ),
+
+                          );
+
+                          // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
+                        } else {
+
+                          // CREATING TMP DATA
+                          Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
+
+
+                          // PAGE LINKER
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+
+                              // OPEN NEW PAGE
+                              builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+
+                            ),
+
+                          );
+
+                        }
 
                       },
 
@@ -522,7 +598,7 @@ class SelectPlayersTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Coppia gay',
+                                  AppLocalizations.of(context)!.select_players_type_gay_couple_title,
 
                                   // TEXT STYLE
                                   style: TextStyle(
@@ -537,8 +613,8 @@ class SelectPlayersTypePage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  'Una coppia in cui entrambi i partner hanno genitali maschili.',
-                                  maxLines: 3,
+                                  AppLocalizations.of(context)!.select_players_type_gay_couple_subtitle,
+
                                   // TEXT STYLE
                                   style: TextStyle(
                                     fontSize: 15,

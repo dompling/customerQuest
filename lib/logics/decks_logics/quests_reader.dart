@@ -1,6 +1,7 @@
 //------------------------------------------------------------------------------
 
 // STANDARD LIBRARIES
+import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
@@ -14,9 +15,7 @@ class Quest {
   //------------------------------------------------------------------------------
 
   // QUEST ATTRIBUTES
-  final int id;
   final String moment;
-  final String difficulty;
   final List<String> required_tools;
   final int timer;
   final String content;
@@ -26,9 +25,7 @@ class Quest {
   // CLASS CONSTRUCTOR
   Quest({
 
-    required this.id,
     required this.moment,
-    required this.difficulty,
     required this.required_tools,
     required this.timer,
     required this.content
@@ -37,14 +34,24 @@ class Quest {
 
   //------------------------------------------------------------------------------
 
+  // FACTORY METHOD FOR EMPTY QUEST OBJECT
+  factory Quest.empty() {
+    return Quest(
+      moment: "none",
+      required_tools: [],
+      timer: 0,
+      content: "No content available",
+    );
+  }
+
+  //------------------------------------------------------------------------------
+
   // CONVERSION FROM JSON TO OBJECT METHOD
   factory Quest.fromJson(Map<String, dynamic> json) {
 
     return Quest(
 
-      id: json['id'] ?? 0,
       moment: json['moment'] ?? "unknown",
-      difficulty: json['difficulty'] ?? "unknown",
       required_tools: json['required_tools'] != null ? List<String>.from(json['required_tools']) : [],
       timer: json['timer'] ?? 0,
       content: json['content'] ?? "No content available",
@@ -54,6 +61,17 @@ class Quest {
   }
 
   //------------------------------------------------------------------------------
+
+  // CONVERSION FROM OBJECT TO JSON METHOD
+  Map<String, dynamic> toJson() => {
+    'moment': moment,
+    'required_tools': required_tools,
+    'timer': timer,
+    'content': content,
+  };
+
+
+//------------------------------------------------------------------------------
 
 }
 
@@ -73,11 +91,9 @@ class QuestSummary {
   final String description;
   final String couple_type;
   final bool play_distance;
+  final String language;
   final int total_quests;
-  final int average_difficulty;
-  final int average_duration;
   final List<String> required_tools;
-  final bool protected;
 
   //------------------------------------------------------------------------------
 
@@ -88,11 +104,9 @@ class QuestSummary {
     required this.description,
     required this.couple_type,
     required this.play_distance,
+    required this.language,
     required this.total_quests,
-    required this.average_difficulty,
-    required this.average_duration,
     required this.required_tools,
-    required this.protected,
 
   });
 
@@ -107,17 +121,28 @@ class QuestSummary {
       description: json['description'] ?? "No data here",
       couple_type: json['couple_type'] ?? "No data here",
       play_distance: json['play_distance'] ?? false,
+      language: json['language'] ?? "No data here",
       total_quests: json['total_quests'] ?? 0,
-      average_difficulty: json['average_difficulty'] ?? 0,
-      average_duration: json['average_duration'] ?? 0,
       required_tools: json['required_tools'] != null ? List<String>.from(json['required_tools']) : [],
-      protected: json['protected'] ?? true,
 
     );
 
   }
 
   //------------------------------------------------------------------------------
+
+  // CONVERSION FROM OBJECT TO JSON METHOD
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'description': description,
+      'couple_type': couple_type,
+      'play_distance': play_distance,
+      'language': language,
+      'total_quests': total_quests,
+      'required_tools': required_tools,
+    };
+  }
 
 }
 
@@ -133,8 +158,18 @@ class DeckReader {
   //------------------------------------------------------------------------------
 
   // QUEST MANAGER ATTRIBUTES
-  late QuestSummary summary;
-  late List<Quest> quests;
+  QuestSummary summary = QuestSummary(
+    name: "Unknown title",
+    description: "No description, sorry",
+    couple_type: "lesbian",
+    play_distance: false,
+    language: "en",
+    total_quests: 0,
+    required_tools: [],
+  );
+
+  // CLASS ATTRIBUTES
+  List<Quest> quests = [];
   final String deck_file_path;
 
   //------------------------------------------------------------------------------
@@ -148,8 +183,23 @@ class DeckReader {
   Future<void> load_deck() async {
 
     try {
-      // LOADING JSON AS STRING
-      String jsonString = await rootBundle.loadString(deck_file_path);
+
+      //
+      String jsonString;
+
+      // CHECKING IF THE FILE IS FROM THE CUSTOM FOLDER OR FROM THE ASSETS
+      if (deck_file_path.contains('assets/')) {
+
+        // LOADING JSON AS STRING WITH ROOT BUNDLE
+        jsonString = await rootBundle.loadString(deck_file_path);
+
+      } else {
+
+        // LOADING JSON AS STRING WITH FILE PATH
+        File file = File(deck_file_path);
+        jsonString = await file.readAsString();
+
+      }
 
       // DECODING JSON FILE
       final Map<String, dynamic> jsonData = json.decode(jsonString);
@@ -162,7 +212,6 @@ class DeckReader {
           (jsonData['quests'] as List).map((q) => Quest.fromJson(q)).toList();
 
     } catch (e) {
-      //print("THERE IS AN ERROR LOADING THE JSON FILE: $e");
       quests = [];
     }
 

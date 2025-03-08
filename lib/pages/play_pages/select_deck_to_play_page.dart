@@ -2,6 +2,7 @@
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/deck_list_reader.dart';
@@ -57,25 +58,42 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
   // DEFINING IS LOADING VARIABLE
   bool is_loading = true;
 
+  // DEFINING THE IS INITIALIZED VARIABLE
+  bool _isInitialized = false;
+
   //------------------------------------------------------------------------------
 
   // CLASS INITIAL STATE
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
-    // LAUNCH THE FUNCTION TO LOAD ALL DEFAULT DECKS
-    load_all_default_decks();
+    // CHECKING IF THE LIST HAS BEEN ALREADY LOADED IN ORDER TO AVOID MULTIPLE LOADING
+    if (!_isInitialized) {
+      _isInitialized = true;
+      load_all_decks();
+
+    }
 
   }
 
   // INITIAL STATE FUNCTION TO LOAD ALL DEFAULTS DECKS
-  Future<void> load_all_default_decks() async {
+  Future<void> load_all_decks() async {
 
     //------------------------------------------------------------------------------
 
     // GETTING THE LIST OF ALL THE DEFAULT DECKS PATH CALLING THE
-    List<String> default_decks_path_list = DefaultDeckListReader.get_deck_paths();
+    List<String> default_decks_path_list = await get_default_deck_paths(context, is_presence: widget.game_type);
+
+    //------------------------------------------------------------------------------
+
+    // GETTING THE LIST OF ALL THE DEFAULT DECKS PATH CALLING THE
+    List<String> custom_decks_path_list = await get_custom_deck_paths();
+
+    //------------------------------------------------------------------------------
+
+    // CREATING THE LIST WITH ALL DECKS PATH
+    List<String> all_decks_path_list = custom_decks_path_list + default_decks_path_list;
 
     //------------------------------------------------------------------------------
 
@@ -83,9 +101,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
     List<DeckReader> tempList = [];
 
     // FOR EVERY FILE PATH IN THE LIST WILL BE CREATED AN ELEMENT INSIDE A TEMP LIST WHERE LOAD THE DECK ELEMENTS
-    for (String deck_path in default_decks_path_list) {
-
-      //print("DEBUG | $deck_path");
+    for (String deck_path in all_decks_path_list) {
 
       // CREATING DECK READER OBJECT
       DeckReader deckManager = DeckReader(deck_path);
@@ -211,7 +227,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                       // TITLE
                       child: Text(
                         // TEXT
-                        'Seleziona il mazzo da giocare',
+                        AppLocalizations.of(context)!.select_deck_page_title,
 
                         // TEXT ALIGNMENT
                         textAlign: TextAlign.center,
@@ -251,13 +267,11 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                     //String deck_path = filtered_deck_managers[index].deck_file_path;
                     String deck_name = filtered_deck_managers[index].summary.name;
                     int deck_quest_number = filtered_deck_managers[index].summary.total_quests;
-                    int deck_difficulty = filtered_deck_managers[index].summary.average_difficulty;
-                    int deck_average_duration = filtered_deck_managers[index].summary.average_duration;
                     List<String> deck_tools = filtered_deck_managers[index].summary.required_tools;
 
                     // GETTING DECK DIFFICULTY INFO
-                    DifficultyInfo difficulty_info_object = get_difficulty_info(deck_difficulty);
-                    ToolsInfo tools_info_object = get_tools_info(deck_tools);
+                    LanguageInfo language_info_object = get_language_info(context, filtered_deck_managers[index].summary.language);
+                    ToolsInfo tools_info_object = get_tools_info(context, deck_tools);
                     
                     // DYNAMIC LIST CONTENT
                     return SizedBox(
@@ -320,8 +334,8 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                                     player_2_object: widget.player_2_object,
                                     first_player: widget.first_player,
                                     selected_deck: filtered_deck_managers[index],
-                                    difficulty_info_object: difficulty_info_object,
                                     can_edit: false,
+                                    game_type: widget.game_type,
 
                                   ),
 
@@ -384,7 +398,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
                                           //------------------------------------------------------------------------------
 
-                                          // DIFFICULTY TAG
+                                          // LANGUAGE TAG
                                           Container(
 
                                             // PADDING
@@ -394,14 +408,14 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                                             decoration: BoxDecoration(
 
                                               // BACKGROUND COLOR
-                                              color: difficulty_info_object.background_color,
+                                              color: language_info_object.background_color,
 
                                               // BORDER RADIUS
                                               borderRadius: BorderRadius.circular(16),
 
                                               // BORDER STYLE
                                               border: Border.all(
-                                                color: difficulty_info_object.border_color,
+                                                color: language_info_object.border_color,
                                                 width: 2,
                                               ),
 
@@ -411,7 +425,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                                             child: Text(
 
                                               // TEXT
-                                              difficulty_info_object.label,
+                                              language_info_object.label,
 
                                               // TEXT STYLE
                                               style: TextStyle(
@@ -504,46 +518,6 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
                                           //------------------------------------------------------------------------------
 
-                                          // DECK ESTIMATED TIME TAG
-                                          Container(
-
-                                            // PADDING
-                                            padding: EdgeInsets.all(7),
-
-                                            //CONTAINER STYLE
-                                            decoration: BoxDecoration(
-
-                                              // BACKGROUND COLOR
-                                              color: Color(0xff623754),
-
-                                              // BORDER RADIUS
-                                              borderRadius: BorderRadius.circular(16),
-
-                                              // BORDER STYLE
-                                              border: Border.all(
-                                                color: Color(0xffab6a8f),
-                                                width: 2,
-                                              ),
-
-                                            ),
-
-                                            // CONTAINER CONTENT
-                                            child: Text(
-
-                                              // TEXT
-                                              '$deck_average_duration minuti',
-
-                                              // TEXT STYLE
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                              ),
-
-                                            ),
-
-                                          ),
-
-                                          //------------------------------------------------------------------------------
-
                                         ],
 
                                       ),
@@ -584,7 +558,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
                   },
 
-
+                  // GETTING THE LIST ELEMENT
                   childCount: filtered_deck_managers.length,
 
                 ),
@@ -592,6 +566,8 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                 //------------------------------------------------------------------------------
 
               ),
+
+              //------------------------------------------------------------------------------
 
             ],
 
