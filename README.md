@@ -40,3 +40,14 @@ In addition to the many preset decks available for each type of couple and game 
 <p align="center">
   <img src="/github_pages/assets/screen_carousel_3.png" alt="Banner" width="1100"/>
 </p>
+
+## Supported languages
+Loverquest currently supports the following languages:  
+- **English**
+- **Italian**
+- **Spanish** - _coming soon_
+- **German** - _coming soon_
+- **French** - _coming soon_
+
+## How can I contribute to the app ?
+Community support is essential to us. The best ways to contribute to the project are by helping with translations, developing new features, or making a donation to support the app’s development and maintenance.  
