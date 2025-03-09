@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="/github_pages/assets/banner_loverquest.png" alt="Banner" width="600"/>
+</p>
+
 ## Cos'è Loverquest
 Loverquest è un gioco da tavolo digitale a tema intimo, pensato per aiutare le coppie a esplorare la propria sessualità in modo divertente e coinvolgente.
 
@@ -11,6 +15,10 @@ Uno dei suoi punti di forza è la grande personalizzazione: puoi scegliere tra m
 
 Inoltre, Loverquest rispetta la tua privacy: non raccoglie dati personali, non accede a Internet e non mostra pubblicità. Per noi, l’intimità è una cosa seria, e per questo ci impegniamo a garantirti la massima riservatezza.
 
+<p align="center">
+  <img src="/github_pages/assets/screen_carousel_1.png" alt="Banner" width="1100"/>
+</p>
+
 ## Modalità di gioco
 Esistono due modalità di gioco :
 - **Gioco in presenza:** I partner giocano fisicamente insieme. Dopo ogni azione completata, il turno passa all'altro giocatore.
@@ -22,5 +30,29 @@ In Loverquest crediamo che l’amore appartenga a tutti. Per garantire un'esperi
 - **Coppia lesbica:** Coppia in cui entrambi i partner hanno genitali femminili.
 - **Coppia gay:** Coppia in cui entrambi i partner hanno genitali maschili.
 
+<p align="center">
+  <img src="/github_pages/assets/screen_carousel_2.png" alt="Banner" width="1100"/>
+</p>  
+
 ## Creazione di deck personalizzati
 Oltre ai numerosi deck preimpostati per ogni tipologia di coppia e modalità di gioco, Loverquest permette agli utenti di creare senza limiti deck e quest personalizzate, offrendo un’esperienza davvero unica ed eccitante.
+
+<p align="center">
+  <img src="/github_pages/assets/screen_carousel_3.png" alt="Banner" width="1100"/>
+</p>
+
+## Lingue supportate
+Loverquest currently supports the following languages:  
+- **Inglese**
+- **Italiano**
+- **Spagnolo** - _in arrivo_
+- **Tedesco** - _in arrivo_
+- **Francese** - _in arrivo_
+
+## Come posso supportare il progetto ?
+Il sostegno della comunità per noi è fondamentale, ed i modi migliori di contribuire al progetto sono l'aiutarci con le traduzioni, a sviluppare nuove funzionalità oppure facendo una donazione per permetterci di continuare lo sviluppo e la manutenzione dell'app.
+- [Donaci su PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
+- [Donaci su BuyMeACoffee](https://buymeacoffee.com/herzen)
+
+## Quale è la tabella di marcia del progetto ?
+Puoi consultare la tabella di marcia del progetto nella apposita [pagina dedicata](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
