@@ -3,7 +3,7 @@
 </p>
 
 ## See the page in other languages
-- [Accedi alla pagina italiana]()
+- [Accedi alla pagina italiana](https://github.com/H3rz3n/loverquest/blob/main/github_pages/ita/italian_readme.md)
 
 
 ## What is Loverquest?  
