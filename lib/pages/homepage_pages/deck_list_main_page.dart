@@ -28,9 +28,18 @@ class DeckSelectionPage extends StatelessWidget {
         child: SingleChildScrollView(
 
           // SCROLLABLE CONTAINER CONTENT
-          child: Container(
+          child: Align(
 
-            // PAGE PADDING
+            // ALIGNMENT
+            alignment: Alignment.center,
+
+            // ALIGN CONTENT
+            child: Container(
+
+              // SETTING THE WIDTH LIMIT
+              constraints: BoxConstraints(maxWidth: 600),
+
+              // PAGE PADDING
               padding: EdgeInsets.all(10),
 
               // PAGE ALIGNMENT
@@ -419,7 +428,9 @@ class DeckSelectionPage extends StatelessWidget {
                   //------------------------------------------------------------------------------
 
                 ],
-              )
+              ),
+
+            ),
 
           ),
 

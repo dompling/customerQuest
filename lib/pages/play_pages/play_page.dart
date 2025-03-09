@@ -458,193 +458,492 @@ class _PlayPageState extends State<PlayPage> {
         child: SingleChildScrollView(
 
           // SCROLLABLE CONTAINER CONTENT
-          child: Container(
+          child: Align(
 
-            // PAGE PADDING
-            padding: EdgeInsets.all(10),
+            // ALIGNMENT
+            alignment: Alignment.center,
 
-            // PAGE ALIGNMENT
-            alignment: Alignment.topCenter,
+            // ALIGN CONTENT
+            child: Container(
 
-            // CONTAINER CONTENT
-            child: Column(
+              // SETTING THE WIDTH LIMIT
+              constraints: BoxConstraints(maxWidth: 600),
 
-              // ALIGNMENT
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              // PAGE PADDING
+              padding: EdgeInsets.all(10),
 
-              // COLUMN CONTENT
-              children: [
+              // PAGE ALIGNMENT
+              alignment: Alignment.topCenter,
 
-                //------------------------------------------------------------------------------
+              // CONTAINER CONTENT
+              child: Column(
 
-                // SPACER
-                const SizedBox(height: 30),
+                // ALIGNMENT
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
 
-                //------------------------------------------------------------------------------
+                // COLUMN CONTENT
+                children: [
 
-                // PLAYER DATA CONTAINER
-                !widget.game_type ?Row(
+                  //------------------------------------------------------------------------------
 
-                  // ALIGNMENT
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  // SPACER
+                  const SizedBox(height: 45),
 
-                  // ROW CONTENT
-                  children: [
+                  //------------------------------------------------------------------------------
 
-                    //------------------------------------------------------------------------------
-
-                    // PAGE LOGO
-                    Image.asset(
-                      current_player.player_icon_path,
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.contain,
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(width: 15),
-
-                    //------------------------------------------------------------------------------
-
-                    // PAGE TITLE CONTAINER
-                    Flexible(
-
-                      // TITLE
-                      child: Text(
-                        // TEXT
-                        current_player.player_alias,
-
-                        // TEXT ALIGNMENT
-                        textAlign: TextAlign.center,
-
-                        // TEXT STYLE
-                        style: TextStyle(
-
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-
-                        ),
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ):SizedBox.shrink(),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 30),
-
-                //------------------------------------------------------------------------------
-
-                // QUEST BOX
-                Container(
-
-                  // SIZE
-                  width: double.infinity,
-
-                  // PADDING
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-
-                  // ALIGNMENT
-                  alignment: Alignment.topCenter,
-
-                  // STYLING
-                  decoration: BoxDecoration(
-
-                    // BACKGROUND COLOR
-                    color: Theme.of(context).colorScheme.primary,
-
-                    // BORDER RADIUS
-                    borderRadius: BorderRadius.circular(20),
-
-                  ),
-
-                  // CONTAINER CONTENT
-                  child: Column(
+                  // PLAYER DATA CONTAINER
+                  !widget.game_type ?Row(
 
                     // ALIGNMENT
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
 
-                      // COLUMN CONTENT
-                      children: [
+                    // ROW CONTENT
+                    children: [
 
-                        //------------------------------------------------------------------------------
+                      //------------------------------------------------------------------------------
 
-                        // PAGE TITLE CONTAINER
-                        FractionallySizedBox(
+                      // PAGE LOGO
+                      Image.asset(
+                        current_player.player_icon_path,
+                        width: 50,
+                        height: 50,
+                        fit: BoxFit.contain,
+                      ),
 
-                          // DYNAMIC WIDTH
-                          widthFactor: 0.8,
+                      //------------------------------------------------------------------------------
 
-                          // TITLE
-                          child: Text(
+                      // SPACER
+                      const SizedBox(width: 15),
+
+                      //------------------------------------------------------------------------------
+
+                      // PAGE TITLE CONTAINER
+                      Flexible(
+
+                        // TITLE
+                        child: Text(
+                          // TEXT
+                          current_player.player_alias,
+
+                          // TEXT ALIGNMENT
+                          textAlign: TextAlign.center,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+
+                          ),
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ):SizedBox.shrink(),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 30),
+
+                  //------------------------------------------------------------------------------
+
+                  // QUEST BOX
+                  Container(
+
+                    // SIZE
+                    width: double.infinity,
+
+                    // PADDING
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+
+                    // ALIGNMENT
+                    alignment: Alignment.topCenter,
+
+                    // STYLING
+                    decoration: BoxDecoration(
+
+                      // BACKGROUND COLOR
+                      color: Theme.of(context).colorScheme.primary,
+
+                      // BORDER RADIUS
+                      borderRadius: BorderRadius.circular(20),
+
+                    ),
+
+                    // CONTAINER CONTENT
+                    child: Column(
+
+                      // ALIGNMENT
+                        crossAxisAlignment: CrossAxisAlignment.center,
+
+                        // COLUMN CONTENT
+                        children: [
+
+                          //------------------------------------------------------------------------------
+
+                          // PAGE TITLE CONTAINER
+                          FractionallySizedBox(
+
+                            // DYNAMIC WIDTH
+                            widthFactor: 0.8,
+
+                            // TITLE
+                            child: Text(
+                              // TEXT
+                              AppLocalizations.of(context)!.play_page_title,
+
+                              // TEXT ALIGNMENT
+                              textAlign: TextAlign.center,
+
+                              // TEXT STYLE
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+
+                              ),
+                            ),
+
+                          ),
+
+                          //------------------------------------------------------------------------------
+
+                          // SPACER
+                          const SizedBox(height: 15),
+
+                          //------------------------------------------------------------------------------
+
+                          // QUEST TEXT BOX
+                          Text(
+
                             // TEXT
-                            AppLocalizations.of(context)!.play_page_title,
-
-                            // TEXT ALIGNMENT
-                            textAlign: TextAlign.center,
+                            current_quest.content,
 
                             // TEXT STYLE
                             style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
 
                             ),
                           ),
 
-                        ),
+                          //------------------------------------------------------------------------------
 
-                        //------------------------------------------------------------------------------
+                          // SPACER
+                          const SizedBox(height: 15),
 
-                        // SPACER
-                        const SizedBox(height: 15),
+                          //------------------------------------------------------------------------------
 
-                        //------------------------------------------------------------------------------
+                          // PLAY DISCARD BUTTONS CONTAINER
+                          Container(
 
-                        // QUEST TEXT BOX
-                        Text(
+                            // SIZE
+                            width: double.infinity,
 
-                          // TEXT
-                          current_quest.content,
+                            // ALIGNMENT
+                            alignment: Alignment.center,
 
-                          // TEXT STYLE
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.normal,
+                            // BUTTON BOX
+                            child: Row(
+
+                              mainAxisAlignment: MainAxisAlignment.center,
+
+                              // BOX CONTENT
+                              children: [
+
+                                //------------------------------------------------------------------------------
+
+                                // QUEST DONE BUTTON BOX
+                                SizedBox(
+
+                                  // FIXED WIDTH
+                                  width: 140,
+
+                                  // QUEST DONE BUTTON
+                                  child: ElevatedButton(
+
+                                    // BUTTON STYLE PARAMETERS
+                                      style: ButtonStyle(
+
+                                        // NORMAL TEXT COLOR
+                                        foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                                        // NORMAL BACKGROUND COLOR
+                                        backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
+                                            157, 241, 129, 0.49411764705882355)),
+
+                                        // PADDING
+                                        padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+
+                                        // BORDER RADIUS
+                                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(100),
+                                          ),
+                                        ),
+
+                                      ),
+
+                                      // ON PRESSED CALL
+                                      onPressed: () { switch_playing_player(); },
+
+                                      // BUTTON CONTENT
+                                      child: Row(
+
+                                        // ALIGNMENT
+                                        mainAxisAlignment: MainAxisAlignment.center,
+
+                                        children: [
+
+                                          //------------------------------------------------------------------------------
+
+                                          // SCISSOR ICON
+                                          Icon(
+
+                                            // ICONS
+                                            Icons.verified_rounded,
+
+                                            // ICONS COLOR
+                                            color: Theme.of(context).colorScheme.onPrimary,
+
+                                          ),
+
+                                          //------------------------------------------------------------------------------
+
+                                          // SPACER
+                                          const SizedBox(width: 5),
+
+                                          //------------------------------------------------------------------------------
+
+                                          //BUTTON TEXT CONTAINER
+                                          Flexible(
+
+                                            // BUTTON TEXT
+                                            child: Text(
+
+                                              // TEXT
+                                              AppLocalizations.of(context)!.play_page_completed_button,
+
+                                              // TEXT ALIGNMENT
+                                              textAlign: TextAlign.center,
+
+                                              // TEXT STYLE
+                                              style: TextStyle(
+
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w500,
+
+                                              ),
+
+                                            ),
+
+                                          )
+
+                                          //------------------------------------------------------------------------------
+
+                                        ],
+
+                                      )
+
+                                  ),
+
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(width: 15),
+
+                                //------------------------------------------------------------------------------
+
+                                // QUEST DONE BUTTON BOX
+                                SizedBox(
+
+                                  // FIXED WIDTH
+                                  width: 140,
+
+                                  // SKIP QUEST  BUTTON
+                                  child: ElevatedButton(
+
+                                    // BUTTON STYLE PARAMETERS
+                                      style: ButtonStyle(
+
+                                        // NORMAL TEXT COLOR
+                                        foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                                        // NORMAL BACKGROUND COLOR
+                                        backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
+                                            219, 157, 80, 0.8784313725490196)),
+
+                                        // PADDING
+                                        padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+
+                                        // BORDER RADIUS
+                                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(100),
+                                          ),
+                                        ),
+
+                                      ),
+
+                                      // ON PRESSED CALL
+                                      onPressed: () { skip_current_quest(); },
+
+                                      // BUTTON CONTENT
+                                      child: Row(
+
+                                        // ALIGNMENT
+                                        mainAxisAlignment: MainAxisAlignment.center,
+
+                                        children: [
+
+                                          //------------------------------------------------------------------------------
+
+                                          // SCISSOR ICON
+                                          Icon(
+
+                                            // ICONS
+                                            Icons.cut,
+
+                                            // ICONS COLOR
+                                            color: Theme.of(context).colorScheme.onPrimary,
+
+                                          ),
+
+                                          //------------------------------------------------------------------------------
+
+                                          // SPACER
+                                          const SizedBox(width: 5),
+
+                                          //------------------------------------------------------------------------------
+
+                                          // BUTTON TEXT CONTAINER
+                                          Flexible(
+
+                                            // BUTTON TEXT
+                                            child: Text(
+
+                                              // TEXT
+                                              AppLocalizations.of(context)!.play_page_replace_button,
+                                              //'',
+
+                                              // TEXT ALIGNMENT
+                                              textAlign: TextAlign.center,
+
+                                              // TEXT STYLE
+                                              style: TextStyle(
+
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w500,
+
+                                              ),
+
+                                            ),
+
+                                          ),
+
+                                          //------------------------------------------------------------------------------
+
+                                        ],
+
+                                      )
+
+                                  ),
+
+
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                              ],
+
+                            ),
+
+                          )
+
+                          //------------------------------------------------------------------------------
+
+                        ]
+
+                    ),
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // TIMER BOX
+                  show_timer ?Container(
+
+                    // SIZE
+                    width: double.infinity,
+
+                    // PADDING
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+
+                    // ALIGNMENT
+                    alignment: Alignment.topCenter,
+
+                    // STYLING
+                    decoration: BoxDecoration(
+
+                      // BACKGROUND COLOR
+                      color: Theme.of(context).colorScheme.primary,
+
+                      // BORDER RADIUS
+                      borderRadius: BorderRadius.circular(20),
+
+                    ),
+
+                    // CONTAINER CONTENT
+                    child: Column(
+
+                      // ALIGNMENT
+                        crossAxisAlignment: CrossAxisAlignment.center,
+
+                        // COLUMN CONTENT
+                        children: [
+
+                          //------------------------------------------------------------------------------
+
+                          // TIMER TEXT
+                          Text(
+
+                            // TIMER TEXT
+                            _formatTime(remaining_seconds),
+
+                            // TEXT STYLE
+                            style: TextStyle(
+
+                                fontSize: 48,
+                                fontWeight: FontWeight.bold
+
+                            ),
 
                           ),
-                        ),
 
-                        //------------------------------------------------------------------------------
+                          //------------------------------------------------------------------------------
 
-                        // SPACER
-                        const SizedBox(height: 15),
+                          // SPACER
+                          SizedBox(height: 5),
 
-                        //------------------------------------------------------------------------------
+                          //------------------------------------------------------------------------------
 
-                        // PLAY DISCARD BUTTONS CONTAINER
-                        Container(
-
-                          // SIZE
-                          width: double.infinity,
-
-                          // ALIGNMENT
-                          alignment: Alignment.center,
-
-                          // BUTTON BOX
-                          child: Row(
+                          // BUTTON ROW
+                          Row(
 
                             mainAxisAlignment: MainAxisAlignment.center,
 
-                            // BOX CONTENT
                             children: [
 
                               //------------------------------------------------------------------------------
@@ -652,8 +951,9 @@ class _PlayPageState extends State<PlayPage> {
                               // QUEST DONE BUTTON BOX
                               SizedBox(
 
-                                // FIXED WIDTH
-                                width: 140,
+                                // FIXED SIZE
+                                width: 60,
+                                height: 60,
 
                                 // QUEST DONE BUTTON
                                 child: ElevatedButton(
@@ -666,10 +966,10 @@ class _PlayPageState extends State<PlayPage> {
 
                                       // NORMAL BACKGROUND COLOR
                                       backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                          157, 241, 129, 0.49411764705882355)),
+                                          86, 86, 86, 0.49411764705882355)),
 
                                       // PADDING
-                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
 
                                       // BORDER RADIUS
                                       shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -681,7 +981,7 @@ class _PlayPageState extends State<PlayPage> {
                                     ),
 
                                     // ON PRESSED CALL
-                                    onPressed: () { switch_playing_player(); },
+                                    onPressed: is_running ? pause_countdown : () => resume_countdown(),
 
                                     // BUTTON CONTENT
                                     child: Row(
@@ -697,43 +997,14 @@ class _PlayPageState extends State<PlayPage> {
                                         Icon(
 
                                           // ICONS
-                                          Icons.verified_rounded,
+                                          is_pressed ? Icons.pause : Icons.play_arrow,
 
                                           // ICONS COLOR
                                           color: Theme.of(context).colorScheme.onPrimary,
 
+                                          size: 30,
+
                                         ),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // SPACER
-                                        const SizedBox(width: 5),
-
-                                        //------------------------------------------------------------------------------
-
-                                        //BUTTON TEXT CONTAINER
-                                        Flexible(
-
-                                          // BUTTON TEXT
-                                          child: Text(
-
-                                            // TEXT
-                                            AppLocalizations.of(context)!.play_page_completed_button,
-
-                                            // TEXT ALIGNMENT
-                                            textAlign: TextAlign.center,
-
-                                            // TEXT STYLE
-                                            style: TextStyle(
-
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
-
-                                            ),
-
-                                          ),
-
-                                        )
 
                                         //------------------------------------------------------------------------------
 
@@ -747,18 +1018,18 @@ class _PlayPageState extends State<PlayPage> {
 
                               //------------------------------------------------------------------------------
 
-                              // SPACER
-                              const SizedBox(width: 15),
+                              SizedBox(width: 15),
 
                               //------------------------------------------------------------------------------
 
                               // QUEST DONE BUTTON BOX
                               SizedBox(
 
-                                // FIXED WIDTH
-                                width: 140,
+                                // FIXED SIZE
+                                width: 60,
+                                height: 60,
 
-                                // SKIP QUEST  BUTTON
+                                // QUEST DONE BUTTON
                                 child: ElevatedButton(
 
                                   // BUTTON STYLE PARAMETERS
@@ -769,10 +1040,10 @@ class _PlayPageState extends State<PlayPage> {
 
                                       // NORMAL BACKGROUND COLOR
                                       backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                          219, 157, 80, 0.8784313725490196)),
+                                          86, 86, 86, 0.49411764705882355)),
 
                                       // PADDING
-                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
 
                                       // BORDER RADIUS
                                       shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -784,7 +1055,7 @@ class _PlayPageState extends State<PlayPage> {
                                     ),
 
                                     // ON PRESSED CALL
-                                    onPressed: () { skip_current_quest(); },
+                                    onPressed: reset_countdown,
 
                                     // BUTTON CONTENT
                                     child: Row(
@@ -800,42 +1071,12 @@ class _PlayPageState extends State<PlayPage> {
                                         Icon(
 
                                           // ICONS
-                                          Icons.cut,
+                                          Icons.restart_alt_rounded,
 
                                           // ICONS COLOR
                                           color: Theme.of(context).colorScheme.onPrimary,
 
-                                        ),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // SPACER
-                                        const SizedBox(width: 5),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // BUTTON TEXT CONTAINER
-                                        Flexible(
-
-                                          // BUTTON TEXT
-                                          child: Text(
-
-                                            // TEXT
-                                            AppLocalizations.of(context)!.play_page_replace_button,
-                                            //'',
-
-                                            // TEXT ALIGNMENT
-                                            textAlign: TextAlign.center,
-
-                                            // TEXT STYLE
-                                            style: TextStyle(
-
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
-
-                                            ),
-
-                                          ),
+                                          size: 30,
 
                                         ),
 
@@ -847,7 +1088,6 @@ class _PlayPageState extends State<PlayPage> {
 
                                 ),
 
-
                               ),
 
                               //------------------------------------------------------------------------------
@@ -856,248 +1096,19 @@ class _PlayPageState extends State<PlayPage> {
 
                           ),
 
-                        )
+                          //------------------------------------------------------------------------------
 
-                        //------------------------------------------------------------------------------
+                        ]
 
-                      ]
+                    ),
 
-                  ),
+                  ): SizedBox.shrink(),
 
-                ),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                ],
 
-                // SPACER
-                const SizedBox(height: 15),
-
-                //------------------------------------------------------------------------------
-
-                // TIMER BOX
-                show_timer ?Container(
-
-                  // SIZE
-                  width: double.infinity,
-
-                  // PADDING
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-
-                  // ALIGNMENT
-                  alignment: Alignment.topCenter,
-
-                  // STYLING
-                  decoration: BoxDecoration(
-
-                    // BACKGROUND COLOR
-                    color: Theme.of(context).colorScheme.primary,
-
-                    // BORDER RADIUS
-                    borderRadius: BorderRadius.circular(20),
-
-                  ),
-
-                  // CONTAINER CONTENT
-                  child: Column(
-
-                    // ALIGNMENT
-                      crossAxisAlignment: CrossAxisAlignment.center,
-
-                      // COLUMN CONTENT
-                      children: [
-
-                        //------------------------------------------------------------------------------
-
-                        // TIMER TEXT
-                        Text(
-
-                          // TIMER TEXT
-                          _formatTime(remaining_seconds),
-
-                          // TEXT STYLE
-                          style: TextStyle(
-
-                              fontSize: 48,
-                              fontWeight: FontWeight.bold
-
-                          ),
-
-                        ),
-
-                        //------------------------------------------------------------------------------
-
-                        // SPACER
-                        SizedBox(height: 5),
-
-                        //------------------------------------------------------------------------------
-
-                        // BUTTON ROW
-                        Row(
-
-                          mainAxisAlignment: MainAxisAlignment.center,
-
-                          children: [
-
-                            //------------------------------------------------------------------------------
-
-                            // QUEST DONE BUTTON BOX
-                            SizedBox(
-
-                              // FIXED SIZE
-                              width: 60,
-                              height: 60,
-
-                              // QUEST DONE BUTTON
-                              child: ElevatedButton(
-
-                                // BUTTON STYLE PARAMETERS
-                                  style: ButtonStyle(
-
-                                    // NORMAL TEXT COLOR
-                                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                                    // NORMAL BACKGROUND COLOR
-                                    backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                        86, 86, 86, 0.49411764705882355)),
-
-                                    // PADDING
-                                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                                    // BORDER RADIUS
-                                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100),
-                                      ),
-                                    ),
-
-                                  ),
-
-                                  // ON PRESSED CALL
-                                  onPressed: is_running ? pause_countdown : () => resume_countdown(),
-
-                                  // BUTTON CONTENT
-                                  child: Row(
-
-                                    // ALIGNMENT
-                                    mainAxisAlignment: MainAxisAlignment.center,
-
-                                    children: [
-
-                                      //------------------------------------------------------------------------------
-
-                                      // SCISSOR ICON
-                                      Icon(
-
-                                        // ICONS
-                                        is_pressed ? Icons.pause : Icons.play_arrow,
-
-                                        // ICONS COLOR
-                                        color: Theme.of(context).colorScheme.onPrimary,
-
-                                        size: 30,
-
-                                      ),
-
-                                      //------------------------------------------------------------------------------
-
-                                    ],
-
-                                  )
-
-                              ),
-
-                            ),
-
-                            //------------------------------------------------------------------------------
-
-                            SizedBox(width: 15),
-
-                            //------------------------------------------------------------------------------
-
-                            // QUEST DONE BUTTON BOX
-                            SizedBox(
-
-                              // FIXED SIZE
-                              width: 60,
-                              height: 60,
-
-                              // QUEST DONE BUTTON
-                              child: ElevatedButton(
-
-                                // BUTTON STYLE PARAMETERS
-                                  style: ButtonStyle(
-
-                                    // NORMAL TEXT COLOR
-                                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                                    // NORMAL BACKGROUND COLOR
-                                    backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                        86, 86, 86, 0.49411764705882355)),
-
-                                    // PADDING
-                                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                                    // BORDER RADIUS
-                                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100),
-                                      ),
-                                    ),
-
-                                  ),
-
-                                  // ON PRESSED CALL
-                                  onPressed: reset_countdown,
-
-                                  // BUTTON CONTENT
-                                  child: Row(
-
-                                    // ALIGNMENT
-                                    mainAxisAlignment: MainAxisAlignment.center,
-
-                                    children: [
-
-                                      //------------------------------------------------------------------------------
-
-                                      // SCISSOR ICON
-                                      Icon(
-
-                                        // ICONS
-                                        Icons.restart_alt_rounded,
-
-                                        // ICONS COLOR
-                                        color: Theme.of(context).colorScheme.onPrimary,
-
-                                        size: 30,
-
-                                      ),
-
-                                      //------------------------------------------------------------------------------
-
-                                    ],
-
-                                  )
-
-                              ),
-
-                            ),
-
-                            //------------------------------------------------------------------------------
-
-                          ],
-
-                        ),
-
-                        //------------------------------------------------------------------------------
-
-                      ]
-
-                  ),
-
-                ): SizedBox.shrink(),
-
-                //------------------------------------------------------------------------------
-
-              ],
+              ),
 
             ),
 

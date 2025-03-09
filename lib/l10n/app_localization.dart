@@ -494,7 +494,7 @@ abstract class AppLocalizations {
   /// No description provided for @deck_info_information_quest_number_label.
   ///
   /// In en, this message translates to:
-  /// **'Quests number: '**
+  /// **'Number of quests: '**
   String get deck_info_information_quest_number_label;
 
   /// No description provided for @deck_info_information_requested_tools_label.

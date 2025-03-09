@@ -1,15 +1,12 @@
 {
   "summary": {
-    "name": "Experimentalist",
-    "description": "Una avvincente avventura di coppia !",
+    "name": "Daring",
+    "description": "It’s time to get a little bolder! These challenges will push your boundaries, ignite new desires, and turn up the heat—all while keeping mutual trust at the center.",
     "couple_type": "hetero",
     "play_distance": true,
     "language": "en",
     "total_quests": 13,
-    "average_difficulty": 2,
-    "average_duration": 45,
-    "required_tools": ["corda", "benda", "dadi"],
-    "protected": true
+    "required_tools": []
 
   },
 

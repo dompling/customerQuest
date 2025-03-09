@@ -173,403 +173,413 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
       // SCAFFOLD CONTENT
       body: SafeArea(
 
-        child: Container(
+        child: Align(
 
-          // PAGE PADDING
-          padding: EdgeInsets.all(10),
+          // ALIGNMENT
+          alignment: Alignment.center,
 
-          // PAGE ALIGNMENT
-          alignment: Alignment.topCenter,
+          // ALIGN CONTENT
+          child: Container(
 
-          // SAFE AREA CONTENT
-          child: CustomScrollView (
+            // SETTING THE WIDTH LIMIT
+            constraints: BoxConstraints(maxWidth: 600),
 
-            // PAGE CONTENT
-            slivers: [
+            // PAGE PADDING
+            padding: EdgeInsets.all(10),
 
-              //------------------------------------------------------------------------------
+            // PAGE ALIGNMENT
+            alignment: Alignment.topCenter,
 
-              // STATIC PART OF THE PAGE
-              SliverToBoxAdapter(
+            // SAFE AREA CONTENT
+            child: CustomScrollView (
 
-                // CONTAINER CONTENT
-                child: Column(
+              // PAGE CONTENT
+              slivers: [
 
-                  // SIZE
-                  mainAxisSize: MainAxisSize.min,
+                //------------------------------------------------------------------------------
 
-                  // COLUMN CONTENT
-                  children: [
+                // STATIC PART OF THE PAGE
+                SliverToBoxAdapter(
 
-                    //------------------------------------------------------------------------------
+                  // CONTAINER CONTENT
+                  child: Column(
 
-                    // PAGE LOGO
-                    Image.asset(
-                      'assets/images/deck_choice_icon.png',
-                      width: 140,
-                      height: 140,
-                      fit: BoxFit.contain,
-                    ),
+                    // SIZE
+                    mainAxisSize: MainAxisSize.min,
 
-                    //------------------------------------------------------------------------------
+                    // COLUMN CONTENT
+                    children: [
 
-                    // SPACER
-                    const SizedBox(height: 30),
+                      //------------------------------------------------------------------------------
 
-                    //------------------------------------------------------------------------------
-
-                    // PAGE TITLE CONTAINER
-                    FractionallySizedBox(
-
-                      // DYNAMIC WIDTH
-                      widthFactor: 0.8,
-
-                      // TITLE
-                      child: Text(
-                        // TEXT
-                        AppLocalizations.of(context)!.select_deck_page_title,
-
-                        // TEXT ALIGNMENT
-                        textAlign: TextAlign.center,
-
-                        // TEXT STYLE
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-
-                        ),
+                      // PAGE LOGO
+                      Image.asset(
+                        'assets/images/deck_choice_icon.png',
+                        width: 140,
+                        height: 140,
+                        fit: BoxFit.contain,
                       ),
 
-                    ),
+                      //------------------------------------------------------------------------------
 
-                    //------------------------------------------------------------------------------
+                      // SPACER
+                      const SizedBox(height: 30),
 
-                    // SPACER
-                    const SizedBox(height: 30),
+                      //------------------------------------------------------------------------------
 
-                    //------------------------------------------------------------------------------
+                      // PAGE TITLE CONTAINER
+                      FractionallySizedBox(
 
-                  ],
+                        // DYNAMIC WIDTH
+                        widthFactor: 0.8,
 
-                ),
+                        // TITLE
+                        child: Text(
+                          // TEXT
+                          AppLocalizations.of(context)!.select_deck_page_title,
 
-              ),
+                          // TEXT ALIGNMENT
+                          textAlign: TextAlign.center,
 
-              //------------------------------------------------------------------------------
-
-              // DYNAMIC PART OF THE PAGE
-              SliverList(
-
-                // DYNAMIC PART OF THE WIDGET
-                delegate: SliverChildBuilderDelegate(
-
-                      (context, index) {
-                    //String deck_path = filtered_deck_managers[index].deck_file_path;
-                    String deck_name = filtered_deck_managers[index].summary.name;
-                    int deck_quest_number = filtered_deck_managers[index].summary.total_quests;
-                    List<String> deck_tools = filtered_deck_managers[index].summary.required_tools;
-
-                    // GETTING DECK DIFFICULTY INFO
-                    LanguageInfo language_info_object = get_language_info(context, filtered_deck_managers[index].summary.language);
-                    ToolsInfo tools_info_object = get_tools_info(context, deck_tools);
-                    
-                    // DYNAMIC LIST CONTENT
-                    return SizedBox(
-
-                      // WIDTH LARGE AS SCREEN
-                      width: double.infinity,
-
-                      // SIZE BOX CONTENT
-                      child: Column(
-
-                        // COLUMN CONTENT
-                        children: [
-
-                          // FIRST GAME MODE BUTTON
-                          ElevatedButton(
-
-                            //------------------------------------------------------------------------------
-
-                            // BUTTON STYLE PARAMETERS
-                            style: ButtonStyle(
-
-                              // NORMAL TEXT COLOR
-                              foregroundColor: WidgetStateProperty.all(
-                                  Theme.of(context).colorScheme.onPrimary
-                              ),
-
-                              // NORMAL BACKGROUND COLOR
-                              backgroundColor: WidgetStateProperty.all(
-                                Theme.of(context).colorScheme.primary,
-                              ),
-
-                              // CORNERS RADIUS
-                              shape:
-                              WidgetStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-
-                              // PADDING
-                              padding: WidgetStateProperty.all<EdgeInsets>(
-                                EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                              ),
-
-                            ),
-
-                            //------------------------------------------------------------------------------
-
-                            // ON PRESSED CALL
-                            onPressed: () {
-
-                              // PAGE LINKER
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-
-                                  // OPEN NEW PAGE
-                                  builder: (context) => DeckInfoPage(
-                                    player_1_object: widget.player_1_object,
-                                    player_2_object: widget.player_2_object,
-                                    first_player: widget.first_player,
-                                    selected_deck: filtered_deck_managers[index],
-                                    can_edit: false,
-                                    game_type: widget.game_type,
-
-                                  ),
-
-                                ),
-
-                              );
-
-                            },
-
-                            //------------------------------------------------------------------------------
-
-                            // BUTT0N CONTENT
-                            child: Row(
-
-                              // ROW CONTENT
-                              children: [
-
-                                //------------------------------------------------------------------------------
-
-                                // COLUMN
-                                Expanded(
-                                  child: Column(
-
-                                    // COLUMN ALIGNMENT
-                                    crossAxisAlignment:CrossAxisAlignment.start,
-
-                                    children: [
-
-                                      //------------------------------------------------------------------------------
-
-                                      // CARD TEXT
-                                      Text(
-                                        // TEXT
-                                        deck_name,
-
-                                        // TEXT STYLE
-                                        style: TextStyle(
-                                          fontSize: 18.5,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-
-                                      //------------------------------------------------------------------------------
-
-                                      // SPACER
-                                      const SizedBox(height: 15),
-
-                                      //------------------------------------------------------------------------------
-
-                                      // TAGS BOX
-                                      Wrap(
-
-                                        // ELEMENTS HORIZONTAL SPACING
-                                        spacing: 5,
-
-                                        // ELEMENTS VERTICAL SPACING
-                                        runSpacing: 7,
-
-                                        children: [
-
-                                          //------------------------------------------------------------------------------
-
-                                          // LANGUAGE TAG
-                                          Container(
-
-                                            // PADDING
-                                            padding: EdgeInsets.all(7),
-
-                                            //CONTAINER STYLE
-                                            decoration: BoxDecoration(
-
-                                              // BACKGROUND COLOR
-                                              color: language_info_object.background_color,
-
-                                              // BORDER RADIUS
-                                              borderRadius: BorderRadius.circular(16),
-
-                                              // BORDER STYLE
-                                              border: Border.all(
-                                                color: language_info_object.border_color,
-                                                width: 2,
-                                              ),
-
-                                            ),
-
-                                            // CONTAINER CONTENT
-                                            child: Text(
-
-                                              // TEXT
-                                              language_info_object.label,
-
-                                              // TEXT STYLE
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                              ),
-
-                                            ),
-
-                                          ),
-
-                                          //------------------------------------------------------------------------------
-
-                                          // TOOLS TAG
-                                          Container(
-
-                                            // PADDING
-                                            padding: EdgeInsets.all(7),
-
-                                            //CONTAINER STYLE
-                                            decoration: BoxDecoration(
-
-                                              // BACKGROUND COLOR
-                                              color: tools_info_object.background_color,
-
-                                              // BORDER RADIUS
-                                              borderRadius: BorderRadius.circular(16),
-
-                                              // BORDER STYLE
-                                              border: Border.all(
-                                                color: tools_info_object.border_color,
-                                                width: 2,
-                                              ),
-
-                                            ),
-
-                                            // CONTAINER CONTENT
-                                            child: Text(
-
-                                              // TEXT
-                                              tools_info_object.label,
-
-                                              // TEXT STYLE
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                              ),
-
-                                            ),
-
-                                          ),
-
-                                          //------------------------------------------------------------------------------
-
-                                          // QUEST NUMBER TAG
-                                          Container(
-
-                                            // PADDING
-                                            padding: EdgeInsets.all(7),
-
-                                            //CONTAINER STYLE
-                                            decoration: BoxDecoration(
-
-                                              // BACKGROUND COLOR
-                                              color: Color(0xff376255),
-
-                                              // BORDER RADIUS
-                                              borderRadius: BorderRadius.circular(16),
-
-                                              // BORDER STYLE
-                                              border: Border.all(
-                                                color: Color(0xff6aab92),
-                                                width: 2,
-                                              ),
-
-                                            ),
-
-                                            // CONTAINER CONTENT
-                                            child: Text(
-
-                                              // TEXT
-                                              '$deck_quest_number quest',
-
-                                              // TEXT STYLE
-                                              style: TextStyle(
-                                                fontSize: 13,
-                                              ),
-
-                                            ),
-
-                                          ),
-
-                                          //------------------------------------------------------------------------------
-
-                                        ],
-
-                                      ),
-
-                                      //------------------------------------------------------------------------------
-
-                                    ],
-
-                                  ),
-
-                                ),
-                                
-                                // ARROW ICON
-                                Icon(
-
-                                  // ICON IMAGE
-                                  Icons.arrow_forward,
-
-                                  // ICON COLOR
-                                  color: Theme.of(context).colorScheme.onPrimary,
-
-                                )
-                                
-                              ],
-
-                            ),
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
 
                           ),
-
-                          // SPACER
-                          const SizedBox(height: 15),
-
-                        ],
+                        ),
 
                       ),
 
-                    );
+                      //------------------------------------------------------------------------------
 
-                  },
+                      // SPACER
+                      const SizedBox(height: 30),
 
-                  // GETTING THE LIST ELEMENT
-                  childCount: filtered_deck_managers.length,
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
 
                 ),
 
                 //------------------------------------------------------------------------------
 
-              ),
+                // DYNAMIC PART OF THE PAGE
+                SliverList(
 
-              //------------------------------------------------------------------------------
+                  // DYNAMIC PART OF THE WIDGET
+                  delegate: SliverChildBuilderDelegate(
 
-            ],
+                        (context, index) {
+                      //String deck_path = filtered_deck_managers[index].deck_file_path;
+                      String deck_name = filtered_deck_managers[index].summary.name;
+                      int deck_quest_number = filtered_deck_managers[index].summary.total_quests;
+                      List<String> deck_tools = filtered_deck_managers[index].summary.required_tools;
+
+                      // GETTING DECK DIFFICULTY INFO
+                      LanguageInfo language_info_object = get_language_info(context, filtered_deck_managers[index].summary.language);
+                      ToolsInfo tools_info_object = get_tools_info(context, deck_tools);
+
+                      // DYNAMIC LIST CONTENT
+                      return Align(
+
+                        // ALIGNMENT
+                        alignment: Alignment.center,
+
+                        child: Column(
+
+                          // COLUMN CONTENT
+                          children: [
+
+                            // FIRST GAME MODE BUTTON
+                            ElevatedButton(
+
+                              //------------------------------------------------------------------------------
+
+                              // BUTTON STYLE PARAMETERS
+                              style: ButtonStyle(
+
+                                // NORMAL TEXT COLOR
+                                foregroundColor: WidgetStateProperty.all(
+                                    Theme.of(context).colorScheme.onPrimary
+                                ),
+
+                                // NORMAL BACKGROUND COLOR
+                                backgroundColor: WidgetStateProperty.all(
+                                  Theme.of(context).colorScheme.primary,
+                                ),
+
+                                // CORNERS RADIUS
+                                shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                ),
+
+                                // PADDING
+                                padding: WidgetStateProperty.all<EdgeInsets>(
+                                  EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                                ),
+
+                              ),
+
+                              //------------------------------------------------------------------------------
+
+                              // ON PRESSED CALL
+                              onPressed: () {
+
+                                // PAGE LINKER
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+
+                                    // OPEN NEW PAGE
+                                    builder: (context) => DeckInfoPage(
+                                      player_1_object: widget.player_1_object,
+                                      player_2_object: widget.player_2_object,
+                                      first_player: widget.first_player,
+                                      selected_deck: filtered_deck_managers[index],
+                                      can_edit: false,
+                                      game_type: widget.game_type,
+
+                                    ),
+
+                                  ),
+
+                                );
+
+                              },
+
+                              //------------------------------------------------------------------------------
+
+                              // BUTT0N CONTENT
+                              child: Row(
+
+                                // ROW CONTENT
+                                children: [
+
+                                  //------------------------------------------------------------------------------
+
+                                  // COLUMN
+                                  Expanded(
+                                    child: Column(
+
+                                      // COLUMN ALIGNMENT
+                                      crossAxisAlignment:CrossAxisAlignment.start,
+
+                                      children: [
+
+                                        //------------------------------------------------------------------------------
+
+                                        // CARD TEXT
+                                        Text(
+                                          // TEXT
+                                          deck_name,
+
+                                          // TEXT STYLE
+                                          style: TextStyle(
+                                            fontSize: 18.5,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+
+                                        //------------------------------------------------------------------------------
+
+                                        // SPACER
+                                        const SizedBox(height: 15),
+
+                                        //------------------------------------------------------------------------------
+
+                                        // TAGS BOX
+                                        Wrap(
+
+                                          // ELEMENTS HORIZONTAL SPACING
+                                          spacing: 5,
+
+                                          // ELEMENTS VERTICAL SPACING
+                                          runSpacing: 7,
+
+                                          children: [
+
+                                            //------------------------------------------------------------------------------
+
+                                            // LANGUAGE TAG
+                                            Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: language_info_object.background_color,
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: language_info_object.border_color,
+                                                  width: 2,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                language_info_object.label,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // TOOLS TAG
+                                            Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: tools_info_object.background_color,
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: tools_info_object.border_color,
+                                                  width: 2,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                tools_info_object.label,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // QUEST NUMBER TAG
+                                            Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: Color(0xff376255),
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: Color(0xff6aab92),
+                                                  width: 2,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                '$deck_quest_number quest',
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                          ],
+
+                                        ),
+
+                                        //------------------------------------------------------------------------------
+
+                                      ],
+
+                                    ),
+
+                                  ),
+
+                                  // ARROW ICON
+                                  Icon(
+
+                                    // ICON IMAGE
+                                    Icons.arrow_forward,
+
+                                    // ICON COLOR
+                                    color: Theme.of(context).colorScheme.onPrimary,
+
+                                  )
+
+                                ],
+
+                              ),
+
+                            ),
+
+                            // SPACER
+                            const SizedBox(height: 15),
+
+                          ],
+
+                        ),
+
+                      );
+
+                    },
+
+                    // GETTING THE LIST ELEMENT
+                    childCount: filtered_deck_managers.length,
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                ),
+
+                //------------------------------------------------------------------------------
+
+              ],
+
+            ),
 
           ),
 

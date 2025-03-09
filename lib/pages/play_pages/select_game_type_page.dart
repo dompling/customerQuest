@@ -30,7 +30,16 @@ class SelectGameTypePage extends StatelessWidget {
         child: SingleChildScrollView(
 
           // SCROLLABLE CONTAINER CONTENT
-          child: Container(
+          child: Align(
+
+            // ALIGNMENT
+            alignment: Alignment.center,
+
+            // ALIGN CONTENT
+            child: Container(
+
+              // SETTING THE WIDTH LIMIT
+              constraints: BoxConstraints(maxWidth: 600),
 
               // PAGE PADDING
               padding: EdgeInsets.all(10),
@@ -119,7 +128,7 @@ class SelectGameTypePage extends StatelessWidget {
 
                         // CORNERS RADIUS
                         shape:
-                            WidgetStateProperty.all<RoundedRectangleBorder>(
+                        WidgetStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -139,13 +148,13 @@ class SelectGameTypePage extends StatelessWidget {
 
                         // PAGE LINKER
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
+                          context,
+                          MaterialPageRoute(
 
                             // OPEN NEW PAGE
                             builder: (context) => SelectPlayersTypePage(game_type: false,),
 
-                            ),
+                          ),
 
                         );
 
@@ -416,9 +425,12 @@ class SelectGameTypePage extends StatelessWidget {
 
                 ],
 
-              )
+              ),
+
+            ),
 
           ),
+
 
         ),
 

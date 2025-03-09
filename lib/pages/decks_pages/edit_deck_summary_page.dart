@@ -336,527 +336,535 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
           child: SingleChildScrollView(
 
             // SCROLLABLE CONTAINER CONTENT
-            child: Column(
+            child: Container(
 
-              // COLUMN CONTENT
-              children: [
+              // SETTING THE WIDTH LIMIT
+              constraints: BoxConstraints(maxWidth: 600),
 
-                //------------------------------------------------------------------------------
+              // CONTAINER CONTENT
+              child: Column(
 
-                // SPACER
-                const SizedBox(height: 30),
+                // COLUMN CONTENT
+                children: [
 
-                //------------------------------------------------------------------------------
+                  //------------------------------------------------------------------------------
 
-                // PAGE LOGO
-                Image.asset(
-                  'assets/images/deck_editor_icon.png',
-                  width: 140,
-                  height: 140,
-                  fit: BoxFit.contain,
-                ),
+                  // SPACER
+                  const SizedBox(height: 30),
 
-                //------------------------------------------------------------------------------
+                  //------------------------------------------------------------------------------
 
-                // SPACER
-                const SizedBox(height: 30),
-
-                //------------------------------------------------------------------------------
-
-                // PAGE TITLE CONTAINER
-                FractionallySizedBox(
-
-                  // DYNAMIC WIDTH
-                  widthFactor: 0.8,
-
-                  // TITLE
-                  child: Text(
-                    // TEXT
-                    AppLocalizations.of(context)!.deck_summary_editor_title,
-
-                    // TEXT ALIGNMENT
-                    textAlign: TextAlign.center,
-
-                    // TEXT STYLE
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-
-                    ),
+                  // PAGE LOGO
+                  Image.asset(
+                    'assets/images/deck_editor_icon.png',
+                    width: 140,
+                    height: 140,
+                    fit: BoxFit.contain,
                   ),
 
-                ),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                  // SPACER
+                  const SizedBox(height: 30),
 
-                // SPACER
-                const SizedBox(height: 15),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                  // PAGE TITLE CONTAINER
+                  FractionallySizedBox(
 
-                // DECK NAME LABEL AND DECK NAME TEXTBOX CONTAINER
-                Column(
+                    // DYNAMIC WIDTH
+                    widthFactor: 0.8,
 
-                  // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                  // COLUMN CONTENT
-                  children: [
-
-                    // CARD TEXT
-                    Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.deck_info_information_name_label,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 18.5,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 5),
-
-                    //------------------------------------------------------------------------------
-
-                    // CARD TEXT
-                    TextField(
-
-                      // TEXT CONTROLLER
-                      controller: _deck_name_controller,
-
-                      // INPUT TEXT STYLING
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-
-                      // TEXT FIELD STYLING
-                      decoration: InputDecoration(
-
-                        // HINT TEXT
-                        hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
-
-                        // HINT TEXT STYLE
-                        hintStyle: TextStyle(
-                          fontSize: 13,
-                          fontStyle: FontStyle.normal,
-                        ),
-
-                        // BORDER
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide.none
-                        ),
-
-                        // BACKGROUND COLOR
-                        filled: true,
-                        fillColor: Colors.grey[800],
-
-                        // PADDING
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: 15,
-                          horizontal: 20,
-                        ),
-
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 15),
-
-                //------------------------------------------------------------------------------
-
-                // DECK LANGUAGE LABEL AND DECK LANGUAGE TEXTBOX CONTAINER
-                Column(
-
-                  // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                  // COLUMN CONTENT
-                  children: [
-
-                    // CARD TEXT
-                    Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.deck_info_information_language_label,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 18.5,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 5),
-
-                    //------------------------------------------------------------------------------
-
-                    // CARD TEXT
-                    TextField(
-
-                      // TEXT CONTROLLER
-                      controller: _deck_language_controller,
-
-                      // SETTING THE TEXT FIELD AD READ-ONLY
-                      readOnly: true,
-
-                      // ON TAP FUNCTION
-                      onTap: () => show_language_dialog(context),
-
-                      // INPUT TEXT STYLING
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-
-                      // TEXT FIELD STYLING
-                      decoration: InputDecoration(
-
-                        // HINT TEXT
-                        hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
-
-                        // HINT TEXT STYLE
-                        hintStyle: TextStyle(
-                          fontSize: 13,
-                          fontStyle: FontStyle.normal,
-                        ),
-
-                        // BORDER
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide.none
-                        ),
-
-                        // BACKGROUND COLOR
-                        filled: true,
-                        fillColor: Colors.grey[800],
-
-                        // PADDING
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: 15,
-                          horizontal: 20,
-                        ),
-
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 15),
-
-                //------------------------------------------------------------------------------
-
-                // DECK COUPLE TYPE LABEL AND DECK COUPLE TYPE SEGMENTED BUTTON
-                Column(
-
-                  // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                  // COLUMN CONTENT
-                  children: [
-
-                    // CARD TEXT
-                    Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.deck_info_information_couple_type_label,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 18.5,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 5),
-
-                    //------------------------------------------------------------------------------
-
-                    // COUPLE TYPE FILTER SELECTOR
-                    SizedBox(
-
-                      // WIDTH
-                      width: double.infinity,
-
-                      // CONTAINER CONTENT
-                      child:  SegmentedButton<String>(
-
-                        // DEFINING THE OPTIONS
-                        segments: <ButtonSegment<String>>[
-                          ButtonSegment(value: 'hetero', label: Text(AppLocalizations.of(context)!.deck_filter_dialog_hetero_tag, style: TextStyle(fontSize: 12))),
-                          ButtonSegment(value: 'lesbian', label: Text(AppLocalizations.of(context)!.deck_filter_dialog_lesbian_tag, style: TextStyle(fontSize: 12))),
-                          ButtonSegment(value: 'gay', label: Text(AppLocalizations.of(context)!.deck_filter_dialog_gay_tag, style: TextStyle(fontSize: 12))),
-                        ],
-
-                        // SETTING THE SELECTED OPTION
-                        selected: {selected_option_couple_type},
-
-                        // HIDING THE SELECTED ICON
-                        showSelectedIcon: false,
-
-                        // GETTING THE USER CHOICE
-                        onSelectionChanged: (Set<String> newSelection) {
-                          setState(() {
-                            selected_option_couple_type = newSelection.first;
-                          });
-                        },
-
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 15),
-
-                //------------------------------------------------------------------------------
-
-                // DECK GAME TYPE LABEL AND DECK GAME TYPE SEGMENTED BUTTON
-                Column(
-
-                  // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                  // COLUMN CONTENT
-                  children: [
-
-                    // CARD TEXT
-                    Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.deck_info_information_game_type_label,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 18.5,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 5),
-
-                    //------------------------------------------------------------------------------
-
-                    // GAME TYPE FILTER SELECTOR
-                    SizedBox(
-
-                      // WIDTH
-                      width: double.infinity,
-
-                      // CONTAINER CONTENT
-                      child: SegmentedButton<bool>(
-
-                        // DEFINING THE OPTIONS
-                        segments: <ButtonSegment<bool>>[
-                          ButtonSegment(value: false, label: Text(AppLocalizations.of(context)!.deck_filter_dialog_presence_tag, style: TextStyle(fontSize: 12))),
-                          ButtonSegment(value: true, label: Text(AppLocalizations.of(context)!.deck_filter_dialog_distance_tag, style: TextStyle(fontSize: 12))),
-                        ],
-
-                        // SETTING THE SELECTED OPTION
-                        selected: {selected_option_game_type},
-
-                        // HIDING THE SELECTED ICON
-                        showSelectedIcon: false,
-
-                        // GETTING THE USER CHOICE
-                        onSelectionChanged: (Set<bool> newSelection) {
-                          setState(() {
-                            selected_option_game_type = newSelection.first;
-                          });
-                        },
-
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 15),
-
-                //------------------------------------------------------------------------------
-
-                // DECK DESCRIPTION LABEL AND DECK DESCRIPTION TEXTBOX CONTAINER
-                Column(
-
-                  // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.start,
-
-                  // COLUMN CONTENT
-                  children: [
-
-                    // CARD TEXT
-                    Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.deck_info_information_description_label,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 18.5,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 5),
-
-                    //------------------------------------------------------------------------------
-
-                    // CARD TEXT
-                    TextField(
-
-                      // TEXT CONTROLLER
-                      controller: _deck_description_controller,
-
-                      // INPUT TEXT STYLING
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                      ),
-
-                      // TEXT FIELD STYLING
-                      decoration: InputDecoration(
-
-                        // HINT TEXT
-                        hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
-
-                        // HINT TEXT STYLE
-                        hintStyle: TextStyle(
-                          fontSize: 13,
-                          fontStyle: FontStyle.normal,
-                        ),
-
-                        // BORDER
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: BorderSide.none
-                        ),
-
-                        // BACKGROUND COLOR
-                        filled: true,
-                        fillColor: Colors.grey[800],
-
-                        // PADDING
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: 15,
-                          horizontal: 20,
-                        ),
-
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 30),
-
-                //------------------------------------------------------------------------------
-
-                // BUTTON BOX
-                SizedBox(
-
-                  // DYNAMIC SIZE
-                  width: 180,
-
-                  // BOX CONTENT
-                  child: ElevatedButton(
-
-                    // BUTTON STYLE PARAMETERS
-                    style: ButtonStyle(
-
-                      // NORMAL TEXT COLOR
-                      foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                      // NORMAL BACKGROUND COLOR
-                      backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                      // MINIMUM SIZE
-                      minimumSize: WidgetStateProperty.all(Size(100, 60)),
-
-                      // PADDING
-                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
-
-                      // BORDER RADIUS
-                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                      ),
-
-                    ),
-
-                    // ON PRESSED CALL
-                    onPressed: () async {
-
-                      // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
-                      alias_check_to_go();
-
-                    },
-
-                    // BUTTON CONTENT
+                    // TITLE
                     child: Text(
-
                       // TEXT
-                      AppLocalizations.of(context)!.define_players_name_confirm_button,
+                      AppLocalizations.of(context)!.deck_summary_editor_title,
 
                       // TEXT ALIGNMENT
                       textAlign: TextAlign.center,
 
                       // TEXT STYLE
                       style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
 
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // DECK NAME LABEL AND DECK NAME TEXTBOX CONTAINER
+                  Column(
+
+                    // ALIGNMENT
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    // COLUMN CONTENT
+                    children: [
+
+                      // CARD TEXT
+                      Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.deck_info_information_name_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 5),
+
+                      //------------------------------------------------------------------------------
+
+                      // CARD TEXT
+                      TextField(
+
+                        // TEXT CONTROLLER
+                        controller: _deck_name_controller,
+
+                        // INPUT TEXT STYLING
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+
+                        // TEXT FIELD STYLING
+                        decoration: InputDecoration(
+
+                          // HINT TEXT
+                          hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
+
+                          // HINT TEXT STYLE
+                          hintStyle: TextStyle(
+                            fontSize: 13,
+                            fontStyle: FontStyle.normal,
+                          ),
+
+                          // BORDER
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+
+                          // BACKGROUND COLOR
+                          filled: true,
+                          fillColor: Colors.grey[800],
+
+                          // PADDING
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 15,
+                            horizontal: 20,
+                          ),
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // DECK LANGUAGE LABEL AND DECK LANGUAGE TEXTBOX CONTAINER
+                  Column(
+
+                    // ALIGNMENT
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    // COLUMN CONTENT
+                    children: [
+
+                      // CARD TEXT
+                      Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.deck_info_information_language_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 5),
+
+                      //------------------------------------------------------------------------------
+
+                      // CARD TEXT
+                      TextField(
+
+                        // TEXT CONTROLLER
+                        controller: _deck_language_controller,
+
+                        // SETTING THE TEXT FIELD AD READ-ONLY
+                        readOnly: true,
+
+                        // ON TAP FUNCTION
+                        onTap: () => show_language_dialog(context),
+
+                        // INPUT TEXT STYLING
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+
+                        // TEXT FIELD STYLING
+                        decoration: InputDecoration(
+
+                          // HINT TEXT
+                          hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
+
+                          // HINT TEXT STYLE
+                          hintStyle: TextStyle(
+                            fontSize: 13,
+                            fontStyle: FontStyle.normal,
+                          ),
+
+                          // BORDER
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+
+                          // BACKGROUND COLOR
+                          filled: true,
+                          fillColor: Colors.grey[800],
+
+                          // PADDING
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 15,
+                            horizontal: 20,
+                          ),
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // DECK COUPLE TYPE LABEL AND DECK COUPLE TYPE SEGMENTED BUTTON
+                  Column(
+
+                    // ALIGNMENT
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    // COLUMN CONTENT
+                    children: [
+
+                      // CARD TEXT
+                      Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.deck_info_information_couple_type_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 5),
+
+                      //------------------------------------------------------------------------------
+
+                      // COUPLE TYPE FILTER SELECTOR
+                      SizedBox(
+
+                        // WIDTH
+                        width: double.infinity,
+
+                        // CONTAINER CONTENT
+                        child:  SegmentedButton<String>(
+
+                          // DEFINING THE OPTIONS
+                          segments: <ButtonSegment<String>>[
+                            ButtonSegment(value: 'hetero', label: Text(AppLocalizations.of(context)!.deck_filter_dialog_hetero_tag, style: TextStyle(fontSize: 12))),
+                            ButtonSegment(value: 'lesbian', label: Text(AppLocalizations.of(context)!.deck_filter_dialog_lesbian_tag, style: TextStyle(fontSize: 12))),
+                            ButtonSegment(value: 'gay', label: Text(AppLocalizations.of(context)!.deck_filter_dialog_gay_tag, style: TextStyle(fontSize: 12))),
+                          ],
+
+                          // SETTING THE SELECTED OPTION
+                          selected: {selected_option_couple_type},
+
+                          // HIDING THE SELECTED ICON
+                          showSelectedIcon: false,
+
+                          // GETTING THE USER CHOICE
+                          onSelectionChanged: (Set<String> newSelection) {
+                            setState(() {
+                              selected_option_couple_type = newSelection.first;
+                            });
+                          },
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // DECK GAME TYPE LABEL AND DECK GAME TYPE SEGMENTED BUTTON
+                  Column(
+
+                    // ALIGNMENT
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    // COLUMN CONTENT
+                    children: [
+
+                      // CARD TEXT
+                      Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.deck_info_information_game_type_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 5),
+
+                      //------------------------------------------------------------------------------
+
+                      // GAME TYPE FILTER SELECTOR
+                      SizedBox(
+
+                        // WIDTH
+                        width: double.infinity,
+
+                        // CONTAINER CONTENT
+                        child: SegmentedButton<bool>(
+
+                          // DEFINING THE OPTIONS
+                          segments: <ButtonSegment<bool>>[
+                            ButtonSegment(value: false, label: Text(AppLocalizations.of(context)!.deck_filter_dialog_presence_tag, style: TextStyle(fontSize: 12))),
+                            ButtonSegment(value: true, label: Text(AppLocalizations.of(context)!.deck_filter_dialog_distance_tag, style: TextStyle(fontSize: 12))),
+                          ],
+
+                          // SETTING THE SELECTED OPTION
+                          selected: {selected_option_game_type},
+
+                          // HIDING THE SELECTED ICON
+                          showSelectedIcon: false,
+
+                          // GETTING THE USER CHOICE
+                          onSelectionChanged: (Set<bool> newSelection) {
+                            setState(() {
+                              selected_option_game_type = newSelection.first;
+                            });
+                          },
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // DECK DESCRIPTION LABEL AND DECK DESCRIPTION TEXTBOX CONTAINER
+                  Column(
+
+                    // ALIGNMENT
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    // COLUMN CONTENT
+                    children: [
+
+                      // CARD TEXT
+                      Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.deck_info_information_description_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 5),
+
+                      //------------------------------------------------------------------------------
+
+                      // CARD TEXT
+                      TextField(
+
+                        // TEXT CONTROLLER
+                        controller: _deck_description_controller,
+
+                        // INPUT TEXT STYLING
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+
+                        // TEXT FIELD STYLING
+                        decoration: InputDecoration(
+
+                          // HINT TEXT
+                          hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
+
+                          // HINT TEXT STYLE
+                          hintStyle: TextStyle(
+                            fontSize: 13,
+                            fontStyle: FontStyle.normal,
+                          ),
+
+                          // BORDER
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+
+                          // BACKGROUND COLOR
+                          filled: true,
+                          fillColor: Colors.grey[800],
+
+                          // PADDING
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 15,
+                            horizontal: 20,
+                          ),
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 30),
+
+                  //------------------------------------------------------------------------------
+
+                  // BUTTON BOX
+                  SizedBox(
+
+                    // DYNAMIC SIZE
+                    width: 180,
+
+                    // BOX CONTENT
+                    child: ElevatedButton(
+
+                      // BUTTON STYLE PARAMETERS
+                      style: ButtonStyle(
+
+                        // NORMAL TEXT COLOR
+                        foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                        // NORMAL BACKGROUND COLOR
+                        backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
+
+                        // MINIMUM SIZE
+                        minimumSize: WidgetStateProperty.all(Size(100, 60)),
+
+                        // PADDING
+                        padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+
+                        // BORDER RADIUS
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                        ),
+
+                      ),
+
+                      // ON PRESSED CALL
+                      onPressed: () async {
+
+                        // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
+                        alias_check_to_go();
+
+                      },
+
+                      // BUTTON CONTENT
+                      child: Text(
+
+                        // TEXT
+                        AppLocalizations.of(context)!.define_players_name_confirm_button,
+
+                        // TEXT ALIGNMENT
+                        textAlign: TextAlign.center,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+
+                        ),
 
                       ),
 
@@ -864,11 +872,11 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
                   ),
 
-                ),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                ],
 
-              ],
+              ),
 
             ),
 

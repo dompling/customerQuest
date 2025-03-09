@@ -140,6 +140,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
             // SETTING CONTAINER MAX SIZE
             constraints: BoxConstraints(
               maxHeight: MediaQuery.of(context).size.height * 0.9,
+              maxWidth: 500,
             ),
 
             // PAGE PADDING
@@ -289,7 +290,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // GETTING THE PLAYED GAMES NUMBER, IF THERE ARE NOT SETTING IT TO ZERO
-    int played_games = prefs.getInt('played_games') ?? 0;
+    int played_games = prefs.getInt('played_games') ?? 1;
 
     // CHECKING IF THE USER HAS PLAYED A NUMBER OF MATCH THAT IS DIVISIBLE BY 3
     if (played_games % 3 == 0) {
@@ -329,21 +330,29 @@ class _PlayMainPageState extends State<PlayMainPage> {
           ),
 
           // DIALOG CONTENT
-          content: SingleChildScrollView(
+          content: Container(
 
-            child: Text(
+            // SETTING THE WIDTH LIMIT
+            constraints: BoxConstraints(maxWidth: 500),
 
-              // TEXT
-              AppLocalizations.of(context)!.donation_reminder_dialog_content,
+            // CONTAINER CONTENT
+            child: SingleChildScrollView(
 
-              // ALIGNMENT
-              textAlign: TextAlign.center,
+              child: Text(
 
-              // STYLE
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 17,
-                fontWeight: FontWeight.normal,
+                // TEXT
+                AppLocalizations.of(context)!.donation_reminder_dialog_content,
+
+                // ALIGNMENT
+                textAlign: TextAlign.center,
+
+                // STYLE
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.normal,
+                ),
+
               ),
 
             ),

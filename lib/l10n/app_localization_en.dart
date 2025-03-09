@@ -213,7 +213,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deck_info_information_minute_label => 'minutes';
 
   @override
-  String get deck_info_information_quest_number_label => 'Quests number: ';
+  String get deck_info_information_quest_number_label => 'Number of quests: ';
 
   @override
   String get deck_info_information_requested_tools_label => 'Required tools: ';

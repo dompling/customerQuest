@@ -1,15 +1,12 @@
 {
   "summary": {
     "name": "Vogliosi",
-    "description": "Una avvincente avventura di coppia !",
+    "description": "La passione si scatena! Questo deck è per i più audaci, dove intensità, fantasia e piacere si fondono in un’esperienza indimenticabile. Siete pronti a lasciarvi andare completamente?",
     "couple_type": "gay",
     "play_distance": true,
     "language": "it",
     "total_quests": 21,
-    "average_difficulty": 3,
-    "average_duration": 120,
-    "required_tools": ["corda", "benda", "dadi"],
-    "protected": true
+    "required_tools": []
 
   },
 

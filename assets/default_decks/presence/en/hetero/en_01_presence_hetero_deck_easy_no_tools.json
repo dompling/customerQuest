@@ -1,12 +1,13 @@
 {
   "summary": {
-    "name": "Beginners",
-    "description": "Una divertente avventura per le coppie che vogliono provare qualcosa di nuovo ma senza esagerare.",
+    "name": "Novice",
+    "description": "You're taking your first steps into a world of playful intimacy. Light, fun, and easy challenges await—perfect for breaking the ice and sparking new sensations!",
     "couple_type": "hetero",
     "play_distance": false,
     "language": "en",
     "total_quests": 25,
     "required_tools": []
+
   },
 
 

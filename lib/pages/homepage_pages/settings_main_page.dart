@@ -151,284 +151,305 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
           // PADDING CONTAINER CONTENT
           child: SingleChildScrollView(
 
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            // SCROLLABLE CONTAINER CONTENT
+            child: Align(
 
-                //------------------------------------------------------------------------------
+              // ALIGNMENT
+              alignment: Alignment.center,
 
-                // SPACER
-                const SizedBox(height: 80),
+              // ALIGN CONTENT
+              child: Container(
 
-                //------------------------------------------------------------------------------
+                // SETTING THE WIDTH LIMIT
+                constraints: BoxConstraints(maxWidth: 600),
 
-                // APP LOGO
-                Container(
-
-                  // WIDTH
-                  width: double.infinity,
+                // CONTAINER CONTENT
+                child: Column(
 
                   // ALIGNMENT
-                  alignment: Alignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
 
-                  // CONTENT
-                  child: Image.asset(
-                    'assets/images/settings_icon.png',
-                    width: 140,
-                    height: 140,
-                    fit: BoxFit.contain,
-                  ),
+                  // COLUMN CONTENT
+                  children: [
 
-                ),
+                    //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                    // SPACER
+                    const SizedBox(height: 80),
 
-                // SPACER
-                const SizedBox(height: 30),
+                    //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                    // APP LOGO
+                    Container(
 
-                // PAGE TITLE CONTAINER
-                Container(
+                      // WIDTH
+                      width: double.infinity,
 
-                  // WIDTH
-                  width: double.infinity,
+                      // ALIGNMENT
+                      alignment: Alignment.center,
 
-                  // ALIGNMENT
-                  alignment: Alignment.center,
-
-                  // PAGE TITLE CONTAINER
-                  child: FractionallySizedBox(
-
-                    // DYNAMIC WIDTH
-                    widthFactor: 0.8,
-
-                    // TITLE
-                    child: Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.settings_main_page_title,
-
-                      // TEXT ALIGNMENT
-                      textAlign: TextAlign.center,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-
+                      // CONTENT
+                      child: Image.asset(
+                        'assets/images/settings_icon.png',
+                        width: 140,
+                        height: 140,
+                        fit: BoxFit.contain,
                       ),
+
                     ),
 
-                  ),
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 30),
+
+                    //------------------------------------------------------------------------------
+
+                    // PAGE TITLE CONTAINER
+                    Container(
+
+                      // WIDTH
+                      width: double.infinity,
+
+                      // ALIGNMENT
+                      alignment: Alignment.center,
+
+                      // PAGE TITLE CONTAINER
+                      child: FractionallySizedBox(
+
+                        // DYNAMIC WIDTH
+                        widthFactor: 0.8,
+
+                        // TITLE
+                        child: Text(
+                          // TEXT
+                          AppLocalizations.of(context)!.settings_main_page_title,
+
+                          // TEXT ALIGNMENT
+                          textAlign: TextAlign.center,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+
+                          ),
+                        ),
+
+                      ),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 45),
+
+                    //------------------------------------------------------------------------------
+
+                    // LANGUAGE SECTION TITLE LABEL
+                    Text(
+
+                      // TEXT
+                        AppLocalizations.of(context)!.settings_main_page_language_section_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold
+                        )
+
+                    ),
+
+                    // CHOOSE LANGUAGE BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_language_button_label),
+
+                      // BUTTON ICON
+                      leading: const Icon(Icons.language),
+
+                      // ON TAP FUNCTION CALL
+                      onTap: () => _showLanguageDialog(context),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SECTION DIVIDER
+                    Divider(
+
+                      // COLOR
+                      color: Theme.of(context).colorScheme.primary,
+
+                      // THICKNESS
+                      thickness: 2,
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SUPPORT SECTION TITLE LABEL
+                    Text(
+
+                      // TEXT
+                        AppLocalizations.of(context)!.settings_main_page_support_section_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold
+                        )
+
+                    ),
+
+                    // DONATE ON PAYPAL BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_donate_on_paypal_label),
+
+                      // BUTTON ICON
+                      leading: const Icon(Icons.paypal),
+
+                      // ON TAP FUNCTION CALL
+                      onTap: () => open_link("https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C"),
+
+                    ),
+
+                    // DONATE ON BUY ME A COFFEE BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_donate_on_buy_me_coffee_label),
+
+                      // BUTTON ICON
+                      leading: const Icon(Icons.coffee),
+
+                      // ON TAP FUNCTION CALL
+                      onTap: () => open_link("https://buymeacoffee.com/herzen"),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SECTION DIVIDER
+                    Divider(
+
+                      // COLOR
+                      color: Theme.of(context).colorScheme.primary,
+
+                      // THICKNESS
+                      thickness: 2,
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // FEEDBACK SECTION TITLE LABEL
+                    Text(
+
+                      // TEXT
+                        AppLocalizations.of(context)!.settings_main_page_feedback_section_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold
+                        )
+
+                    ),
+
+                    // REPORT BUG BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_bug_report_label),
+
+                      // BUTTON ICON
+                      leading: const Icon(Icons.bug_report),
+
+                      // OPEN LINK FUNCTION
+                      onTap: () => open_link("https://github.com/H3rz3n/loverquest/issues"),
+
+                    ),
+
+                    // OPEN GITHUB PAGE BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_github_page_label),
+
+                      // BUTTON ICON
+                      leading: const Icon(Icons.web),
+
+                      // OPEN LINK FUNCTION
+                      onTap: () => open_link("https://github.com/H3rz3n/loverquest"),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SECTION DIVIDER
+                    Divider(
+
+                      // COLOR
+                      color: Theme.of(context).colorScheme.primary,
+
+                      // THICKNESS
+                      thickness: 2,
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // CREDITS SECTION TITLE LABEL
+                    Text(
+
+                      // TEXT
+                        AppLocalizations.of(context)!.settings_main_page_credits_section_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold
+                        )
+
+                    ),
+
+                    // DEVELOPER BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_credits_label),
+
+                      // BUTTON ICON
+                      leading: Icon(Icons.favorite),
+
+                    ),
+
+                    // LICENSE BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_license_label),
+
+                      // BUTTON ICON
+                      leading: Icon(Icons.find_in_page),
+
+                      // OPEN LINK FUNCTION
+                      onTap: () => open_link("https://github.com/H3rz3n/loverquest/blob/main/LICENSE"),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                  ],
 
                 ),
 
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 45),
-
-                //------------------------------------------------------------------------------
-
-                // LANGUAGE SECTION TITLE LABEL
-                Text(
-
-                  // TEXT
-                  AppLocalizations.of(context)!.settings_main_page_language_section_label,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold
-                  )
-
-                ),
-
-                // CHOOSE LANGUAGE BUTTON
-                ListTile(
-
-                  // BUTTON LABEL
-                  title: Text(AppLocalizations.of(context)!.settings_main_page_language_button_label),
-
-                  // BUTTON ICON
-                  leading: const Icon(Icons.language),
-
-                  // ON TAP FUNCTION CALL
-                  onTap: () => _showLanguageDialog(context),
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SECTION DIVIDER
-                Divider(
-
-                  // COLOR
-                  color: Theme.of(context).colorScheme.primary,
-
-                  // THICKNESS
-                  thickness: 2,
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SUPPORT SECTION TITLE LABEL
-                Text(
-
-                  // TEXT
-                  AppLocalizations.of(context)!.settings_main_page_support_section_label,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold
-                  )
-
-                ),
-
-                // DONATE ON PAYPAL BUTTON
-                ListTile(
-
-                  // BUTTON LABEL
-                  title: Text(AppLocalizations.of(context)!.settings_main_page_donate_on_paypal_label),
-
-                  // BUTTON ICON
-                  leading: const Icon(Icons.paypal),
-
-                  // ON TAP FUNCTION CALL
-                  onTap: () => open_link("https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C"),
-
-                ),
-
-                // DONATE ON BUY ME A COFFEE BUTTON
-                ListTile(
-
-                  // BUTTON LABEL
-                  title: Text(AppLocalizations.of(context)!.settings_main_page_donate_on_buy_me_coffee_label),
-
-                  // BUTTON ICON
-                  leading: const Icon(Icons.coffee),
-
-                  // ON TAP FUNCTION CALL
-                  onTap: () => open_link("https://buymeacoffee.com/herzen"),
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SECTION DIVIDER
-                Divider(
-
-                  // COLOR
-                  color: Theme.of(context).colorScheme.primary,
-
-                  // THICKNESS
-                  thickness: 2,
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // FEEDBACK SECTION TITLE LABEL
-                Text(
-
-                  // TEXT
-                    AppLocalizations.of(context)!.settings_main_page_feedback_section_label,
-
-                    // TEXT STYLE
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold
-                    )
-
-                ),
-
-                // REPORT BUG BUTTON
-                ListTile(
-
-                  // BUTTON LABEL
-                  title: Text(AppLocalizations.of(context)!.settings_main_page_bug_report_label),
-
-                  // BUTTON ICON
-                  leading: const Icon(Icons.bug_report),
-
-                  // OPEN LINK FUNCTION
-                  onTap: () => open_link("https://github.com/H3rz3n/loverquest/issues"),
-
-                ),
-
-                // OPEN GITHUB PAGE BUTTON
-                ListTile(
-
-                  // BUTTON LABEL
-                  title: Text(AppLocalizations.of(context)!.settings_main_page_github_page_label),
-
-                  // BUTTON ICON
-                  leading: const Icon(Icons.web),
-
-                  // OPEN LINK FUNCTION
-                  onTap: () => open_link("https://github.com/H3rz3n/loverquest"),
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SECTION DIVIDER
-                Divider(
-
-                  // COLOR
-                  color: Theme.of(context).colorScheme.primary,
-
-                  // THICKNESS
-                  thickness: 2,
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // CREDITS SECTION TITLE LABEL
-                Text(
-
-                  // TEXT
-                  AppLocalizations.of(context)!.settings_main_page_credits_section_label,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold
-                  )
-
-                ),
-
-                // DEVELOPER BUTTON
-                ListTile(
-
-                  // BUTTON LABEL
-                  title: Text(AppLocalizations.of(context)!.settings_main_page_credits_label),
-
-                  // BUTTON ICON
-                  leading: Icon(Icons.favorite),
-
-                ),
-
-                // LICENSE BUTTON
-                ListTile(
-
-                  // BUTTON LABEL
-                  title: Text(AppLocalizations.of(context)!.settings_main_page_license_label),
-
-                  // BUTTON ICON
-                  leading: Icon(Icons.find_in_page),
-
-                  // OPEN LINK FUNCTION
-                  onTap: () => open_link("https://github.com/H3rz3n/loverquest/blob/main/LICENSE"),
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-              ],
+              ),
 
             ),
 

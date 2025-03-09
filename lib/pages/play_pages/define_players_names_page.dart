@@ -196,397 +196,408 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
         // SAFE AREA CONTENT
         child: SingleChildScrollView(
 
-          // ALIGN CONTENT
-          child: Container(
+          // SCROLLABLE CONTAINER CONTENT
+          child: Align(
 
-            // PAGE PADDING
-            padding: EdgeInsets.all(10),
+            // ALIGNMENT
+            alignment: Alignment.center,
 
-            // PAGE ALIGNMENT
-            alignment: Alignment.topCenter,
+            // ALIGN CONTENT
+            child: Container(
 
-            // CONTAINER CONTENT
-            child: Column(
+              // SETTING THE WIDTH LIMIT
+              constraints: BoxConstraints(maxWidth: 600),
 
-              // COLUMN CONTENT
-              children: [
+              // PAGE PADDING
+              padding: EdgeInsets.all(10),
 
-                //------------------------------------------------------------------------------
+              // PAGE ALIGNMENT
+              alignment: Alignment.topCenter,
 
-                // PAGE LOGO
-                Image.asset(
-                  'assets/images/define_players_names_icon.png',
-                  width: 140,
-                  height: 140,
-                  fit: BoxFit.contain,
-                ),
+              // CONTAINER CONTENT
+              child: Column(
 
-                //------------------------------------------------------------------------------
+                // COLUMN CONTENT
+                children: [
 
-                // SPACER
-                const SizedBox(height: 30),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
-
-
-                // PAGE TITLE CONTAINER
-                FractionallySizedBox(
-
-                  // DYNAMIC WIDTH
-                  widthFactor: 0.8,
-
-                  // TITLE
-                  child: Text(
-                    // TEXT
-                    AppLocalizations.of(context)!.define_players_name_page_title,
-
-                    // TEXT ALIGNMENT
-                    textAlign: TextAlign.center,
-
-                    // TEXT STYLE
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-
-                    ),
+                  // PAGE LOGO
+                  Image.asset(
+                    'assets/images/define_players_names_icon.png',
+                    width: 140,
+                    height: 140,
+                    fit: BoxFit.contain,
                   ),
 
-                ),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                  // SPACER
+                  const SizedBox(height: 30),
 
-                // SPACER
-                const SizedBox(height: 30),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
 
-                // PLAYER ONE BOX
-                Container(
+                  // PAGE TITLE CONTAINER
+                  FractionallySizedBox(
 
-                  // SIZE
-                  width: double.infinity,
+                    // DYNAMIC WIDTH
+                    widthFactor: 0.8,
 
-                  // PADDING
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-
-                  // BACKGROUND COLOR AND BORDER RADIUS
-                  decoration: BoxDecoration(
-
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(20),
-
-                  ),
-
-                  // CONTAINER CONTENT
-                  child: Row(
-
-                    // ALIGNMENT
-                    mainAxisAlignment: MainAxisAlignment.start,
-
-                    children: [
-
-                      //------------------------------------------------------------------------------
-
-                      // BOX LOGO
-                      Image.asset(
-                        player_1_image_path,
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.contain,
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // SPACER
-                      const SizedBox(width: 20),
-
-                      //------------------------------------------------------------------------------
-
-                      // TITLE AND TEXTBOX CONTAINER
-                      Expanded(
-                        child: Column(
-
-                          // ALIGNMENT
-                          crossAxisAlignment: CrossAxisAlignment.start,
-
-                          // COLUMN CONTENT
-                          children: [
-
-                            // CARD TEXT
-                            Text(
-                              // TEXT
-                              AppLocalizations.of(context)!.define_players_name_player_one_label,
-
-                              // TEXT STYLE
-                              style: TextStyle(
-                                fontSize: 18.5,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-
-                            //------------------------------------------------------------------------------
-
-                            // SPACER
-                            const SizedBox(height: 9),
-
-                            //------------------------------------------------------------------------------
-
-                            // CARD TEXT
-                            TextField(
-
-                              // TEXT CONTROLLER
-                              controller: _player_1_controller,
-
-                              // INPUT TEXT STYLING
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-
-                              // TEXT FIELD STYLING
-                              decoration: InputDecoration(
-
-                                // HINT TEXT
-                                hintText: AppLocalizations.of(context)!.define_players_name_textfield_hint_label,
-
-                                // HINT TEXT STYLE
-                                hintStyle: TextStyle(
-                                  fontSize: 13,
-                                  fontStyle: FontStyle.normal,
-                                ),
-
-                                // BORDER
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                  borderSide: BorderSide.none
-                                ),
-
-                                // BACKGROUND COLOR
-                                filled: true,
-                                fillColor: Colors.grey[800],
-
-                                // PADDING
-                                contentPadding: EdgeInsets.symmetric(
-                                  vertical: 15,
-                                  horizontal: 20,
-                                ),
-
-                              ),
-
-                            ),
-
-                          ],
-
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                    ],
-
-                  ),
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 15),
-
-                //------------------------------------------------------------------------------
-
-                // PLAYER TWO BOX
-                Container(
-
-                  // SIZE
-                  width: double.infinity,
-
-                  // PADDING
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-
-                  // BACKGROUND COLOR AND BORDER RADIUS
-                  decoration: BoxDecoration(
-
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(20),
-
-                  ),
-
-                  // CONTAINER CONTENT
-                  child: Row(
-
-                    // ALIGNMENT
-                    mainAxisAlignment: MainAxisAlignment.start,
-
-                    children: [
-
-                      //------------------------------------------------------------------------------
-
-                      // BOX LOGO
-                      Image.asset(
-                        player_2_image_path,
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.contain,
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // SPACER
-                      const SizedBox(width: 20),
-
-                      //------------------------------------------------------------------------------
-
-                      // TITLE AND TEXTBOX CONTAINER
-                      Expanded(
-                        child: Column(
-
-                          // ALIGNMENT
-                          crossAxisAlignment: CrossAxisAlignment.start,
-
-                          // COLUMN CONTENT
-                          children: [
-
-                            // CARD TEXT
-                            Text(
-                              // TEXT
-                              AppLocalizations.of(context)!.define_players_name_player_two_label,
-
-                              // TEXT STYLE
-                              style: TextStyle(
-                                fontSize: 18.5,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-
-                            //------------------------------------------------------------------------------
-
-                            // SPACER
-                            const SizedBox(height: 9),
-
-                            //------------------------------------------------------------------------------
-
-                            // CARD TEXT
-                            TextField(
-
-                              // TEXT CONTROLLER
-                              controller: _player_2_controller,
-
-                              // INPUT TEXT STYLING
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
-
-                              // TEXT FIELD STYLING
-                              decoration: InputDecoration(
-
-                                // HINT TEXT
-                                hintText: AppLocalizations.of(context)!.define_players_name_textfield_hint_label,
-
-                                // HINT TEXT STYLE
-                                hintStyle: TextStyle(
-                                  fontSize: 13,
-                                  fontStyle: FontStyle.normal,
-                                ),
-
-                                // BORDER
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                    borderSide: BorderSide.none
-                                ),
-
-                                // BACKGROUND COLOR
-                                filled: true,
-                                fillColor: Colors.grey[800],
-
-                                // PADDING
-                                contentPadding: EdgeInsets.symmetric(
-                                  vertical: 15,
-                                  horizontal: 20,
-                                ),
-
-                              ),
-
-                            ),
-
-                          ],
-
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                    ],
-
-                  ),
-
-                ),
-
-                //------------------------------------------------------------------------------
-
-                // SPACER
-                const SizedBox(height: 45),
-
-                //------------------------------------------------------------------------------
-
-                // BUTTON BOX
-                SizedBox(
-
-                  // DYNAMIC SIZE
-                  width: 180,
-
-                  // BOX CONTENT
-                  child: ElevatedButton(
-
-                    // BUTTON STYLE PARAMETERS
-                    style: ButtonStyle(
-
-                      // NORMAL TEXT COLOR
-                      foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                      // NORMAL BACKGROUND COLOR
-                      backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                      // MINIMUM SIZE
-                      minimumSize: WidgetStateProperty.all(Size(100, 60)),
-
-                      // PADDING
-                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
-
-                      // BORDER RADIUS
-                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                      ),
-
-                    ),
-
-                    // ON PRESSED CALL
-                    onPressed: () {
-
-                      // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
-                      alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, widget.couple_type, widget.game_type);
-
-                    },
-
-                    // BUTTON CONTENT
+                    // TITLE
                     child: Text(
-
                       // TEXT
-                      AppLocalizations.of(context)!.define_players_name_confirm_button,
+                      AppLocalizations.of(context)!.define_players_name_page_title,
 
                       // TEXT ALIGNMENT
                       textAlign: TextAlign.center,
 
                       // TEXT STYLE
                       style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
 
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 30),
+
+                  //------------------------------------------------------------------------------
+
+                  // PLAYER ONE BOX
+                  Container(
+
+                    // SIZE
+                    width: double.infinity,
+
+                    // PADDING
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+
+                    // BACKGROUND COLOR AND BORDER RADIUS
+                    decoration: BoxDecoration(
+
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: BorderRadius.circular(20),
+
+                    ),
+
+                    // CONTAINER CONTENT
+                    child: Row(
+
+                      // ALIGNMENT
+                      mainAxisAlignment: MainAxisAlignment.start,
+
+                      children: [
+
+                        //------------------------------------------------------------------------------
+
+                        // BOX LOGO
+                        Image.asset(
+                          player_1_image_path,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.contain,
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(width: 20),
+
+                        //------------------------------------------------------------------------------
+
+                        // TITLE AND TEXTBOX CONTAINER
+                        Expanded(
+                          child: Column(
+
+                            // ALIGNMENT
+                            crossAxisAlignment: CrossAxisAlignment.start,
+
+                            // COLUMN CONTENT
+                            children: [
+
+                              // CARD TEXT
+                              Text(
+                                // TEXT
+                                AppLocalizations.of(context)!.define_players_name_player_one_label,
+
+                                // TEXT STYLE
+                                style: TextStyle(
+                                  fontSize: 18.5,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+
+                              //------------------------------------------------------------------------------
+
+                              // SPACER
+                              const SizedBox(height: 9),
+
+                              //------------------------------------------------------------------------------
+
+                              // CARD TEXT
+                              TextField(
+
+                                // TEXT CONTROLLER
+                                controller: _player_1_controller,
+
+                                // INPUT TEXT STYLING
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+
+                                // TEXT FIELD STYLING
+                                decoration: InputDecoration(
+
+                                  // HINT TEXT
+                                  hintText: AppLocalizations.of(context)!.define_players_name_textfield_hint_label,
+
+                                  // HINT TEXT STYLE
+                                  hintStyle: TextStyle(
+                                    fontSize: 13,
+                                    fontStyle: FontStyle.normal,
+                                  ),
+
+                                  // BORDER
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                      borderSide: BorderSide.none
+                                  ),
+
+                                  // BACKGROUND COLOR
+                                  filled: true,
+                                  fillColor: Colors.grey[800],
+
+                                  // PADDING
+                                  contentPadding: EdgeInsets.symmetric(
+                                    vertical: 15,
+                                    horizontal: 20,
+                                  ),
+
+                                ),
+
+                              ),
+
+                            ],
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ],
+
+                    ),
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // PLAYER TWO BOX
+                  Container(
+
+                    // SIZE
+                    width: double.infinity,
+
+                    // PADDING
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+
+                    // BACKGROUND COLOR AND BORDER RADIUS
+                    decoration: BoxDecoration(
+
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: BorderRadius.circular(20),
+
+                    ),
+
+                    // CONTAINER CONTENT
+                    child: Row(
+
+                      // ALIGNMENT
+                      mainAxisAlignment: MainAxisAlignment.start,
+
+                      children: [
+
+                        //------------------------------------------------------------------------------
+
+                        // BOX LOGO
+                        Image.asset(
+                          player_2_image_path,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.contain,
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(width: 20),
+
+                        //------------------------------------------------------------------------------
+
+                        // TITLE AND TEXTBOX CONTAINER
+                        Expanded(
+                          child: Column(
+
+                            // ALIGNMENT
+                            crossAxisAlignment: CrossAxisAlignment.start,
+
+                            // COLUMN CONTENT
+                            children: [
+
+                              // CARD TEXT
+                              Text(
+                                // TEXT
+                                AppLocalizations.of(context)!.define_players_name_player_two_label,
+
+                                // TEXT STYLE
+                                style: TextStyle(
+                                  fontSize: 18.5,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+
+                              //------------------------------------------------------------------------------
+
+                              // SPACER
+                              const SizedBox(height: 9),
+
+                              //------------------------------------------------------------------------------
+
+                              // CARD TEXT
+                              TextField(
+
+                                // TEXT CONTROLLER
+                                controller: _player_2_controller,
+
+                                // INPUT TEXT STYLING
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+
+                                // TEXT FIELD STYLING
+                                decoration: InputDecoration(
+
+                                  // HINT TEXT
+                                  hintText: AppLocalizations.of(context)!.define_players_name_textfield_hint_label,
+
+                                  // HINT TEXT STYLE
+                                  hintStyle: TextStyle(
+                                    fontSize: 13,
+                                    fontStyle: FontStyle.normal,
+                                  ),
+
+                                  // BORDER
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                      borderSide: BorderSide.none
+                                  ),
+
+                                  // BACKGROUND COLOR
+                                  filled: true,
+                                  fillColor: Colors.grey[800],
+
+                                  // PADDING
+                                  contentPadding: EdgeInsets.symmetric(
+                                    vertical: 15,
+                                    horizontal: 20,
+                                  ),
+
+                                ),
+
+                              ),
+
+                            ],
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ],
+
+                    ),
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 45),
+
+                  //------------------------------------------------------------------------------
+
+                  // BUTTON BOX
+                  SizedBox(
+
+                    // DYNAMIC SIZE
+                    width: 180,
+
+                    // BOX CONTENT
+                    child: ElevatedButton(
+
+                      // BUTTON STYLE PARAMETERS
+                      style: ButtonStyle(
+
+                        // NORMAL TEXT COLOR
+                        foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                        // NORMAL BACKGROUND COLOR
+                        backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
+
+                        // MINIMUM SIZE
+                        minimumSize: WidgetStateProperty.all(Size(100, 60)),
+
+                        // PADDING
+                        padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+
+                        // BORDER RADIUS
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                        ),
+
+                      ),
+
+                      // ON PRESSED CALL
+                      onPressed: () {
+
+                        // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
+                        alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, widget.couple_type, widget.game_type);
+
+                      },
+
+                      // BUTTON CONTENT
+                      child: Text(
+
+                        // TEXT
+                        AppLocalizations.of(context)!.define_players_name_confirm_button,
+
+                        // TEXT ALIGNMENT
+                        textAlign: TextAlign.center,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+
+                        ),
 
                       ),
 
@@ -594,11 +605,11 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
 
                   ),
 
-                ),
+                  //------------------------------------------------------------------------------
 
-                //------------------------------------------------------------------------------
+                ],
 
-              ],
+              ),
 
             ),
 

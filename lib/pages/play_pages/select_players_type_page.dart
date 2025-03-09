@@ -179,632 +179,640 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
           // SAFE AREA CONTENT
           child: SingleChildScrollView(
 
-            // ALIGN CONTENT
-            child: Container(
+            // SCROLLABLE CONTAINER CONTENT
+            child: Align(
 
-              // PAGE PADDING
-              padding: EdgeInsets.all(10),
+              // ALIGNMENT
+              alignment: Alignment.center,
 
-              // PAGE ALIGNMENT
-              alignment: Alignment.topCenter,
+              // ALIGN CONTENT
+              child: Container(
 
-              // CONTAINER CONTENT
-              child: Column(
+                // SETTING THE WIDTH LIMIT
+                constraints: BoxConstraints(maxWidth: 600),
 
-                // COLUMN CONTENT
-                children: [
+                // PAGE ALIGNMENT
+                alignment: Alignment.topCenter,
 
-                  //------------------------------------------------------------------------------
+                // CONTAINER CONTENT
+                child: Column(
 
-                  // PAGE LOGO
-                  Image.asset(
-                    'assets/images/player_selection_icon.png',
-                    width: 140,
-                    height: 140,
-                    fit: BoxFit.contain,
-                  ),
+                  // COLUMN CONTENT
+                  children: [
 
-                  //------------------------------------------------------------------------------
+                    //------------------------------------------------------------------------------
 
-                  // SPACER
-                  const SizedBox(height: 30),
-
-                  //------------------------------------------------------------------------------
-
-                  // PAGE TITLE CONTAINER
-                  FractionallySizedBox(
-
-                    // DYNAMIC WIDTH
-                    widthFactor: 0.8,
-
-                    // TITLE
-                    child: Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.select_players_type_title,
-
-                      // TEXT ALIGNMENT
-                      textAlign: TextAlign.center,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-
-                      ),
+                    // PAGE LOGO
+                    Image.asset(
+                      'assets/images/player_selection_icon.png',
+                      width: 140,
+                      height: 140,
+                      fit: BoxFit.contain,
                     ),
 
-                  ),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // SPACER
+                    const SizedBox(height: 30),
 
-                  // SPACER
-                  const SizedBox(height: 30),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // PAGE TITLE CONTAINER
+                    FractionallySizedBox(
 
-                  // FIRST CATEGORY BUTTON BOX
-                  SizedBox(
+                      // DYNAMIC WIDTH
+                      widthFactor: 0.8,
 
-                    // WIDTH LARGE AS SCREEN
-                    width: double.infinity,
+                      // TITLE
+                      child: Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.select_players_type_title,
 
-                    // FIRST GAME MODE BUTTON
-                    child: ElevatedButton(
+                        // TEXT ALIGNMENT
+                        textAlign: TextAlign.center,
 
-                      //------------------------------------------------------------------------------
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
 
-                      // BUTTON STYLE PARAMETERS
-                      style: ButtonStyle(
-
-                        // NORMAL TEXT COLOR
-                        foregroundColor: WidgetStateProperty.all(
-                            Theme.of(context).colorScheme.onPrimary
                         ),
-
-                        // NORMAL BACKGROUND COLOR
-                        backgroundColor: WidgetStateProperty.all(
-                          Theme.of(context).colorScheme.primary,
-                        ),
-
-                        // CORNERS RADIUS
-                        shape:
-                        WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-
-                        // PADDING
-                        padding: WidgetStateProperty.all<EdgeInsets>(
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // ON PRESSED CALL
-                      onPressed: () {
-
-                        // CHECKING IF THE GAME IS IN PRESENCE
-                        if (widget.game_type != true) {
-
-                          // PAGE LINKER
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-
-                              // OPEN NEW PAGE
-                              builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: widget.game_type,),
-
-                            ),
-
-                          );
-
-                          // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
-                        } else {
-
-                          // CREATING TMP DATA
-                          Players player_tmp_object_1 = Players(player_icon_path: "assets/images/coin_flip_icon.png", player_alias: "player_alias:_1", player_sex: true);
-                          Players player_tmp_object_2 = Players(player_icon_path: "assets/images/deck_info.png", player_alias: "player_alias_2", player_sex: true);
-
-
-                          // PAGE LINKER
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-
-                              // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: widget.game_type, player_1_object: player_tmp_object_1, player_2_object: player_tmp_object_2, first_player: player_tmp_object_2,),
-
-                            ),
-
-                          );
-
-                        }
-
-                      },
-
-                      //------------------------------------------------------------------------------
-
-                      // BUTT0N CONTENT
-                      child: Row(
-
-                        // ROW CONTENT
-                        children: [
-
-                          //------------------------------------------------------------------------------
-
-                          // CARD ICON
-                          Image.asset(
-                            'assets/images/hetero_couple_icon.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.contain,
-                          ),
-
-                          //------------------------------------------------------------------------------
-
-                          // SPACER
-                          const SizedBox(width: 25),
-
-                          //------------------------------------------------------------------------------
-
-                          // COLUMN
-                          Expanded(
-                            child: Column(
-
-                              // COLUMN ALIGNMENT
-                              crossAxisAlignment:CrossAxisAlignment.start,
-
-                              children: [
-
-                                //------------------------------------------------------------------------------
-
-                                // CARD TEXT
-                                Text(
-                                  // TEXT
-                                  AppLocalizations.of(context)!.select_players_type_hetero_couple_title,
-
-                                  // TEXT STYLE
-                                  style: TextStyle(
-                                    fontSize: 18.5,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-
-                                //------------------------------------------------------------------------------
-
-                                // SPACER
-                                const SizedBox(height: 3),
-
-                                //------------------------------------------------------------------------------
-
-                                // CARD TEXT
-                                Text(
-                                  // TEXT
-                                  AppLocalizations.of(context)!.select_players_type_hetero_couple_subtitle,
-
-                                  // TEXT STYLE
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-
-                                //------------------------------------------------------------------------------
-
-                              ],
-
-                            ),
-
-                          ),
-
-                          //------------------------------------------------------------------------------
-
-                          // SPACER
-                          const SizedBox(width: 10),
-
-                          //------------------------------------------------------------------------------
-
-                          // ARROW ICON
-                          Icon(
-
-                            // ICON IMAGE
-                            Icons.arrow_forward,
-
-                            // ICON COLOR
-                            color: Theme.of(context).colorScheme.onPrimary,
-
-                          )
-
-                          //------------------------------------------------------------------------------
-
-                        ],
-
                       ),
 
                     ),
 
-                  ),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // SPACER
+                    const SizedBox(height: 30),
 
-                  // SPACER
-                  const SizedBox(height: 15),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // FIRST CATEGORY BUTTON BOX
+                    SizedBox(
 
-                  // SECOND CATEGORY BUTTON BOX
-                  SizedBox(
+                      // WIDTH LARGE AS SCREEN
+                      width: double.infinity,
 
-                    // WIDTH LARGE AS SCREEN
-                    width: double.infinity,
+                      // FIRST GAME MODE BUTTON
+                      child: ElevatedButton(
 
-                    // FIRST GAME MODE BUTTON
-                    child: ElevatedButton(
+                        //------------------------------------------------------------------------------
 
-                      //------------------------------------------------------------------------------
+                        // BUTTON STYLE PARAMETERS
+                        style: ButtonStyle(
 
-                      // BUTTON STYLE PARAMETERS
-                      style: ButtonStyle(
-
-                        // NORMAL TEXT COLOR
-                        foregroundColor: WidgetStateProperty.all(
-                            Theme.of(context).colorScheme.onPrimary
-                        ),
-
-                        // NORMAL BACKGROUND COLOR
-                        backgroundColor: WidgetStateProperty.all(
-                          Theme.of(context).colorScheme.primary,
-                        ),
-
-                        // CORNERS RADIUS
-                        shape:
-                        WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-
-                        // PADDING
-                        padding: WidgetStateProperty.all<EdgeInsets>(
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // ON PRESSED CALL
-                      onPressed: () {
-
-                        // CHECKING IF THE GAME IS IN PRESENCE
-                        if (widget.game_type != true) {
-
-                          // PAGE LINKER
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-
-                              // OPEN NEW PAGE
-                              builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: widget.game_type,),
-
-                            ),
-
-                          );
-
-                          // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
-                        } else {
-
-                          // CREATING TMP DATA
-                          Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
-
-
-                          // PAGE LINKER
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-
-                              // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: "lesbian", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
-
-                            ),
-
-                          );
-
-                        }
-
-                      },
-
-                      //------------------------------------------------------------------------------
-
-                      // BUTT0N CONTENT
-                      child: Row(
-
-                        // ROW CONTENT
-                        children: [
-
-                          //------------------------------------------------------------------------------
-
-                          // CARD ICON
-                          Image.asset(
-                            'assets/images/lesbian_couple_icon.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.contain,
+                          // NORMAL TEXT COLOR
+                          foregroundColor: WidgetStateProperty.all(
+                              Theme.of(context).colorScheme.onPrimary
                           ),
 
-                          //------------------------------------------------------------------------------
+                          // NORMAL BACKGROUND COLOR
+                          backgroundColor: WidgetStateProperty.all(
+                            Theme.of(context).colorScheme.primary,
+                          ),
 
-                          // SPACER
-                          const SizedBox(width: 25),
+                          // CORNERS RADIUS
+                          shape:
+                          WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
 
-                          //------------------------------------------------------------------------------
+                          // PADDING
+                          padding: WidgetStateProperty.all<EdgeInsets>(
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                          ),
 
-                          // COLUMN
-                          Expanded(
-                            child: Column(
+                        ),
 
-                              // COLUMN ALIGNMENT
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                        //------------------------------------------------------------------------------
 
-                              children: [
-                                // CARD TEXT
-                                Text(
-                                  // TEXT
-                                  AppLocalizations.of(context)!.select_players_type_lesbian_couple_title,
+                        // ON PRESSED CALL
+                        onPressed: () {
 
-                                  // TEXT STYLE
-                                  style: TextStyle(
-                                    fontSize: 18.5,
-                                    fontWeight: FontWeight.w600,
+                          // CHECKING IF THE GAME IS IN PRESENCE
+                          if (widget.game_type != true) {
+
+                            // PAGE LINKER
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+
+                                // OPEN NEW PAGE
+                                builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: widget.game_type,),
+
+                              ),
+
+                            );
+
+                            // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
+                          } else {
+
+                            // CREATING TMP DATA
+                            Players player_tmp_object_1 = Players(player_icon_path: "assets/images/coin_flip_icon.png", player_alias: "player_alias:_1", player_sex: true);
+                            Players player_tmp_object_2 = Players(player_icon_path: "assets/images/deck_info.png", player_alias: "player_alias_2", player_sex: true);
+
+
+                            // PAGE LINKER
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+
+                                // OPEN NEW PAGE
+                                builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: widget.game_type, player_1_object: player_tmp_object_1, player_2_object: player_tmp_object_2, first_player: player_tmp_object_2,),
+
+                              ),
+
+                            );
+
+                          }
+
+                        },
+
+                        //------------------------------------------------------------------------------
+
+                        // BUTT0N CONTENT
+                        child: Row(
+
+                          // ROW CONTENT
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // CARD ICON
+                            Image.asset(
+                              'assets/images/hetero_couple_icon.png',
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.contain,
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(width: 25),
+
+                            //------------------------------------------------------------------------------
+
+                            // COLUMN
+                            Expanded(
+                              child: Column(
+
+                                // COLUMN ALIGNMENT
+                                crossAxisAlignment:CrossAxisAlignment.start,
+
+                                children: [
+
+                                  //------------------------------------------------------------------------------
+
+                                  // CARD TEXT
+                                  Text(
+                                    // TEXT
+                                    AppLocalizations.of(context)!.select_players_type_hetero_couple_title,
+
+                                    // TEXT STYLE
+                                    style: TextStyle(
+                                      fontSize: 18.5,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
 
-                                // SPACER
-                                const SizedBox(height: 3),
+                                  //------------------------------------------------------------------------------
 
-                                // CARD TEXT
-                                Text(
-                                  // TEXT
-                                  AppLocalizations.of(context)!.select_players_type_lesbian_couple_subtitle,
+                                  // SPACER
+                                  const SizedBox(height: 3),
 
-                                  // TEXT STYLE
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
+                                  //------------------------------------------------------------------------------
+
+                                  // CARD TEXT
+                                  Text(
+                                    // TEXT
+                                    AppLocalizations.of(context)!.select_players_type_hetero_couple_subtitle,
+
+                                    // TEXT STYLE
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
-                                ),
 
-                              ],
+                                  //------------------------------------------------------------------------------
+
+                                ],
+
+                              ),
 
                             ),
 
-                          ),
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                            // SPACER
+                            const SizedBox(width: 10),
 
-                          // SPACER
-                          const SizedBox(width: 10),
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                            // ARROW ICON
+                            Icon(
 
-                          // ARROW ICON
-                          Icon(
+                              // ICON IMAGE
+                              Icons.arrow_forward,
 
-                            // ICON IMAGE
-                            Icons.arrow_forward,
+                              // ICON COLOR
+                              color: Theme.of(context).colorScheme.onPrimary,
 
-                            // ICON COLOR
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            )
 
-                          )
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                          ],
 
-                        ],
+                        ),
 
                       ),
 
                     ),
 
-                  ),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // SPACER
+                    const SizedBox(height: 15),
 
-                  // SPACER
-                  const SizedBox(height: 15),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // SECOND CATEGORY BUTTON BOX
+                    SizedBox(
 
-                  // THIRD CATEGORY BUTTON BOX
-                  SizedBox(
+                      // WIDTH LARGE AS SCREEN
+                      width: double.infinity,
 
-                    // WIDTH LARGE AS SCREEN
-                    width: double.infinity,
+                      // FIRST GAME MODE BUTTON
+                      child: ElevatedButton(
 
-                    // FIRST GAME MODE BUTTON
-                    child: ElevatedButton(
+                        //------------------------------------------------------------------------------
 
-                      //------------------------------------------------------------------------------
+                        // BUTTON STYLE PARAMETERS
+                        style: ButtonStyle(
 
-                      // BUTTON STYLE PARAMETERS
-                      style: ButtonStyle(
-
-                        // NORMAL TEXT COLOR
-                        foregroundColor: WidgetStateProperty.all(
-                            Theme.of(context).colorScheme.onPrimary
-                        ),
-
-                        // NORMAL BACKGROUND COLOR
-                        backgroundColor: WidgetStateProperty.all(
-                          Theme.of(context).colorScheme.primary,
-                        ),
-
-                        // CORNERS RADIUS
-                        shape:
-                        WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-
-                        // PADDING
-                        padding: WidgetStateProperty.all<EdgeInsets>(
-                          EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // ON PRESSED CALL
-                      onPressed: () {
-
-                        // CHECKING IF THE GAME IS IN PRESENCE
-                        if (widget.game_type != true) {
-
-                          // PAGE LINKER
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-
-                              // OPEN NEW PAGE
-                              builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: widget.game_type,),
-
-                            ),
-
-                          );
-
-                          // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
-                        } else {
-
-                          // CREATING TMP DATA
-                          Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
-
-
-                          // PAGE LINKER
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-
-                              // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
-
-                            ),
-
-                          );
-
-                        }
-
-                      },
-
-                      //------------------------------------------------------------------------------
-
-                      // BUTT0N CONTENT
-                      child: Row(
-
-                        // ROW CONTENT
-                        children: [
-
-                          //------------------------------------------------------------------------------
-
-                          // CARD ICON
-                          Image.asset(
-                            'assets/images/gay_couple_icon.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.contain,
+                          // NORMAL TEXT COLOR
+                          foregroundColor: WidgetStateProperty.all(
+                              Theme.of(context).colorScheme.onPrimary
                           ),
 
-                          //------------------------------------------------------------------------------
+                          // NORMAL BACKGROUND COLOR
+                          backgroundColor: WidgetStateProperty.all(
+                            Theme.of(context).colorScheme.primary,
+                          ),
 
-                          // SPACER
-                          const SizedBox(width: 25),
+                          // CORNERS RADIUS
+                          shape:
+                          WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
 
-                          //------------------------------------------------------------------------------
+                          // PADDING
+                          padding: WidgetStateProperty.all<EdgeInsets>(
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                          ),
 
-                          // COLUMN
-                          Expanded(
-                            child: Column(
+                        ),
 
-                              // COLUMN ALIGNMENT
-                              crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                        //------------------------------------------------------------------------------
 
-                              children: [
+                        // ON PRESSED CALL
+                        onPressed: () {
 
-                                // CARD TEXT
-                                Text(
-                                  // TEXT
-                                  AppLocalizations.of(context)!.select_players_type_gay_couple_title,
+                          // CHECKING IF THE GAME IS IN PRESENCE
+                          if (widget.game_type != true) {
 
-                                  // TEXT STYLE
-                                  style: TextStyle(
-                                    fontSize: 18.5,
-                                    fontWeight: FontWeight.w600,
+                            // PAGE LINKER
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+
+                                // OPEN NEW PAGE
+                                builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: widget.game_type,),
+
+                              ),
+
+                            );
+
+                            // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
+                          } else {
+
+                            // CREATING TMP DATA
+                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
+
+
+                            // PAGE LINKER
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+
+                                // OPEN NEW PAGE
+                                builder: (context) => DeckSelectionPage(couple_type: "lesbian", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+
+                              ),
+
+                            );
+
+                          }
+
+                        },
+
+                        //------------------------------------------------------------------------------
+
+                        // BUTT0N CONTENT
+                        child: Row(
+
+                          // ROW CONTENT
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // CARD ICON
+                            Image.asset(
+                              'assets/images/lesbian_couple_icon.png',
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.contain,
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(width: 25),
+
+                            //------------------------------------------------------------------------------
+
+                            // COLUMN
+                            Expanded(
+                              child: Column(
+
+                                // COLUMN ALIGNMENT
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+
+                                children: [
+                                  // CARD TEXT
+                                  Text(
+                                    // TEXT
+                                    AppLocalizations.of(context)!.select_players_type_lesbian_couple_title,
+
+                                    // TEXT STYLE
+                                    style: TextStyle(
+                                      fontSize: 18.5,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
 
-                                // SPACER
-                                const SizedBox(height: 3),
+                                  // SPACER
+                                  const SizedBox(height: 3),
 
-                                // CARD TEXT
-                                Text(
-                                  // TEXT
-                                  AppLocalizations.of(context)!.select_players_type_gay_couple_subtitle,
+                                  // CARD TEXT
+                                  Text(
+                                    // TEXT
+                                    AppLocalizations.of(context)!.select_players_type_lesbian_couple_subtitle,
 
-                                  // TEXT STYLE
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
+                                    // TEXT STYLE
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
                                   ),
-                                ),
 
-                              ],
+                                ],
+
+                              ),
 
                             ),
 
-                          ),
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                            // SPACER
+                            const SizedBox(width: 10),
 
-                          // SPACER
-                          const SizedBox(width: 10),
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                            // ARROW ICON
+                            Icon(
 
-                          // ARROW ICON
-                          Icon(
+                              // ICON IMAGE
+                              Icons.arrow_forward,
 
-                            // ICON IMAGE
-                            Icons.arrow_forward,
+                              // ICON COLOR
+                              color: Theme.of(context).colorScheme.onPrimary,
 
-                            // ICON COLOR
-                            color: Theme.of(context).colorScheme.onPrimary,
+                            )
 
-                          )
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                          ],
 
-                        ],
+                        ),
 
                       ),
 
                     ),
 
-                  ),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // SPACER
+                    const SizedBox(height: 15),
 
-              ],
+                    //------------------------------------------------------------------------------
+
+                    // THIRD CATEGORY BUTTON BOX
+                    SizedBox(
+
+                      // WIDTH LARGE AS SCREEN
+                      width: double.infinity,
+
+                      // FIRST GAME MODE BUTTON
+                      child: ElevatedButton(
+
+                        //------------------------------------------------------------------------------
+
+                        // BUTTON STYLE PARAMETERS
+                        style: ButtonStyle(
+
+                          // NORMAL TEXT COLOR
+                          foregroundColor: WidgetStateProperty.all(
+                              Theme.of(context).colorScheme.onPrimary
+                          ),
+
+                          // NORMAL BACKGROUND COLOR
+                          backgroundColor: WidgetStateProperty.all(
+                            Theme.of(context).colorScheme.primary,
+                          ),
+
+                          // CORNERS RADIUS
+                          shape:
+                          WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+
+                          // PADDING
+                          padding: WidgetStateProperty.all<EdgeInsets>(
+                            EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // ON PRESSED CALL
+                        onPressed: () {
+
+                          // CHECKING IF THE GAME IS IN PRESENCE
+                          if (widget.game_type != true) {
+
+                            // PAGE LINKER
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+
+                                // OPEN NEW PAGE
+                                builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: widget.game_type,),
+
+                              ),
+
+                            );
+
+                            // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
+                          } else {
+
+                            // CREATING TMP DATA
+                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
+
+
+                            // PAGE LINKER
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+
+                                // OPEN NEW PAGE
+                                builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+
+                              ),
+
+                            );
+
+                          }
+
+                        },
+
+                        //------------------------------------------------------------------------------
+
+                        // BUTT0N CONTENT
+                        child: Row(
+
+                          // ROW CONTENT
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // CARD ICON
+                            Image.asset(
+                              'assets/images/gay_couple_icon.png',
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.contain,
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(width: 25),
+
+                            //------------------------------------------------------------------------------
+
+                            // COLUMN
+                            Expanded(
+                              child: Column(
+
+                                // COLUMN ALIGNMENT
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+
+                                children: [
+
+                                  // CARD TEXT
+                                  Text(
+                                    // TEXT
+                                    AppLocalizations.of(context)!.select_players_type_gay_couple_title,
+
+                                    // TEXT STYLE
+                                    style: TextStyle(
+                                      fontSize: 18.5,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+
+                                  // SPACER
+                                  const SizedBox(height: 3),
+
+                                  // CARD TEXT
+                                  Text(
+                                    // TEXT
+                                    AppLocalizations.of(context)!.select_players_type_gay_couple_subtitle,
+
+                                    // TEXT STYLE
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+
+                                ],
+
+                              ),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(width: 10),
+
+                            //------------------------------------------------------------------------------
+
+                            // ARROW ICON
+                            Icon(
+
+                              // ICON IMAGE
+                              Icons.arrow_forward,
+
+                              // ICON COLOR
+                              color: Theme.of(context).colorScheme.onPrimary,
+
+                            )
+
+                            //------------------------------------------------------------------------------
+
+                          ],
+
+                        ),
+
+                      ),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                  ],
+
+                ),
 
               ),
 
             ),
-
+          
           )
 
       ),
@@ -812,6 +820,9 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
     );
 
   }
+
+  //------------------------------------------------------------------------------
+
 }
 
 

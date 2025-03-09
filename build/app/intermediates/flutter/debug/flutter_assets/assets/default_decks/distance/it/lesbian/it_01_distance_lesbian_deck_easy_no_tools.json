@@ -1,15 +1,12 @@
 {
   "summary": {
-    "name": "Principianti",
-    "description": "Una divertente avventura per le coppie che vogliono provare qualcosa di nuovo ma senza esagerare.",
+    "name": "Esploratori",
+    "description": "State muovendo i primi passi in un mondo di intimità giocosa. Vi aspettano sfide leggere, divertenti e semplici, perfette per rompere il ghiaccio insieme e accendere nuove sensazioni!",
     "couple_type": "lesbian",
     "play_distance": true,
     "language": "it",
     "total_quests": 25,
-    "average_difficulty": 1,
-    "average_duration": 10,
-    "required_tools": [],
-    "protected": true
+    "required_tools": []
 
   },
 

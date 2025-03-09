@@ -1,15 +1,12 @@
 {
   "summary": {
-    "name": "Principianti",
-    "description": "Una divertente avventura per le coppie che vogliono provare qualcosa di nuovo ma senza esagerare.",
+    "name": "Esploratori",
+    "description": "State muovendo i primi passi in un mondo di intimità giocosa. Vi aspettano sfide leggere, divertenti e semplici, perfette per rompere il ghiaccio insieme e accendere nuove sensazioni!",
     "couple_type": "gay",
     "play_distance": false,
     "language": "it",
     "total_quests": 25,
-    "average_difficulty": 1,
-    "average_duration": 10,
-    "required_tools": [],
-    "protected": true
+    "required_tools": []
 
   },
 
@@ -28,7 +25,7 @@
       "id": 2,
       "moment": "mid",
       "difficulty": "medium",
-      "required_tools": ["dadi"],
+      "required_tools": ["dice"],
       "timer": 0,
       "content": "Nel cuore della notte, mentre la città dormiva sotto un cielo punteggiato di stelle, Luca camminava lungo le strade deserte con la mente colma di pensieri. Ogni passo risuonava nell’eco silenziosa dei vicoli, mentre la brezza notturna accarezzava i suoi capelli."
     },
@@ -36,7 +33,7 @@
       "id": 3,
       "moment": "late",
       "difficulty": "hard",
-      "required_tools": ["corda", "benda"],
+      "required_tools": ["rope", "blindfold"],
       "timer": 5,
       "content": "Non sapeva esattamente dove stesse andando, ma sentiva che quella passeggiata avrebbe portato con sé una risposta che da tempo cercava. Forse il destino aveva deciso di giocare ancora una volta con lui, o forse era solo la notte a rendere tutto più misterioso."
     },
@@ -44,7 +41,7 @@
       "id": 4,
       "moment": "end",
       "difficulty": "hard",
-      "required_tools": ["corda", "benda"],
+      "required_tools": ["rope", "blindfold"],
       "timer": 2,
       "content": "Sofia osservava la pioggia battere contro la finestra, tracciando sottili linee d’acqua sul vetro. Il suono delle gocce scandiva il tempo, mentre il profumo della terra bagnata filtrava dalla finestra socchiusa."
     },
@@ -60,7 +57,7 @@
       "id": 6,
       "moment": "mid",
       "difficulty": "medium",
-      "required_tools": ["dadi"],
+      "required_tools": ["dice"],
       "timer": 0,
       "content": "Il vecchio orologio a pendolo segnava la mezzanotte quando Marco aprì il vecchio baule nascosto in soffitta. La polvere si sollevò nell’aria, danzando tra i raggi di luna che filtravano dalla piccola finestra."
     },
@@ -68,7 +65,7 @@
       "id": 7,
       "moment": "late",
       "difficulty": "hard",
-      "required_tools": ["corda", "benda"],
+      "required_tools": ["rope", "blindfold"],
       "timer": 5,
       "content": "Dentro, tra vecchie lettere e fotografie ingiallite, trovò un diario con la copertina di pelle logora. Con mani tremanti, lo aprì alla prima pagina e lesse il nome scritto con inchiostro sbiadito: era quello di suo nonno."
     },
@@ -76,7 +73,7 @@
       "id": 8,
       "moment": "end",
       "difficulty": "hard",
-      "required_tools": ["corda", "benda"],
+      "required_tools": ["rope", "blindfold"],
       "timer": 2,
       "content": " Quel ritrovamento era l’inizio di un viaggio nel passato, alla scoperta di segreti che il tempo aveva quasi cancellato."
     },
@@ -92,7 +89,7 @@
       "id": 10,
       "moment": "mid",
       "difficulty": "medium",
-      "required_tools": ["dadi"],
+      "required_tools": ["dice"],
       "timer": 0,
       "content": "Quel luogo aveva sempre esercitato su di lei un fascino magnetico, come se nascondesse storie dimenticate. Chiuse gli occhi per un istante, ascoltando il richiamo lontano dei gabbiani e il fragore dell’acqua. "
     },
@@ -100,7 +97,7 @@
       "id": 11,
       "moment": "late",
       "difficulty": "hard",
-      "required_tools": ["corda", "benda"],
+      "required_tools": ["rope", "blindfold"],
       "timer": 5,
       "content": "Forse, pensò, alcune risposte non si trovano nei libri o nelle parole degli altri, ma nel silenzio di certi momenti, dove tutto sembra fermarsi per un respiro."
     },
@@ -108,7 +105,7 @@
       "id": 12,
       "moment": "end",
       "difficulty": "hard",
-      "required_tools": ["corda", "benda"],
+      "required_tools": ["rope", "blindfold"],
       "timer": 2,
       "content": "Il tramonto incendiava il cielo con sfumature di rosso e arancio, mentre le ombre degli alberi si allungavano lentamente sui sentieri silenziosi del parco."
     }

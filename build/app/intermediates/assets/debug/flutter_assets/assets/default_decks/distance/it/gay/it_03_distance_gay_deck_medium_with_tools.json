@@ -1,16 +1,12 @@
 {
   "summary": {
     "name": "Sperimentatori",
-    "description": "Una avvincente avventura di coppia !",
+    "description": "È il momento di osare un po’ di più! Queste sfide vi aiuteranno a esplorare nuovi desideri, superare i vostri limiti e accendere la passione, sempre nel rispetto e nella complicità.",
     "couple_type": "gay",
     "play_distance": true,
     "language": "it",
     "total_quests": 13,
-    "average_difficulty": 2,
-    "average_duration": 45,
-    "required_tools": ["corda", "benda", "dadi"],
-    "protected": true
-
+    "required_tools": []
   },
 
 

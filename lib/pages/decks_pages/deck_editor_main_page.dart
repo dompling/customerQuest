@@ -551,502 +551,511 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
       body: SafeArea(
 
         // SAFE AREA CONTENT
-        child: Container(
+        child: Align(
 
-          // PAGE PADDING
-          padding: EdgeInsets.all(10),
+          // ALIGNMENT
+          alignment: Alignment.center,
 
-          // PAGE ALIGNMENT
-          alignment: Alignment.topCenter,
+          // ALIGN CONTENT
+          child: Container(
 
-          // SAFE AREA CONTENT
-          child: CustomScrollView (
+            // SETTING THE WIDTH LIMIT
+            constraints: BoxConstraints(maxWidth: 600),
 
-            // PAGE CONTENT
-            slivers: [
+            // PAGE PADDING
+            padding: EdgeInsets.all(10),
 
-              //------------------------------------------------------------------------------
+            // PAGE ALIGNMENT
+            alignment: Alignment.topCenter,
 
-              // STATIC PART OF THE PAGE
-              SliverToBoxAdapter(
+            // SAFE AREA CONTENT
+            child: CustomScrollView (
 
-                // CONTAINER CONTENT
-                child: Column(
+              // PAGE CONTENT
+              slivers: [
 
-                  // SIZE
-                  mainAxisSize: MainAxisSize.min,
+                //------------------------------------------------------------------------------
 
-                  // COLUMN CONTENT
-                  children: [
+                // STATIC PART OF THE PAGE
+                SliverToBoxAdapter(
 
-                    //------------------------------------------------------------------------------
+                  // CONTAINER CONTENT
+                  child: Column(
 
-                    // DECK INFO HEADER BOX
-                    Container(
+                    // SIZE
+                    mainAxisSize: MainAxisSize.min,
 
-                      // SIZE
-                      width: double.infinity,
+                    // COLUMN CONTENT
+                    children: [
 
-                      // PADDING
-                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                      //------------------------------------------------------------------------------
 
-                      // ALIGNMENT
-                      alignment: Alignment.topRight,
+                      // DECK INFO HEADER BOX
+                      Container(
 
-                      // DECK INFO TITLE AND EDIT BUTTON CONTAINER
-                      child: Row(
+                        // SIZE
+                        width: double.infinity,
 
-                        //ALIGNMENT
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // PADDING
+                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
 
-                        // ROW CONTENT
-                        children: [
+                        // ALIGNMENT
+                        alignment: Alignment.topRight,
 
-                          // PAGE TITLE TEXT
-                          Expanded(child:  Text(
-                            // TEXT
-                            AppLocalizations.of(context)!.deck_info_page_title,
+                        // DECK INFO TITLE AND EDIT BUTTON CONTAINER
+                        child: Row(
 
-                            // TEXT ALIGNMENT
-                            textAlign: TextAlign.start,
+                          //ALIGNMENT
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                            // TEXT STYLE
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
+                          // ROW CONTENT
+                          children: [
+
+                            // PAGE TITLE TEXT
+                            Expanded(child:  Text(
+                              // TEXT
+                              AppLocalizations.of(context)!.deck_info_page_title,
+
+                              // TEXT ALIGNMENT
+                              textAlign: TextAlign.start,
+
+                              // TEXT STYLE
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+
+                              ),
+                            )),
+
+                            // EDIT DECK SUMMARY ICON BUTTON
+                            IconButton(
+
+                              icon: Icon(Icons.edit),
+                              onPressed: () {
+
+                                // PAGE LINKER
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => DeckSummaryEditPage(selected_deck: current_deck,)
+                                  ),
+
+                                ).then((saved_file_path) {
+
+                                  //
+                                  reload_after_editing(saved_file_path);
+
+                                });
+
+                              },
 
                             ),
-                          )),
 
-                          // EDIT DECK SUMMARY ICON BUTTON
-                          IconButton(
+                          ],
 
-                            icon: Icon(Icons.edit),
-                            onPressed: () {
-
-                              // PAGE LINKER
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => DeckSummaryEditPage(selected_deck: current_deck,)
-                                ),
-
-                              ).then((saved_file_path) {
-
-                                //
-                                reload_after_editing(saved_file_path);
-
-                              });
-
-                            },
-
-                          ),
-
-                        ],
+                        ),
 
                       ),
 
-                    ),
+                      //------------------------------------------------------------------------------
 
-                    //------------------------------------------------------------------------------
+                      // SPACER
+                      const SizedBox(height: 10),
 
-                    // SPACER
-                    const SizedBox(height: 10),
+                      //------------------------------------------------------------------------------
 
-                    //------------------------------------------------------------------------------
+                      // DECK INFO BOX
+                      Container(
 
-                    // DECK INFO BOX
-                    Container(
+                        // SIZE
+                        width: double.infinity,
 
-                      // SIZE
-                      width: double.infinity,
-
-                      // PADDING
-                      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-
-                      // ALIGNMENT
-                      alignment: Alignment.topLeft,
-
-                      // STYLING
-                      decoration: BoxDecoration(
-
-                        // BACKGROUND COLOR
-                        color: Theme.of(context).colorScheme.primary,
-
-                        // BORDER RADIUS
-                        borderRadius: BorderRadius.circular(20),
-
-                      ),
-
-                      // CONTAINER CONTENT
-                      child: Column(
+                        // PADDING
+                        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
 
                         // ALIGNMENT
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        alignment: Alignment.topLeft,
 
-                        // COLUMN CONTENT
-                        children: [
+                        // STYLING
+                        decoration: BoxDecoration(
 
-                          //------------------------------------------------------------------------------
+                          // BACKGROUND COLOR
+                          color: Theme.of(context).colorScheme.primary,
 
-                          // DECK INFO CONTAINER
-                          Column(
+                          // BORDER RADIUS
+                          borderRadius: BorderRadius.circular(20),
 
-                            // ALIGNMENT
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                        ),
 
-                            children: [
+                        // CONTAINER CONTENT
+                        child: Column(
 
-                              //------------------------------------------------------------------------------
+                          // ALIGNMENT
+                          crossAxisAlignment: CrossAxisAlignment.start,
 
-                              // DECK NAME TEXT
-                              Text.rich(
-                                TextSpan (
+                          // COLUMN CONTENT
+                          children: [
 
-                                  // TEXT
-                                  text : AppLocalizations.of(context)!.deck_info_information_name_label,
+                            //------------------------------------------------------------------------------
 
-                                  // TEXT STYLE
-                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+                            // DECK INFO CONTAINER
+                            Column(
 
-                                  children: [
+                              // ALIGNMENT
+                              crossAxisAlignment: CrossAxisAlignment.start,
 
-                                    TextSpan (
+                              children: [
 
-                                      // TEXT
-                                      text : current_deck.summary.name,
+                                //------------------------------------------------------------------------------
 
-                                      // TEXT STYLE
-                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+                                // DECK NAME TEXT
+                                Text.rich(
+                                  TextSpan (
 
-                                    ),
-
-                                  ]
-
-                                ),
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                              // SPACER
-                              const SizedBox(height: 5),
-
-                              //------------------------------------------------------------------------------
-
-                              // DECK LANGUAGE TEXT
-                              Text.rich(
-                                TextSpan (
-
-                                  // TEXT
-                                  text : AppLocalizations.of(context)!.deck_info_information_language_label,
-
-                                  // TEXT STYLE
-                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                  children: [
-
-                                    TextSpan (
-
-                                      // TEXT
-                                      text : deck_language_label.label,
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_information_name_label,
 
                                       // TEXT STYLE
-                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
 
-                                    ),
+                                      children: [
 
-                                  ]
+                                        TextSpan (
 
-                                ),
-                              ),
+                                          // TEXT
+                                          text : current_deck.summary.name,
 
-                              //------------------------------------------------------------------------------
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
-                              // SPACER
-                              const SizedBox(height: 5),
-
-                              //------------------------------------------------------------------------------
-
-                              // GAME TYPE TEXT
-                              Text.rich(
-                                TextSpan (
-
-                                  // TEXT
-                                    text : AppLocalizations.of(context)!.deck_info_information_game_type_label,
-
-                                    // TEXT STYLE
-                                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                    children: [
-
-                                      TextSpan (
-
-                                        // TEXT
-                                        text : deck_game_type,
-
-                                        // TEXT STYLE
-                                        style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                      ),
-
-                                    ]
-
-                                ),
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                              // SPACER
-                              const SizedBox(height: 5),
-
-                              //------------------------------------------------------------------------------
-
-                              // COUPLE TYPE TEXT
-                              Text.rich(
-                                TextSpan (
-
-                                  // TEXT
-                                    text : AppLocalizations.of(context)!.deck_info_information_couple_type_label,
-
-                                    // TEXT STYLE
-                                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                    children: [
-
-                                      TextSpan (
-
-                                        // TEXT
-                                        text : deck_couple_type_label,
-
-                                        // TEXT STYLE
-                                        style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                      ),
-
-                                    ]
-
-                                ),
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                              // SPACER
-                              const SizedBox(height: 5),
-
-                              //------------------------------------------------------------------------------
-
-                              // QUEST NUMBER TEXT
-                              Text.rich(
-                                TextSpan (
-
-                                  // TEXT
-                                  text : AppLocalizations.of(context)!.deck_info_information_quest_number_label,
-
-                                  // TEXT STYLE
-                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                  children: [
-
-                                    TextSpan (
-
-                                      // TEXT
-                                      text : '${current_deck.summary.total_quests}',
-
-                                      // TEXT STYLE
-                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                    ),
-
-                                  ]
-
-                                ),
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                              // SPACER
-                              const SizedBox(height: 5),
-
-                              //------------------------------------------------------------------------------
-
-                              // TOOLS TEXT
-                              Text.rich(
-                                TextSpan (
-
-                                  // TEXT
-                                  text : AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
-
-                                  // TEXT STYLE
-                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                  children: [
-
-                                    TextSpan (
-
-                                      // TEXT
-                                      text : deck_translated_tools.join(", "),
-
-                                      // TEXT STYLE
-                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                    ),
-
-                                  ]
-
-                                ),
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                              // SPACER
-                              const SizedBox(height: 5),
-
-                              //------------------------------------------------------------------------------
-
-                              // DESCRIPTION TEXT
-                              Text.rich(
-                                TextSpan (
-
-                                  // TEXT
-                                  text : AppLocalizations.of(context)!.deck_info_information_description_label,
-
-                                  // TEXT STYLE
-                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                  children: [
-
-                                    TextSpan (
-
-                                      // TEXT
-                                      text : current_deck.summary.description,
-
-                                      // TEXT STYLE
-                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                    ),
-
-                                  ]
-
-                                ),
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                            ],
-
-                          ),
-
-                          //------------------------------------------------------------------------------
-
-                        ],
-
-                      ),
-
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 30),
-
-                    //------------------------------------------------------------------------------
-
-                    // SECTION DIVIDER
-                    Divider(
-
-                      // COLOR
-                      color: Theme.of(context).colorScheme.primary,
-
-                      // THICKNESS
-                      thickness: 3,
-
-                      // SX MARGIN
-                      indent: 15,
-
-                      // DX MARGIN
-                      endIndent: 15,
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 30),
-
-                    //------------------------------------------------------------------------------
-
-                    // QUEST LIST HEADER BOX
-                    Container(
-
-                      // SIZE
-                      width: double.infinity,
-
-                      // PADDING
-                      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-
-                      // ALIGNMENT
-                      alignment: Alignment.topRight,
-
-                      // CONTAINER CONTENT
-                      child: Column(
-
-                        // ALIGNMENT
-                        crossAxisAlignment: CrossAxisAlignment.start,
-
-                        // COLUMN CONTENT
-                        children: [
-
-                          //------------------------------------------------------------------------------
-
-                          // DECK INFO TITLE AND EDIT BUTTON CONTAINER
-                          Row(
-
-                            //ALIGNMENT
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                            // ROW CONTENT
-                            children: [
-
-                              // PAGE TITLE TEXT
-                              Expanded(child:  Text(
-                                // TEXT
-                                AppLocalizations.of(context)!.deck_info_quest_list_title,
-
-                                // TEXT STYLE
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              )),
-
-                              // BUTTONS CONTAINER
-                              Wrap(
-
-                                children: [
-
-                                  // ADD QUEST ICON BUTTON
-                                  IconButton(
-
-                                    icon: Icon(Icons.add_circle_rounded),
-                                    onPressed: () {
-
-                                      // PAGE LINKER
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => QuestEditPage(selected_deck: current_deck,)
                                         ),
 
-                                      ).then((none) async {
-
-                                        // RELOADING THE PAGE INFO
-                                        await reload_after_editing(widget.selected_deck.deck_file_path);
-
-                                      });
-
-                                    },
+                                      ]
 
                                   ),
-                                  /*
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(height: 5),
+
+                                //------------------------------------------------------------------------------
+
+                                // DECK LANGUAGE TEXT
+                                Text.rich(
+                                  TextSpan (
+
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_information_language_label,
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                      children: [
+
+                                        TextSpan (
+
+                                          // TEXT
+                                          text : deck_language_label.label,
+
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                        ),
+
+                                      ]
+
+                                  ),
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(height: 5),
+
+                                //------------------------------------------------------------------------------
+
+                                // GAME TYPE TEXT
+                                Text.rich(
+                                  TextSpan (
+
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_information_game_type_label,
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                      children: [
+
+                                        TextSpan (
+
+                                          // TEXT
+                                          text : deck_game_type,
+
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                        ),
+
+                                      ]
+
+                                  ),
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(height: 5),
+
+                                //------------------------------------------------------------------------------
+
+                                // COUPLE TYPE TEXT
+                                Text.rich(
+                                  TextSpan (
+
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_information_couple_type_label,
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                      children: [
+
+                                        TextSpan (
+
+                                          // TEXT
+                                          text : deck_couple_type_label,
+
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                        ),
+
+                                      ]
+
+                                  ),
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(height: 5),
+
+                                //------------------------------------------------------------------------------
+
+                                // QUEST NUMBER TEXT
+                                Text.rich(
+                                  TextSpan (
+
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_information_quest_number_label,
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                      children: [
+
+                                        TextSpan (
+
+                                          // TEXT
+                                          text : '${current_deck.summary.total_quests}',
+
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                        ),
+
+                                      ]
+
+                                  ),
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(height: 5),
+
+                                //------------------------------------------------------------------------------
+
+                                // TOOLS TEXT
+                                Text.rich(
+                                  TextSpan (
+
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                      children: [
+
+                                        TextSpan (
+
+                                          // TEXT
+                                          text : deck_translated_tools.join(", "),
+
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                        ),
+
+                                      ]
+
+                                  ),
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(height: 5),
+
+                                //------------------------------------------------------------------------------
+
+                                // DESCRIPTION TEXT
+                                Text.rich(
+                                  TextSpan (
+
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_information_description_label,
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                      children: [
+
+                                        TextSpan (
+
+                                          // TEXT
+                                          text : current_deck.summary.description,
+
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                        ),
+
+                                      ]
+
+                                  ),
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                              ],
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                          ],
+
+                        ),
+
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 30),
+
+                      //------------------------------------------------------------------------------
+
+                      // SECTION DIVIDER
+                      Divider(
+
+                        // COLOR
+                        color: Theme.of(context).colorScheme.primary,
+
+                        // THICKNESS
+                        thickness: 3,
+
+                        // SX MARGIN
+                        indent: 15,
+
+                        // DX MARGIN
+                        endIndent: 15,
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 30),
+
+                      //------------------------------------------------------------------------------
+
+                      // QUEST LIST HEADER BOX
+                      Container(
+
+                        // SIZE
+                        width: double.infinity,
+
+                        // PADDING
+                        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+
+                        // ALIGNMENT
+                        alignment: Alignment.topRight,
+
+                        // CONTAINER CONTENT
+                        child: Column(
+
+                          // ALIGNMENT
+                          crossAxisAlignment: CrossAxisAlignment.start,
+
+                          // COLUMN CONTENT
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // DECK INFO TITLE AND EDIT BUTTON CONTAINER
+                            Row(
+
+                              //ALIGNMENT
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                              // ROW CONTENT
+                              children: [
+
+                                // PAGE TITLE TEXT
+                                Expanded(child:  Text(
+                                  // TEXT
+                                  AppLocalizations.of(context)!.deck_info_quest_list_title,
+
+                                  // TEXT STYLE
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )),
+
+                                // BUTTONS CONTAINER
+                                Wrap(
+
+                                  children: [
+
+                                    // ADD QUEST ICON BUTTON
+                                    IconButton(
+
+                                      icon: Icon(Icons.add_circle_rounded),
+                                      onPressed: () {
+
+                                        // PAGE LINKER
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => QuestEditPage(selected_deck: current_deck,)
+                                          ),
+
+                                        ).then((none) async {
+
+                                          // RELOADING THE PAGE INFO
+                                          await reload_after_editing(widget.selected_deck.deck_file_path);
+
+                                        });
+
+                                      },
+
+                                    ),
+                                    /*
                                   // FILTER QUEST LIST ICON BUTTON
                                   IconButton(
 
@@ -1055,428 +1064,439 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                                   ),
                                   */
-                                ],
+                                  ],
 
-                              ),
-
-
-
-                            ],
-
-                          ),
-
-                          //------------------------------------------------------------------------------
-
-                        ],
-
-                      ),
-
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    const SizedBox(height: 10),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ),
-
-              ),
-
-              //------------------------------------------------------------------------------
-
-              // DYNAMIC PART OF THE PAGE
-              SliverList(
-
-                // DYNAMIC PART OF THE WIDGET
-                delegate: SliverChildBuilderDelegate(
-
-                      (context, index) {
-
-                    //------------------------------------------------------------------------------
-
-                    // GETTING THE CURRENT QUEST
-                    current_quest = all_quests_list[index];
-
-                    // TRANSLATING THE NEEDED TOOLS
-                    List<String> translated_quest_tools_list = translate_tools(all_quests_list[index].required_tools);
-
-                    // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
-                    translated_quest_tools_list[0] = translated_quest_tools_list[0][0].toUpperCase() + translated_quest_tools_list[0].substring(1);
-
-                    // GETTING THE CORRECT TIMER STRING
-                    String quest_timer = '';
-                    if (all_quests_list[index].timer != 0) {
-
-                      quest_timer = '${all_quests_list[index].timer} ${AppLocalizations.of(context)!.deck_info_information_minute_label}';
-
-                    } else {
-
-                      quest_timer = AppLocalizations.of(context)!.deck_info_no_tools_label;
-
-                    }
-
-                    // INITIALIZING THE QUEST TYPE VAR
-                    String quest_type;
-
-                    // CONVERTING THE QUEST TYPE TAG
-                    if (all_quests_list[index].moment.toLowerCase() == "early") {
-
-                      // DEFINING QUEST TYPE TEXT
-                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_early_quest_type;
-
-                    } else if (all_quests_list[index].moment.toLowerCase() == "mid") {
-
-                      // DEFINING QUEST TYPE TEXT
-                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_mid_quest_type;
-
-                    } else if (all_quests_list[index].moment.toLowerCase() == "late") {
-
-                      // DEFINING QUEST TYPE TEXT
-                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_late_quest_type;
-
-                    } else {
-
-                      // DEFINING QUEST TYPE TEXT
-                      quest_type = AppLocalizations.of(context)!.deck_info_quest_info_end_quest_type;
-
-                    }
-
-                    //------------------------------------------------------------------------------
-
-                    // DYNAMIC LIST CONTENT
-                    return SizedBox(
-
-                      // WIDTH LARGE AS SCREEN
-                      width: double.infinity,
-
-                      // SIZE BOX CONTENT
-                      child: Column(
-
-                        // COLUMN CONTENT
-                        children: [
-
-                          // SETTING GESTURE DETECTOR IN ORDER TO GET LONG PRESS ACTION
-                          GestureDetector(
-
-                            //------------------------------------------------------------------------------
-
-                            // LONG PRESS CONDITION SETUP
-                            onLongPressStart: (details) {
-                              showMenu(
-                                context: context,
-
-                                // MENU POSITION
-                                position: RelativeRect.fromLTRB(
-                                    details.globalPosition.dx,
-                                    details.globalPosition.dy,
-                                    details.globalPosition.dx + 1,
-                                    details.globalPosition.dy + 1
                                 ),
 
-                                // MENU CONTENT
-                                items: [
 
-                                  // DELETE ENTRY
-                                  PopupMenuItem(
 
-                                    // ENTRY VALUE
-                                    value: 'delete',
-
-                                    // ENTRY CONTENT
-                                    child: Row(
-
-                                      // ROW CONTENT
-                                      children: [
-
-                                        // ENTRY ICON
-                                        Icon(
-
-                                          // ICON
-                                          Icons.delete,
-
-                                          // ICON SIZE
-                                          size: 18,
-
-                                        ),
-
-                                        // SPACER
-                                        SizedBox(width: 5),
-
-                                        // ENTRY TEXT
-                                        Expanded(child: Text(AppLocalizations.of(context)!.deck_management_press_menu_delete)),
-
-                                      ],
-
-                                    ),
-
-                                  ),
-
-                                ],
-
-                                // MENU CONDITION ON ANY BUTTON PRESSED
-                              ).then((value) async {
-
-                                if (value == "delete") {
-
-                                  // SHOWING THE DELETE DIALOG
-                                  show_confirmation_dialog(context);
-
-                                }
-
-                              });
-
-                            },
-
-                            //------------------------------------------------------------------------------
-
-                            // QUEST BOX
-                            child: ElevatedButton(
-
-                              //------------------------------------------------------------------------------
-
-                              // BUTTON STYLE PARAMETERS
-                              style: ButtonStyle(
-
-                                // NORMAL TEXT COLOR
-                                foregroundColor: WidgetStateProperty.all(
-                                    Theme.of(context).colorScheme.onPrimary
-                                ),
-
-                                // NORMAL BACKGROUND COLOR
-                                backgroundColor: WidgetStateProperty.all(
-                                  Theme.of(context).colorScheme.primary,
-                                ),
-
-                                // CORNERS RADIUS
-                                shape:
-                                WidgetStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                ),
-
-                                // PADDING
-                                padding: WidgetStateProperty.all<EdgeInsets>(
-                                  EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                                ),
-
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                              // ON PRESSED CALL
-                              onPressed: () {
-
-                                // PAGE LINKER
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-
-                                    // OPEN NEW PAGE
-                                    builder: (context) => QuestEditPage(selected_deck: current_deck, selected_quest: all_quests_list[index]),
-
-                                  )
-
-                                ).then((value) async {
-
-                                  // RELOADING THE PAGE
-                                  await reload_after_editing(current_deck.deck_file_path);
-
-                                });
-
-                              },
-
-                              //------------------------------------------------------------------------------
-
-                              // BUTT0N CONTENT
-                              child: Row(
-
-                                // ROW CONTENT
-                                children: [
-
-                                  //------------------------------------------------------------------------------
-
-                                  // COLUMN
-                                  Expanded(
-                                    child: Column(
-
-                                      // COLUMN ALIGNMENT
-                                      crossAxisAlignment:CrossAxisAlignment.start,
-
-                                      children: [
-
-                                        //------------------------------------------------------------------------------
-
-                                        // QUEST TYPE TEXT
-                                        Text.rich(
-                                          TextSpan (
-
-                                              text : AppLocalizations.of(context)!.deck_info_quest_info_quest_type_label,
-                                              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                              children: [
-
-                                                TextSpan (
-
-                                                  text : quest_type,
-                                                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                                ),
-
-                                              ]
-
-                                          ),
-                                        ),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // SPACER
-                                        const SizedBox(height: 5),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // TOOLS TEXT
-                                        Text.rich(
-                                          TextSpan (
-
-                                              text : AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
-                                              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                              children: [
-
-                                                TextSpan (
-
-                                                  text : translated_quest_tools_list.join(", "),
-                                                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                                ),
-
-                                              ]
-
-                                          ),
-                                        ),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // SPACER
-                                        const SizedBox(height: 5),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // TIMER TEXT
-                                        Text.rich(
-                                          TextSpan (
-
-                                              text : AppLocalizations.of(context)!.deck_info_information_timer_label,
-                                              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                              children: [
-
-                                                TextSpan (
-
-                                                  text : quest_timer,
-                                                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                                ),
-
-                                              ]
-
-                                          ),
-                                        ),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // SPACER
-                                        const SizedBox(height: 5),
-
-                                        //------------------------------------------------------------------------------
-
-                                        // DESCRIPTION TEXT
-                                        Text.rich(
-                                          TextSpan (
-
-                                              text : AppLocalizations.of(context)!.deck_info_information_description_label,
-                                              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-
-                                              children: [
-
-                                                TextSpan (
-
-                                                  text : all_quests_list[index].content,
-                                                  style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
-
-                                                ),
-
-                                              ]
-
-                                          ),
-                                        ),
-
-                                        //------------------------------------------------------------------------------
-
-                                      ],
-
-                                    ),
-
-                                  ),
-
-                                  //------------------------------------------------------------------------------
-
-                                  // EDIT ICON
-                                  Icon(
-
-                                    // ICON
-                                    Icons.edit,
-
-                                    // ICON COLOR
-                                    color: Theme.of(context).colorScheme.onSecondary,
-
-                                  ),
-
-                                  //------------------------------------------------------------------------------
-
-                                ],
-
-                              ),
+                              ],
 
                             ),
 
                             //------------------------------------------------------------------------------
 
-                          ),
+                          ],
 
-                          // SPACER
-                          const SizedBox(height: 15),
+                        ),
 
-                        ],
 
                       ),
 
-                    );
+                      //------------------------------------------------------------------------------
 
-                    //------------------------------------------------------------------------------
+                      // SPACER
+                      const SizedBox(height: 10),
 
-                  },
+                      //------------------------------------------------------------------------------
 
-                  // DYNAMIC LIST ITEM NUMBER
-                  childCount: all_quests_list.length,
+                    ],
+
+                  ),
 
                 ),
 
                 //------------------------------------------------------------------------------
 
-              ),
+                // DYNAMIC PART OF THE PAGE
+                SliverList(
 
-            ],
+                  // DYNAMIC PART OF THE WIDGET
+                  delegate: SliverChildBuilderDelegate(
+
+                        (context, index) {
+
+                      //------------------------------------------------------------------------------
+
+                      // GETTING THE CURRENT QUEST
+                      current_quest = all_quests_list[index];
+
+                      // TRANSLATING THE NEEDED TOOLS
+                      List<String> translated_quest_tools_list = translate_tools(all_quests_list[index].required_tools);
+
+                      // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+                      translated_quest_tools_list[0] = translated_quest_tools_list[0][0].toUpperCase() + translated_quest_tools_list[0].substring(1);
+
+                      // GETTING THE CORRECT TIMER STRING
+                      String quest_timer = '';
+                      if (all_quests_list[index].timer != 0) {
+
+                        quest_timer = '${all_quests_list[index].timer} ${AppLocalizations.of(context)!.deck_info_information_minute_label}';
+
+                      } else {
+
+                        quest_timer = AppLocalizations.of(context)!.deck_info_no_tools_label;
+
+                      }
+
+                      // INITIALIZING THE QUEST TYPE VAR
+                      String quest_type;
+
+                      // CONVERTING THE QUEST TYPE TAG
+                      if (all_quests_list[index].moment.toLowerCase() == "early") {
+
+                        // DEFINING QUEST TYPE TEXT
+                        quest_type = AppLocalizations.of(context)!.deck_info_quest_info_early_quest_type;
+
+                      } else if (all_quests_list[index].moment.toLowerCase() == "mid") {
+
+                        // DEFINING QUEST TYPE TEXT
+                        quest_type = AppLocalizations.of(context)!.deck_info_quest_info_mid_quest_type;
+
+                      } else if (all_quests_list[index].moment.toLowerCase() == "late") {
+
+                        // DEFINING QUEST TYPE TEXT
+                        quest_type = AppLocalizations.of(context)!.deck_info_quest_info_late_quest_type;
+
+                      } else {
+
+                        // DEFINING QUEST TYPE TEXT
+                        quest_type = AppLocalizations.of(context)!.deck_info_quest_info_end_quest_type;
+
+                      }
+
+                      //------------------------------------------------------------------------------
+
+                      // DYNAMIC LIST CONTENT
+                      return Align(
+
+                        // ALIGN CONTENT
+                        child: Container(
+
+                          // SETTING THE WIDTH LIMIT
+                          constraints: BoxConstraints(maxWidth: 800),
+
+                          // SIZE BOX CONTENT
+                          child: Column(
+
+                            // COLUMN CONTENT
+                            children: [
+
+                              // SETTING GESTURE DETECTOR IN ORDER TO GET LONG PRESS ACTION
+                              GestureDetector(
+
+                                //------------------------------------------------------------------------------
+
+                                // LONG PRESS CONDITION SETUP
+                                onLongPressStart: (details) {
+                                  showMenu(
+                                    context: context,
+
+                                    // MENU POSITION
+                                    position: RelativeRect.fromLTRB(
+                                        details.globalPosition.dx,
+                                        details.globalPosition.dy,
+                                        details.globalPosition.dx + 1,
+                                        details.globalPosition.dy + 1
+                                    ),
+
+                                    // MENU CONTENT
+                                    items: [
+
+                                      // DELETE ENTRY
+                                      PopupMenuItem(
+
+                                        // ENTRY VALUE
+                                        value: 'delete',
+
+                                        // ENTRY CONTENT
+                                        child: Row(
+
+                                          // ROW CONTENT
+                                          children: [
+
+                                            // ENTRY ICON
+                                            Icon(
+
+                                              // ICON
+                                              Icons.delete,
+
+                                              // ICON SIZE
+                                              size: 18,
+
+                                            ),
+
+                                            // SPACER
+                                            SizedBox(width: 5),
+
+                                            // ENTRY TEXT
+                                            Expanded(child: Text(AppLocalizations.of(context)!.deck_management_press_menu_delete)),
+
+                                          ],
+
+                                        ),
+
+                                      ),
+
+                                    ],
+
+                                    // MENU CONDITION ON ANY BUTTON PRESSED
+                                  ).then((value) async {
+
+                                    if (value == "delete") {
+
+                                      // SHOWING THE DELETE DIALOG
+                                      show_confirmation_dialog(context);
+
+                                    }
+
+                                  });
+
+                                },
+
+                                //------------------------------------------------------------------------------
+
+                                // QUEST BOX
+                                child: ElevatedButton(
+
+                                  //------------------------------------------------------------------------------
+
+                                  // BUTTON STYLE PARAMETERS
+                                  style: ButtonStyle(
+
+                                    // NORMAL TEXT COLOR
+                                    foregroundColor: WidgetStateProperty.all(
+                                        Theme.of(context).colorScheme.onPrimary
+                                    ),
+
+                                    // NORMAL BACKGROUND COLOR
+                                    backgroundColor: WidgetStateProperty.all(
+                                      Theme.of(context).colorScheme.primary,
+                                    ),
+
+                                    // CORNERS RADIUS
+                                    shape:
+                                    WidgetStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                    ),
+
+                                    // PADDING
+                                    padding: WidgetStateProperty.all<EdgeInsets>(
+                                      EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                                    ),
+
+                                  ),
+
+                                  //------------------------------------------------------------------------------
+
+                                  // ON PRESSED CALL
+                                  onPressed: () {
+
+                                    // PAGE LINKER
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+
+                                          // OPEN NEW PAGE
+                                          builder: (context) => QuestEditPage(selected_deck: current_deck, selected_quest: all_quests_list[index]),
+
+                                        )
+
+                                    ).then((value) async {
+
+                                      // RELOADING THE PAGE
+                                      await reload_after_editing(current_deck.deck_file_path);
+
+                                    });
+
+                                  },
+
+                                  //------------------------------------------------------------------------------
+
+                                  // BUTT0N CONTENT
+                                  child: Row(
+
+                                    // ROW CONTENT
+                                    children: [
+
+                                      //------------------------------------------------------------------------------
+
+                                      // COLUMN
+                                      Expanded(
+                                        child: Column(
+
+                                          // COLUMN ALIGNMENT
+                                          crossAxisAlignment:CrossAxisAlignment.start,
+
+                                          children: [
+
+                                            //------------------------------------------------------------------------------
+
+                                            // QUEST TYPE TEXT
+                                            Text.rich(
+                                              TextSpan (
+
+                                                  text : AppLocalizations.of(context)!.deck_info_quest_info_quest_type_label,
+                                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                                  children: [
+
+                                                    TextSpan (
+
+                                                      text : quest_type,
+                                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                                    ),
+
+                                                  ]
+
+                                              ),
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // SPACER
+                                            const SizedBox(height: 5),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // TOOLS TEXT
+                                            Text.rich(
+                                              TextSpan (
+
+                                                  text : AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
+                                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                                  children: [
+
+                                                    TextSpan (
+
+                                                      text : translated_quest_tools_list.join(", "),
+                                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                                    ),
+
+                                                  ]
+
+                                              ),
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // SPACER
+                                            const SizedBox(height: 5),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // TIMER TEXT
+                                            Text.rich(
+                                              TextSpan (
+
+                                                  text : AppLocalizations.of(context)!.deck_info_information_timer_label,
+                                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                                  children: [
+
+                                                    TextSpan (
+
+                                                      text : quest_timer,
+                                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                                    ),
+
+                                                  ]
+
+                                              ),
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // SPACER
+                                            const SizedBox(height: 5),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // DESCRIPTION TEXT
+                                            Text.rich(
+                                              TextSpan (
+
+                                                  text : AppLocalizations.of(context)!.deck_info_information_description_label,
+                                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                                  children: [
+
+                                                    TextSpan (
+
+                                                      text : all_quests_list[index].content,
+                                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                                    ),
+
+                                                  ]
+
+                                              ),
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                          ],
+
+                                        ),
+
+                                      ),
+
+                                      //------------------------------------------------------------------------------
+
+                                      // EDIT ICON
+                                      Icon(
+
+                                        // ICON
+                                        Icons.edit,
+
+                                        // ICON COLOR
+                                        color: Theme.of(context).colorScheme.onSecondary,
+
+                                      ),
+
+                                      //------------------------------------------------------------------------------
+
+                                    ],
+
+                                  ),
+
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                              ),
+
+                              // SPACER
+                              const SizedBox(height: 15),
+
+                            ],
+
+                          ),
+
+                        ),
+
+                      );
+
+
+                      //------------------------------------------------------------------------------
+
+                    },
+
+                    // DYNAMIC LIST ITEM NUMBER
+                    childCount: all_quests_list.length,
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                ),
+
+                //------------------------------------------------------------------------------
+
+              ],
+
+            ),
 
           ),
 
         ),
+
 
       ),
 
