@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/logics/decks_logics/translate_tools.dart';
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/decks_logics/export_decks.dart';
@@ -86,92 +87,6 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
   //------------------------------------------------------------------------------
 
-  // FUNCTION TO TRANSLATE IN MULTIPLE LANGUAGES THE DECKS/QUESTS TOOLS
-  List<String> translate_tools (List<String> required_tools) {
-
-    // GETTING THE LANGUAGE IN USE
-    final localizations = AppLocalizations.of(context)!;
-
-    // TRANSLATING THE TOOLS
-    List<String> translated_tools_list = required_tools.map((tool) {
-
-      switch (tool) {
-
-        case 'female_lingerie':
-          return localizations.quest_tool_female_lingerie;
-        case 'male_lingerie':
-          return localizations.quest_tool_male_lingerie;
-        case 'blindfold':
-          return localizations.quest_tool_blindfold;
-        case 'rope':
-          return localizations.quest_tool_rope;
-        case 'handcuffs':
-          return localizations.quest_tool_handcuffs;
-        case 'dice':
-          return localizations.quest_tool_dice;
-        case 'vibrator':
-          return localizations.quest_tool_vibrator;
-        case 'remote_vibrator':
-          return localizations.quest_tool_remote_vibrator;
-        case 'anal_beads':
-          return localizations.quest_tool_anal_beads;
-        case 'dildo':
-          return localizations.quest_tool_dildo;
-        case 'inflatable_dildo':
-          return localizations.quest_tool_inflatable_dildo;
-        case 'suction_cup_dildo':
-          return localizations.quest_tool_suction_cup_dildo;
-        case 'vibrating_dildo':
-          return localizations.quest_tool_vibrating_dildo;
-        case 'gag':
-          return localizations.quest_tool_gag;
-        case 'feather':
-          return localizations.quest_tool_feather;
-        case 'plug':
-          return localizations.quest_tool_plug;
-        case 'inflatable_plug':
-          return localizations.quest_tool_inflatable_plug;
-        case 'vibrating_plug':
-          return localizations.quest_tool_vibrating_plug;
-        case 'collar_and_leash':
-          return localizations.quest_tool_collar_and_leash;
-        case 'massage_oil':
-          return localizations.quest_tool_massage_oil;
-        case 'lubricants':
-          return localizations.quest_tool_lubricants;
-        case 'strap_on':
-          return localizations.quest_tool_strap_on;
-        case 'nipple_clamps':
-          return localizations.quest_tool_nipple_clamps;
-        case 'nipple_pump':
-          return localizations.quest_tool_nipple_pump;
-        case 'riding_crop':
-          return localizations.quest_tool_riding_crop;
-        case 'flogger':
-          return localizations.quest_tool_flogger;
-        case 'spanking_paddle':
-          return localizations.quest_tool_spanking_paddle;
-        case 'male_chastity_cage':
-          return localizations.quest_tool_male_chastity_cage;
-        case 'female_chastity_cage':
-          return localizations.quest_tool_female_chastity_cage;
-        default:
-          return tool;
-
-      }
-    }).toList();
-
-    // IF THERE ARE NOT TOOLS INSIDE THE DECK/QUEST, SHOW A PROPER LABEL
-    if (translated_tools_list.isEmpty) {
-      translated_tools_list.add(localizations.deck_info_no_tools_label);
-    }
-
-    return translated_tools_list;
-
-  }
-
-  //------------------------------------------------------------------------------
-
   // FUNCTION TO SHOW THE DELETE CONFIRMATION DIALOG
   void show_deck_delete_dialog() {
     showDialog(
@@ -181,6 +96,9 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
         deck_name: current_deck.summary.name,
       ),
     ).then((result) {
+
+      // CHECKING IF THE WIDGET IS STILL MOUNTED
+      if (!mounted) return;
 
       // GOING TO THE PREVIOUS PAGE
       Navigator.pop(context, true);
@@ -257,7 +175,10 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                     );
 
                     // RELOADING THE PAGE AFTER THE EDITING
-                    reload_after_editing(saved_file_path);
+                    await reload_after_editing(saved_file_path);
+
+                    // CHECKING IF THE CONTEXT IS STILL VALID
+                    if (!context.mounted) {return;}
 
                     // CLOSING THE DIALOG
                     Navigator.of(context).pop();
@@ -403,7 +324,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
     setState(() {
 
       // TRANSLATING THE SUMMARY TOOLS
-      deck_translated_tools = translate_tools(current_deck.summary.required_tools);
+      deck_translated_tools = translate_tools(context, current_deck.summary.required_tools);
 
       // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
       deck_translated_tools[0] = deck_translated_tools[0][0].toUpperCase() + deck_translated_tools[0].substring(1);
@@ -1112,7 +1033,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                       current_quest = all_quests_list[index];
 
                       // TRANSLATING THE NEEDED TOOLS
-                      List<String> translated_quest_tools_list = translate_tools(all_quests_list[index].required_tools);
+                      List<String> translated_quest_tools_list = translate_tools(context, all_quests_list[index].required_tools);
 
                       // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
                       translated_quest_tools_list[0] = translated_quest_tools_list[0][0].toUpperCase() + translated_quest_tools_list[0].substring(1);
@@ -1234,6 +1155,9 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                   ).then((value) async {
 
                                     if (value == "delete") {
+
+                                      // CHECKING IF THE CONTEXT IS STILL VALID
+                                      if (!context.mounted) {return;}
 
                                       // SHOWING THE DELETE DIALOG
                                       show_confirmation_dialog(context);

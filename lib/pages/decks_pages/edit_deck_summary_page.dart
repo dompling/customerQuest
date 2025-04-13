@@ -188,6 +188,7 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
           selected_deck: widget.selected_deck,
         );
 
+        // CHECKING IF THERE IS A PREVIOUS PASSED DECK
         if (widget.selected_deck != null) {
 
           // PAGE LINKER

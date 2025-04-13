@@ -333,6 +333,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quest_tool_female_chastity_cage => 'female chastity cage';
 
   @override
+  String get quest_tool_ice => 'ice';
+
+  @override
   String get play_page_title => 'Your quest';
 
   @override

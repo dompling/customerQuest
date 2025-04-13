@@ -731,6 +731,12 @@ abstract class AppLocalizations {
   /// **'female chastity cage'**
   String get quest_tool_female_chastity_cage;
 
+  /// No description provided for @quest_tool_ice.
+  ///
+  /// In en, this message translates to:
+  /// **'ice'**
+  String get quest_tool_ice;
+
   /// No description provided for @play_page_title.
   ///
   /// In en, this message translates to:

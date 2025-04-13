@@ -78,7 +78,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
   bool item_17 = false; bool item_18 = false; bool item_19 = false; bool item_20 = false;
   bool item_21 = false; bool item_22 = false; bool item_23 = false; bool item_24 = false;
   bool item_25 = false; bool item_26 = false; bool item_27 = false; bool item_28 = false;
-  bool item_29 = false; bool item_30 = false;
+  bool item_29 = false; bool item_30 = false; bool item_31 = false;
 
   //------------------------------------------------------------------------------
 
@@ -441,15 +441,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_1 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_female_lingerie)) {
+                                  if (tools_list.contains("female_lingerie")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_female_lingerie);
+                                    tools_list.remove("female_lingerie");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_female_lingerie);
+                                    tools_list.add("female_lingerie");
 
                                   }
 
@@ -481,15 +481,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_2 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_male_lingerie)) {
+                                  if (tools_list.contains("male_lingerie")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_male_lingerie);
+                                    tools_list.remove("male_lingerie");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_male_lingerie);
+                                    tools_list.add("male_lingerie");
 
                                   }
 
@@ -521,15 +521,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_3 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_blindfold)) {
+                                  if (tools_list.contains("blindfold")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_blindfold);
+                                    tools_list.remove("blindfold");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_blindfold);
+                                    tools_list.add("blindfold");
 
                                   }
 
@@ -561,15 +561,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_4 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_rope)) {
+                                  if (tools_list.contains("rope")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_rope);
+                                    tools_list.remove("rope");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_rope);
+                                    tools_list.add("rope");
 
                                   }
 
@@ -601,15 +601,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_5 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_handcuffs)) {
+                                  if (tools_list.contains("handcuffs")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_handcuffs);
+                                    tools_list.remove("handcuffs");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_handcuffs);
+                                    tools_list.add("handcuffs");
 
                                   }
 
@@ -641,15 +641,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_6 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_dice)) {
+                                  if (tools_list.contains("dice")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_dice);
+                                    tools_list.remove("dice");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_dice);
+                                    tools_list.add("dice");
 
                                   }
 
@@ -681,15 +681,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_7 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_vibrator)) {
+                                  if (tools_list.contains("vibrator")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_vibrator);
+                                    tools_list.remove("vibrator");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_vibrator);
+                                    tools_list.add("vibrator");
 
                                   }
 
@@ -721,15 +721,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_8 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_remote_vibrator)) {
+                                  if (tools_list.contains("remote_vibrator")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_remote_vibrator);
+                                    tools_list.remove("remote_vibrator");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_remote_vibrator);
+                                    tools_list.add("remote_vibrator");
 
                                   }
 
@@ -761,15 +761,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_9 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_anal_beads)) {
+                                  if (tools_list.contains("anal_beads")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_anal_beads);
+                                    tools_list.remove("anal_beads");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_anal_beads);
+                                    tools_list.add("anal_beads");
 
                                   }
 
@@ -801,15 +801,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_10 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_dildo)) {
+                                  if (tools_list.contains("dildo")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_dildo);
+                                    tools_list.remove("dildo");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_dildo);
+                                    tools_list.add("dildo");
 
                                   }
 
@@ -841,15 +841,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_11 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_inflatable_dildo)) {
+                                  if (tools_list.contains("inflatable_dildo")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_inflatable_dildo);
+                                    tools_list.remove("inflatable_dildo");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_inflatable_dildo);
+                                    tools_list.add("inflatable_dildo");
 
                                   }
 
@@ -881,15 +881,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_12 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_suction_cup_dildo)) {
+                                  if (tools_list.contains("suction_cup_dildo")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_suction_cup_dildo);
+                                    tools_list.remove("suction_cup_dildo");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_suction_cup_dildo);
+                                    tools_list.add("suction_cup_dildo");
 
                                   }
 
@@ -921,15 +921,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_13 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_vibrating_dildo)) {
+                                  if (tools_list.contains("vibrating_dildo")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_vibrating_dildo);
+                                    tools_list.remove("vibrating_dildo");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_vibrating_dildo);
+                                    tools_list.add("vibrating_dildo");
 
                                   }
 
@@ -961,15 +961,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_14 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_gag)) {
+                                  if (tools_list.contains("gag")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_gag);
+                                    tools_list.remove("gag");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_gag);
+                                    tools_list.add("gag");
 
                                   }
 
@@ -1001,15 +1001,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_15 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_feather)) {
+                                  if (tools_list.contains("feather")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_feather);
+                                    tools_list.remove("feather");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_feather);
+                                    tools_list.add("feather");
 
                                   }
 
@@ -1041,15 +1041,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_16 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_plug)) {
+                                  if (tools_list.contains("plug")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_plug);
+                                    tools_list.remove("plug");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_plug);
+                                    tools_list.add("plug");
 
                                   }
 
@@ -1081,15 +1081,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_17 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_inflatable_plug)) {
+                                  if (tools_list.contains("inflatable_plug")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_inflatable_plug);
+                                    tools_list.remove("inflatable_plug");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_inflatable_plug);
+                                    tools_list.add("inflatable_plug");
 
                                   }
 
@@ -1121,15 +1121,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_18 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_vibrating_plug)) {
+                                  if (tools_list.contains("vibrating_plug")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_vibrating_plug);
+                                    tools_list.remove("vibrating_plug");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_vibrating_plug);
+                                    tools_list.add("vibrating_plug");
 
                                   }
 
@@ -1161,15 +1161,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_19 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_candle)) {
+                                  if (tools_list.contains("candle")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_candle);
+                                    tools_list.remove("candle");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_candle);
+                                    tools_list.add("candle");
 
                                   }
 
@@ -1201,15 +1201,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_20 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_collar_and_leash)) {
+                                  if (tools_list.contains("collar_and_leash")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_collar_and_leash);
+                                    tools_list.remove("collar_and_leash");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_collar_and_leash);
+                                    tools_list.add("collar_and_leash");
 
                                   }
 
@@ -1241,15 +1241,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_21 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_massage_oil)) {
+                                  if (tools_list.contains("massage_oil")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_massage_oil);
+                                    tools_list.remove("massage_oil");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_massage_oil);
+                                    tools_list.add("massage_oil");
 
                                   }
 
@@ -1281,15 +1281,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_22 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_lubricants)) {
+                                  if (tools_list.contains("lubricants")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_lubricants);
+                                    tools_list.remove("lubricants");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_lubricants);
+                                    tools_list.add("lubricants");
 
                                   }
 
@@ -1321,15 +1321,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_23 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_strap_on)) {
+                                  if (tools_list.contains("strap_on")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_strap_on);
+                                    tools_list.remove("strap_on");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_strap_on);
+                                    tools_list.add("strap_on");
 
                                   }
 
@@ -1361,15 +1361,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_24 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_nipple_clamps)) {
+                                  if (tools_list.contains("nipple_clamps")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_nipple_clamps);
+                                    tools_list.remove("nipple_clamps");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_nipple_clamps);
+                                    tools_list.add("nipple_clamps");
 
                                   }
 
@@ -1401,15 +1401,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_25 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_nipple_pump)) {
+                                  if (tools_list.contains("nipple_pump")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_nipple_pump);
+                                    tools_list.remove("nipple_pump");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_nipple_pump);
+                                    tools_list.add("nipple_pump");
 
                                   }
 
@@ -1441,15 +1441,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_26 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_riding_crop)) {
+                                  if (tools_list.contains("riding_crop")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_riding_crop);
+                                    tools_list.remove("riding_crop");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_riding_crop);
+                                    tools_list.add("riding_crop");
 
                                   }
 
@@ -1481,15 +1481,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_27 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_flogger)) {
+                                  if (tools_list.contains("flogger")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_flogger);
+                                    tools_list.remove("flogger");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_flogger);
+                                    tools_list.add("flogger");
 
                                   }
 
@@ -1521,15 +1521,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_28 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_spanking_paddle)) {
+                                  if (tools_list.contains("spanking_paddle")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_spanking_paddle);
+                                    tools_list.remove("spanking_paddle");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_spanking_paddle);
+                                    tools_list.add("spanking_paddle");
 
                                   }
 
@@ -1561,15 +1561,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_29 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_male_chastity_cage)) {
+                                  if (tools_list.contains("male_chastity_cage")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_male_chastity_cage);
+                                    tools_list.remove("male_chastity_cage");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_male_chastity_cage);
+                                    tools_list.add("male_chastity_cage");
 
                                   }
 
@@ -1601,15 +1601,55 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_30 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains(AppLocalizations.of(context)!.quest_tool_female_chastity_cage)) {
+                                  if (tools_list.contains("female_chastity_cage")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove(AppLocalizations.of(context)!.quest_tool_female_chastity_cage);
+                                    tools_list.remove("female_chastity_cage");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add(AppLocalizations.of(context)!.quest_tool_female_chastity_cage);
+                                    tools_list.add("female_chastity_cage");
+
+                                  }
+
+                                });
+                              },
+
+                              // SWITCH COLOR
+                              activeColor: Theme.of(context).colorScheme.onSecondary,
+                              activeTrackColor: Theme.of(context).colorScheme.secondary,
+                              inactiveThumbColor: Theme.of(context).colorScheme.onSecondary,
+                              inactiveTrackColor: Colors.black45,
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // ITEM 31
+                            SwitchListTile(
+
+                              // SWITCH TITLE
+                              title: Text(AppLocalizations.of(context)!.quest_tool_ice.capitalize_first()),
+
+                              // SWITCH VALUE
+                              value: item_31,
+
+                              // SWITCH FUNCTION
+                              onChanged: (bool value) {
+                                setStateDialog(() {
+                                  item_31 = value;
+
+                                  // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
+                                  if (tools_list.contains("ice")) {
+
+                                    // DELETING THE TOOL FROM TO THE TOOL LIST
+                                    tools_list.remove("ice");
+
+                                  } else {
+
+                                    // ADDING THE TOOL TO THE TOOL LIST
+                                    tools_list.add("ice");
 
                                   }
 
@@ -1721,6 +1761,9 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
               // SHOWING THE DELETE DIALOG
               await show_confirmation_dialog(context);
+
+              // CHECKING IF THE CONTEXT IS STILL VALID
+              if (!context.mounted) {return;}
 
               // GOING BACK TO THE PREVIOUS PAGE
               Navigator.of(context).pop();

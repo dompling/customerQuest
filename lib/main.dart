@@ -31,7 +31,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  //
+  // PREPARING THE LOCALE FUNCTION
   final localeProvider = LocaleProvider();
   await localeProvider.loadLocale();
 
@@ -49,6 +49,107 @@ void main() async {
 
 
 //------------------------------------------------------------------------------
+
+
+
+// APP WRAPPER - GLOBAL UI MANAGEMENT
+class AppWrapper extends StatefulWidget {
+  const AppWrapper({super.key});
+
+
+  // CLASS CONSTRUCTOR
+  @override
+  AppWrapperState createState() => AppWrapperState();
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+// APP WRAPPER - MAIN STATE
+class AppWrapperState extends State<AppWrapper> with WidgetsBindingObserver {
+
+  // VARIABLE TO MANAGE THE TRANSPARENT OVERLAY
+  OverlayEntry? _overlayEntry;
+
+  @override
+  void initState() {
+
+    // INITIALIZE STATE AND REGISTER LIFECYCLE OBSERVER
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+
+  }
+
+  @override
+  void dispose() {
+
+    // REMOVE LIFECYCLE OBSERVER BEFORE DESTROYING THE WIDGET
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+
+    // CHECK IF THE APP RETURNS TO FOREGROUND
+    if (state == AppLifecycleState.resumed) {
+
+      // ACTIVATE OVERLAY TO FORCE REPAINT
+      _showOverlay();
+
+    }
+
+  }
+
+  //------------------------------------------------------------------------------
+
+
+  // FUNCTION TO CREATE AND HANDLE TRANSPARENT OVERLAY
+  void _showOverlay() {
+
+    // GET THE ACTIVE OVERLAY
+    final overlay = Overlay.of(context);
+
+    // CREATE TRANSPARENT OVERLAY LAYER
+    _overlayEntry = OverlayEntry(
+      builder: (context) => Positioned.fill(
+        child: Container(color: Colors.transparent), // FORCES REPAINT WITHOUT AFFECTING UI
+      ),
+    );
+
+    // INSERT THE OVERLAY INTO THE TOP LAYER OF THE APP
+    overlay.insert(_overlayEntry!);
+
+    // AUTOMATICALLY REMOVE THE OVERLAY AFTER 50ms TO AVOID VISIBLE IMPACT
+    Future.delayed(Duration(milliseconds: 50), () {
+      _overlayEntry?.remove();
+      _overlayEntry = null;
+    });
+
+  }
+
+  //------------------------------------------------------------------------------
+
+
+  @override
+  Widget build(BuildContext context) {
+
+    // RETURN THE NORMAL APP WITHOUT MODIFICATIONS
+    return MyApp();
+
+  }
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
 
 
 // APP DEFINITION

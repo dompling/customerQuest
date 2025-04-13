@@ -207,7 +207,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get deck_info_information_couple_type_label => 'Tipo di coppia: ';
 
   @override
-  String get deck_info_information_timer_label => 'Tempo limite:';
+  String get deck_info_information_timer_label => 'Tempo limite: ';
 
   @override
   String get deck_info_information_minute_label => 'minuti';
@@ -331,6 +331,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get quest_tool_female_chastity_cage => 'gabbia di castità femminile';
+
+  @override
+  String get quest_tool_ice => 'ghiaccio';
 
   @override
   String get play_page_title => 'La tua quest';

@@ -79,7 +79,7 @@
   "deck_info_information_language_label": "Lingua: ",
   "deck_info_information_game_type_label": "Tipologia di gioco: ",
   "deck_info_information_couple_type_label": "Tipo di coppia: ",
-  "deck_info_information_timer_label": "Tempo limite:",
+  "deck_info_information_timer_label": "Tempo limite: ",
   "deck_info_information_minute_label": "minuti",
   "deck_info_information_quest_number_label": "Numero di quest: ",
   "deck_info_information_requested_tools_label": "Strumenti richiesti: ",
@@ -122,6 +122,7 @@
   "quest_tool_spanking_paddle": "paletta per sculacciate",
   "quest_tool_male_chastity_cage": "gabbia di castità maschile",
   "quest_tool_female_chastity_cage": "gabbia di castità femminile",
+  "quest_tool_ice": "ghiaccio",
 
   "play_page_title": "La tua quest",
   "play_page_completed_button": "Completata",
