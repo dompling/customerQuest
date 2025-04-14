@@ -219,6 +219,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deck_info_information_requested_tools_label => 'Required tools: ';
 
   @override
+  String get deck_info_information_designated_player_label => 'Designated player: ';
+
+  @override
   String get deck_info_information_description_label => 'Description: ';
 
   @override
@@ -415,6 +418,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get quest_editor_page_tools_dialog_title => 'Select the tools';
+
+  @override
+  String get quest_editor_page_player_type_title => 'Select for which player is designed';
+
+  @override
+  String get quest_editor_page_player_type_both => 'Both';
+
+  @override
+  String get quest_editor_page_player_type_male => 'Male';
+
+  @override
+  String get quest_editor_page_player_type_female => 'Female';
 
   @override
   String get quest_editor_page_tools_dialog_save_button_label => 'Save';

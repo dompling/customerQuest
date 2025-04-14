@@ -83,6 +83,7 @@
   "deck_info_information_minute_label": "minuti",
   "deck_info_information_quest_number_label": "Numero di quest: ",
   "deck_info_information_requested_tools_label": "Strumenti richiesti: ",
+  "deck_info_information_designated_player_label": "Tipo di giocatore designato: ",
   "deck_info_information_description_label": "Descrizione: ",
   "deck_info_start_game_button_label": "Avvia il gioco",
   "deck_info_quest_list_title": "Lista delle quest",
@@ -156,6 +157,10 @@
   "quest_editor_page_quest_timer_label": "Limite di tempo - minuti",
   "quest_editor_page_quest_content_label": "Contenuto",
   "quest_editor_page_tools_dialog_title": "Seleziona gli strumenti",
+  "quest_editor_page_player_type_title": "Seleziona la tipologia di giocatore",
+  "quest_editor_page_player_type_both": "Tutti",
+  "quest_editor_page_player_type_male": "Maschio",
+  "quest_editor_page_player_type_female": "Femmina",
   "quest_editor_page_tools_dialog_save_button_label": "Salva",
 
   "deck_filter_dialog_title": "Seleziona i filtri",

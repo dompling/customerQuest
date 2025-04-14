@@ -503,6 +503,12 @@ abstract class AppLocalizations {
   /// **'Required tools: '**
   String get deck_info_information_requested_tools_label;
 
+  /// No description provided for @deck_info_information_designated_player_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Designated player: '**
+  String get deck_info_information_designated_player_label;
+
   /// No description provided for @deck_info_information_description_label.
   ///
   /// In en, this message translates to:
@@ -898,6 +904,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select the tools'**
   String get quest_editor_page_tools_dialog_title;
+
+  /// No description provided for @quest_editor_page_player_type_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Select for which player is designed'**
+  String get quest_editor_page_player_type_title;
+
+  /// No description provided for @quest_editor_page_player_type_both.
+  ///
+  /// In en, this message translates to:
+  /// **'Both'**
+  String get quest_editor_page_player_type_both;
+
+  /// No description provided for @quest_editor_page_player_type_male.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get quest_editor_page_player_type_male;
+
+  /// No description provided for @quest_editor_page_player_type_female.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get quest_editor_page_player_type_female;
 
   /// No description provided for @quest_editor_page_tools_dialog_save_button_label.
   ///

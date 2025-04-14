@@ -66,7 +66,12 @@ class _QuestEditPageState extends State<QuestEditPage> {
   //------------------------------------------------------------------------------
 
   // SETTING THE COUPLE TYPE AND GAME TYPE INITIAL VALUE
-  String selected_option_quest_type = 'early';
+  String selected_option_quest_moment = 'early';
+
+  //------------------------------------------------------------------------------
+
+  // SETTING THE PLAYER TYPE INITIAL VALUE
+  String selected_option_player_type = 'both';
 
   //------------------------------------------------------------------------------
 
@@ -217,7 +222,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
     // IMPORTING PREVIOUS DATA IF PRESENT
     tools_list = widget.selected_quest?.required_tools ?? [];
-    selected_option_quest_type = widget.selected_quest?.moment ?? 'early';
+    selected_option_quest_moment = widget.selected_quest?.moment ?? 'early';
 
     // SET-UPPING THE TEXT FIELD CONTROLLERS
     _quest_tool_controller = TextEditingController(text: tools_list.join(", "));
@@ -316,8 +321,9 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
         // CREATING A NEW QUEST
         Quest new_quest = Quest(
-          moment: selected_option_quest_type,
+          moment: selected_option_quest_moment,
           required_tools: tools_list,
+          player_type: selected_option_player_type,
           timer: quest_timer,
           content: quest_content,
         );
@@ -1906,7 +1912,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
                           ],
 
                           // SETTING THE SELECTED OPTION
-                          selected: {selected_option_quest_type},
+                          selected: {selected_option_quest_moment},
 
                           // HIDING THE SELECTED ICON
                           showSelectedIcon: false,
@@ -1914,7 +1920,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
                           // GETTING THE USER CHOICE
                           onSelectionChanged: (Set<String> newSelection) {
                             setState(() {
-                              selected_option_quest_type = newSelection.first;
+                              selected_option_quest_moment = newSelection.first;
                             });
                           },
 
@@ -2025,6 +2031,80 @@ class _QuestEditPageState extends State<QuestEditPage> {
                             vertical: 15,
                             horizontal: 20,
                           ),
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // QUEST PLAYER TYPE LABEL AND QUEST PLAYER TYPE SEGMENTED BUTTON
+                  Column(
+
+                    // ALIGNMENT
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    // COLUMN CONTENT
+                    children: [
+
+                      // CARD TEXT
+                      Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.quest_editor_page_player_type_title,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 5),
+
+                      //------------------------------------------------------------------------------
+
+                      // COUPLE TYPE FILTER SELECTOR
+                      SizedBox(
+
+                        // WIDTH
+                        width: double.infinity,
+
+                        // CONTAINER CONTENT
+                        child:  SegmentedButton<String>(
+
+                          // DEFINING THE OPTIONS
+                          segments: <ButtonSegment<String>>[
+                            ButtonSegment(value: 'both', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_both, style: TextStyle(fontSize: 12))),
+                            ButtonSegment(value: 'male', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_male, style: TextStyle(fontSize: 12))),
+                            ButtonSegment(value: 'female', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_female, style: TextStyle(fontSize: 12))),
+                          ],
+
+                          // SETTING THE SELECTED OPTION
+                          selected: {selected_option_player_type},
+
+                          // HIDING THE SELECTED ICON
+                          showSelectedIcon: false,
+
+                          // GETTING THE USER CHOICE
+                          onSelectionChanged: (Set<String> newSelection) {
+                            setState(() {
+                              selected_option_player_type = newSelection.first;
+                            });
+                          },
 
                         ),
 

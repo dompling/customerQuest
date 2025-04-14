@@ -8,8 +8,8 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/pages/play_pages/select_game_type_page.dart';
-import 'package:loverquest/pages/play_pages/play_page.dart';
+import 'package:loverquest/pages/play_pages/01_select_game_type_page.dart';
+import 'package:loverquest/pages/play_pages/07_play_page.dart';
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
 import 'package:loverquest/logics/play_logics/save_current_match.dart';

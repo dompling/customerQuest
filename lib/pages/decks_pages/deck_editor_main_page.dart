@@ -1076,6 +1076,25 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                       }
 
+                      // CONVERTING THE DESIGNATED PLAYER TAG
+                      String designated_player = "";
+                      if (all_quests_list[index].player_type.toLowerCase() == "both") {
+
+                        // DEFINING QUEST TYPE TEXT
+                        designated_player = AppLocalizations.of(context)!.quest_editor_page_player_type_both;
+
+                      } else if (all_quests_list[index].player_type.toLowerCase() == "male") {
+
+                        // DEFINING QUEST TYPE TEXT
+                        designated_player = AppLocalizations.of(context)!.quest_editor_page_player_type_male;
+
+                      } else if (all_quests_list[index].player_type.toLowerCase() == "female") {
+
+                        // DEFINING QUEST TYPE TEXT
+                        designated_player = AppLocalizations.of(context)!.quest_editor_page_player_type_female;
+
+                      }
+
                       //------------------------------------------------------------------------------
 
                       // DYNAMIC LIST CONTENT
@@ -1288,6 +1307,34 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                                     TextSpan (
 
                                                       text : translated_quest_tools_list.join(", "),
+                                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                                    ),
+
+                                                  ]
+
+                                              ),
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // SPACER
+                                            const SizedBox(height: 5),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // PLAYER TYPE TEXT
+                                            Text.rich(
+                                              TextSpan (
+
+                                                  text : AppLocalizations.of(context)!.deck_info_information_designated_player_label,
+                                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                                  children: [
+
+                                                    TextSpan (
+
+                                                      text : designated_player,
                                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                                     ),

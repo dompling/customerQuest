@@ -219,6 +219,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get deck_info_information_requested_tools_label => 'Strumenti richiesti: ';
 
   @override
+  String get deck_info_information_designated_player_label => 'Tipo di giocatore designato: ';
+
+  @override
   String get deck_info_information_description_label => 'Descrizione: ';
 
   @override
@@ -415,6 +418,18 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get quest_editor_page_tools_dialog_title => 'Seleziona gli strumenti';
+
+  @override
+  String get quest_editor_page_player_type_title => 'Seleziona la tipologia di giocatore';
+
+  @override
+  String get quest_editor_page_player_type_both => 'Tutti';
+
+  @override
+  String get quest_editor_page_player_type_male => 'Maschio';
+
+  @override
+  String get quest_editor_page_player_type_female => 'Femmina';
 
   @override
   String get quest_editor_page_tools_dialog_save_button_label => 'Salva';

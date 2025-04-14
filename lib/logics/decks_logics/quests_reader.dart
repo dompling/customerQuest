@@ -17,6 +17,7 @@ class Quest {
   // QUEST ATTRIBUTES
   final String moment;
   final List<String> required_tools;
+  final String player_type;
   final int timer;
   final String content;
 
@@ -27,6 +28,7 @@ class Quest {
 
     required this.moment,
     required this.required_tools,
+    required this.player_type,
     required this.timer,
     required this.content
 
@@ -39,6 +41,7 @@ class Quest {
     return Quest(
       moment: "none",
       required_tools: [],
+      player_type: "both",
       timer: 0,
       content: "No content available",
     );
@@ -53,6 +56,7 @@ class Quest {
 
       moment: json['moment'] ?? "unknown",
       required_tools: json['required_tools'] != null ? List<String>.from(json['required_tools']) : [],
+      player_type: json['player_type'] ?? "both",
       timer: json['timer'] ?? 0,
       content: json['content'] ?? "No content available",
 
@@ -66,6 +70,7 @@ class Quest {
   Map<String, dynamic> toJson() => {
     'moment': moment,
     'required_tools': required_tools,
+    'player_type': player_type,
     'timer': timer,
     'content': content,
   };
