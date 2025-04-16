@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.herzen.loverquest.app-mergeDebugResources-40:/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "com.herzen.loverquest.app-mergeDebugResources-42:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
                     "source": "/home/herzen/.gradle/caches/transforms-3/f5098658f919aa18c93d7c4febd893b8/transformed/appcompat-1.1.0/res/values-hdpi-v4/values-hdpi-v4.xml",

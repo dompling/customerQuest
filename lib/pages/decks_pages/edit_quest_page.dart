@@ -20,12 +20,14 @@ class QuestEditPage extends StatefulWidget {
   // CLASS ATTRIBUTES
   final DeckReader selected_deck;
   final Quest? selected_quest;
+  final bool show_delete_button;
 
 
   // CLASS CONSTRUCTOR
   const QuestEditPage({
     required this.selected_deck,
     this.selected_quest,
+    this.show_delete_button = true,
     super.key,
   });
 
@@ -1761,7 +1763,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
         actions: [
 
           // DELETE ICON BUTTON
-          IconButton(
+          widget.show_delete_button ? IconButton(
             icon: Icon(Icons.delete),
             onPressed: () async {
 
@@ -1776,7 +1778,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
             },
 
-          ),
+          ): SizedBox(),
 
         ],
 

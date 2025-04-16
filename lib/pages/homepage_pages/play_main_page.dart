@@ -701,13 +701,9 @@ class _PlayMainPageState extends State<PlayMainPage> {
                           player_2_object: players_list[1],
                           first_player: players_list[2],
                           early_quests_list: early_quests_list,
-                          early_quests_total_score: early_quests_total_score,
                           mid_quests_list: mid_quests_list,
-                          mid_quests_total_score: mid_quests_total_score,
                           late_quests_list: late_quests_list,
-                          late_quests_total_score: late_quests_total_score,
                           end_quests_list: end_quests_list,
-                          end_quests_total_score: end_quests_total_score,
                           passed_current_quest: current_quest,
                           passed_current_quest_list: current_quest_list,
 

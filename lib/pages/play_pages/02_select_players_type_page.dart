@@ -311,9 +311,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                           } else {
 
                             // CREATING TMP DATA
-                            Players player_tmp_object_1 = Players(player_icon_path: "assets/images/coin_flip_icon.png", player_alias: "player_alias:_1", player_sex: true);
-                            Players player_tmp_object_2 = Players(player_icon_path: "assets/images/deck_info.png", player_alias: "player_alias_2", player_sex: true);
-
+                            Players player_tmp_object = Players(player_icon_path: "assets/images/coin_flip_icon.png", player_alias: "player_alias:_1", player_sex: true, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
 
                             // PAGE LINKER
                             Navigator.push(
@@ -321,7 +319,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: widget.game_type, player_1_object: player_tmp_object_1, player_2_object: player_tmp_object_2, first_player: player_tmp_object_2,),
+                                builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object),
 
                               ),
 
@@ -504,7 +502,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                           } else {
 
                             // CREATING TMP DATA
-                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
+                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
 
 
                             // PAGE LINKER
@@ -688,7 +686,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                           } else {
 
                             // CREATING TMP DATA
-                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true);
+                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
 
 
                             // PAGE LINKER
@@ -697,7 +695,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+                                builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object),
 
                               ),
 

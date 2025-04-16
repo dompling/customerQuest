@@ -13,9 +13,9 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="io.flutter:flutter_embedding_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87/e2b5228add79880ee5e89d2602b6b7efeb54a03a/flutter_embedding_release-1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87.jar"
-      resolved="io.flutter:flutter_embedding_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87"/>
+      name="io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434/e1f965c14eb9a096111654ae1a59480778f50cbc/flutter_embedding_release-1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434.jar"
+      resolved="io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434"/>
   <library
       name="androidx.fragment:fragment:1.7.1@aar"
       jars="/home/herzen/.gradle/caches/transforms-3/e10f41e65806877f7fdd9cf114ea85ba/transformed/fragment-1.7.1/jars/classes.jar"
@@ -416,10 +416,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.test:core:1.0.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/50dfaa0fa0c957b2e7154a4c330a99a1/transformed/jetified-core-1.0.0/jars/classes.jar"
-      resolved="androidx.test:core:1.0.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/50dfaa0fa0c957b2e7154a4c330a99a1/transformed/jetified-core-1.0.0"
+      name="androidx.test:core:1.4.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/fc395ae80c01435215ce9b24f7f3175d/transformed/jetified-core-1.4.0/jars/classes.jar"
+      resolved="androidx.test:core:1.4.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/fc395ae80c01435215ce9b24f7f3175d/transformed/jetified-core-1.4.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

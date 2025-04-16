@@ -217,13 +217,13 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
         on_filter_selected: (String newCoupleType, String newGameType) {
           setState(() {
 
-            //
+            // SETTING THE CHOOSE OPTION
             selected_option_couple_type = newCoupleType;
 
-            //
+            // SETTING THE CHOOSE OPTION
             selected_option_game_type = newGameType;
 
-            //
+            // APPLYING THE FILTERS TO THE VIEW
             applyFilter();
 
           });
@@ -533,6 +533,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                   // CHECKING WHICH OPTION WAS CHOOSE
                                   if (value == "export") {
+
+                                    print("[ DEBUG ] - Ho cliccato esporta !");
 
                                     // EXPORTING THE DECK
                                     await export_json_file(deck_file_path, deck_name);

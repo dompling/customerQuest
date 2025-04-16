@@ -89,6 +89,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
   // FUNCTION TO SHOW THE DELETE CONFIRMATION DIALOG
   void show_deck_delete_dialog() {
+
     showDialog(
       context: context,
       builder: (context) => DeckDeleteDialog(
@@ -963,7 +964,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                         // PAGE LINKER
                                         Navigator.push(
                                           context,
-                                          MaterialPageRoute(builder: (context) => QuestEditPage(selected_deck: current_deck,)
+                                          MaterialPageRoute(builder: (context) => QuestEditPage(selected_deck: current_deck, show_delete_button: false,)
                                           ),
 
                                         ).then((none) async {

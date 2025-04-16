@@ -42,26 +42,35 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
-  #
+  # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
   path_provider: ^2.1.5
 
-  #
-  permission_handler: ^11.0.1
+  # NECESSARY TO ALLOW TE CUSTOM DECK IMPORT/EXPORT
+  path: ^1.8.3
 
-  #
-  file_picker: ^8.3.7
+  # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
+  permission_handler: ^12.0.0+1
 
-  #
+  # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
+  file_picker: ^10.1.2
+
+  # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
   provider: ^6.0.5
 
-  #
+  # NECESSARY TO OPEN URL IN THE SYSTEM BROWSER
   url_launcher: ^6.2.5
 
   #
   shared_preferences: ^2.5.2
 
-  #
-  flutter_markdown: ^0.6.23
+  # NECESSARY TO ALLOW TEXT MARKDOWN
+  flutter_markdown: ^0.7.7
+
+  # NECESSARY TO REPRODUCE THE TIMER ALARM
+  just_audio: ^0.9.36
+
+  # NECESSARY TO KEEP THE SCREEN ON
+  wakelock_plus: ^1.2.11
 
 dev_dependencies:
   flutter_test:
@@ -125,6 +134,7 @@ flutter:
     - assets/default_decks/distance/de/hetero/
     - assets/default_decks/distance/de/lesbian/
     - assets/default_decks/distance/de/gay/
+    - assets/audio/timer_alarm.mp3
  
 
 flutter_launcher_icons:

@@ -4,6 +4,19 @@
       jars="/home/herzen/Documenti/GitHub/loverquest/build/app/intermediates/flutter/release/libs.jar"
       resolved="__local_aars__:/home/herzen/Documenti/GitHub/loverquest/build/app/intermediates/flutter/release/libs.jar:unspecified"/>
   <library
+      name=":@@:file_picker::release"
+      jars="/home/herzen/Documenti/GitHub/loverquest/build/file_picker/.transforms/afc4741b1be29ce3233cb1f3f216aae5/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/file_picker/.transforms/afc4741b1be29ce3233cb1f3f216aae5/transformed/out/jars/libs/R.jar"
+      resolved="com.mr.flutter.plugin.filepicker:file_picker:unspecified"
+      folder="/home/herzen/Documenti/GitHub/loverquest/build/file_picker/.transforms/afc4741b1be29ce3233cb1f3f216aae5/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name=":@@:shared_preferences_android::release"
       jars="/home/herzen/Documenti/GitHub/loverquest/build/shared_preferences_android/.transforms/b052d1b8cd38e3ae6b08844b261a84b1/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/shared_preferences_android/.transforms/b052d1b8cd38e3ae6b08844b261a84b1/transformed/out/jars/libs/R.jar"
       resolved="io.flutter.plugins.sharedpreferences:shared_preferences_android:unspecified"
@@ -21,10 +34,10 @@
       jars="/home/herzen/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.8.22/4dabb8248310d833bb6a8b516024a91fd3d275c/kotlin-stdlib-jdk7-1.8.22.jar"
       resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"/>
   <library
-      name=":@@:file_picker::release"
-      jars="/home/herzen/Documenti/GitHub/loverquest/build/file_picker/.transforms/afc4741b1be29ce3233cb1f3f216aae5/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/file_picker/.transforms/afc4741b1be29ce3233cb1f3f216aae5/transformed/out/jars/libs/R.jar"
-      resolved="com.mr.flutter.plugin.filepicker:file_picker:unspecified"
-      folder="/home/herzen/Documenti/GitHub/loverquest/build/file_picker/.transforms/afc4741b1be29ce3233cb1f3f216aae5/transformed/out"
+      name=":@@:audio_session::release"
+      jars="/home/herzen/Documenti/GitHub/loverquest/build/audio_session/.transforms/f6e21d9fab147ab4c6e94e8ece118660/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/audio_session/.transforms/f6e21d9fab147ab4c6e94e8ece118660/transformed/out/jars/libs/R.jar"
+      resolved="com.ryanheise.audio_session:audio_session:unspecified"
+      folder="/home/herzen/Documenti/GitHub/loverquest/build/audio_session/.transforms/f6e21d9fab147ab4c6e94e8ece118660/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -38,6 +51,32 @@
       jars="/home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/.transforms/876b6e85b4b3f8c2f9d6ab5682cc3a57/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/.transforms/876b6e85b4b3f8c2f9d6ab5682cc3a57/transformed/out/jars/libs/R.jar"
       resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:unspecified"
       folder="/home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/.transforms/876b6e85b4b3f8c2f9d6ab5682cc3a57/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name=":@@:just_audio::release"
+      jars="/home/herzen/Documenti/GitHub/loverquest/build/just_audio/.transforms/096b78002273ed8e366ae2b6cf91b0ad/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/just_audio/.transforms/096b78002273ed8e366ae2b6cf91b0ad/transformed/out/jars/libs/R.jar"
+      resolved="com.ryanheise.just_audio:just_audio:unspecified"
+      folder="/home/herzen/Documenti/GitHub/loverquest/build/just_audio/.transforms/096b78002273ed8e366ae2b6cf91b0ad/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name=":@@:package_info_plus::release"
+      jars="/home/herzen/Documenti/GitHub/loverquest/build/package_info_plus/.transforms/f36dde3510162a815ce8d509e1b8c009/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/package_info_plus/.transforms/f36dde3510162a815ce8d509e1b8c009/transformed/out/jars/libs/R.jar"
+      resolved="dev.fluttercommunity.plus.packageinfo:package_info_plus:unspecified"
+      folder="/home/herzen/Documenti/GitHub/loverquest/build/package_info_plus/.transforms/f36dde3510162a815ce8d509e1b8c009/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -86,9 +125,22 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="io.flutter:flutter_embedding_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87/e2b5228add79880ee5e89d2602b6b7efeb54a03a/flutter_embedding_release-1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87.jar"
-      resolved="io.flutter:flutter_embedding_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87"/>
+      name=":@@:wakelock_plus::release"
+      jars="/home/herzen/Documenti/GitHub/loverquest/build/wakelock_plus/.transforms/517df399a8d01f384628d71b6ffbd0fc/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/wakelock_plus/.transforms/517df399a8d01f384628d71b6ffbd0fc/transformed/out/jars/libs/R.jar"
+      resolved="dev.fluttercommunity.plus.wakelock:wakelock_plus:unspecified"
+      folder="/home/herzen/Documenti/GitHub/loverquest/build/wakelock_plus/.transforms/517df399a8d01f384628d71b6ffbd0fc/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434/e1f965c14eb9a096111654ae1a59480778f50cbc/flutter_embedding_release-1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434.jar"
+      resolved="io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434"/>
   <library
       name="androidx.fragment:fragment:1.7.1@aar"
       jars="/home/herzen/.gradle/caches/transforms-3/e10f41e65806877f7fdd9cf114ea85ba/transformed/fragment-1.7.1/jars/classes.jar"
@@ -129,10 +181,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/d227ba75568cb7e4d04657fadc47e630/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/d227ba75568cb7e4d04657fadc47e630/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0"
+      name="androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/efe011f91332a6dd8b9071cf438497b9/transformed/jetified-lifecycle-livedata-core-ktx-2.8.7/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/efe011f91332a6dd8b9071cf438497b9/transformed/jetified-lifecycle-livedata-core-ktx-2.8.7"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -142,10 +194,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-livedata:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/3e337043d072a362130420bea443cccf/transformed/lifecycle-livedata-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-livedata:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/3e337043d072a362130420bea443cccf/transformed/lifecycle-livedata-2.7.0"
+      name="androidx.lifecycle:lifecycle-livedata:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/96282e1abff3d6206f870eb1c66c1def/transformed/lifecycle-livedata-2.8.7/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/96282e1abff3d6206f870eb1c66c1def/transformed/lifecycle-livedata-2.8.7"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -155,10 +207,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/91d88785d20d0fa190c06656b7e3acb1/transformed/lifecycle-viewmodel-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-viewmodel:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/91d88785d20d0fa190c06656b7e3acb1/transformed/lifecycle-viewmodel-2.7.0"
+      name="androidx.lifecycle:lifecycle-viewmodel:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/324a4ed0a51a0f5f339b640852c5c6fd/transformed/lifecycle-viewmodel-2.8.7/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/324a4ed0a51a0f5f339b640852c5c6fd/transformed/lifecycle-viewmodel-2.8.7"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -168,10 +220,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/fbc8986e8774c3a729e958840b46bd7e/transformed/lifecycle-livedata-core-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-livedata-core:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/fbc8986e8774c3a729e958840b46bd7e/transformed/lifecycle-livedata-core-2.7.0"
+      name="androidx.lifecycle:lifecycle-viewmodel-android:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/8f62cbf9d02d9275f5bbd77af99d988e/transformed/jetified-lifecycle-viewmodel-release/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel-android:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/8f62cbf9d02d9275f5bbd77af99d988e/transformed/jetified-lifecycle-viewmodel-release"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -181,10 +233,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/843365547bdd0514b3855cde1fa2f95a/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/843365547bdd0514b3855cde1fa2f95a/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0"
+      name="androidx.lifecycle:lifecycle-livedata-core:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/d9a6404f3fd2cb2bd22ed5cff972313b/transformed/lifecycle-livedata-core-2.8.7/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata-core:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/d9a6404f3fd2cb2bd22ed5cff972313b/transformed/lifecycle-livedata-core-2.8.7"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -194,10 +246,23 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.core:core-ktx:1.13.1@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/382e990b0459bcfd19a85056df92ab8d/transformed/jetified-core-ktx-1.13.1/jars/classes.jar"
-      resolved="androidx.core:core-ktx:1.13.1"
-      folder="/home/herzen/.gradle/caches/transforms-3/382e990b0459bcfd19a85056df92ab8d/transformed/jetified-core-ktx-1.13.1"
+      name="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/68c33949e9737b399f42102dc2c1821d/transformed/jetified-lifecycle-viewmodel-savedstate-2.8.7/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/68c33949e9737b399f42102dc2c1821d/transformed/jetified-lifecycle-viewmodel-savedstate-2.8.7"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.core:core-ktx:1.15.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/90abd2da6a29868f6bee2950936e5c64/transformed/jetified-core-ktx-1.15.0/jars/classes.jar"
+      resolved="androidx.core:core-ktx:1.15.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/90abd2da6a29868f6bee2950936e5c64/transformed/jetified-core-ktx-1.15.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -233,10 +298,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.core:core:1.13.1@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/2b58c967c482412ed8b427b09170c03c/transformed/core-1.13.1/jars/classes.jar"
-      resolved="androidx.core:core:1.13.1"
-      folder="/home/herzen/.gradle/caches/transforms-3/2b58c967c482412ed8b427b09170c03c/transformed/core-1.13.1"
+      name="androidx.core:core:1.15.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/jars/classes.jar"
+      resolved="androidx.core:core:1.15.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -246,10 +311,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-runtime:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/1bcdfaee557ee164fe1a4f4bc08b425a/transformed/lifecycle-runtime-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-runtime:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/1bcdfaee557ee164fe1a4f4bc08b425a/transformed/lifecycle-runtime-2.7.0"
+      name="androidx.lifecycle:lifecycle-runtime-android:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/f296779afcfb9153c5501d34a4a8b07e/transformed/jetified-lifecycle-runtime-release/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-runtime-android:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/f296779afcfb9153c5501d34a4a8b07e/transformed/jetified-lifecycle-runtime-release"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -259,10 +324,18 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.lifecycle:lifecycle-process:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/7c1a795cce62576c410aaaa62a9081fc/transformed/jetified-lifecycle-process-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-process:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/7c1a795cce62576c410aaaa62a9081fc/transformed/jetified-lifecycle-process-2.7.0"
+      name="androidx.lifecycle:lifecycle-common-jvm:2.8.7@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common-jvm/2.8.7/7174a594afb73a9ad9ac9074ce78b94af3cc52a7/lifecycle-common-jvm-2.8.7.jar"
+      resolved="androidx.lifecycle:lifecycle-common-jvm:2.8.7"/>
+  <library
+      name="androidx.lifecycle:lifecycle-common-java8:2.8.7@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common-java8/2.8.7/2ad14aed781c4a73ed4dbb421966d408a0a06686/lifecycle-common-java8-2.8.7.jar"
+      resolved="androidx.lifecycle:lifecycle-common-java8:2.8.7"/>
+  <library
+      name="androidx.lifecycle:lifecycle-process:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-process:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -271,14 +344,6 @@
       symbolFile="R.txt"
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
-  <library
-      name="androidx.lifecycle:lifecycle-common-java8:2.7.0@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common-java8/2.7.0/2ad14aed781c4a73ed4dbb421966d408a0a06686/lifecycle-common-java8-2.7.0.jar"
-      resolved="androidx.lifecycle:lifecycle-common-java8:2.7.0"/>
-  <library
-      name="androidx.lifecycle:lifecycle-common:2.7.0@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.7.0/85334205d65cca70ed0109c3acbd29e22a2d9cb1/lifecycle-common-2.7.0.jar"
-      resolved="androidx.lifecycle:lifecycle-common:2.7.0"/>
   <library
       name="androidx.window:window:1.2.0@aar"
       jars="/home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/jars/classes.jar"
@@ -306,10 +371,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.annotation:annotation-experimental:1.4.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/cb1fc1d7efe9eb47c369089314d77e3c/transformed/jetified-annotation-experimental-1.4.0/jars/classes.jar"
-      resolved="androidx.annotation:annotation-experimental:1.4.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/cb1fc1d7efe9eb47c369089314d77e3c/transformed/jetified-annotation-experimental-1.4.0"
+      name="androidx.annotation:annotation-experimental:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/e208771389ef3e8d7c6c190bf697e91b/transformed/jetified-annotation-experimental-1.4.1/jars/classes.jar"
+      resolved="androidx.annotation:annotation-experimental:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/e208771389ef3e8d7c6c190bf697e91b/transformed/jetified-annotation-experimental-1.4.1"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -323,6 +388,19 @@
       jars="/home/herzen/.gradle/caches/transforms-3/710b257e03fb8debf389594dbacbe9e9/transformed/jetified-savedstate-1.2.1/jars/classes.jar"
       resolved="androidx.savedstate:savedstate:1.2.1"
       folder="/home/herzen/.gradle/caches/transforms-3/710b257e03fb8debf389594dbacbe9e9/transformed/jetified-savedstate-1.2.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.versionedparcelable:versionedparcelable:1.1.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/ae3f46671c9e93448d56f8f48d188fa2/transformed/versionedparcelable-1.1.1/jars/classes.jar"
+      resolved="androidx.versionedparcelable:versionedparcelable:1.1.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/ae3f46671c9e93448d56f8f48d188fa2/transformed/versionedparcelable-1.1.1"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -349,22 +427,9 @@
       jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.2.0/5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3/core-common-2.2.0.jar"
       resolved="androidx.arch.core:core-common:2.2.0"/>
   <library
-      name="androidx.versionedparcelable:versionedparcelable:1.1.1@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/ae3f46671c9e93448d56f8f48d188fa2/transformed/versionedparcelable-1.1.1/jars/classes.jar"
-      resolved="androidx.versionedparcelable:versionedparcelable:1.1.1"
-      folder="/home/herzen/.gradle/caches/transforms-3/ae3f46671c9e93448d56f8f48d188fa2/transformed/versionedparcelable-1.1.1"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.collection:collection:1.1.0@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.1.0/1f27220b47669781457de0d600849a5de0e89909/collection-1.1.0.jar"
-      resolved="androidx.collection:collection:1.1.0"/>
+      name="androidx.collection:collection-jvm:1.4.2@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-jvm/1.4.2/bc60b5568a66d765a9fe8e266fd0c6c727e0b50b/collection-jvm-1.4.2.jar"
+      resolved="androidx.collection:collection-jvm:1.4.2"/>
   <library
       name="androidx.annotation:annotation-jvm:1.9.1@jar"
       jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation-jvm/1.9.1/b17951747e38bf3986a24431b9ba0d039958aa5f/annotation-jvm-1.9.1.jar"
@@ -386,17 +451,17 @@
       jars="/home/herzen/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.8.22/b25c86d47d6b962b9cf0f8c3f320c8a10eea3dd1/kotlin-stdlib-jdk8-1.8.22.jar"
       resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"/>
   <library
-      name="io.flutter:armeabi_v7a_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/armeabi_v7a_release/1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87/ec72242de5ec8eb666d243c962169bf83e277505/armeabi_v7a_release-1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87.jar"
-      resolved="io.flutter:armeabi_v7a_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87"/>
+      name="io.flutter:armeabi_v7a_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/armeabi_v7a_release/1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434/bbc3e768eb0a597e37c08e54ba1b08264ed3d6f9/armeabi_v7a_release-1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434.jar"
+      resolved="io.flutter:armeabi_v7a_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434"/>
   <library
-      name="io.flutter:arm64_v8a_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/arm64_v8a_release/1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87/c7abaf980bbc9f080e4fa58b34bfdb68e1adc89d/arm64_v8a_release-1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87.jar"
-      resolved="io.flutter:arm64_v8a_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87"/>
+      name="io.flutter:arm64_v8a_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/arm64_v8a_release/1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434/a0ed11ebac55582c8b70ebc43cced6ad00a48ac/arm64_v8a_release-1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434.jar"
+      resolved="io.flutter:arm64_v8a_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434"/>
   <library
-      name="io.flutter:x86_64_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/x86_64_release/1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87/44847b0d2099c8b9b131621097c4fd7f4c183cc5/x86_64_release-1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87.jar"
-      resolved="io.flutter:x86_64_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87"/>
+      name="io.flutter:x86_64_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/x86_64_release/1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434/fb6619338aae25d086828b6150fdd16e4daff694/x86_64_release-1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434.jar"
+      resolved="io.flutter:x86_64_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434"/>
   <library
       name="org.jetbrains:annotations:23.0.0@jar"
       jars="/home/herzen/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/23.0.0/8cc20c07506ec18e0834947b84a864bfc094484e/annotations-23.0.0.jar"
@@ -441,62 +506,23 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="androidx.media:media:1.7.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/cb400baf4b5fd803f93600e620a7a7ff/transformed/media-1.7.0/jars/classes.jar"
+      resolved="androidx.media:media:1.7.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/cb400baf4b5fd803f93600e620a7a7ff/transformed/media-1.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="androidx.preference:preference:1.2.1@aar"
       jars="/home/herzen/.gradle/caches/transforms-3/edf42382a951255d587ac9edd06b91f0/transformed/preference-1.2.1/jars/classes.jar"
       resolved="androidx.preference:preference:1.2.1"
       folder="/home/herzen/.gradle/caches/transforms-3/edf42382a951255d587ac9edd06b91f0/transformed/preference-1.2.1"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.browser:browser:1.8.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/396bb467d0829ed00171367f0b3c8440/transformed/browser-1.8.0/jars/classes.jar"
-      resolved="androidx.browser:browser:1.8.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/396bb467d0829ed00171367f0b3c8440/transformed/browser-1.8.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.recyclerview:recyclerview:1.0.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/7294e956d08f6f7f83b8533adc8a095d/transformed/recyclerview-1.0.0/jars/classes.jar"
-      resolved="androidx.recyclerview:recyclerview:1.0.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/7294e956d08f6f7f83b8533adc8a095d/transformed/recyclerview-1.0.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.legacy:legacy-support-core-ui:1.0.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/76a71fa5fd057f28054d793f87579510/transformed/legacy-support-core-ui-1.0.0/jars/classes.jar"
-      resolved="androidx.legacy:legacy-support-core-ui:1.0.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/76a71fa5fd057f28054d793f87579510/transformed/legacy-support-core-ui-1.0.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/3f3caec4e77b3a1b74976fe01529815b/transformed/slidingpanelayout-1.2.0/jars/classes.jar"
-      resolved="androidx.slidingpanelayout:slidingpanelayout:1.2.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/3f3caec4e77b3a1b74976fe01529815b/transformed/slidingpanelayout-1.2.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -545,10 +571,231 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="androidx.recyclerview:recyclerview:1.0.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/7294e956d08f6f7f83b8533adc8a095d/transformed/recyclerview-1.0.0/jars/classes.jar"
+      resolved="androidx.recyclerview:recyclerview:1.0.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/7294e956d08f6f7f83b8533adc8a095d/transformed/recyclerview-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.legacy:legacy-support-core-ui:1.0.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/76a71fa5fd057f28054d793f87579510/transformed/legacy-support-core-ui-1.0.0/jars/classes.jar"
+      resolved="androidx.legacy:legacy-support-core-ui:1.0.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/76a71fa5fd057f28054d793f87579510/transformed/legacy-support-core-ui-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="androidx.legacy:legacy-support-core-utils:1.0.0@aar"
       jars="/home/herzen/.gradle/caches/transforms-3/cf5a7191ac419ebf309547e500c603b5/transformed/legacy-support-core-utils-1.0.0/jars/classes.jar"
       resolved="androidx.legacy:legacy-support-core-utils:1.0.0"
       folder="/home/herzen/.gradle/caches/transforms-3/cf5a7191ac419ebf309547e500c603b5/transformed/legacy-support-core-utils-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.savedstate:savedstate-ktx:1.2.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/4a0f4776c4856104e6d9aeca0c25170b/transformed/jetified-savedstate-ktx-1.2.1/jars/classes.jar"
+      resolved="androidx.savedstate:savedstate-ktx:1.2.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/4a0f4776c4856104e6d9aeca0c25170b/transformed/jetified-savedstate-ktx-1.2.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/ba04619e922c8edbf183fbac0b7e1742/transformed/jetified-lifecycle-runtime-ktx-release/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/ba04619e922c8edbf183fbac0b7e1742/transformed/jetified-lifecycle-runtime-ktx-release"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/58f591f507958303a067d8bc6f1ffc91/transformed/jetified-lifecycle-viewmodel-ktx-2.8.7/jars/classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7"
+      folder="/home/herzen/.gradle/caches/transforms-3/58f591f507958303a067d8bc6f1ffc91/transformed/jetified-lifecycle-viewmodel-ktx-2.8.7"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-extractor:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/361e84b40c7bad2209e81ac5c6effcb5/transformed/jetified-media3-extractor-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-extractor:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/361e84b40c7bad2209e81ac5c6effcb5/transformed/jetified-media3-extractor-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-container:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/40a257de5465ce50de23c2caf2a795da/transformed/jetified-media3-container-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-container:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/40a257de5465ce50de23c2caf2a795da/transformed/jetified-media3-container-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-datasource:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/c76a1fc5a260c8677f2a935d66485a7d/transformed/jetified-media3-datasource-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-datasource:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/c76a1fc5a260c8677f2a935d66485a7d/transformed/jetified-media3-datasource-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-decoder:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/3f2d4498130e32071401c28456baaf5a/transformed/jetified-media3-decoder-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-decoder:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/3f2d4498130e32071401c28456baaf5a/transformed/jetified-media3-decoder-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-database:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/e0c55237fcb96ecbeeaf18b5141a6948/transformed/jetified-media3-database-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-database:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/e0c55237fcb96ecbeeaf18b5141a6948/transformed/jetified-media3-database-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-common:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/701b6c5c8237d33bcc955f068ff48577/transformed/jetified-media3-common-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-common:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/701b6c5c8237d33bcc955f068ff48577/transformed/jetified-media3-common-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-exoplayer-dash:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/0e0631b4a7b08ee8bd74757d78a56496/transformed/jetified-media3-exoplayer-dash-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-exoplayer-dash:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/0e0631b4a7b08ee8bd74757d78a56496/transformed/jetified-media3-exoplayer-dash-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-exoplayer-hls:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/8eda7c4b28f854ef5d34459d30b8300d/transformed/jetified-media3-exoplayer-hls-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-exoplayer-hls:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/8eda7c4b28f854ef5d34459d30b8300d/transformed/jetified-media3-exoplayer-hls-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-exoplayer-smoothstreaming:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/da5582723dce32270f4b23a4465fd9f6/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-exoplayer-smoothstreaming:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/da5582723dce32270f4b23a4465fd9f6/transformed/jetified-media3-exoplayer-smoothstreaming-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.media3:media3-exoplayer:1.4.1@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/bfe3e1cabb68d6bd65b5a90c9c0405a4/transformed/jetified-media3-exoplayer-1.4.1/jars/classes.jar"
+      resolved="androidx.media3:media3-exoplayer:1.4.1"
+      folder="/home/herzen/.gradle/caches/transforms-3/bfe3e1cabb68d6bd65b5a90c9c0405a4/transformed/jetified-media3-exoplayer-1.4.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.browser:browser:1.8.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/396bb467d0829ed00171367f0b3c8440/transformed/browser-1.8.0/jars/classes.jar"
+      resolved="androidx.browser:browser:1.8.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/396bb467d0829ed00171367f0b3c8440/transformed/browser-1.8.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/3f3caec4e77b3a1b74976fe01529815b/transformed/slidingpanelayout-1.2.0/jars/classes.jar"
+      resolved="androidx.slidingpanelayout:slidingpanelayout:1.2.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/3f3caec4e77b3a1b74976fe01529815b/transformed/slidingpanelayout-1.2.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -601,45 +848,6 @@
       jars="/home/herzen/.gradle/caches/transforms-3/2faeea4a6ac1718399372d006c2a9f1e/transformed/transition-1.4.1/jars/classes.jar"
       resolved="androidx.transition:transition:1.4.1"
       folder="/home/herzen/.gradle/caches/transforms-3/2faeea4a6ac1718399372d006c2a9f1e/transformed/transition-1.4.1"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.lifecycle:lifecycle-runtime-ktx:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/ed9172884f778e8d1b32e9d129032904/transformed/jetified-lifecycle-runtime-ktx-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/ed9172884f778e8d1b32e9d129032904/transformed/jetified-lifecycle-runtime-ktx-2.7.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/a2c939fad690c7b3d12dc2f280e2773a/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0/jars/classes.jar"
-      resolved="androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/a2c939fad690c7b3d12dc2f280e2773a/transformed/jetified-lifecycle-viewmodel-ktx-2.7.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.savedstate:savedstate-ktx:1.2.1@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/4a0f4776c4856104e6d9aeca0c25170b/transformed/jetified-savedstate-ktx-1.2.1/jars/classes.jar"
-      resolved="androidx.savedstate:savedstate-ktx:1.2.1"
-      folder="/home/herzen/.gradle/caches/transforms-3/4a0f4776c4856104e6d9aeca0c25170b/transformed/jetified-savedstate-ktx-1.2.1"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -714,6 +922,32 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="androidx.interpolator:interpolator:1.0.0@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/ba40886c4b493b8b088a386d246505e2/transformed/interpolator-1.0.0/jars/classes.jar"
+      resolved="androidx.interpolator:interpolator:1.0.0"
+      folder="/home/herzen/.gradle/caches/transforms-3/ba40886c4b493b8b088a386d246505e2/transformed/interpolator-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.exifinterface:exifinterface:1.3.6@aar"
+      jars="/home/herzen/.gradle/caches/transforms-3/2297d0f3426a3891040c6b4d8dbe982d/transformed/exifinterface-1.3.6/jars/classes.jar"
+      resolved="androidx.exifinterface:exifinterface:1.3.6"
+      folder="/home/herzen/.gradle/caches/transforms-3/2297d0f3426a3891040c6b4d8dbe982d/transformed/exifinterface-1.3.6"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="androidx.datastore:datastore-preferences-external-protobuf:1.1.3@jar"
       jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.datastore/datastore-preferences-external-protobuf/1.1.3/ddd0a2d64e3c928359c993d1291e535d5d7fc9a3/datastore-preferences-external-protobuf-1.1.3.jar"
       resolved="androidx.datastore:datastore-preferences-external-protobuf:1.1.3"/>
@@ -769,22 +1003,9 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.interpolator:interpolator:1.0.0@aar"
-      jars="/home/herzen/.gradle/caches/transforms-3/ba40886c4b493b8b088a386d246505e2/transformed/interpolator-1.0.0/jars/classes.jar"
-      resolved="androidx.interpolator:interpolator:1.0.0"
-      folder="/home/herzen/.gradle/caches/transforms-3/ba40886c4b493b8b088a386d246505e2/transformed/interpolator-1.0.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
-      name="androidx.collection:collection-ktx:1.1.0@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-ktx/1.1.0/f807b2f366f7b75142a67d2f3c10031065b5168/collection-ktx-1.1.0.jar"
-      resolved="androidx.collection:collection-ktx:1.1.0"/>
+      name="androidx.collection:collection-ktx:1.4.2@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/androidx.collection/collection-ktx/1.4.2/2ad14aed781c4a73ed4dbb421966d408a0a06686/collection-ktx-1.4.2.jar"
+      resolved="androidx.collection:collection-ktx:1.4.2"/>
   <library
       name="androidx.cursoradapter:cursoradapter:1.0.0@aar"
       jars="/home/herzen/.gradle/caches/transforms-3/9300c72dd7f8a4a483f9c0ae2406a249/transformed/cursoradapter-1.0.0/jars/classes.jar"
@@ -867,7 +1088,27 @@
       jars="/home/herzen/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-jvm/3.4.0/4e8bd78a52ab935ce383d0092646922154295e54/okio-jvm-3.4.0.jar"
       resolved="com.squareup.okio:okio-jvm:3.4.0"/>
   <library
-      name="com.google.guava:listenablefuture:1.0@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/1.0/c949a840a6acbc5268d088e47b04177bf90b3cad/listenablefuture-1.0.jar"
-      resolved="com.google.guava:listenablefuture:1.0"/>
+      name="org.apache.tika:tika-core:3.1.0@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/org.apache.tika/tika-core/3.1.0/6ba44a9ddf8f6f2b4bc88e8bc64269aea0424607/tika-core-3.1.0.jar"
+      resolved="org.apache.tika:tika-core:3.1.0"/>
+  <library
+      name="org.slf4j:slf4j-api:2.0.16@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.16/172931663a09a1fa515567af5fbef00897d3c04/slf4j-api-2.0.16.jar"
+      resolved="org.slf4j:slf4j-api:2.0.16"/>
+  <library
+      name="commons-io:commons-io:2.18.0@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.18.0/44084ef756763795b31c578403dd028ff4a22950/commons-io-2.18.0.jar"
+      resolved="commons-io:commons-io:2.18.0"/>
+  <library
+      name="com.google.guava:guava:33.0.0-android@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/33.0.0-android/cfbbdc54f232feedb85746aeeea0722f5244bb9a/guava-33.0.0-android.jar"
+      resolved="com.google.guava:guava:33.0.0-android"/>
+  <library
+      name="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+      resolved="com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"/>
+  <library
+      name="com.google.guava:failureaccess:1.0.2@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.2/c4a06a64e650562f30b7bf9aaec1bfed43aca12b/failureaccess-1.0.2.jar"
+      resolved="com.google.guava:failureaccess:1.0.2"/>
 </libraries>

@@ -18,8 +18,8 @@ io.flutter.plugins.pathprovider.path_provider_android-jetified-annotation-experi
 io.flutter.plugins.pathprovider.path_provider_android-jetified-lifecycle-livedata-core-ktx-2.7.0-17 /home/herzen/.gradle/caches/transforms-3/d227ba75568cb7e4d04657fadc47e630/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/res
 io.flutter.plugins.pathprovider.path_provider_android-fragment-1.7.1-18 /home/herzen/.gradle/caches/transforms-3/e10f41e65806877f7fdd9cf114ea85ba/transformed/fragment-1.7.1/res
 io.flutter.plugins.pathprovider.path_provider_android-lifecycle-livedata-core-2.7.0-19 /home/herzen/.gradle/caches/transforms-3/fbc8986e8774c3a729e958840b46bd7e/transformed/lifecycle-livedata-core-2.7.0/res
-io.flutter.plugins.pathprovider.path_provider_android-main-20 /home/herzen/.pub-cache/hosted/pub.dev/path_provider_android-2.2.15/android/src/main/res
-io.flutter.plugins.pathprovider.path_provider_android-release-21 /home/herzen/.pub-cache/hosted/pub.dev/path_provider_android-2.2.15/android/src/release/res
+io.flutter.plugins.pathprovider.path_provider_android-main-20 /home/herzen/.pub-cache/hosted/pub.dev/path_provider_android-2.2.16/android/src/main/res
+io.flutter.plugins.pathprovider.path_provider_android-release-21 /home/herzen/.pub-cache/hosted/pub.dev/path_provider_android-2.2.16/android/src/release/res
 io.flutter.plugins.pathprovider.path_provider_android-pngs-22 /home/herzen/Documenti/GitHub/loverquest/build/path_provider_android/generated/res/pngs/release
 io.flutter.plugins.pathprovider.path_provider_android-resValues-23 /home/herzen/Documenti/GitHub/loverquest/build/path_provider_android/generated/res/resValues/release
 io.flutter.plugins.pathprovider.path_provider_android-mergeReleaseResources-24 /home/herzen/Documenti/GitHub/loverquest/build/path_provider_android/intermediates/incremental/release/mergeReleaseResources/merged.dir

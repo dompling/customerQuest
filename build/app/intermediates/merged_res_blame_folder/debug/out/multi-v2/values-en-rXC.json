@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.herzen.loverquest.app-mergeDebugResources-40:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "com.herzen.loverquest.app-mergeDebugResources-42:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
                     "source": "/home/herzen/.gradle/caches/transforms-3/396bb467d0829ed00171367f0b3c8440/transformed/browser-1.8.0/res/values-en-rXC/values-en-rXC.xml",
@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "/home/herzen/.gradle/caches/transforms-3/2b58c967c482412ed8b427b09170c03c/transformed/core-1.13.1/res/values-en-rXC/values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,251,456,657,858,1065,1270,1482",
-                        "endColumns": "195,204,200,200,206,204,211,203",
-                        "endOffsets": "246,451,652,853,1060,1265,1477,1681"
-                    },
-                    "to": {
-                        "startLines": "29,30,31,32,33,34,35,45",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "5503,5699,5904,6105,6306,6513,6718,8710",
-                        "endColumns": "195,204,200,200,206,204,211,203",
-                        "endOffsets": "5694,5899,6100,6301,6508,6713,6925,8909"
-                    }
-                },
-                {
                     "source": "/home/herzen/.gradle/caches/transforms-3/edf42382a951255d587ac9edd06b91f0/transformed/preference-1.2.1/res/values-en-rXC/values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
@@ -69,6 +52,23 @@
                         "startOffsets": "6930,7301,8102,8279,8914,9216,9398",
                         "endColumns": "170,188,176,251,301,181,172",
                         "endOffsets": "7096,7485,8274,8526,9211,9393,9566"
+                    }
+                },
+                {
+                    "source": "/home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/res/values-en-rXC/values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,251,456,657,858,1065,1270,1482",
+                        "endColumns": "195,204,200,200,206,204,211,203",
+                        "endOffsets": "246,451,652,853,1060,1265,1477,1681"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,45",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "5503,5699,5904,6105,6306,6513,6718,8710",
+                        "endColumns": "195,204,200,200,206,204,211,203",
+                        "endOffsets": "5694,5899,6100,6301,6508,6713,6925,8909"
                     }
                 }
             ]

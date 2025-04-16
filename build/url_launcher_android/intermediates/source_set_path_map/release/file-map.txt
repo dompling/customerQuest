@@ -19,8 +19,8 @@ io.flutter.plugins.urllauncher.url_launcher_android-jetified-annotation-experime
 io.flutter.plugins.urllauncher.url_launcher_android-jetified-lifecycle-livedata-core-ktx-2.7.0-18 /home/herzen/.gradle/caches/transforms-3/d227ba75568cb7e4d04657fadc47e630/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/res
 io.flutter.plugins.urllauncher.url_launcher_android-fragment-1.7.1-19 /home/herzen/.gradle/caches/transforms-3/e10f41e65806877f7fdd9cf114ea85ba/transformed/fragment-1.7.1/res
 io.flutter.plugins.urllauncher.url_launcher_android-lifecycle-livedata-core-2.7.0-20 /home/herzen/.gradle/caches/transforms-3/fbc8986e8774c3a729e958840b46bd7e/transformed/lifecycle-livedata-core-2.7.0/res
-io.flutter.plugins.urllauncher.url_launcher_android-main-21 /home/herzen/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.14/android/src/main/res
-io.flutter.plugins.urllauncher.url_launcher_android-release-22 /home/herzen/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.14/android/src/release/res
+io.flutter.plugins.urllauncher.url_launcher_android-main-21 /home/herzen/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/src/main/res
+io.flutter.plugins.urllauncher.url_launcher_android-release-22 /home/herzen/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android/src/release/res
 io.flutter.plugins.urllauncher.url_launcher_android-pngs-23 /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/generated/res/pngs/release
 io.flutter.plugins.urllauncher.url_launcher_android-resValues-24 /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/generated/res/resValues/release
 io.flutter.plugins.urllauncher.url_launcher_android-mergeReleaseResources-25 /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/incremental/release/mergeReleaseResources/merged.dir

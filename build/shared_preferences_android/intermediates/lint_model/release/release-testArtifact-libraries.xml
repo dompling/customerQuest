@@ -64,9 +64,9 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="io.flutter:flutter_embedding_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87@jar"
-      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87/e2b5228add79880ee5e89d2602b6b7efeb54a03a/flutter_embedding_release-1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87.jar"
-      resolved="io.flutter:flutter_embedding_release:1.0.0-f73bfc4522dd0bc87bbcdb4bb3088082755c5e87"/>
+      name="io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar"
+      jars="/home/herzen/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434/e1f965c14eb9a096111654ae1a59480778f50cbc/flutter_embedding_release-1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434.jar"
+      resolved="io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434"/>
   <library
       name="androidx.appcompat:appcompat:1.1.0@aar"
       jars="/home/herzen/.gradle/caches/transforms-3/f5098658f919aa18c93d7c4febd893b8/transformed/appcompat-1.1.0/jars/classes.jar"

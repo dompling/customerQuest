@@ -18,8 +18,8 @@ com.baseflow.permissionhandler.permission_handler_android-jetified-annotation-ex
 com.baseflow.permissionhandler.permission_handler_android-jetified-lifecycle-livedata-core-ktx-2.7.0-17 /home/herzen/.gradle/caches/transforms-3/d227ba75568cb7e4d04657fadc47e630/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/res
 com.baseflow.permissionhandler.permission_handler_android-fragment-1.7.1-18 /home/herzen/.gradle/caches/transforms-3/e10f41e65806877f7fdd9cf114ea85ba/transformed/fragment-1.7.1/res
 com.baseflow.permissionhandler.permission_handler_android-lifecycle-livedata-core-2.7.0-19 /home/herzen/.gradle/caches/transforms-3/fbc8986e8774c3a729e958840b46bd7e/transformed/lifecycle-livedata-core-2.7.0/res
-com.baseflow.permissionhandler.permission_handler_android-main-20 /home/herzen/.pub-cache/hosted/pub.dev/permission_handler_android-12.1.0/android/src/main/res
-com.baseflow.permissionhandler.permission_handler_android-release-21 /home/herzen/.pub-cache/hosted/pub.dev/permission_handler_android-12.1.0/android/src/release/res
+com.baseflow.permissionhandler.permission_handler_android-main-20 /home/herzen/.pub-cache/hosted/pub.dev/permission_handler_android-13.0.1/android/src/main/res
+com.baseflow.permissionhandler.permission_handler_android-release-21 /home/herzen/.pub-cache/hosted/pub.dev/permission_handler_android-13.0.1/android/src/release/res
 com.baseflow.permissionhandler.permission_handler_android-pngs-22 /home/herzen/Documenti/GitHub/loverquest/build/permission_handler_android/generated/res/pngs/release
 com.baseflow.permissionhandler.permission_handler_android-resValues-23 /home/herzen/Documenti/GitHub/loverquest/build/permission_handler_android/generated/res/resValues/release
 com.baseflow.permissionhandler.permission_handler_android-mergeReleaseResources-24 /home/herzen/Documenti/GitHub/loverquest/build/permission_handler_android/intermediates/incremental/release/mergeReleaseResources/merged.dir

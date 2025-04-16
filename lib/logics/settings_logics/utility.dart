@@ -1,4 +1,7 @@
 
+
+//------------------------------------------------------------------------------
+
 // EXTENSION FOR CAPITALIZE ONLY THE FIRST LETTER OF A STRING
 extension CapitalizeFirstExtension on String {
 

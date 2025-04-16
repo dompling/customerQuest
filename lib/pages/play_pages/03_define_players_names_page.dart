@@ -121,10 +121,10 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
     } else {
 
       // CREATING PLAYER 1 OBJECT
-      Players player_1 = Players(player_icon_path: player_1_image_path, player_alias: player_1_alias, player_sex: player_1_sex);
+      Players player_1 = Players(player_icon_path: player_1_image_path, player_alias: player_1_alias, player_sex: player_1_sex, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
 
       // CREATING PLAYER 2 OBJECT
-      Players player_2 = Players(player_icon_path: player_2_image_path, player_alias: player_2_alias, player_sex: player_2_sex);
+      Players player_2 = Players(player_icon_path: player_2_image_path, player_alias: player_2_alias, player_sex: player_2_sex, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
 
       // GOING TO NEXT PAGE
       Navigator.push(

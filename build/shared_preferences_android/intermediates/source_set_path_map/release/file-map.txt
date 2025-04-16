@@ -33,8 +33,8 @@ io.flutter.plugins.sharedpreferences.shared_preferences_android-appcompat-1.1.0-
 io.flutter.plugins.sharedpreferences.shared_preferences_android-lifecycle-livedata-core-2.7.0-32 /home/herzen/.gradle/caches/transforms-3/fbc8986e8774c3a729e958840b46bd7e/transformed/lifecycle-livedata-core-2.7.0/res
 io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-activity-ktx-1.8.1-33 /home/herzen/.gradle/caches/transforms-3/fdcd8db5b9f7d4733d0a4e844bbc4eff/transformed/jetified-activity-ktx-1.8.1/res
 io.flutter.plugins.sharedpreferences.shared_preferences_android-jetified-datastore-core-release-34 /home/herzen/.gradle/caches/transforms-3/feb992e176c43346daa521d6325af85d/transformed/jetified-datastore-core-release/res
-io.flutter.plugins.sharedpreferences.shared_preferences_android-main-35 /home/herzen/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.8/android/src/main/res
-io.flutter.plugins.sharedpreferences.shared_preferences_android-release-36 /home/herzen/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.8/android/src/release/res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-main-35 /home/herzen/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.9/android/src/main/res
+io.flutter.plugins.sharedpreferences.shared_preferences_android-release-36 /home/herzen/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.9/android/src/release/res
 io.flutter.plugins.sharedpreferences.shared_preferences_android-pngs-37 /home/herzen/Documenti/GitHub/loverquest/build/shared_preferences_android/generated/res/pngs/release
 io.flutter.plugins.sharedpreferences.shared_preferences_android-resValues-38 /home/herzen/Documenti/GitHub/loverquest/build/shared_preferences_android/generated/res/resValues/release
 io.flutter.plugins.sharedpreferences.shared_preferences_android-mergeReleaseResources-39 /home/herzen/Documenti/GitHub/loverquest/build/shared_preferences_android/intermediates/incremental/release/mergeReleaseResources/merged.dir

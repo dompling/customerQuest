@@ -18,8 +18,8 @@ io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-annotation-experime
 io.flutter.plugins.flutter_plugin_android_lifecycle-jetified-lifecycle-livedata-core-ktx-2.7.0-17 /home/herzen/.gradle/caches/transforms-3/d227ba75568cb7e4d04657fadc47e630/transformed/jetified-lifecycle-livedata-core-ktx-2.7.0/res
 io.flutter.plugins.flutter_plugin_android_lifecycle-fragment-1.7.1-18 /home/herzen/.gradle/caches/transforms-3/e10f41e65806877f7fdd9cf114ea85ba/transformed/fragment-1.7.1/res
 io.flutter.plugins.flutter_plugin_android_lifecycle-lifecycle-livedata-core-2.7.0-19 /home/herzen/.gradle/caches/transforms-3/fbc8986e8774c3a729e958840b46bd7e/transformed/lifecycle-livedata-core-2.7.0/res
-io.flutter.plugins.flutter_plugin_android_lifecycle-main-20 /home/herzen/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.26/android/src/main/res
-io.flutter.plugins.flutter_plugin_android_lifecycle-release-21 /home/herzen/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.26/android/src/release/res
+io.flutter.plugins.flutter_plugin_android_lifecycle-main-20 /home/herzen/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android/src/main/res
+io.flutter.plugins.flutter_plugin_android_lifecycle-release-21 /home/herzen/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/android/src/release/res
 io.flutter.plugins.flutter_plugin_android_lifecycle-pngs-22 /home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/generated/res/pngs/release
 io.flutter.plugins.flutter_plugin_android_lifecycle-resValues-23 /home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/generated/res/resValues/release
 io.flutter.plugins.flutter_plugin_android_lifecycle-mergeReleaseResources-24 /home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/intermediates/incremental/release/mergeReleaseResources/merged.dir

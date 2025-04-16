@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.herzen.loverquest.app-mergeDebugResources-40:/values-land/values-land.xml",
+            "outputFile": "com.herzen.loverquest.app-mergeDebugResources-42:/values-land/values-land.xml",
             "map": [
                 {
                     "source": "/home/herzen/.gradle/caches/transforms-3/f5098658f919aa18c93d7c4febd893b8/transformed/appcompat-1.1.0/res/values-land/values-land.xml",

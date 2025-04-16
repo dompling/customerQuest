@@ -40,6 +40,10 @@ class DeckInfoPage extends StatefulWidget {
     player_icon_path: "assets/default_avatar.png",
     player_alias: "Guest 1",
     player_sex: false,
+    player_early_quest_list: [],
+    player_mid_quest_list: [],
+    player_late_quest_list: [],
+    player_end_quest_list: [],
   ),
 
     // PLAYER 2 PLACEHOLDER
@@ -47,6 +51,10 @@ class DeckInfoPage extends StatefulWidget {
       player_icon_path: "assets/default_avatar.png",
       player_alias: "Guest 2",
       player_sex: true,
+      player_early_quest_list: [],
+      player_mid_quest_list: [],
+      player_late_quest_list: [],
+      player_end_quest_list: [],
     ),
 
     // FIRST PLAYER PLACEHOLDER
@@ -54,6 +62,10 @@ class DeckInfoPage extends StatefulWidget {
       player_icon_path: "assets/default_avatar.png",
       player_alias: "First Player",
       player_sex: false,
+      player_early_quest_list: [],
+      player_mid_quest_list: [],
+      player_late_quest_list: [],
+      player_end_quest_list: [],
     );
 
   // LINK TO CLASS STATE / WIDGET CONTENT
@@ -642,13 +654,9 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                         player_2_object: widget.player_2_object,
                                         first_player: widget.first_player,
                                         early_quests_list: early_quests_list,
-                                        early_quests_total_score: early_quests_total_score,
                                         mid_quests_list: mid_quests_list,
-                                        mid_quests_total_score: mid_quests_total_score,
                                         late_quests_list: late_quests_list,
-                                        late_quests_total_score: late_quests_total_score,
                                         end_quests_list: end_quests_list,
-                                        end_quests_total_score: end_quests_total_score,
                                         passed_current_quest: Quest.empty(),
                                         passed_current_quest_list: [],
 

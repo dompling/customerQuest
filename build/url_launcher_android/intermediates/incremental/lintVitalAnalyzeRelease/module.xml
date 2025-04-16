@@ -1,14 +1,14 @@
 <lint-module
     format="1"
-    dir="/home/herzen/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.14/android"
+    dir="/home/herzen/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.15/android"
     name=":url_launcher_android"
     type="LIBRARY"
     maven="io.flutter.plugins.urllauncher:url_launcher_android:"
     agpVersion="8.2.2"
     buildFolder="/home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android"
-    bootClassPath="/home/herzen/Android/Sdk/platforms/android-34/android.jar:/home/herzen/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    bootClassPath="/home/herzen/Android/Sdk/platforms/android-35/android.jar:/home/herzen/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
     javaSourceLevel="11"
-    compileTarget="android-34"
+    compileTarget="android-35"
     neverShrinking="true">
   <lintOptions
       disable="AndroidGradlePluginVersion,InvalidPackage,GradleDependency,NewerVersionAvailable"
