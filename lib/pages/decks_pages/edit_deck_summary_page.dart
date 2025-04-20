@@ -10,6 +10,7 @@ import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/decks_logics/save_deck.dart';
 import 'package:loverquest/pages/decks_pages/deck_editor_main_page.dart';
+import 'package:loverquest/logics/settings_logics/utility.dart';
 
 
 //------------------------------------------------------------------------------
@@ -51,6 +52,7 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   late TextEditingController _deck_name_controller;
   late TextEditingController _deck_language_controller;
   late TextEditingController _deck_description_controller;
+  late TextEditingController _deck_tag_controller;
 
   //------------------------------------------------------------------------------
 
@@ -65,6 +67,23 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
   //------------------------------------------------------------------------------
 
+  // DEFINING THE TOOL LIST VAR
+  List<String> tag_list = [];
+  
+  //------------------------------------------------------------------------------
+
+  // INITIALIZING THE GLOBAL SWITCHES VARIABLES
+  bool item_1 = false; bool item_2 = false; bool item_3 = false; bool item_4 = false;
+  bool item_5 = false; bool item_6 = false; bool item_7 = false; bool item_8 = false;
+  bool item_9 = false; bool item_10 = false; bool item_11 = false; bool item_12 = false;
+  bool item_13 = false; bool item_14 = false; bool item_15 = false; bool item_16 = false;
+  bool item_17 = false; bool item_18 = false; bool item_19 = false; bool item_20 = false;
+  bool item_21 = false; bool item_22 = false; bool item_23 = false; bool item_24 = false;
+  bool item_25 = false; bool item_26 = false; bool item_27 = false; bool item_28 = false;
+  bool item_29 = false; bool item_30 = false; bool item_31 = false;
+
+  //------------------------------------------------------------------------------
+
   // RELEASING CONTROLLERS WHEN THE PAGE IS DISMISSED
   @override
   void initState() {
@@ -74,6 +93,7 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
     _deck_name_controller = TextEditingController();
     _deck_language_controller = TextEditingController();
     _deck_description_controller = TextEditingController();
+    _deck_tag_controller = TextEditingController();
 
   }
 
@@ -82,6 +102,7 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
     _deck_name_controller.dispose();
     _deck_language_controller.dispose();
     _deck_description_controller.dispose();
+    _deck_tag_controller.dispose();
     super.dispose();
   }
 
@@ -101,6 +122,7 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
       _deck_name_controller.text = widget.selected_deck?.summary.name ?? "";
       _deck_language_controller.text = language_object.label;
       _deck_description_controller.text =  widget.selected_deck?.summary.description ?? "";
+      _deck_tag_controller.text = widget.selected_deck?.summary.tags.join(", ") ?? "";
 
     }
 
@@ -185,6 +207,7 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
           deck_language: language_object.language_code,
           couple_type: selected_option_couple_type,
           play_distance: selected_option_game_type,
+          deck_tags: tag_list,
           selected_deck: widget.selected_deck,
         );
 
@@ -309,6 +332,363 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
             ),
 
           );
+
+        },
+
+      );
+
+    }
+
+    //------------------------------------------------------------------------------
+    
+    // SHOW TOOLS SELECTION DIALOG
+    Future<void> show_tags_dialog(BuildContext context) async {
+      return showDialog<void>(
+        context: context,
+        builder: (context) {
+
+          //------------------------------------------------------------------------------
+
+          // USING A STATEFUL BUILDER IN ORDER TO CORRECTLY RENDER THE PAGE CHANGES
+          return StatefulBuilder(
+            builder: (BuildContext context, StateSetter setStateDialog) {
+
+              // DIALOG
+              return Dialog(
+
+                // DIALOG CONTENT
+                child: Container(
+
+                  // SETTING THE WIDTH LIMIT
+                  constraints: BoxConstraints(maxWidth: 500),
+
+                  // CONTAINER CONTENT
+                  child: SingleChildScrollView(
+
+                    // SCROLLABLE CONTAINER CONTENT
+                      child: Container(
+
+                        // PAGE PADDING
+                        padding: EdgeInsets.all(10),
+
+                        // PAGE ALIGNMENT
+                        alignment: Alignment.topCenter,
+
+                        // CONTAINER CONTENT
+                        child: Column(
+
+                          // SIZE
+                          mainAxisSize: MainAxisSize.min,
+
+                          // ALIGNMENT
+                          crossAxisAlignment: CrossAxisAlignment.center,
+
+                          // COLUMN CONTENT
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            SizedBox(height: 15),
+
+                            //------------------------------------------------------------------------------
+
+                            // DIALOG TITLE
+                            Text(
+
+                              // TEXT
+                              AppLocalizations.of(context)!.quest_editor_page_tools_dialog_title,
+
+                              // ALIGNMENT
+                              textAlign: TextAlign.center,
+
+                              // STYLE
+                              style: TextStyle(
+
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+
+                              ),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            SizedBox(height: 15),
+
+                            //------------------------------------------------------------------------------
+
+                            // ITEM 1
+                            SwitchListTile(
+
+                              // SWITCH TITLE
+                              title: Text(AppLocalizations.of(context)!.tags_list_oral_sex_tag.capitalize_first()),
+
+                              // SWITCH VALUE
+                              value: item_1,
+
+                              // SWITCH FUNCTION
+                              onChanged: (bool value) {
+                                setStateDialog(() {
+                                  item_1 = value;
+
+                                  // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
+                                  if (tag_list.contains("oral_sex")) {
+
+                                    // DELETING THE TOOL FROM TO THE TOOL LIST
+                                    tag_list.remove("oral_sex");
+
+                                  } else {
+
+                                    // ADDING THE TOOL TO THE TOOL LIST
+                                    tag_list.add("oral_sex");
+
+                                  }
+
+                                });
+                              },
+
+                              // SWITCH COLOR
+                              activeColor: Theme.of(context).colorScheme.onSecondary,
+                              activeTrackColor: Theme.of(context).colorScheme.secondary,
+                              inactiveThumbColor: Theme.of(context).colorScheme.onSecondary,
+                              inactiveTrackColor: Colors.black45,
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // ITEM 2
+                            SwitchListTile(
+
+                              // SWITCH TITLE
+                              title: Text(AppLocalizations.of(context)!.tags_list_anal_sex_tag.capitalize_first()),
+
+                              // SWITCH VALUE
+                              value: item_2,
+
+                              // SWITCH FUNCTION
+                              onChanged: (bool value) {
+                                setStateDialog(() {
+                                  item_2 = value;
+
+                                  // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
+                                  if (tag_list.contains("anal_sex")) {
+
+                                    // DELETING THE TOOL FROM TO THE TOOL LIST
+                                    tag_list.remove("anal_sex");
+
+                                  } else {
+
+                                    // ADDING THE TOOL TO THE TOOL LIST
+                                    tag_list.add("anal_sex");
+
+                                  }
+
+                                });
+                              },
+
+                              // SWITCH COLOR
+                              activeColor: Theme.of(context).colorScheme.onSecondary,
+                              activeTrackColor: Theme.of(context).colorScheme.secondary,
+                              inactiveThumbColor: Theme.of(context).colorScheme.onSecondary,
+                              inactiveTrackColor: Colors.black45,
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // ITEM 3
+                            SwitchListTile(
+
+                              // SWITCH TITLE
+                              title: Text(AppLocalizations.of(context)!.tags_list_vaginal_sex_tag.capitalize_first()),
+
+                              // SWITCH VALUE
+                              value: item_3,
+
+                              // SWITCH FUNCTION
+                              onChanged: (bool value) {
+                                setStateDialog(() {
+                                  item_3 = value;
+
+                                  // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
+                                  if (tag_list.contains("vaginal_sex")) {
+
+                                    // DELETING THE TOOL FROM TO THE TOOL LIST
+                                    tag_list.remove("vaginal_sex");
+
+                                  } else {
+
+                                    // ADDING THE TOOL TO THE TOOL LIST
+                                    tag_list.add("vaginal_sex");
+
+                                  }
+
+                                });
+                              },
+
+                              // SWITCH COLOR
+                              activeColor: Theme.of(context).colorScheme.onSecondary,
+                              activeTrackColor: Theme.of(context).colorScheme.secondary,
+                              inactiveThumbColor: Theme.of(context).colorScheme.onSecondary,
+                              inactiveTrackColor: Colors.black45,
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // ITEM 4
+                            SwitchListTile(
+
+                              // SWITCH TITLE
+                              title: Text(AppLocalizations.of(context)!.tags_list_bondage_tag.capitalize_first()),
+
+                              // SWITCH VALUE
+                              value: item_4,
+
+                              // SWITCH FUNCTION
+                              onChanged: (bool value) {
+                                setStateDialog(() {
+                                  item_4 = value;
+
+                                  // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
+                                  if (tag_list.contains("bondage")) {
+
+                                    // DELETING THE TOOL FROM TO THE TOOL LIST
+                                    tag_list.remove("bondage");
+
+                                  } else {
+
+                                    // ADDING THE TOOL TO THE TOOL LIST
+                                    tag_list.add("bondage");
+
+                                  }
+
+                                });
+                              },
+
+                              // SWITCH COLOR
+                              activeColor: Theme.of(context).colorScheme.onSecondary,
+                              activeTrackColor: Theme.of(context).colorScheme.secondary,
+                              inactiveThumbColor: Theme.of(context).colorScheme.onSecondary,
+                              inactiveTrackColor: Colors.black45,
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // ITEM 5
+                            SwitchListTile(
+
+                              // SWITCH TITLE
+                              title: Text(AppLocalizations.of(context)!.tags_list_bdsm_tag.capitalize_first()),
+
+                              // SWITCH VALUE
+                              value: item_5,
+
+                              // SWITCH FUNCTION
+                              onChanged: (bool value) {
+                                setStateDialog(() {
+                                  item_5 = value;
+
+                                  // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
+                                  if (tag_list.contains("bdsm")) {
+
+                                    // DELETING THE TOOL FROM TO THE TOOL LIST
+                                    tag_list.remove("bdsm");
+
+                                  } else {
+
+                                    // ADDING THE TOOL TO THE TOOL LIST
+                                    tag_list.add("bdsm");
+
+                                  }
+
+                                });
+                              },
+
+                              // SWITCH COLOR
+                              activeColor: Theme.of(context).colorScheme.onSecondary,
+                              activeTrackColor: Theme.of(context).colorScheme.secondary,
+                              inactiveThumbColor: Theme.of(context).colorScheme.onSecondary,
+                              inactiveTrackColor: Colors.black45,
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            SizedBox(height: 15),
+
+                            //------------------------------------------------------------------------------
+
+                            // DIALOG EXIT BUTTON
+                            TextButton(
+
+                              // BUTTON STYLE PARAMETERS
+                              style: ButtonStyle(
+
+                                // NORMAL TEXT COLOR
+                                foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                                // NORMAL BACKGROUND COLOR
+                                backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
+
+                                // PADDING
+                                padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
+
+                                // BORDER RADIUS
+                                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(100),
+                                  ),
+                                ),
+
+                              ),
+
+                              // FUNCTION
+                              onPressed: () {
+
+                                // UPDATING THE PAGE STATE
+                                setState(() {
+
+                                  // UPDATING THE TEXT FIELD
+                                  _deck_tag_controller.text = tag_list.join(", ");
+
+                                });
+
+                                // CLOSING THE DIALOG
+                                Navigator.of(context).pop();
+                              },
+
+                              // BUTTON TEXT
+                              child: Text(AppLocalizations.of(context)!.quest_editor_page_tools_dialog_save_button_label),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                          ],
+
+                        ),
+
+
+                      )
+
+                  ),
+
+                ),
+
+              );
+
+            },
+
+          );
+
+          //------------------------------------------------------------------------------
 
         },
 
@@ -706,6 +1086,113 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
                               selected_option_game_type = newSelection.first;
                             });
                           },
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ],
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+                  // SPACER
+                  const SizedBox(height: 15),
+
+                  //------------------------------------------------------------------------------
+
+                  // DECK TAG LIST LABEL AND TAG LIST TEXTBOX CONTAINER
+                  Column(
+
+                    // ALIGNMENT
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                    // COLUMN CONTENT
+                    children: [
+
+                      // CARD TEXT
+                      Text(
+                        // TEXT
+                        AppLocalizations.of(context)!.deck_info_tags_list_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                          fontSize: 18.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                      // SPACER
+                      const SizedBox(height: 5),
+
+                      //------------------------------------------------------------------------------
+
+                      // CARD TEXT
+                      TextField(
+
+                        // TEXT CONTROLLER
+                        controller: _deck_tag_controller,
+
+                        // SETTING THE TEXT FIELD AD READ-ONLY
+                        readOnly: true,
+
+                        // ALLOWING THE TEXT FIELD DO GO MULTILINE
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+
+                        // ON TAP FUNCTION
+                        onTap: () {
+
+                          show_tags_dialog(context).then((_) {
+
+                            setState(() {
+
+                              // UPDATING THE TEXT FIELD
+                              _deck_tag_controller.text = tag_list.join(", ");
+
+                            });
+
+                          });
+
+                        },
+
+                        // INPUT TEXT STYLING
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+
+                        // TEXT FIELD STYLING
+                        decoration: InputDecoration(
+
+                          // HINT TEXT
+                          hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
+
+                          // HINT TEXT STYLE
+                          hintStyle: TextStyle(
+                            fontSize: 13,
+                            fontStyle: FontStyle.normal,
+                          ),
+
+                          // BORDER
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none
+                          ),
+
+                          // BACKGROUND COLOR
+                          filled: true,
+                          fillColor: Colors.grey[800],
+
+                          // PADDING
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 15,
+                            horizontal: 20,
+                          ),
 
                         ),
 

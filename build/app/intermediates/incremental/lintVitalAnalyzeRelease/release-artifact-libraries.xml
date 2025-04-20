@@ -47,6 +47,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name=":@@:flutter_file_manager_android::release"
+      jars="/home/herzen/Documenti/GitHub/loverquest/build/flutter_file_manager_android/.transforms/c6870088238f2cf929bb2cfd249262e3/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/flutter_file_manager_android/.transforms/c6870088238f2cf929bb2cfd249262e3/transformed/out/jars/libs/R.jar"
+      resolved="com.maniak.flutter_file_manager_android:flutter_file_manager_android:unspecified"
+      folder="/home/herzen/Documenti/GitHub/loverquest/build/flutter_file_manager_android/.transforms/c6870088238f2cf929bb2cfd249262e3/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name=":@@:flutter_plugin_android_lifecycle::release"
       jars="/home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/.transforms/876b6e85b4b3f8c2f9d6ab5682cc3a57/transformed/out/jars/classes.jar:/home/herzen/Documenti/GitHub/loverquest/build/flutter_plugin_android_lifecycle/.transforms/876b6e85b4b3f8c2f9d6ab5682cc3a57/transformed/out/jars/libs/R.jar"
       resolved="io.flutter.plugins.flutter_plugin_android_lifecycle:flutter_plugin_android_lifecycle:unspecified"

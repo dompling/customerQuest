@@ -148,4 +148,124 @@ ToolsInfo get_tools_info(BuildContext context, List<String> deck_tools_list) {
 
 
 
+// DEFINING THE CLASS TO CONVERT ALL THE TOOLS INFO IN AN OBJECT
+class OralSexTagInfo {
+
+  // CLASS ATTRIBUTES
+  final String label;
+  final Color background_color;
+  final Color border_color;
+  final bool show_tag;
+
+  OralSexTagInfo(this.label, this.background_color, this.border_color, this.show_tag);
+
+}
+
+// FUNCTION TO GET ALL THE INFO FROM THE DECK DIFFICULTY
+OralSexTagInfo get_oral_tag_info(BuildContext context, List<String> deck_tags_list) {
+
+  // CHECKING IF THE TAG HAS TO BE SHOWN
+  if (deck_tags_list.contains("oral_sex")) {
+
+    return OralSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff61823d), Color(0xff5e8b64), true);
+
+  } else {
+
+    return OralSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff61823d), Color(0xff5e8b64), false);
+
+  }
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+// DEFINING THE CLASS TO CONVERT ALL THE TOOLS INFO IN AN OBJECT
+class VaginalSexTagInfo {
+
+  // CLASS ATTRIBUTES
+  final String label;
+  final Color background_color;
+  final Color border_color;
+  final bool show_tag;
+
+  VaginalSexTagInfo(this.label, this.background_color, this.border_color, this.show_tag);
+
+}
+
+// FUNCTION TO GET ALL THE INFO FROM THE DECK DIFFICULTY
+VaginalSexTagInfo get_vaginal_tag_info(BuildContext context, List<String> deck_tags_list) {
+
+  // CHECKING IF THE TAG HAS TO BE SHOWN
+  if (deck_tags_list.contains("vaginal_sex")) {
+
+    return VaginalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff793d82), Color(
+        0xff8b5e7e), true);
+
+  } else {
+
+    return VaginalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff793d82), Color(
+        0xff8b5e7e), false);
+
+  }
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+// DEFINING THE CLASS TO CONVERT ALL THE TOOLS INFO IN AN OBJECT
+class AnalSexTagInfo {
+
+  // CLASS ATTRIBUTES
+  final String label;
+  final Color background_color;
+  final Color border_color;
+  final bool show_tag;
+
+  AnalSexTagInfo(this.label, this.background_color, this.border_color, this.show_tag);
+
+}
+
+// FUNCTION TO GET ALL THE INFO FROM THE DECK DIFFICULTY
+AnalSexTagInfo get_anal_tag_info(BuildContext context, List<String> deck_tags_list) {
+
+  // CHECKING IF THE TAG HAS TO BE SHOWN
+  if (deck_tags_list.contains("anal_sex")) {
+
+    return AnalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(
+        0xff823d3d), Color(
+        0xff8b5e5e), true);
+
+  } else {
+
+    return AnalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(
+        0xff823d3d), Color(
+        0xff8b5e5e), false);
+
+  }
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 

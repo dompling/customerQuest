@@ -23,7 +23,7 @@ List<String> translate_tools (BuildContext context,List<String> required_tools) 
         return localizations.quest_tool_male_lingerie;
       case 'blindfold':
         return localizations.quest_tool_blindfold;
-      case 'rope':
+      case 'ropes':
         return localizations.quest_tool_rope;
       case 'handcuffs':
         return localizations.quest_tool_handcuffs;

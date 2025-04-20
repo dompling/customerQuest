@@ -99,6 +99,7 @@ class QuestSummary {
   final String language;
   final int total_quests;
   final List<String> required_tools;
+  final List<String> tags;
 
   //------------------------------------------------------------------------------
 
@@ -112,6 +113,7 @@ class QuestSummary {
     required this.language,
     required this.total_quests,
     required this.required_tools,
+    required this.tags,
 
   });
 
@@ -129,6 +131,7 @@ class QuestSummary {
       language: json['language'] ?? "No data here",
       total_quests: json['total_quests'] ?? 0,
       required_tools: json['required_tools'] != null ? List<String>.from(json['required_tools']) : [],
+      tags: json['tags'] != null ? List<String>.from(json['tags']) : [],
 
     );
 
@@ -146,6 +149,7 @@ class QuestSummary {
       'language': language,
       'total_quests': total_quests,
       'required_tools': required_tools,
+      'tags': tags,
     };
   }
 
@@ -171,6 +175,7 @@ class DeckReader {
     language: "en",
     total_quests: 0,
     required_tools: [],
+    tags: []
   );
 
   // CLASS ATTRIBUTES

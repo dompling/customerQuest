@@ -5,7 +5,7 @@
     "couple_type": "hetero",
     "play_distance": false,
     "language": "en",
-    "total_quests": 46,
+    "total_quests": 51,
     "required_tools": []
 
   },
@@ -17,339 +17,209 @@
     {
       "moment": "early",
       "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Caress and kiss each other while standing for 2 minutes."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 2,
-      "content": "Caress and kiss each other while standing for 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Close your eyes while your partner whispers something exciting to you and caresses your body for 2 minutes."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 2,
-      "content": "Close your eyes while your partner whispers something exciting to you and caresses your body for 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Write down something that arouses you on a note and exchange them at the end of the next turn."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 0,
-      "content": "Write down something that arouses you on a note and exchange them at the end of the next turn."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Your partner kisses your entire body for 1 minute."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 1,
-      "content": "Your partner kisses your entire body for 1 minute."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Your partner writes an exciting word on your body with their fingertips, and you must guess it."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 0,
-      "content": "Your partner writes an exciting word on your body with their fingertips, and you must guess it."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Caress each other with closed eyes for 2 minutes."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 2,
-      "content": "Caress each other with closed eyes for 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Sit behind your partner and caress them while kissing their neck for 1 minute."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 1,
-      "content": "Sit behind your partner and caress them while kissing their neck for 1 minute."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Communicate a fantasy of yours to your partner using only body language."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 0,
-      "content": "Communicate a fantasy of yours to your partner using only body language."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Bring your faces close while looking into each other’s eyes, but without kissing, for 2 minutes."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 2,
-      "content": "Bring your faces close while looking into each other’s eyes, but without kissing, for 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Sit on your partner’s back and give them a massage for 2 minutes."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 2,
-      "content": "Sit on your partner’s back and give them a massage for 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Look online for a new position to try together."
     },
     {
       "moment": "early",
       "required_tools": [],
-      "timer": 0,
-      "content": "Look online for a new position to try together."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Gently undress the other player until they are left in their underwear."
     },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "timer": 0,
-      "content": "Gently undress the other player until they are left in their underwear."
-    },
+
+
+
     {
       "moment": "mid",
       "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Cool your hands with cold water and caress your partner’s body for 1 minute."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 1,
-      "content": "Cool your hands with cold water and caress your partner’s body for 1 minute."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Take turns whispering three fantasies you’d like to make come true."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 0,
-      "content": "Take turns whispering three fantasies you’d like to make come true."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Your partner chooses your outfit for the rest of the game."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 0,
-      "content": "Your partner chooses your outfit for the rest of the game."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "timer": 0,
-      "content": "Seduce each other as if it were your first date."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "timer": 0,
-      "content": "Seduce each other as if it were your first date."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Sit behind the other player and masturbate them for 3 minutes while kissing their neck and whispering exciting things to them."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 3,
-      "content": "Sit behind the other player and masturbate them for 3 minutes while kissing their neck and whispering exciting things to them."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Try listening to your partner’s heartbeat and masturbate them according to the rhythm for 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 2,
-      "content": "Try listening to your partner’s heartbeat and masturbate them according to the rhythm for 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Have sexting on your favorite messaging app for 3 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 3,
-      "content": "Have sexting on your favorite messaging app for 3 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Sit side by side and masturbate each other for 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 2,
-      "content": "Sit side by side and masturbate each other for 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Perform a sexy dance for 1 minute for the other player."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 1,
-      "content": "Perform a sexy dance for 1 minute for the other player."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Commit to not holding back any sounds or words during sexual acts until the end of the game."
     },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "timer": 0,
-      "content": "Commit to not holding back any sounds or words during sexual acts until the end of the game."
-    },
+
+
+
     {
       "moment": "late",
       "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Masturbate each other for 3 minutes with your faces close but without kissing."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 3,
-      "content": "Masturbate each other for 3 minutes with your faces close but without kissing."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Your partner masturbates you until you’re close to climax, then stops (edging)."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 0,
-      "content": "Your partner masturbates you until you’re close to climax, then stops (edging)."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Turn off every light source and make out while caressing each other’s naked bodies for 2 minutes."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 2,
-      "content": "Turn off every light source and make out while caressing each other’s naked bodies for 2 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Masturbate the other player while masturbating yourself for 3 minutes."
     },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "timer": 3,
-      "content": "Masturbate the other player while masturbating yourself for 3 minutes."
-    },
+
+
+
     {
       "moment": "end",
       "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "End the game in whatever way you prefer."
     },
     {
       "moment": "end",
       "required_tools": [],
+      "player_type": "both",
       "timer": 0,
-      "content": "End the game in whatever way you prefer."
+      "content": "End the game with penetrative sex in a position of your choice."
     },
     {
       "moment": "end",
       "required_tools": [],
+      "player_type": "both",
       "timer": 0,
-      "content": "Finish the game with penetrative intercourse."
+      "content": "Masturbate the other player until they reach orgasm."
     },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "timer": 0,
-      "content": "Finish the game with penetrative intercourse."
-    },
+
 
 
 
@@ -359,219 +229,179 @@
     {
       "moment": "mid",
       "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Play a role-play game by choosing an arousing setting."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 0,
-      "content": "Play a role-play game by choosing an arousing setting."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Your partner brings their face close to your intimate areas for 1 minute without touching you."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 1,
-      "content": "Your partner brings their face close to your intimate areas for 1 minute without touching you."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Your partner guides your hand to masturbate themselves for 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 2,
-      "content": "Your partner guides your hand to masturbate themselves for 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Your partner caresses and breathes on your erogenous zones for 1 minute without doing anything else."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 1,
-      "content": "Your partner caresses and breathes on your erogenous zones for 1 minute without doing anything else."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Your partner does a sexy striptease for you."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 0,
-      "content": "Your partner does a sexy striptease for you."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Remove the other player's underwear without using your hands."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 0,
-      "content": "Remove the other player's underwear without using your hands."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Gently lick the other player’s intimate areas entirely for 1 minute."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 1,
-      "content": "Gently lick the other player’s intimate areas entirely for 1 minute."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Get under a table and perform oral sex on the other player for 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
-      "timer": 2,
-      "content": "Get under a table and perform oral sex on the other player for 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Stand behind the other player while you're both in front of a mirror and masturbate them for 3 minutes."
     },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "timer": 3,
-      "content": "Stand behind the other player while you're both in front of a mirror and masturbate them for 3 minutes."
-    },
+
+
+
     {
       "moment": "late",
       "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Kneel in front of your partner and perform oral sex on them for 3 minutes."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 3,
-      "content": "Kneel in front of your partner and perform oral sex on them for 3 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Your partner performs oral sex on you until you're close to climax, then stops (edging)."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 0,
-      "content": "Your partner performs oral sex on you until you're close to climax, then stops (edging)."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
       "content": "Kiss your partner’s intimate areas for 1 minute."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 1,
-      "content": "Kiss your partner’s intimate areas for 1 minute."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Have a sixty-nine with your partner for 3 minutes."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 3,
-      "content": "Have a sixty-nine with your partner for 3 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "Perform oral sex on the other player while masturbating for 2 minutes."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 2,
-      "content": "Perform oral sex on the other player while masturbating for 2 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 3,
       "content": "Perform oral sex on the other player while masturbating for 3 minutes in doggy style position."
     },
     {
       "moment": "late",
       "required_tools": [],
-      "timer": 3,
-      "content": "Perform oral sex on the other player while masturbating for 3 minutes in doggy style position."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
       "content": "The other player positions themselves in doggy style while you perform oral sex on them for 2 minutes."
     },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "timer": 2,
-      "content": "The other player positions themselves in doggy style while you perform oral sex on them for 2 minutes."
-    },
+
+
+
     {
       "moment": "end",
       "required_tools": [],
+      "player_type": "both",
       "timer": 5,
       "content": "Have a sixty-nine with your partner for 5 minutes."
     },
     {
       "moment": "end",
       "required_tools": [],
-      "timer": 5,
-      "content": "Have a sixty-nine with your partner for 5 minutes."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
+      "player_type": "both",
       "timer": 0,
       "content": "Kneel in front of your partner and perform oral sex on them until they reach orgasm."
     },
     {
       "moment": "end",
       "required_tools": [],
+      "player_type": "male",
       "timer": 0,
-      "content": "Kneel in front of your partner and perform oral sex on them until they reach orgasm."
+      "content": "Your partner sits on your face, perform oral sex on her until she reaches orgasm."
+    },
+
+
+
+
+
+
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "End the game with penetrative sex in the missionary position."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "End the game with penetrative sex in the cowgirl position."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "End the game with penetrative sex in the doggy style position."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "End the game with penetrative sex in the reverse cowgirl position."
     }
+
+
+
 
 
   ]

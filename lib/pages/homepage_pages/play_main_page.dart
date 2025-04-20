@@ -12,7 +12,7 @@ import 'package:loverquest/pages/play_pages/01_select_game_type_page.dart';
 import 'package:loverquest/pages/play_pages/07_play_page.dart';
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
-import 'package:loverquest/logics/play_logics/save_current_match.dart';
+import 'package:loverquest/logics/play_logics/save_and_load_current_match.dart';
 
 //------------------------------------------------------------------------------
 
@@ -45,17 +45,10 @@ class _PlayMainPageState extends State<PlayMainPage> {
   // DEFINING PREVIOUS DATA VARS
   bool game_type = true;
   List<Players> players_list = [];
-  List<Quest> early_quests_list = [];
-  List<Quest> mid_quests_list = [];
-  List<Quest> late_quests_list = [];
-  List<Quest> end_quests_list = [];
-  int early_quests_total_score = 0;
-  int mid_quests_total_score = 0;
-  int late_quests_total_score = 0;
-  int end_quests_total_score = 0;
-  int partial_score = 0;
   Quest current_quest = Quest.empty();
-  List<Quest> current_quest_list = [];
+  String current_player_alias = "";
+  late Players first_player;
+
 
   //------------------------------------------------------------------------------
 
@@ -65,7 +58,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      throw "Impossibile aprire il link: $url";
+      throw "Unable to open the link: $url";
     }
   }
 
@@ -458,18 +451,23 @@ class _PlayMainPageState extends State<PlayMainPage> {
     Map<String, dynamic> gameData = await GameStorage.load_game_data();
     game_type = gameData['game_type'];
     players_list = gameData['players_list'];
-    early_quests_list = gameData['early_quests_list'];
-    mid_quests_list = gameData['mid_quests_list'];
-    late_quests_list = gameData['late_quests_list'];
-    end_quests_list = gameData['end_quests_list'];
-    early_quests_total_score = gameData['early_quests_total_score'];
-    mid_quests_total_score = gameData['mid_quests_total_score'];
-    late_quests_total_score = gameData['late_quests_total_score'];
-    end_quests_total_score = gameData['end_quests_total_score'];
-    partial_score = gameData['partial_score'];
     current_quest = gameData['current_quest'];
-    current_quest_list = gameData['current_quest_list'];
+    current_player_alias = gameData['current_player_alias'];
 
+  }
+
+  Future<Players> check_first_player (List<Players> players_list, String current_player_alias) async {
+
+    // CHECKING THE PLAYERS ALIAS TO FIND THE CURRENT PLAYER
+    if (players_list[0].player_alias == current_player_alias) {
+
+      // RETURNING THE FIRST PLAYER
+      return players_list[0];
+
+    }
+
+    // RETURNING THE FIRST PLAYER
+    return players_list[1];
   }
 
   //------------------------------------------------------------------------------
@@ -569,7 +567,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
                 //------------------------------------------------------------------------------
 
-                // BUTTON BOX
+                // NEW GAME BUTTON BOX
                 SizedBox(
 
                   // DYNAMIC SIZE
@@ -652,7 +650,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
                 //------------------------------------------------------------------------------
 
-                // BUTTON BOX
+                // LOAD GAME BUTTON BOX
                 if (previous_data) SizedBox(
 
                   // DYNAMIC SIZE
@@ -690,6 +688,8 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
                       await load_match_data();
 
+                      first_player = await check_first_player(players_list, current_player_alias);
+
                       // PAGE LINKER
                       Navigator.pushAndRemoveUntil(
                         // ignore: use_build_context_synchronously
@@ -699,13 +699,12 @@ class _PlayMainPageState extends State<PlayMainPage> {
                           game_type: game_type,
                           player_1_object: players_list[0],
                           player_2_object: players_list[1],
-                          first_player: players_list[2],
-                          early_quests_list: early_quests_list,
-                          mid_quests_list: mid_quests_list,
-                          late_quests_list: late_quests_list,
-                          end_quests_list: end_quests_list,
+                          first_player: first_player,
+                          early_quests_list: [],
+                          mid_quests_list: [],
+                          late_quests_list: [],
+                          end_quests_list: [],
                           passed_current_quest: current_quest,
-                          passed_current_quest_list: current_quest_list,
 
                         )
 

@@ -389,6 +389,24 @@ abstract class AppLocalizations {
   /// **'Online'**
   String get deck_game_type_tag_label_distance;
 
+  /// No description provided for @deck_oral_sex_tag_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Oral sex'**
+  String get deck_oral_sex_tag_label;
+
+  /// No description provided for @deck_vaginal_sex_tag_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaginal sex'**
+  String get deck_vaginal_sex_tag_label;
+
+  /// No description provided for @deck_anal_sex_tag_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Anal sex'**
+  String get deck_anal_sex_tag_label;
+
   /// No description provided for @deck_difficulty_not_specified.
   ///
   /// In en, this message translates to:
@@ -556,6 +574,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Type: '**
   String get deck_info_quest_info_quest_type_label;
+
+  /// No description provided for @deck_info_tags_list_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags: '**
+  String get deck_info_tags_list_label;
+
+  /// No description provided for @tags_list_oral_sex_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'oral sex'**
+  String get tags_list_oral_sex_tag;
+
+  /// No description provided for @tags_list_anal_sex_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'anal sex'**
+  String get tags_list_anal_sex_tag;
+
+  /// No description provided for @tags_list_vaginal_sex_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'vaginal sex'**
+  String get tags_list_vaginal_sex_tag;
+
+  /// No description provided for @tags_list_bondage_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'bondage'**
+  String get tags_list_bondage_tag;
+
+  /// No description provided for @tags_list_bdsm_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'BDSM'**
+  String get tags_list_bdsm_tag;
+
+  /// No description provided for @deck_info_deck_unplayable_error.
+  ///
+  /// In en, this message translates to:
+  /// **'You can\'t play a deck without quests ! Please add some quests to this deck or select another deck to continue.'**
+  String get deck_info_deck_unplayable_error;
 
   /// No description provided for @quest_tool_female_lingerie.
   ///
@@ -802,6 +862,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Custom decks list'**
   String get deck_management_page_custom_deck_list;
+
+  /// No description provided for @deck_management_page_import_error_text.
+  ///
+  /// In en, this message translates to:
+  /// **'There was an error importing the selected deck. Please choose a valid Loverquest deck file and try again.'**
+  String get deck_management_page_import_error_text;
 
   /// No description provided for @deck_management_press_menu_delete.
   ///

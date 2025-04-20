@@ -160,6 +160,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deck_game_type_tag_label_distance => 'Online';
 
   @override
+  String get deck_oral_sex_tag_label => 'Oral sex';
+
+  @override
+  String get deck_vaginal_sex_tag_label => 'Vaginal sex';
+
+  @override
+  String get deck_anal_sex_tag_label => 'Anal sex';
+
+  @override
   String get deck_difficulty_not_specified => 'Not specified';
 
   @override
@@ -244,6 +253,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deck_info_quest_info_quest_type_label => 'Type: ';
+
+  @override
+  String get deck_info_tags_list_label => 'Tags: ';
+
+  @override
+  String get tags_list_oral_sex_tag => 'oral sex';
+
+  @override
+  String get tags_list_anal_sex_tag => 'anal sex';
+
+  @override
+  String get tags_list_vaginal_sex_tag => 'vaginal sex';
+
+  @override
+  String get tags_list_bondage_tag => 'bondage';
+
+  @override
+  String get tags_list_bdsm_tag => 'BDSM';
+
+  @override
+  String get deck_info_deck_unplayable_error => 'You can\'t play a deck without quests ! Please add some quests to this deck or select another deck to continue.';
 
   @override
   String get quest_tool_female_lingerie => 'female lingerie';
@@ -367,6 +397,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deck_management_page_custom_deck_list => 'Custom decks list';
+
+  @override
+  String get deck_management_page_import_error_text => 'There was an error importing the selected deck. Please choose a valid Loverquest deck file and try again.';
 
   @override
   String get deck_management_press_menu_delete => 'Delete';

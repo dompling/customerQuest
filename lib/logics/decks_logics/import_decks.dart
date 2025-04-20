@@ -10,21 +10,31 @@ import 'package:path_provider/path_provider.dart';
 
 
 // FUNCTION FOR IMPORTING A CUSTOM DECK JSON FILE INSIDE THE APP DIRECTORY
-Future<void> importJsonFile() async {
+Future<bool> import_json_file() async {
 
   //------------------------------------------------------------------------------
 
   // OPENING THE FILE PICKER PAGE FILTERING FOR ONLY JSON FILES
   FilePickerResult? result = await FilePicker.platform.pickFiles(
-    type: FileType.custom,
-    allowedExtensions: ['json'],
+    type: FileType.any,
   );
 
   //------------------------------------------------------------------------------
 
   // CHECKING THAT A FILE WAS ACTUALLY CHOSEN
   if (result == null) {
-    return;
+
+    // RETURNING A NOT IMPORTED STATUS
+    return false;
+
+  }
+
+  //------------------------------------------------------------------------------
+
+  // CHECKING IF THE FILE IS A JSON FILE
+  String fileName = result.files.single.name;
+  if (!fileName.toLowerCase().endsWith('.json')) {
+    return false;
   }
 
   //------------------------------------------------------------------------------
@@ -63,10 +73,16 @@ Future<void> importJsonFile() async {
   // COPYING THE FILE INSIDE THE APP CUSTOM DECKS DIRECTORY
   try {
 
+    // COPYING THE FILE
     await selected_file.copy(final_path);
 
+    // RETURNING A COMPLETED STATUS
+    return true;
+
   } catch (e) {
-    //
+
+    // RETURNING A NOT IMPORTED STATUS
+    return false;
   }
 
   //------------------------------------------------------------------------------

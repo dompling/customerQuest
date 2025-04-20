@@ -6,6 +6,7 @@ import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/translate_tools.dart';
+import 'package:loverquest/logics/decks_logics/translate_tags.dart';
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/decks_logics/export_decks.dart';
@@ -69,6 +70,9 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
   // INITIALIZING TOOLS TRANSLATION
   late List<String> deck_translated_tools;
+
+  // INITIALIZING TAGS LIST TRANSLATION
+  late List<String> deck_translated_tags;
 
   // INITIALIZING LANGUAGE LABEL
   late LanguageInfo deck_language_label;
@@ -172,6 +176,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                       deck_language: current_deck.summary.language,
                       couple_type: current_deck.summary.couple_type,
                       play_distance: current_deck.summary.play_distance,
+                      deck_tags: current_deck.summary.tags,
                       selected_deck: current_deck,
                     );
 
@@ -327,8 +332,14 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
       // TRANSLATING THE SUMMARY TOOLS
       deck_translated_tools = translate_tools(context, current_deck.summary.required_tools);
 
+      // TRANSLATING THE SUMMARY TAGS
+      deck_translated_tags = translate_tags(context, current_deck.summary.tags);
+
       // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
       deck_translated_tools[0] = deck_translated_tools[0][0].toUpperCase() + deck_translated_tools[0].substring(1);
+
+      // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+      deck_translated_tags[0] = deck_translated_tags[0][0].toUpperCase() + deck_translated_tags[0].substring(1);
 
       // GETTING THE CORRECT LABEL FOR THE COUPLE TYPE LABEL
       if (current_deck.summary.couple_type == "hetero") {
@@ -815,6 +826,40 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                                           // TEXT
                                           text : deck_translated_tools.join(", "),
+
+                                          // TEXT STYLE
+                                          style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                        ),
+
+                                      ]
+
+                                  ),
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                // SPACER
+                                const SizedBox(height: 5),
+
+                                //------------------------------------------------------------------------------
+
+                                // TAGS TEXT
+                                Text.rich(
+                                  TextSpan (
+
+                                    // TEXT
+                                      text : AppLocalizations.of(context)!.deck_info_tags_list_label,
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                      children: [
+
+                                        TextSpan (
+
+                                          // TEXT
+                                          text : deck_translated_tags.join(", "),
 
                                           // TEXT STYLE
                                           style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),

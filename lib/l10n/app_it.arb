@@ -61,6 +61,9 @@
   "deck_couple_type_tag_label_not_spec": "Non specificata",
   "deck_game_type_tag_label_presence": "Presenza",
   "deck_game_type_tag_label_distance": "Online",
+  "deck_oral_sex_tag_label": "Sesso orale",
+  "deck_vaginal_sex_tag_label": "Sesso vaginale",
+  "deck_anal_sex_tag_label": "Sesso anale",
 
   "deck_difficulty_not_specified": "Non specificato",
   "no_tools_label": "Niente strumenti",
@@ -92,6 +95,15 @@
   "deck_info_quest_info_late_quest_type": "Quest avanzate",
   "deck_info_quest_info_end_quest_type": "Quest finali",
   "deck_info_quest_info_quest_type_label": "Tipologia: ",
+  "deck_info_tags_list_label": "Tags: ",
+
+  "tags_list_oral_sex_tag": "sesso orale",
+  "tags_list_anal_sex_tag": "sesso anale",
+  "tags_list_vaginal_sex_tag": "sesso vaginale",
+  "tags_list_bondage_tag": "bondage",
+  "tags_list_bdsm_tag": "BDSM",
+
+  "deck_info_deck_unplayable_error": "Non puoi giocare un deck senza quest ! Aggiungi delle quest a questo deck oppure selezionane un altro per continuare.",
 
   "quest_tool_female_lingerie": "lingerie da donna",
   "quest_tool_male_lingerie": "lingerie da uomo",
@@ -137,6 +149,8 @@
 
   "deck_management_page_default_deck_list": "Lista dei mazzi predefiniti",
   "deck_management_page_custom_deck_list": "Lista dei mazzi personalizzati",
+
+  "deck_management_page_import_error_text": "C'è stato un errore durante l'importazione del deck. Scegli un deck valido per Loverquest e prova di nuovo.",
 
   "deck_management_press_menu_delete": "Elimina",
   "deck_management_press_menu_export": "Esporta",

@@ -306,8 +306,74 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
           !widget.load_default_decks ?IconButton(
             icon: Icon(Icons.download_rounded),
             onPressed: () async {
-              await importJsonFile();
+
+              // IMPORTING THE CUSTOM DECK
+              bool deck_correct_imported = await import_json_file();
+
+              // CHECKING IF THE CUSTOM DECK WAS CORRECTLY IMPORTED
+              if (!deck_correct_imported) {
+
+                // SHOWING ERROR POPUP
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+
+                    // POP-UP CONTENT
+                    content: Row(
+
+                      // ALIGNMENT
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      // SIZE
+                      mainAxisSize: MainAxisSize.max,
+
+                      // ROW CONTENT
+                      children: [
+
+                        // ERROR TEXT
+                        Flexible(
+
+                          child: Text(
+                            // TEXT
+                            AppLocalizations.of(context)!.deck_management_page_import_error_text,
+
+                            // TEXT STYLE
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
+                              color: Color.fromRGBO(226, 226, 226, 1.0),
+                            ),
+
+                            // TEXT GO TO NEXT ROW
+                            softWrap: true,
+
+                            // MAX NUMBERS OF TEXT LINE
+                            maxLines: 3,
+
+                            // WHAT SHOW IF LONGER
+                            overflow: TextOverflow.ellipsis,
+
+                          ),
+
+                        )
+
+                      ],
+
+                    ),
+
+                    // POP-UP DURATION
+                    duration: Duration(seconds: 4),
+
+                    // POP-UP BACKGROUND COLOR
+                    backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
+
+                  ),
+                );
+
+              }
+
+              // RELOADING THE PAGE
               await load_all_custom_decks();
+
             },
           ): SizedBox.shrink(),
 
@@ -420,6 +486,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                       CoupleTypeInfo couple_type_info_object = get_couple_type_info(context, filtered_decks_list[index].summary.couple_type);
                       GameTypeInfo game_type_info_object = get_game_type_type_info(context, filtered_decks_list[index].summary.play_distance);
                       ToolsInfo tools_info_object = get_tools_info(context, filtered_decks_list[index].summary.required_tools);
+                      //OralSexTagInfo oral_sex_tag_object = get_oral_tag_info(context, filtered_decks_list[index].summary.);
 
                       //------------------------------------------------------------------------------
 
@@ -533,8 +600,6 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                   // CHECKING WHICH OPTION WAS CHOOSE
                                   if (value == "export") {
-
-                                    print("[ DEBUG ] - Ho cliccato esporta !");
 
                                     // EXPORTING THE DECK
                                     await export_json_file(deck_file_path, deck_name);
@@ -892,6 +957,47 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                               ),
 
                                               //------------------------------------------------------------------------------
+
+                                              /* QUEST NUMBER TAG
+                                              Container(
+
+                                                // PADDING
+                                                padding: EdgeInsets.all(7),
+
+                                                //CONTAINER STYLE
+                                                decoration: BoxDecoration(
+
+                                                  // BACKGROUND COLOR
+                                                  color: Color(0xff376255),
+
+                                                  // BORDER RADIUS
+                                                  borderRadius: BorderRadius.circular(16),
+
+                                                  // BORDER STYLE
+                                                  border: Border.all(
+                                                    color: Color(0xff6aab92),
+                                                    width: 2,
+                                                  ),
+
+                                                ),
+
+                                                // CONTAINER CONTENT
+                                                child: Text(
+
+                                                  // TEXT
+                                                  '$deck_quest_number quest',
+
+                                                  // TEXT STYLE
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                  ),
+
+                                                ),
+
+                                              ),
+                                              */
+                                              //------------------------------------------------------------------------------
+
 
                                             ],
 

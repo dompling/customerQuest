@@ -1,4 +1,4 @@
-#Wed Apr 16 14:13:38 CEST 2025
+#Fri Apr 18 21:37:44 CEST 2025
 base.0=/home/herzen/Documenti/GitHub/loverquest/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

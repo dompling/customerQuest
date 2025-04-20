@@ -63,6 +63,9 @@
   "deck_couple_type_tag_label_not_spec": "Not specified",
   "deck_game_type_tag_label_presence": "Local",
   "deck_game_type_tag_label_distance": "Online",
+  "deck_oral_sex_tag_label": "Oral sex",
+  "deck_vaginal_sex_tag_label": "Vaginal sex",
+  "deck_anal_sex_tag_label": "Anal sex",
 
   "deck_difficulty_not_specified": "Not specified",
   "no_tools_label": "No tools",
@@ -94,6 +97,16 @@
   "deck_info_quest_info_late_quest_type": "Late quest",
   "deck_info_quest_info_end_quest_type": "End quest",
   "deck_info_quest_info_quest_type_label": "Type: ",
+  "deck_info_tags_list_label": "Tags: ",
+
+  "tags_list_oral_sex_tag": "oral sex",
+  "tags_list_anal_sex_tag": "anal sex",
+  "tags_list_vaginal_sex_tag": "vaginal sex",
+  "tags_list_bondage_tag": "bondage",
+  "tags_list_bdsm_tag": "BDSM",
+
+
+  "deck_info_deck_unplayable_error": "You can't play a deck without quests ! Please add some quests to this deck or select another deck to continue.",
 
   "quest_tool_female_lingerie": "female lingerie",
   "quest_tool_male_lingerie": "male lingerie",
@@ -139,6 +152,8 @@
 
   "deck_management_page_default_deck_list": "Default decks list",
   "deck_management_page_custom_deck_list": "Custom decks list",
+
+  "deck_management_page_import_error_text": "There was an error importing the selected deck. Please choose a valid Loverquest deck file and try again.",
 
   "deck_management_press_menu_delete": "Delete",
   "deck_management_press_menu_export": "Export",

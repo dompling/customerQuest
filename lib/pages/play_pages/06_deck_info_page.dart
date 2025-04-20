@@ -113,8 +113,84 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
   // INITIALIZING LANGUAGE LABEL
   late LanguageInfo deck_language_label;
 
+  // INITIALING THE PLAYABLE TAG
+  bool is_playable = false;
+
   // DEFINING IS LOADING VARIABLE
   bool is_loading = true;
+
+  //------------------------------------------------------------------------------
+
+  // FUNCTION THAT WILL CHECK IF THE DECK IS PLAYABLE COUNTING THE QUEST NUMBER
+  Future<void> check_deck_quest_number() async {
+
+    // CHECKING IF IS NECESSARY TO SHOW THE ERROR BANNER
+    if (early_quests_list.isEmpty && mid_quests_list.isEmpty && late_quests_list.isEmpty && end_quests_list.isEmpty) {
+
+      // SHOWING ERROR POPUP
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+
+          // POP-UP CONTENT
+          content: Row(
+
+            // ALIGNMENT
+            mainAxisAlignment: MainAxisAlignment.center,
+
+            // SIZE
+            mainAxisSize: MainAxisSize.max,
+
+            // ROW CONTENT
+            children: [
+
+              // ERROR TEXT
+              Flexible(
+
+                child: Text(
+                  // TEXT
+                  AppLocalizations.of(context)!.deck_info_deck_unplayable_error,
+
+                  // TEXT STYLE
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                    color: Color.fromRGBO(226, 226, 226, 1.0),
+                  ),
+
+                  // TEXT GO TO NEXT ROW
+                  softWrap: true,
+
+                  // MAX NUMBERS OF TEXT LINE
+                  maxLines: 3,
+
+                  // WHAT SHOW IF LONGER
+                  overflow: TextOverflow.ellipsis,
+
+                ),
+
+              )
+
+            ],
+
+          ),
+
+          // POP-UP DURATION
+          duration: Duration(seconds: 4),
+
+          // POP-UP BACKGROUND COLOR
+          backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
+
+        ),
+      );
+
+    } else {
+
+      // SETTING THE DECK AS PLAYABLE
+      is_playable = true;
+
+    }
+
+  }
 
   //------------------------------------------------------------------------------
 
@@ -263,6 +339,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
     //------------------------------------------------------------------------------
 
+    // PAGE UI CONTAINER
     return Scaffold(
 
       // APP BAR
@@ -642,30 +719,37 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                   ),
 
                                   // ON PRESSED CALL
-                                  onPressed: () {
+                                  onPressed: () async {
 
-                                    // PAGE LINKER
-                                    Navigator.pushAndRemoveUntil(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => PlayPage(
+                                    // CHECKING IF THE DECK IS PLAYABLE
+                                    await check_deck_quest_number();
 
-                                        game_type: widget.game_type,
-                                        player_1_object: widget.player_1_object,
-                                        player_2_object: widget.player_2_object,
-                                        first_player: widget.first_player,
-                                        early_quests_list: early_quests_list,
-                                        mid_quests_list: mid_quests_list,
-                                        late_quests_list: late_quests_list,
-                                        end_quests_list: end_quests_list,
-                                        passed_current_quest: Quest.empty(),
-                                        passed_current_quest_list: [],
+                                    // CHECKING IF THE DECK IS PLAYABLE
+                                    if(is_playable) {
 
-                                      )
+                                      // PAGE LINKER
+                                      Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => PlayPage(
 
-                                      ),
+                                          game_type: widget.game_type,
+                                          player_1_object: widget.player_1_object,
+                                          player_2_object: widget.player_2_object,
+                                          first_player: widget.first_player,
+                                          early_quests_list: early_quests_list,
+                                          mid_quests_list: mid_quests_list,
+                                          late_quests_list: late_quests_list,
+                                          end_quests_list: end_quests_list,
+                                          passed_current_quest: Quest.empty(),
 
-                                          (Route<dynamic> route) => false,
-                                    );
+                                        )
+
+                                        ),
+
+                                            (Route<dynamic> route) => false,
+                                      );
+
+                                    }
 
                                   },
 

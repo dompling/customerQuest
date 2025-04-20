@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:loverquest/logics/play_logics/timer_controller.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
 import 'package:loverquest/logics/play_logics/quest_management.dart';
-import 'package:loverquest/logics/play_logics/save_current_match.dart';
+import 'package:loverquest/logics/play_logics/save_and_load_current_match.dart';
 
 //------------------------------------------------------------
 
@@ -29,7 +30,6 @@ class PlayPage extends StatefulWidget {
   final List<Quest> late_quests_list;
   final List<Quest> end_quests_list;
   final Quest passed_current_quest;
-  final List<Quest> passed_current_quest_list;
 
   // CLASS CONSTRUCTOR
   const PlayPage({
@@ -42,7 +42,6 @@ class PlayPage extends StatefulWidget {
     required this.late_quests_list,
     required this.end_quests_list,
     required this.passed_current_quest,
-    required this.passed_current_quest_list,
 
     super.key,
   });
@@ -69,133 +68,24 @@ class _PlayPageState extends State<PlayPage> {
 
   //------------------------------------------------------------------------------
 
-  // INITIALIZING TIMER'S VARIABLES
-  int total_seconds = 0;
-  int remaining_seconds = 0;
-  Timer? _timer;
-  bool is_running = false;
-
-  //------------------------------------------------------------------------------
-
   // INITIALIZING THE PLAYERS VARIABLES
+  late String current_player_alias;
   late Players current_player;
+  late Players player_one;
+  late Players player_two;
   List<Players> players_list = [];
 
   //------------------------------------------------------------------------------
 
-  // INITIALIZING THE TIMER VARIABLE
+  // INITIALIZING THE TIMER VARIABLES
   late bool show_timer;
-  bool is_pressed = false;
+  late TimerController timer_controller;
 
   //------------------------------------------------------------------------------
 
   // INITIALIZING THE QUEST VARIABLES
   late Quest current_quest;
   int partial_score = 0;
-
-  //------------------------------------------------------------------------------
-
-  // RESUME COUNTDOWN FUNCTION
-  void start_resume_countdown() {
-
-    // CHECKING IF THE TIMER ALREADY AT ZERO
-    if (remaining_seconds != 0) {
-
-      // CHANGING THE BUTTON ICON
-      is_pressed = true;
-
-      // SETTING THE TIMER AS RUNNING
-      is_running = true;
-
-      // CHECKING IF THERE IS A PREVIOUS TIMER
-      if (_timer != null) {
-
-        // DELETING THE PREVIOUS TIMER
-        _timer?.cancel();
-
-      }
-
-      // CREATING A TIMER THAT WILL EXECUTE THE FUNCTION EVERY SECOND
-      _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-
-        // CHECKING IF THE TIMER IS ZERO, IF NOT IT LOWERS THE REMAINING SECONDS OF ONE
-        if (remaining_seconds > 0) {
-          setState(() {
-            remaining_seconds--;
-          });
-
-          // DELETE THE TIMER AND SET THE RUNNING VAR TO FALSE
-        } else {
-          _timer?.cancel();
-
-          // PLAY ALERT SOUND
-          playAlarmSound();
-
-          setState(() {
-            is_running = false;
-          });
-        }
-      });
-
-    } else {
-
-      // IF THE TIMER IS ALREADY ZERO, DO NOTHING
-      setState(() {
-        is_running = false;
-      });
-
-      return;
-
-    }
-
-  }
-
-  //------------------------------------------------------------------------------
-
-  // PAUSE COUNTDOWN FUNCTION
-  void pause_countdown() {
-
-    // CANCELLING THE TIMER AND SETTING THE RUNNING VAR TO FALSE
-    _timer?.cancel();
-
-    setState(() {
-
-      // CHANGING THE BUTTON ICON
-      is_pressed = false;
-
-      // SETTING TO OFF THE RUNNING VAR
-      is_running = false;
-
-    });
-
-  }
-
-  //------------------------------------------------------------------------------
-
-  // RESET COUNTDOWN FUNCTION
-  void reset_countdown() {
-
-    // CANCELLING THE TIMER AND SETTING THE RUNNING VAR TO FALSE
-    _timer?.cancel();
-
-    // RESETTING THE REMAINING SECONDS AND SETTING TO FALSE THE RUNNING VAR
-    setState(() {
-
-      // CHANGING THE BUTTON ICON
-      is_pressed = false;
-
-      // CONVERTING THE MINUTES IN SECONDS
-      total_seconds = current_quest.timer * 60;
-
-      // SETTING THE REMAINING TIME AS THE TOTAL TIME
-      remaining_seconds = total_seconds;
-
-      // SETTING TO OFF THE RUNNING VAR
-      is_running = false;
-
-    });
-
-  }
 
   //------------------------------------------------------------------------------
 
@@ -207,23 +97,8 @@ class _PlayPageState extends State<PlayPage> {
       await platform.invokeMethod('playAlarm');
     } on PlatformException catch (e) {
       // ignore: avoid_print
-      print("Errore: ${e.message}");
+      print("Error: ${e.message}");
     }
-  }
-
-  //------------------------------------------------------------------------------
-
-  // FUNCTION TO CONVERT THE INPUT SECONDS IN STRING MINUTES FOR THE UI WIDGET
-  String _formatTime(int seconds) {
-
-    // GETTING THE INTEGER NUMBER OF MINUTE USING THE DIVISION WITHOUT REMAINDER
-    int minutes = seconds ~/ 60;
-
-    // GETTING THE INTEGER NUMBER OF SECONDS USING MODULE OPERATOR
-    int secs = seconds % 60;
-
-    // RETURNING THE STRING COMPOSED OF THE MINUTES AND SECONDS. IF THE SECOND NUMBER IS COMPOSED WITH ONLY ONE NUMBER, A 0 WILL BE ADDED TO THE LEFT
-    return "$minutes:${secs.toString().padLeft(2, '0')}";
   }
 
   //------------------------------------------------------------------------------
@@ -232,29 +107,35 @@ class _PlayPageState extends State<PlayPage> {
   void check_if_show_timer(Quest current_quest) {
 
     //------------------------------------------------------------------------------
-
-    // CHECKING IF THE TIMER IS REQUIRED
+    
+    // CHECKING IF THE QUEST REQUIRES A TIMER
     if (current_quest.timer == 0) {
-
       setState(() {
-
-        // HIDING THE TIMER
+        
+        // SETTING THE TIMER HAS TO NOT SHOW
         show_timer = false;
-
       });
-
+      
+      
     } else {
+      
+      // GETTING THE TIMER CONTROLLER
+      timer_controller = TimerController(totalSeconds: current_quest.timer * 60);
 
+      // INITIALIZING THE TIMER
+      timer_controller.onTick = () => setState(() {});
+
+      // SETTING THE TIMER ALARM SOUND ON TIMER END
+      timer_controller.onComplete = () {
+        playAlarmSound();
+        setState(() {});
+      };
       setState(() {
 
-        // SHOWING THE TIMER
+        // SETTING THE TIMER HAS TO SHOW
         show_timer = true;
 
-        // SETTING THE TIMER VALUE
-        remaining_seconds = current_quest.timer * 60;
-
       });
-
     }
 
     //------------------------------------------------------------------------------
@@ -263,10 +144,10 @@ class _PlayPageState extends State<PlayPage> {
 
   //------------------------------------------------------------------------------
 
-  //
+  // DELETE TIMER IN THE PROPER WAY
   @override
   void dispose() {
-    _timer?.cancel();
+    timer_controller.dispose();
     super.dispose();
   }
 
@@ -292,8 +173,13 @@ class _PlayPageState extends State<PlayPage> {
 
     //------------------------------------------------------------------------------
 
-    // INITIALIZING THE CURRENT PLAYER VARIABLE
+    // INITIALIZING THE CURRENT PLAYER VARIABLES
     current_player = widget.first_player;
+    current_player_alias = current_player.player_alias;
+    
+    // INITIALIZING THE PLAYER ONE AND TWO VAR
+    player_one = widget.player_1_object;
+    player_two = widget.player_2_object;
 
     //------------------------------------------------------------------------------
 
@@ -301,34 +187,37 @@ class _PlayPageState extends State<PlayPage> {
     if (widget.passed_current_quest.moment == "none") {
 
       // GETTING THE PLAYER 1 QUEST LISTS AND COUNTERS
-      widget.player_1_object.player_early_quest_list = filter_quest_list_by_sex(widget.player_1_object, widget.early_quests_list);
-      widget.player_1_object.player_early_quest_list_counter = widget.player_1_object.player_early_quest_list.length;
-      widget.player_1_object.player_mid_quest_list = filter_quest_list_by_sex(widget.player_1_object, widget.mid_quests_list);
-      widget.player_1_object.player_mid_quest_list_counter = widget.player_1_object.player_mid_quest_list.length;
-      widget.player_1_object.player_late_quest_list = filter_quest_list_by_sex(widget.player_1_object, widget.late_quests_list);
-      widget.player_1_object.player_late_quest_list_counter = widget.player_1_object.player_late_quest_list.length;
-      widget.player_1_object.player_end_quest_list = filter_quest_list_by_sex(widget.player_1_object, widget.end_quests_list);
-      widget.player_1_object.player_end_quest_list_counter = widget.player_1_object.player_end_quest_list.length;
+      player_one.player_early_quest_list = filter_quest_list_by_sex(player_one, widget.early_quests_list);
+      player_one.player_early_quest_list_counter = player_one.player_early_quest_list.length;
+      player_one.player_mid_quest_list = filter_quest_list_by_sex(player_one, widget.mid_quests_list);
+      player_one.player_mid_quest_list_counter = player_one.player_mid_quest_list.length;
+      player_one.player_late_quest_list = filter_quest_list_by_sex(player_one, widget.late_quests_list);
+      player_one.player_late_quest_list_counter = player_one.player_late_quest_list.length;
+      player_one.player_end_quest_list = filter_quest_list_by_sex(player_one, widget.end_quests_list);
+      player_one.player_end_quest_list_counter = player_one.player_end_quest_list.length;
 
       // GETTING THE PLAYER 2 QUEST LISTS
-      widget.player_2_object.player_early_quest_list = filter_quest_list_by_sex(widget.player_2_object, widget.early_quests_list);
-      widget.player_2_object.player_early_quest_list_counter = widget.player_2_object.player_early_quest_list.length;
-      widget.player_2_object.player_mid_quest_list = filter_quest_list_by_sex(widget.player_2_object, widget.mid_quests_list);
-      widget.player_2_object.player_mid_quest_list_counter = widget.player_2_object.player_mid_quest_list.length;
-      widget.player_2_object.player_late_quest_list = filter_quest_list_by_sex(widget.player_2_object, widget.late_quests_list);
-      widget.player_2_object.player_late_quest_list_counter = widget.player_2_object.player_late_quest_list.length;
-      widget.player_2_object.player_end_quest_list = filter_quest_list_by_sex(widget.player_2_object, widget.end_quests_list);
-      widget.player_2_object.player_end_quest_list_counter = widget.player_2_object.player_end_quest_list.length;
-
+      player_two.player_early_quest_list = filter_quest_list_by_sex(player_two, widget.early_quests_list);
+      player_two.player_early_quest_list_counter = player_two.player_early_quest_list.length;
+      player_two.player_mid_quest_list = filter_quest_list_by_sex(player_two, widget.mid_quests_list);
+      player_two.player_mid_quest_list_counter = player_two.player_mid_quest_list.length;
+      player_two.player_late_quest_list = filter_quest_list_by_sex(player_two, widget.late_quests_list);
+      player_two.player_late_quest_list_counter = player_two.player_late_quest_list.length;
+      player_two.player_end_quest_list = filter_quest_list_by_sex(player_two, widget.end_quests_list);
+      player_two.player_end_quest_list_counter = player_two.player_end_quest_list.length;
 
       // SETTING THE INITIAL QUEST
       current_quest = select_random_quest(current_player.player_early_quest_list);
 
       // SETTING THE INITIAL QUEST LIST
       current_player.player_current_quest_list = current_player.player_early_quest_list;
+      player_one.player_current_quest_list = player_one.player_early_quest_list;
+      player_two.player_current_quest_list = player_two.player_early_quest_list;
 
       // SETTING THE INITIAL QUEST LIST COUNTER
       current_player.player_current_quest_list_counter = current_player.player_early_quest_list_counter;
+      player_one.player_current_quest_list_counter = player_one.player_early_quest_list_counter;
+      player_two.player_current_quest_list_counter = player_two.player_early_quest_list_counter;
 
     } else {
 
@@ -345,12 +234,12 @@ class _PlayPageState extends State<PlayPage> {
     //------------------------------------------------------------------------------
 
     // POPULATING THE PLAYERS LIST
-    players_list = [widget.player_1_object, widget.player_2_object, current_player];
+    players_list = [player_one, player_two];
 
     //------------------------------------------------------------------------------
 
     // SAVING THE CURRENT MATCH DATA
-    await GameStorage.save_game_data(widget.game_type, players_list, current_quest);
+    await GameStorage.save_game_data(widget.game_type, players_list, current_quest, current_player.player_alias);
 
     //------------------------------------------------------------------------------
 
@@ -408,46 +297,55 @@ class _PlayPageState extends State<PlayPage> {
 
       setState(() {
 
-        // CHECKING IF THERE ARE OTHER QUEST IN ORDER TO ALLOW THE PLAYER SWITCH
-        if (widget.player_1_object.player_end_quest_list.isNotEmpty && widget.player_2_object.player_end_quest_list.isNotEmpty) {
+        //------------------------------------------------------------------------------
 
-          //------------------------------------------------------------------------------
+        // CHECKING IF WE CAN SKIP ALL THE FUNCTION BECAUSE THERE ARE NO MORE QUEST TO DO
+        if(player_one.player_early_quest_list.isEmpty && player_one.player_mid_quest_list.isEmpty && player_one.player_late_quest_list.isEmpty && player_one.player_end_quest_list.isEmpty &&
+            player_two.player_early_quest_list.isEmpty && player_two.player_mid_quest_list.isEmpty && player_two.player_late_quest_list.isEmpty && player_two .player_end_quest_list.isEmpty) {
 
-          // DELETING THE QUEST FROM LIST
+          // BLANK RETURN TO AVOID ANY ERROR
+          return;
+
+        }
+
+        //------------------------------------------------------------------------------
+
+        // ENSURING THAT WE ARE NO TRYING TO REMOVE A QUEST FROM AN EMPTY LIST
+        if(current_player.player_current_quest_list.isNotEmpty) {
+
+          // DELETING THE QUEST FROM THE CURRENT QUEST LIST OF THE CURRENT PLAYER
           current_player.player_current_quest_list = remove_skipped_done_quests(current_player.player_current_quest_list, current_quest);
 
-          //------------------------------------------------------------------------------
+        }
 
-          // CHECKING IF THE LIST IS EMPTY OR HAS HALF OF THE CONTENT IN ORDER TO SWITCH TO THE NEXT LIST
-          if ( (current_player.player_current_quest_list.isEmpty || (current_player.player_current_quest_list.length <= (current_player.player_current_quest_list_counter/ 3)*2 ) ) && current_quest.moment != "end") {
+        //------------------------------------------------------------------------------
 
-            // SWITCHING PLAYER 1 LIST TO THE NEXT ONE
-            switch_next_quest_list(widget.player_1_object, current_quest);
+        // INITIALIZING THE QUEST CHANGE FLAG
+        bool quest_unchanged = true;
 
-            // SWITCHING PLAYER 2 LIST TO THE NEXT ONE
-            switch_next_quest_list(widget.player_2_object, current_quest);
+        // WHILE A NEW QUEST HAS NOT BEEN SET, EXECUTE THIS
+        do {
 
-          }
+          if(current_player.player_current_quest_list.isNotEmpty) {
 
-          //------------------------------------------------------------------------------
+            //------------------------------------------------------------------------------
 
-          // CHECKING WHO IS THE CURRENT PLAYER
-          if (current_player == widget.player_1_object) {
+            // CHECKING WHO IS THE CURRENT PLAYER
+            if (current_player_alias == player_one.player_alias) {
 
-            // SETTING THE OTHER PLAYER TURN
-            current_player = widget.player_2_object;
+              // SETTING THE OTHER PLAYER TURN
+              current_player = player_two;
+              current_player_alias = player_two.player_alias;
 
-          } else {
+            } else {
 
-            // SETTING THE OTHER PLAYER TURN
-            current_player = widget.player_1_object;
+              // SETTING THE OTHER PLAYER TURN
+              current_player = player_one;
+              current_player_alias = player_one.player_alias;
 
-          }
+            }
 
-          //------------------------------------------------------------------------------
-
-          // CHECKING IF IS POSSIBLE TO GET ANOTHER QUEST
-          if (current_player.player_current_quest_list.isNotEmpty) {
+            //------------------------------------------------------------------------------
 
             // GETTING THE NEW QUEST
             current_quest = select_random_quest(current_player.player_current_quest_list);
@@ -455,23 +353,97 @@ class _PlayPageState extends State<PlayPage> {
             // CHECKING IF IS NECESSARY TO SHOW THE TIMER
             check_if_show_timer(current_quest);
 
+            //------------------------------------------------------------------------------
+
+            // FLAG THE QUEST HAS CHANGED
+            quest_unchanged = false;
+
+            //------------------------------------------------------------------------------
+
+          } else if (current_player.player_current_quest_list.isEmpty && current_quest.moment == "end") {
+
+            // CHECKING WHO IS THE CURRENT PLAYER
+            if (current_player_alias == player_one.player_alias) {
+
+              // CHECKING IF THE PLAYER TWO HAS AT LEAST ONE END QUEST
+              if(player_two.player_end_quest_list.isNotEmpty) {
+
+                //------------------------------------------------------------------------------
+
+                // SETTING THE OTHER PLAYER TURN
+                current_player = player_two;
+                current_player_alias = player_two.player_alias;
+
+                // GETTING THE NEW QUEST
+                current_quest = select_random_quest(current_player.player_current_quest_list);
+
+                // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+                check_if_show_timer(current_quest);
+
+                //------------------------------------------------------------------------------
+
+                // FLAG THE QUEST HAS CHANGED
+                quest_unchanged = false;
+
+                //------------------------------------------------------------------------------
+
+              } else { break;}
+
+            } else {
+
+              // CHECKING IF THE PLAYER ONE HAS AT LEAST ONE END QUEST
+              if(player_one.player_end_quest_list.isNotEmpty) {
+
+                //------------------------------------------------------------------------------
+
+                // SETTING THE OTHER PLAYER TURN
+                current_player = player_one;
+                current_player_alias = player_one.player_alias;
+
+                // GETTING THE NEW QUEST
+                current_quest = select_random_quest(current_player.player_current_quest_list);
+
+                // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+                check_if_show_timer(current_quest);
+
+                //------------------------------------------------------------------------------
+
+                // FLAG THE QUEST HAS CHANGED
+                quest_unchanged = false;
+
+                //------------------------------------------------------------------------------
+
+              } { break;}
+
+            }
+
+          } else {
+
+            // SWITCHING PLAYER 1 LIST TO THE NEXT ONE
+            player_one = switch_next_quest_list(player_one, current_quest);
+
+            // SWITCHING PLAYER 2 LIST TO THE NEXT ONE
+            player_two = switch_next_quest_list(player_two, current_quest);
+
+            // POINTING THE CORRECT OBJECTS
+            if (current_player_alias == player_one.player_alias) {
+              current_player = player_one;
+            } else {
+              current_player = player_two;
+            }
+
           }
 
-          //------------------------------------------------------------------------------
+        } while (quest_unchanged);
 
-        } else {
-
-          // RETURNING A BLANK VALUE TO AVOID ERRORS
-          return;
-
-        }
+        //------------------------------------------------------------------------------
 
       });
 
       //------------------------------------------------------------------------------
 
       // SAVING THE CURRENT MATCH DATA
-      await GameStorage.save_game_data(widget.game_type, players_list,  current_quest);
+      await GameStorage.save_game_data(widget.game_type, players_list,  current_quest, current_player.player_alias);
 
       //------------------------------------------------------------------------------
 
@@ -484,31 +456,38 @@ class _PlayPageState extends State<PlayPage> {
 
       setState(() {
 
-        // CHECKING IF THE PLAYERS HAS ENDED THE QUESTS
-        if (current_player.player_end_quest_list.isNotEmpty) {
+        //------------------------------------------------------------------------------
 
-          //------------------------------------------------------------------------------
+        // CHECKING IF WE CAN SKIP ALL THE FUNCTION BECAUSE THERE ARE NO MORE QUEST TO DO
+        if(player_one.player_early_quest_list.isEmpty && player_one.player_mid_quest_list.isEmpty && player_one.player_late_quest_list.isEmpty && player_one.player_end_quest_list.isEmpty &&
+            player_two.player_early_quest_list.isEmpty && player_two.player_mid_quest_list.isEmpty && player_two.player_late_quest_list.isEmpty && player_two .player_end_quest_list.isEmpty) {
 
-          // DELETING THE QUEST FROM LIST
+          // BLANK RETURN TO AVOID ANY ERROR
+          return;
+
+        }
+
+        //------------------------------------------------------------------------------
+
+        // ENSURING THAT WE ARE NO TRYING TO REMOVE A QUEST FROM AN EMPTY LIST
+        if(current_player.player_current_quest_list.isNotEmpty) {
+
+          // DELETING THE QUEST FROM THE CURRENT QUEST LIST OF THE CURRENT PLAYER
           current_player.player_current_quest_list = remove_skipped_done_quests(current_player.player_current_quest_list, current_quest);
 
-          //------------------------------------------------------------------------------
+        }
 
-          // CHECKING IF THE LIST IS EMPTY OR HAS HALF OF THE CONTENT IN ORDER TO SWITCH TO THE NEXT LIST
-          if ( (current_player.player_current_quest_list.isEmpty || (current_player.player_current_quest_list.length <= (current_player.player_current_quest_list_counter / 3)*2 ) ) && current_quest.moment != "end") {
+        //------------------------------------------------------------------------------
 
-            // SWITCHING PLAYER 1 LIST TO THE NEXT ONE
-            switch_next_quest_list(widget.player_1_object, current_quest);
+        // INITIALIZING THE QUEST CHANGE FLAG
+        bool quest_unchanged = true;
 
-            // SWITCHING PLAYER 2 LIST TO THE NEXT ONE
-            switch_next_quest_list(widget.player_2_object, current_quest);
+        // WHILE A NEW QUEST HAS NOT BEEN SET, EXECUTE THIS
+        do {
 
-          }
+          if(current_player.player_current_quest_list.isNotEmpty) {
 
-          //------------------------------------------------------------------------------
-
-          // CHECKING IF IS POSSIBLE TO GET ANOTHER QUEST
-          if (current_player.player_current_quest_list.isNotEmpty) {
+            //------------------------------------------------------------------------------
 
             // GETTING THE NEW QUEST
             current_quest = select_random_quest(current_player.player_current_quest_list);
@@ -516,28 +495,97 @@ class _PlayPageState extends State<PlayPage> {
             // CHECKING IF IS NECESSARY TO SHOW THE TIMER
             check_if_show_timer(current_quest);
 
+            //------------------------------------------------------------------------------
+
+            // FLAG THE QUEST HAS CHANGED
+            quest_unchanged = false;
+
+            //------------------------------------------------------------------------------
+
+          } else if (current_player.player_current_quest_list.isEmpty && current_quest.moment == "end") {
+
+            // CHECKING WHO IS THE CURRENT PLAYER
+            if (current_player_alias == player_one.player_alias) {
+
+              // CHECKING IF THE PLAYER TWO HAS AT LEAST ONE END QUEST
+              if(player_two.player_end_quest_list.isNotEmpty) {
+
+                //------------------------------------------------------------------------------
+
+                // SETTING THE OTHER PLAYER TURN
+                current_player = player_two;
+                current_player_alias = player_two.player_alias;
+
+                // GETTING THE NEW QUEST
+                current_quest = select_random_quest(current_player.player_current_quest_list);
+
+                // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+                check_if_show_timer(current_quest);
+
+                //------------------------------------------------------------------------------
+
+                // FLAG THE QUEST HAS CHANGED
+                quest_unchanged = false;
+
+                //------------------------------------------------------------------------------
+
+              } else { break;}
+
+            } else {
+
+              // CHECKING IF THE PLAYER ONE HAS AT LEAST ONE END QUEST
+              if(player_one.player_end_quest_list.isNotEmpty) {
+
+                //------------------------------------------------------------------------------
+
+                // SETTING THE OTHER PLAYER TURN
+                current_player = player_one;
+                current_player_alias = player_one.player_alias;
+
+                // GETTING THE NEW QUEST
+                current_quest = select_random_quest(current_player.player_current_quest_list);
+
+                // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+                check_if_show_timer(current_quest);
+
+                //------------------------------------------------------------------------------
+
+                // FLAG THE QUEST HAS CHANGED
+                quest_unchanged = false;
+
+                //------------------------------------------------------------------------------
+
+              } { break;}
+
+            }
+
+          } else {
+
+            // SWITCHING PLAYER 1 LIST TO THE NEXT ONE
+            player_one = switch_next_quest_list(player_one, current_quest);
+
+            // SWITCHING PLAYER 2 LIST TO THE NEXT ONE
+            player_two = switch_next_quest_list(player_two, current_quest);
+
+            // POINTING THE CORRECT OBJECTS
+            if (current_player_alias == player_one.player_alias) {
+              current_player = player_one;
+            } else {
+              current_player = player_two;
+            }
+
           }
 
-          //------------------------------------------------------------------------------
+        } while (quest_unchanged);
 
-        } else if (widget.player_2_object.player_end_quest_list.isNotEmpty) {
-
-          // SWITCHING TO THE NEXT PLAYER IN ORDER TO LET THE GAME CONTINUE
-          switch_playing_player();
-
-        } else {
-
-          // RETURNING A BLANK VALUE TO AVOID ERRORS
-          return;
-
-        }
+        //------------------------------------------------------------------------------
 
       });
 
       //------------------------------------------------------------------------------
 
       // SAVING THE CURRENT MATCH DATA
-      await GameStorage.save_game_data(widget.game_type, players_list,  current_quest);
+      await GameStorage.save_game_data(widget.game_type, players_list,  current_quest, current_player.player_alias);
 
       //------------------------------------------------------------------------------
 
@@ -641,7 +689,7 @@ class _PlayPageState extends State<PlayPage> {
 
                     ],
 
-                  ):SizedBox.shrink(),
+                  ):const SizedBox.shrink(),
 
                   //------------------------------------------------------------------------------
 
@@ -1017,7 +1065,7 @@ class _PlayPageState extends State<PlayPage> {
                           Text(
 
                             // TIMER TEXT
-                            _formatTime(remaining_seconds),
+                            timer_controller.formattedTime(),
 
                             // TEXT STYLE
                             style: TextStyle(
@@ -1032,7 +1080,7 @@ class _PlayPageState extends State<PlayPage> {
                           //------------------------------------------------------------------------------
 
                           // SPACER
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
                           //------------------------------------------------------------------------------
 
@@ -1045,7 +1093,7 @@ class _PlayPageState extends State<PlayPage> {
 
                               //------------------------------------------------------------------------------
 
-                              // QUEST DONE BUTTON BOX
+                              // PLAY/PAUSE BUTTON BOX
                               SizedBox(
 
                                 // FIXED SIZE
@@ -1078,7 +1126,17 @@ class _PlayPageState extends State<PlayPage> {
                                     ),
 
                                     // ON PRESSED CALL
-                                    onPressed: is_running ? pause_countdown : () => start_resume_countdown(),
+                                    onPressed: () {
+                                      setState(() {
+
+                                        // CHECKING WHICH BEHAVIOR DO
+                                        if (timer_controller.isRunning) {
+                                          timer_controller.pause();
+                                        } else {
+                                          timer_controller.start();
+                                        }
+                                      });
+                                    },
 
                                     // BUTTON CONTENT
                                     child: Row(
@@ -1093,12 +1151,13 @@ class _PlayPageState extends State<PlayPage> {
                                         // SCISSOR ICON
                                         Icon(
 
-                                          // ICONS
-                                          is_pressed ? Icons.pause : Icons.play_arrow,
+                                          // CHECKING WHICH ICON SHOW
+                                          timer_controller.isRunning ? Icons.pause : Icons.play_arrow,
 
-                                          // ICONS COLOR
+                                          // ICON COLOR
                                           color: Theme.of(context).colorScheme.onPrimary,
 
+                                          // ICON SIZE
                                           size: 30,
 
                                         ),
@@ -1115,11 +1174,11 @@ class _PlayPageState extends State<PlayPage> {
 
                               //------------------------------------------------------------------------------
 
-                              SizedBox(width: 15),
+                              const SizedBox(width: 15),
 
                               //------------------------------------------------------------------------------
 
-                              // QUEST DONE BUTTON BOX
+                              // RESET BUTTON BOX
                               SizedBox(
 
                                 // FIXED SIZE
@@ -1152,7 +1211,12 @@ class _PlayPageState extends State<PlayPage> {
                                     ),
 
                                     // ON PRESSED CALL
-                                    onPressed: reset_countdown,
+                                    onPressed: () {
+                                      setState(() {
+                                        timer_controller.reset();
+                                      });
+                                    },
+
 
                                     // BUTTON CONTENT
                                     child: Row(
@@ -1199,7 +1263,7 @@ class _PlayPageState extends State<PlayPage> {
 
                     ),
 
-                  ): SizedBox.shrink(),
+                  ): const SizedBox.shrink(),
 
                   //------------------------------------------------------------------------------
 

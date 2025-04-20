@@ -121,7 +121,7 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      throw "Impossibile aprire il link: $url";
+      throw "Impossible to open the  link: $url";
     }
   }
   

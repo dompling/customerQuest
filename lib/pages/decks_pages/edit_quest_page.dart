@@ -9,6 +9,7 @@ import 'package:loverquest/l10n/app_localization.dart';
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/settings_logics/utility.dart';
 import 'package:loverquest/logics/decks_logics/save_deck.dart';
+import 'package:loverquest/logics/decks_logics/translate_tools.dart';
 
 //------------------------------------------------------------------------------
 
@@ -59,6 +60,9 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
   // DEFINING THE TOOL LIST VAR
   List<String> tools_list = [];
+
+  // DEFINING THE TRANSLATED TOOL LIST VAR
+  List<String> translated_tools_list = [];
 
   //------------------------------------------------------------------------------
 
@@ -151,6 +155,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
                       deck_language: widget.selected_deck.summary.language,
                       couple_type: widget.selected_deck.summary.couple_type,
                       play_distance: widget.selected_deck.summary.play_distance,
+                      deck_tags: widget.selected_deck.summary.tags,
                       selected_deck: widget.selected_deck,
                     );
 
@@ -569,15 +574,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   item_4 = value;
 
                                   // CHECKING IF THE TOOL IS ALREADY INSIDE THE TOOL LIST
-                                  if (tools_list.contains("rope")) {
+                                  if (tools_list.contains("ropes")) {
 
                                     // DELETING THE TOOL FROM TO THE TOOL LIST
-                                    tools_list.remove("rope");
+                                    tools_list.remove("ropes");
 
                                   } else {
 
                                     // ADDING THE TOOL TO THE TOOL LIST
-                                    tools_list.add("rope");
+                                    tools_list.add("ropes");
 
                                   }
 
@@ -1709,8 +1714,11 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                 // UPDATING THE PAGE STATE
                                 setState(() {
 
+                                  // GETTING THE TRANSLATED TOOLS LIST
+                                  translated_tools_list = translate_tools(context, tools_list);
+
                                   // UPDATING THE TEXT FIELD
-                                  _quest_tool_controller.text = tools_list.join(", ");
+                                  _quest_tool_controller.text = translated_tools_list.join(", ");
 
                                 });
 
@@ -2079,7 +2087,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
                       //------------------------------------------------------------------------------
 
-                      // COUPLE TYPE FILTER SELECTOR
+                      // COUPLE TYPE SELECTOR
                       SizedBox(
 
                         // WIDTH

@@ -17,6 +17,9 @@
       name=":@@:audio_session::release"
       project=":audio_session"/>
   <library
+      name=":@@:flutter_file_manager_android::release"
+      project=":flutter_file_manager_android"/>
+  <library
       name=":@@:flutter_plugin_android_lifecycle::release"
       project=":flutter_plugin_android_lifecycle"/>
   <library

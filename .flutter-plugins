@@ -1,6 +1,11 @@
 # This is a generated file; do not edit or check into version control.
 audio_session=/home/herzen/.pub-cache/hosted/pub.dev/audio_session-0.1.25/
 file_picker=/home/herzen/.pub-cache/hosted/pub.dev/file_picker-10.1.2/
+flutter_file_manager_android=/home/herzen/.pub-cache/hosted/pub.dev/flutter_file_manager_android-2.1.0/
+flutter_file_manager_ios=/home/herzen/.pub-cache/hosted/pub.dev/flutter_file_manager_ios-2.1.0/
+flutter_file_manager_macos=/home/herzen/.pub-cache/hosted/pub.dev/flutter_file_manager_macos-2.1.0/
+flutter_file_manager_web=/home/herzen/.pub-cache/hosted/pub.dev/flutter_file_manager_web-2.1.1/
+flutter_file_saver=/home/herzen/.pub-cache/hosted/pub.dev/flutter_file_saver-0.8.1/
 flutter_plugin_android_lifecycle=/home/herzen/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.27/
 just_audio=/home/herzen/.pub-cache/hosted/pub.dev/just_audio-0.9.46/
 just_audio_web=/home/herzen/.pub-cache/hosted/pub.dev/just_audio_web-0.4.15/

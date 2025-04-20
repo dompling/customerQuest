@@ -18,7 +18,7 @@ class DeckSaver {
   //------------------------------------------------------------------------------
 
   // FUNCTION TO CONVERT DATA IN A JSON DECK
-  static Future<String> save_deck({ required String deck_name, required String deck_description, required String deck_language, required String couple_type, required bool play_distance, DeckReader? selected_deck,}) async {
+  static Future<String> save_deck({ required String deck_name, required String deck_description, required String deck_language, required String couple_type, required bool play_distance, required List<String> deck_tags, DeckReader? selected_deck,}) async {
 
     try {
 
@@ -79,6 +79,7 @@ class DeckSaver {
         language: deck_language,
         total_quests: deck_quest_number,
         required_tools: deck_quest_tools,
+        tags: deck_tags,
       );
 
       //------------------------------------------------------------------------------
@@ -142,10 +143,11 @@ class DeckSaver {
         deck_language: selected_deck.summary.language,
         couple_type: selected_deck.summary.couple_type,
         play_distance: selected_deck.summary.play_distance,
+        deck_tags: selected_deck.summary.tags,
         selected_deck: selected_deck,
       );
     } catch (e) {
-      throw Exception("Errore nel salvataggio della quest: $e");
+      throw Exception("[ERROR] - There was an error saving the quest: $e");
     }
   }
 

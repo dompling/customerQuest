@@ -658,7 +658,6 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                         late_quests_list: late_quests_list,
                                         end_quests_list: end_quests_list,
                                         passed_current_quest: Quest.empty(),
-                                        passed_current_quest_list: [],
 
                                       )
 

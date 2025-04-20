@@ -106,6 +106,11 @@ List<Quest> remove_skipped_done_quests (List<Quest> quest_list, current_quest) {
 
   //------------------------------------------------------------------------------
 
+  // COPYING THE LIST TO AVOID ANY ERROR
+  //final modifiable_list = List<Quest>.from(quest_list);
+
+  //------------------------------------------------------------------------------
+
   // REMOVING THE DONE/SKIPPED QUEST FROM THE LIST
   quest_list.remove(current_quest);
 
@@ -124,40 +129,8 @@ List<Quest> remove_skipped_done_quests (List<Quest> quest_list, current_quest) {
 
 
 
-// FUNCTION FOR GETTING THE CURRENT QUEST LIST TYPE
-List<Quest> get_current_quest_list (Quest current_quest, List<Quest> early_quests_list, List<Quest> mid_quests_list, List<Quest> late_quests_list, List<Quest> end_quests_list) {
-  
-  // CHECKING WHICH QUEST MOMENT IS CURRENTLY IN USE
-  if (current_quest.moment == "early") {
-    
-    // RETURNING THE CORRECT LIST ACTUALLY IN USE
-    return early_quests_list;
-    
-  } else if (current_quest.moment == "mid") {
-
-    // RETURNING THE CORRECT LIST ACTUALLY IN USE
-    return mid_quests_list;
-    
-  } else if (current_quest.moment == "late") {
-
-    // RETURNING THE CORRECT LIST ACTUALLY IN USE
-    return late_quests_list;
-    
-  }
-
-  // RETURNING THE CORRECT LIST ACTUALLY IN USE
-  return end_quests_list;
-  
-}
-
-
-
-//------------------------------------------------------------------------------
-
-
-
 // FUNCTION FOR GETTING THE NEXT QUEST LIST
-void switch_next_quest_list (Players player, Quest current_quest) {
+Players switch_next_quest_list (Players player, Quest current_quest) {
 
   // CHECKING WHICH QUEST MOMENT IS CURRENTLY IN USE
   if (current_quest.moment == "early") {
@@ -168,6 +141,8 @@ void switch_next_quest_list (Players player, Quest current_quest) {
     // SETTING THE CORRECT LIST COUNTER ACTUALLY IN USE
     player.player_current_quest_list_counter = player.player_mid_quest_list_counter;
 
+    return player;
+
   } else if (current_quest.moment == "mid") {
 
     // SETTING THE CORRECT LIST ACTUALLY IN USE
@@ -176,14 +151,19 @@ void switch_next_quest_list (Players player, Quest current_quest) {
     // SETTING THE CORRECT LIST COUNTER ACTUALLY IN USE
     player.player_current_quest_list_counter = player.player_late_quest_list_counter;
 
-  } else {
+    return player;
 
-    // SETTING THE CORRECT LIST ACTUALLY IN USE
-    player.player_current_quest_list = player.player_end_quest_list;
-
-    // SETTING THE CORRECT LIST COUNTER ACTUALLY IN USE
-    player.player_current_quest_list_counter = player.player_end_quest_list_counter;
   }
+
+  // SETTING THE CORRECT LIST ACTUALLY IN USE
+  player.player_current_quest_list = player.player_end_quest_list;
+
+  // SETTING THE CORRECT LIST COUNTER ACTUALLY IN USE
+  player.player_current_quest_list_counter = player.player_end_quest_list_counter;
+
+  //
+  return player;
+
 
 }
 

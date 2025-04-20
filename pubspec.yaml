@@ -48,6 +48,9 @@ dependencies:
   # NECESSARY TO ALLOW TE CUSTOM DECK IMPORT/EXPORT
   path: ^1.8.3
 
+  # NECESSARY TO ALLOW TE CUSTOM DECK IMPORT/EXPORT
+  flutter_file_saver: ^0.8.1
+
   # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
   permission_handler: ^12.0.0+1
 
