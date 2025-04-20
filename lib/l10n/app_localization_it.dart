@@ -169,6 +169,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get deck_anal_sex_tag_label => 'Sesso anale';
 
   @override
+  String get deck_bondage_tag_label => 'Bondage';
+
+  @override
+  String get deck_bdsm_tag_label => 'BDSM';
+
+  @override
   String get deck_difficulty_not_specified => 'Non specificato';
 
   @override

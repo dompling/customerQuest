@@ -222,7 +222,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
   //------------------------------------------------------------------------------
 
-  // RELEASING CONTROLLERS WHEN THE PAGE IS DISMISSED
+  //
   @override
   void initState() {
     super.initState();
@@ -231,13 +231,26 @@ class _QuestEditPageState extends State<QuestEditPage> {
     tools_list = widget.selected_quest?.required_tools ?? [];
     selected_option_quest_moment = widget.selected_quest?.moment ?? 'early';
 
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    // TRANSLATING THE TOOLS LIST
+    translated_tools_list = translate_tools(context, tools_list);
+
+    // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+    translated_tools_list[0] = translated_tools_list[0][0].toUpperCase() + translated_tools_list[0].substring(1);
+
     // SET-UPPING THE TEXT FIELD CONTROLLERS
-    _quest_tool_controller = TextEditingController(text: tools_list.join(", "));
+    _quest_tool_controller = TextEditingController(text: translated_tools_list.join(", "));
     _quest_timer_controller = TextEditingController(text: widget.selected_quest?.timer.toString() ?? "0");
     _quest_content_controller = TextEditingController(text: widget.selected_quest?.content ?? "");
 
   }
 
+  //RELEASING CONTROLLERS WHEN THE PAGE IS DISMISSED
   @override
   void dispose() {
     _quest_tool_controller.dispose();
@@ -371,6 +384,39 @@ class _QuestEditPageState extends State<QuestEditPage> {
           // USING A STATEFUL BUILDER IN ORDER TO CORRECTLY RENDER THE PAGE CHANGES
           return StatefulBuilder(
             builder: (BuildContext context, StateSetter setStateDialog) {
+
+              // SYNCHRONIZING THE SWITCH LIST
+              item_1 = tools_list.contains("female_lingerie");
+              item_2 = tools_list.contains("male lingerie");
+              item_3 = tools_list.contains("blindfold");
+              item_4 = tools_list.contains("ropes");
+              item_5 = tools_list.contains("handcuffs");
+              item_6 = tools_list.contains("dice");
+              item_7 = tools_list.contains("vibrator");
+              item_8 = tools_list.contains("remote_vibrator");
+              item_9 = tools_list.contains("anal_beads");
+              item_10 = tools_list.contains("dildo");
+              item_11 = tools_list.contains("inflatable_dildo");
+              item_12 = tools_list.contains("suction_cup_dildo");
+              item_13 = tools_list.contains("vibrating_dildo");
+              item_14 = tools_list.contains("gag");
+              item_15 = tools_list.contains("feather");
+              item_16 = tools_list.contains("plug");
+              item_17 = tools_list.contains("inflatable_plug");
+              item_18 = tools_list.contains("vibrating_plug");
+              item_19 = tools_list.contains("massage_candle");
+              item_20 = tools_list.contains("collar_and_leash");
+              item_21 = tools_list.contains("massage_oil");
+              item_22 = tools_list.contains("lubricants");
+              item_23 = tools_list.contains("strap_on");
+              item_24 = tools_list.contains("nipple_clamps");
+              item_25 = tools_list.contains("nipple_pump");
+              item_26 = tools_list.contains("riding_crop");
+              item_27 = tools_list.contains("flogger");
+              item_28 = tools_list.contains("spanking_paddle");
+              item_29 = tools_list.contains("male_chastity_cage");
+              item_30 = tools_list.contains("female_chastity_cage");
+              item_31 = tools_list.contains("ice");
 
               // DIALOG
               return Dialog(
@@ -1717,6 +1763,9 @@ class _QuestEditPageState extends State<QuestEditPage> {
                                   // GETTING THE TRANSLATED TOOLS LIST
                                   translated_tools_list = translate_tools(context, tools_list);
 
+                                  // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+                                  translated_tools_list[0] = translated_tools_list[0][0].toUpperCase() + translated_tools_list[0].substring(1);
+
                                   // UPDATING THE TEXT FIELD
                                   _quest_tool_controller.text = translated_tools_list.join(", ");
 
@@ -1999,8 +2048,14 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
                             setState(() {
 
+                              // GETTING THE TRANSLATED TOOLS LIST
+                              translated_tools_list = translate_tools(context, tools_list);
+
+                              // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+                              translated_tools_list[0] = translated_tools_list[0][0].toUpperCase() + translated_tools_list[0].substring(1);
+
                               // UPDATING THE TEXT FIELD
-                              _quest_tool_controller.text = tools_list.join(", ");
+                              _quest_tool_controller.text = translated_tools_list.join(", ");
 
                             });
 

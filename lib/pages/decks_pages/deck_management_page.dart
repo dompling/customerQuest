@@ -486,7 +486,11 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                       CoupleTypeInfo couple_type_info_object = get_couple_type_info(context, filtered_decks_list[index].summary.couple_type);
                       GameTypeInfo game_type_info_object = get_game_type_type_info(context, filtered_decks_list[index].summary.play_distance);
                       ToolsInfo tools_info_object = get_tools_info(context, filtered_decks_list[index].summary.required_tools);
-                      //OralSexTagInfo oral_sex_tag_object = get_oral_tag_info(context, filtered_decks_list[index].summary.);
+                      OralSexTagInfo oral_sex_tag_object = get_oral_tag_info(context, filtered_decks_list[index].summary.tags);
+                      AnalSexTagInfo anal_sex_tag_object = get_anal_tag_info(context, filtered_decks_list[index].summary.tags);
+                      VaginalSexTagInfo vaginal_sex_tag_object = get_vaginal_tag_info(context, filtered_decks_list[index].summary.tags);
+                      BondageTagInfo bondage_tag_object = get_bondage_tag_info(context, filtered_decks_list[index].summary.tags);
+                      BdsmTagInfo bdsm_tag_object = get_bdsm_tag_info(context, filtered_decks_list[index].summary.tags);
 
                       //------------------------------------------------------------------------------
 
@@ -935,7 +939,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                                   // BORDER STYLE
                                                   border: Border.all(
-                                                    color: Color(0xff6aab92),
+                                                    color: Color(0xff376255),
                                                     width: 2,
                                                   ),
 
@@ -958,8 +962,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                               //------------------------------------------------------------------------------
 
-                                              /* QUEST NUMBER TAG
-                                              Container(
+                                              // ORAL SEX TAG
+                                              oral_sex_tag_object.show_tag ? Container(
 
                                                 // PADDING
                                                 padding: EdgeInsets.all(7),
@@ -968,14 +972,14 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                                 decoration: BoxDecoration(
 
                                                   // BACKGROUND COLOR
-                                                  color: Color(0xff376255),
+                                                  color: oral_sex_tag_object.background_color,
 
                                                   // BORDER RADIUS
                                                   borderRadius: BorderRadius.circular(16),
 
                                                   // BORDER STYLE
                                                   border: Border.all(
-                                                    color: Color(0xff6aab92),
+                                                    color: oral_sex_tag_object.border_color,
                                                     width: 2,
                                                   ),
 
@@ -985,7 +989,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                                 child: Text(
 
                                                   // TEXT
-                                                  '$deck_quest_number quest',
+                                                  oral_sex_tag_object.label,
 
                                                   // TEXT STYLE
                                                   style: TextStyle(
@@ -994,8 +998,168 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                                 ),
 
-                                              ),
-                                              */
+                                              ): SizedBox(),
+
+                                              //------------------------------------------------------------------------------
+
+                                              // ORAL SEX TAG
+                                              anal_sex_tag_object.show_tag ? Container(
+
+                                                // PADDING
+                                                padding: EdgeInsets.all(7),
+
+                                                //CONTAINER STYLE
+                                                decoration: BoxDecoration(
+
+                                                  // BACKGROUND COLOR
+                                                  color: anal_sex_tag_object.background_color,
+
+                                                  // BORDER RADIUS
+                                                  borderRadius: BorderRadius.circular(16),
+
+                                                  // BORDER STYLE
+                                                  border: Border.all(
+                                                    color: anal_sex_tag_object.border_color,
+                                                    width: 2,
+                                                  ),
+
+                                                ),
+
+                                                // CONTAINER CONTENT
+                                                child: Text(
+
+                                                  // TEXT
+                                                  anal_sex_tag_object.label,
+
+                                                  // TEXT STYLE
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                  ),
+
+                                                ),
+
+                                              ): SizedBox(),
+
+                                              //------------------------------------------------------------------------------
+
+                                              // ORAL SEX TAG
+                                              vaginal_sex_tag_object.show_tag ? Container(
+
+                                                // PADDING
+                                                padding: EdgeInsets.all(7),
+
+                                                //CONTAINER STYLE
+                                                decoration: BoxDecoration(
+
+                                                  // BACKGROUND COLOR
+                                                  color: vaginal_sex_tag_object.background_color,
+
+                                                  // BORDER RADIUS
+                                                  borderRadius: BorderRadius.circular(16),
+
+                                                  // BORDER STYLE
+                                                  border: Border.all(
+                                                    color: vaginal_sex_tag_object.border_color,
+                                                    width: 2,
+                                                  ),
+
+                                                ),
+
+                                                // CONTAINER CONTENT
+                                                child: Text(
+
+                                                  // TEXT
+                                                  vaginal_sex_tag_object.label,
+
+                                                  // TEXT STYLE
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                  ),
+
+                                                ),
+
+                                              ): SizedBox(),
+
+                                              //------------------------------------------------------------------------------
+
+                                              // ORAL SEX TAG
+                                              bondage_tag_object.show_tag ? Container(
+
+                                                // PADDING
+                                                padding: EdgeInsets.all(7),
+
+                                                //CONTAINER STYLE
+                                                decoration: BoxDecoration(
+
+                                                  // BACKGROUND COLOR
+                                                  color: bondage_tag_object.background_color,
+
+                                                  // BORDER RADIUS
+                                                  borderRadius: BorderRadius.circular(16),
+
+                                                  // BORDER STYLE
+                                                  border: Border.all(
+                                                    color: bondage_tag_object.border_color,
+                                                    width: 2,
+                                                  ),
+
+                                                ),
+
+                                                // CONTAINER CONTENT
+                                                child: Text(
+
+                                                  // TEXT
+                                                  bondage_tag_object.label,
+
+                                                  // TEXT STYLE
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                  ),
+
+                                                ),
+
+                                              ): SizedBox(),
+
+                                              //------------------------------------------------------------------------------
+
+                                              // ORAL SEX TAG
+                                              bdsm_tag_object.show_tag ? Container(
+
+                                                // PADDING
+                                                padding: EdgeInsets.all(7),
+
+                                                //CONTAINER STYLE
+                                                decoration: BoxDecoration(
+
+                                                  // BACKGROUND COLOR
+                                                  color: bdsm_tag_object.background_color,
+
+                                                  // BORDER RADIUS
+                                                  borderRadius: BorderRadius.circular(16),
+
+                                                  // BORDER STYLE
+                                                  border: Border.all(
+                                                    color: bdsm_tag_object.border_color,
+                                                    width: 2,
+                                                  ),
+
+                                                ),
+
+                                                // CONTAINER CONTENT
+                                                child: Text(
+
+                                                  // TEXT
+                                                  bdsm_tag_object.label,
+
+                                                  // TEXT STYLE
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                  ),
+
+                                                ),
+
+                                              ): SizedBox(),
+
                                               //------------------------------------------------------------------------------
 
 

@@ -26,15 +26,15 @@ LanguageInfo get_language_info(BuildContext context, String deck_lang) {
   // GETTING THE CASE USING DIFFICULTY NUMBER
   switch (deck_lang) {
     case "it":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_it, Color(0xff6b6b6b), Color(0xff8b8b8b), "it");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_it, Color(0xff6b6b6b), Color(0xff6b6b6b), "it");
     case "es":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_es, Color(0xff6b6b6b), Color(0xff8b8b8b), "es");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_es, Color(0xff6b6b6b), Color(0xff6b6b6b), "es");
     case "de":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_de, Color(0xff6b6b6b), Color(0xff8b8b8b), "de");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_de, Color(0xff6b6b6b), Color(0xff6b6b6b), "de");
     case "fr":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_fr, Color(0xff6b6b6b), Color(0xff8b8b8b), "fr");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_fr, Color(0xff6b6b6b), Color(0xff6b6b6b), "fr");
     default:
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_en, Color(0xff6b6b6b), Color(0xff8b8b8b), "en");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_en, Color(0xff6b6b6b), Color(0xff6b6b6b), "en");
   }
 
 }
@@ -61,13 +61,14 @@ CoupleTypeInfo get_couple_type_info(BuildContext context, String couple_type) {
   // GETTING THE CASE USING COUPLE TYPE TEXT
   switch (couple_type) {
     case "hetero":
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_hetero, Color(0xb3a29c5b), Color(0xffeae882));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_hetero, Color(
+          0xb361bd47), Color(0xb361bd47));
     case "lesbian":
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_lesbian, Color(0xff6a4175), Color(0x9ed382ea));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_lesbian, Color(0x9ed382ea), Color(0x9ed382ea));
     case "gay":
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_gay, Color(0xb3324059), Color(0xff82acea));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_gay, Color(0xb3324059), Color(0xb3324059));
     default:
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_not_spec, Color(0xff4e4e4e), Color(0xff909090));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_not_spec, Color(0xff4e4e4e), Color(0xff4e4e4e));
   }
 
 }
@@ -97,10 +98,10 @@ GameTypeInfo get_game_type_type_info(BuildContext context, bool play_distance) {
   switch (play_distance) {
     case  false:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_presence, Color(
-          0xb3a25b7b), Color(0xffea82ad));
+          0xb3a25b5b), Color(0xb3a25b5b));
     case true:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_distance, Color(
-          0xff415875), Color(0x9e82c2ea));
+          0x9e82c2ea), Color(0x9e82c2ea));
   }
 
 }
@@ -130,12 +131,12 @@ ToolsInfo get_tools_info(BuildContext context, List<String> deck_tools_list) {
   if (deck_tools_list.isEmpty) {
 
     return ToolsInfo(AppLocalizations.of(context)!.no_tools_label, Color(
-        0xff453762), Color(0xff695e8b));
+        0xff453762), Color(0xff453762));
 
   } else {
 
     return ToolsInfo(AppLocalizations.of(context)!.tools_label, Color(
-        0xff7b4465), Color(0xff946193));
+        0xff7b4465), Color(0xff7b4465));
 
   }
 
@@ -148,7 +149,7 @@ ToolsInfo get_tools_info(BuildContext context, List<String> deck_tools_list) {
 
 
 
-// DEFINING THE CLASS TO CONVERT ALL THE TOOLS INFO IN AN OBJECT
+// DEFINING THE CLASS TO CONVERT ALL THE TAGS INFO IN AN OBJECT
 class OralSexTagInfo {
 
   // CLASS ATTRIBUTES
@@ -161,17 +162,18 @@ class OralSexTagInfo {
 
 }
 
-// FUNCTION TO GET ALL THE INFO FROM THE DECK DIFFICULTY
+// FUNCTION TO GET ALL THE INFO FROM THE DECK TAGS
 OralSexTagInfo get_oral_tag_info(BuildContext context, List<String> deck_tags_list) {
 
   // CHECKING IF THE TAG HAS TO BE SHOWN
   if (deck_tags_list.contains("oral_sex")) {
 
-    return OralSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff61823d), Color(0xff5e8b64), true);
+    return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(
+        0xffcf7636), Color(0xffcf7636), true);
 
   } else {
 
-    return OralSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff61823d), Color(0xff5e8b64), false);
+    return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(0xffcf7636), Color(0xffcf7636), false);
 
   }
 
@@ -183,7 +185,7 @@ OralSexTagInfo get_oral_tag_info(BuildContext context, List<String> deck_tags_li
 
 
 
-// DEFINING THE CLASS TO CONVERT ALL THE TOOLS INFO IN AN OBJECT
+// DEFINING THE CLASS TO CONVERT ALL THE TAGS INFO IN AN OBJECT
 class VaginalSexTagInfo {
 
   // CLASS ATTRIBUTES
@@ -196,19 +198,19 @@ class VaginalSexTagInfo {
 
 }
 
-// FUNCTION TO GET ALL THE INFO FROM THE DECK DIFFICULTY
+// FUNCTION TO GET ALL THE INFO FROM THE DECK TAGS
 VaginalSexTagInfo get_vaginal_tag_info(BuildContext context, List<String> deck_tags_list) {
 
   // CHECKING IF THE TAG HAS TO BE SHOWN
   if (deck_tags_list.contains("vaginal_sex")) {
 
-    return VaginalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff793d82), Color(
-        0xff8b5e7e), true);
+    return VaginalSexTagInfo(AppLocalizations.of(context)!.deck_vaginal_sex_tag_label, Color(0xff793d82), Color(
+        0xff793d82), true);
 
   } else {
 
-    return VaginalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(0xff793d82), Color(
-        0xff8b5e7e), false);
+    return VaginalSexTagInfo(AppLocalizations.of(context)!.deck_vaginal_sex_tag_label, Color(0xff793d82), Color(
+        0xff793d82), false);
 
   }
 
@@ -220,7 +222,7 @@ VaginalSexTagInfo get_vaginal_tag_info(BuildContext context, List<String> deck_t
 
 
 
-// DEFINING THE CLASS TO CONVERT ALL THE TOOLS INFO IN AN OBJECT
+// DEFINING THE CLASS TO CONVERT ALL THE TAGS INFO IN AN OBJECT
 class AnalSexTagInfo {
 
   // CLASS ATTRIBUTES
@@ -233,21 +235,99 @@ class AnalSexTagInfo {
 
 }
 
-// FUNCTION TO GET ALL THE INFO FROM THE DECK DIFFICULTY
+// FUNCTION TO GET ALL THE INFO FROM THE DECK TAGS
 AnalSexTagInfo get_anal_tag_info(BuildContext context, List<String> deck_tags_list) {
 
   // CHECKING IF THE TAG HAS TO BE SHOWN
   if (deck_tags_list.contains("anal_sex")) {
 
-    return AnalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(
-        0xff823d3d), Color(
-        0xff8b5e5e), true);
+    return AnalSexTagInfo(AppLocalizations.of(context)!.deck_anal_sex_tag_label, Color(
+        0xff329180), Color(
+        0xff329180), true);
 
   } else {
 
-    return AnalSexTagInfo(AppLocalizations.of(context)!.no_tools_label, Color(
-        0xff823d3d), Color(
-        0xff8b5e5e), false);
+    return AnalSexTagInfo(AppLocalizations.of(context)!.deck_anal_sex_tag_label, Color(
+        0xff329180), Color(
+        0xff329180), false);
+
+  }
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+// DEFINING THE CLASS TO CONVERT ALL THE TAGS INFO IN AN OBJECT
+class BondageTagInfo {
+
+  // CLASS ATTRIBUTES
+  final String label;
+  final Color background_color;
+  final Color border_color;
+  final bool show_tag;
+
+  BondageTagInfo(this.label, this.background_color, this.border_color, this.show_tag);
+
+}
+
+// FUNCTION TO GET ALL THE INFO FROM THE DECK TAGS
+BondageTagInfo get_bondage_tag_info(BuildContext context, List<String> deck_tags_list) {
+
+  // CHECKING IF THE TAG HAS TO BE SHOWN
+  if (deck_tags_list.contains("bondage")) {
+
+    return BondageTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
+        0xff913289), Color(
+        0xff913289), true);
+
+  } else {
+
+    return BondageTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
+        0xff913289), Color(
+        0xff913289), false);
+
+  }
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+// DEFINING THE CLASS TO CONVERT ALL THE TAGS INFO IN AN OBJECT
+class BdsmTagInfo {
+
+  // CLASS ATTRIBUTES
+  final String label;
+  final Color background_color;
+  final Color border_color;
+  final bool show_tag;
+
+  BdsmTagInfo(this.label, this.background_color, this.border_color, this.show_tag);
+
+}
+
+// FUNCTION TO GET ALL THE INFO FROM THE DECK TAGS
+BdsmTagInfo get_bdsm_tag_info(BuildContext context, List<String> deck_tags_list) {
+
+  // CHECKING IF THE TAG HAS TO BE SHOWN
+  if (deck_tags_list.contains("bdsm")) {
+
+    return BdsmTagInfo(AppLocalizations.of(context)!.deck_bdsm_tag_label, Color(
+        0xff491c1c), Color(
+        0xff491c1c), true);
+
+  } else {
+
+    return BdsmTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
+        0xff491c1c), Color(
+        0xff491c1c), false);
 
   }
 

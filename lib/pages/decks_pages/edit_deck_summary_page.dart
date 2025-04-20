@@ -9,6 +9,7 @@ import 'package:loverquest/l10n/app_localization.dart';
 import 'package:loverquest/logics/decks_logics/quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/decks_logics/save_deck.dart';
+import 'package:loverquest/logics/decks_logics/translate_tags.dart';
 import 'package:loverquest/pages/decks_pages/deck_editor_main_page.dart';
 import 'package:loverquest/logics/settings_logics/utility.dart';
 
@@ -67,8 +68,11 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
   //------------------------------------------------------------------------------
 
-  // DEFINING THE TOOL LIST VAR
+  // DEFINING THE TAGS LIST VAR
   List<String> tag_list = [];
+
+  // DEFINING THE TRANSLATED TAGS LIST VAR
+  List<String> translated_tags_list = [];
   
   //------------------------------------------------------------------------------
 
@@ -122,9 +126,24 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
       _deck_name_controller.text = widget.selected_deck?.summary.name ?? "";
       _deck_language_controller.text = language_object.label;
       _deck_description_controller.text =  widget.selected_deck?.summary.description ?? "";
-      _deck_tag_controller.text = widget.selected_deck?.summary.tags.join(", ") ?? "";
+      //_deck_tag_controller.text = widget.selected_deck?.summary.tags.join(", ") ?? "";
+
+      // GETTING THE TAGS INFO
+      tag_list = widget.selected_deck?.summary.tags ?? [];
+
+      print(tag_list.join(", "));
 
     }
+
+
+    //
+    translated_tags_list = translate_tags(context, tag_list);
+
+    // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+    translated_tags_list[0] = translated_tags_list[0][0].toUpperCase() + translated_tags_list[0].substring(1);
+
+    //
+    _deck_tag_controller.text = translated_tags_list.join(", ");
 
   }
 
@@ -346,6 +365,15 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
       return showDialog<void>(
         context: context,
         builder: (context) {
+
+          //------------------------------------------------------------------------------
+
+          // SYNCHRONIZING THE SWITCH LIST
+          item_1 = tag_list.contains("oral_sex");
+          item_2 = tag_list.contains("anal_sex");
+          item_3 = tag_list.contains("vaginal_sex");
+          item_4 = tag_list.contains("bondage");
+          item_5 = tag_list.contains("bdsm");
 
           //------------------------------------------------------------------------------
 
@@ -655,8 +683,14 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
                                 // UPDATING THE PAGE STATE
                                 setState(() {
 
+                                  // GETTING THE TRANSLATED TOOLS LIST
+                                  translated_tags_list = translate_tags(context, tag_list);
+
+                                  // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+                                  translated_tags_list[0] = translated_tags_list[0][0].toUpperCase() + translated_tags_list[0].substring(1);
+
                                   // UPDATING THE TEXT FIELD
-                                  _deck_tag_controller.text = tag_list.join(", ");
+                                  _deck_tag_controller.text = translated_tags_list.join(", ");
 
                                 });
 
@@ -1151,8 +1185,14 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
                             setState(() {
 
+                              // GETTING THE TRANSLATED TOOLS LIST
+                              translated_tags_list = translate_tags(context, tag_list);
+
+                              // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+                              translated_tags_list[0] = translated_tags_list[0][0].toUpperCase() + translated_tags_list[0].substring(1);
+
                               // UPDATING THE TEXT FIELD
-                              _deck_tag_controller.text = tag_list.join(", ");
+                              _deck_tag_controller.text = translated_tags_list.join(", ");
 
                             });
 

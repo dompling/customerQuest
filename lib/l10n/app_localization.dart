@@ -407,6 +407,18 @@ abstract class AppLocalizations {
   /// **'Anal sex'**
   String get deck_anal_sex_tag_label;
 
+  /// No description provided for @deck_bondage_tag_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Bondage'**
+  String get deck_bondage_tag_label;
+
+  /// No description provided for @deck_bdsm_tag_label.
+  ///
+  /// In en, this message translates to:
+  /// **'BDSM'**
+  String get deck_bdsm_tag_label;
+
   /// No description provided for @deck_difficulty_not_specified.
   ///
   /// In en, this message translates to:
