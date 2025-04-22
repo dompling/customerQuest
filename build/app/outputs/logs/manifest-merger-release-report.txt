@@ -28,10 +28,10 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/herze
 		INJECTED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml
 		ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:5:9-42
 manifest
-ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-56:12
-INJECTED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-56:12
-INJECTED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-56:12
-INJECTED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-56:12
+ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-67:12
+INJECTED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-67:12
+INJECTED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-67:12
+INJECTED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:1-67:12
 MERGED from [:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-15:12
 MERGED from [:shared_preferences_android] /home/herzen/Documenti/GitHub/loverquest/build/shared_preferences_android/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-7:12
 MERGED from [:wakelock_plus] /home/herzen/Documenti/GitHub/loverquest/build/wakelock_plus/intermediates/merged_manifest/release/AndroidManifest.xml:2:1-7:12
@@ -118,7 +118,7 @@ MERGED from [com.getkeepsafe.relinker:relinker:1.4.5] /home/herzen/.gradle/cache
 	xmlns:android
 		ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:1:11-69
 queries
-ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:49:5-54:15
+ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:49:5-65:15
 MERGED from [:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-13:15
 MERGED from [:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:7:5-13:15
 intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
@@ -133,6 +133,14 @@ ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/Android
 		ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:33:23-45
 	android:mimeType
 		ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:19-48
+intent#action:name:android.intent.action.VIEW+data:scheme:http
+ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:56:9-59:18
+action#android.intent.action.VIEW
+ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:13-65
+	android:name
+		ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:21-62
+intent#action:name:android.intent.action.VIEW+data:scheme:https
+ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:60:9-63:18
 activity#com.herzen.loverquest.MainActivity
 ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:7:9-37:20
 	android:launchMode
@@ -169,10 +177,6 @@ ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/Android
 		ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:26:27-74
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:http+data:scheme:https
 ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:29:13-35:29
-action#android.intent.action.VIEW
-ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:30:17-68
-	android:name
-		ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:30:25-66
 category#android.intent.category.DEFAULT
 ADDED from /home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:31:17-75
 	android:name

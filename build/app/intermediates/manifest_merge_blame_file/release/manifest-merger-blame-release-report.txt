@@ -15,7 +15,7 @@
 15         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 16    -->
 17    <queries>
-17-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:49:5-54:15
+17-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:49:5-65:15
 18        <intent>
 18-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:50:9-53:18
 19            <action android:name="android.intent.action.PROCESS_TEXT" />
@@ -26,198 +26,220 @@
 21-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
 21-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:19-48
 22        </intent>
-23        <intent>
-23-->[:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-12:18
-24            <action android:name="android.intent.action.GET_CONTENT" />
-24-->[:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-72
-24-->[:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:9:21-69
-25
-26            <data android:mimeType="*/*" />
-26-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
-26-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:19-48
-27        </intent>
-28    </queries>
-29
-30    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-30-->[androidx.media3:media3-common:1.4.1] /home/herzen/.gradle/caches/transforms-3/701b6c5c8237d33bcc955f068ff48577/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
-30-->[androidx.media3:media3-common:1.4.1] /home/herzen/.gradle/caches/transforms-3/701b6c5c8237d33bcc955f068ff48577/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:22-76
-31
-32    <permission
-32-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
-33        android:name="com.herzen.loverquest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-33-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
-34        android:protectionLevel="signature" />
-34-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
-35
-36    <uses-permission android:name="com.herzen.loverquest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-36-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
-36-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+23
+24        <!-- Per verificare la possibilità di aprire URL HTTP e HTTPS -->
+25        <intent>
+25-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:56:9-59:18
+26            <action android:name="android.intent.action.VIEW" />
+26-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:13-65
+26-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:21-62
+27
+28            <data android:scheme="http" />
+28-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
+28-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:33:23-45
+29        </intent>
+30        <intent>
+30-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:60:9-63:18
+31            <action android:name="android.intent.action.VIEW" />
+31-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:13-65
+31-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:21-62
+32
+33            <data android:scheme="https" />
+33-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
+33-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:33:23-45
+34        </intent>
+35        <intent>
+35-->[:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-12:18
+36            <action android:name="android.intent.action.GET_CONTENT" />
+36-->[:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-72
+36-->[:file_picker] /home/herzen/Documenti/GitHub/loverquest/build/file_picker/intermediates/merged_manifest/release/AndroidManifest.xml:9:21-69
 37
-38    <application
-39        android:name="android.app.Application"
-39-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:5:9-42
-40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-40-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
-41        android:extractNativeLibs="true"
-42        android:icon="@mipmap/launcher_icon"
-42-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:6:9-45
-43        android:label="Loverquest" >
-43-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:4:9-35
-44        <activity
-44-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:7:9-37:20
-45            android:name="com.herzen.loverquest.MainActivity"
-45-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:8:13-62
-46            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-46-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:13:13-163
-47            android:exported="true"
-47-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:9:13-36
-48            android:hardwareAccelerated="true"
-48-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:14:13-47
-49            android:launchMode="singleTop"
-49-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:10:13-43
-50            android:taskAffinity=""
-50-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:11:13-36
-51            android:theme="@style/LaunchTheme"
-51-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:12:13-47
-52            android:windowSoftInputMode="adjustResize" >
-52-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:15:13-55
-53
-54            <!--
-55                 Specifies an Android theme to apply to this Activity as soon as
-56                 the Android process has started. This theme is visible to the user
-57                 while the Flutter UI initializes. After that, this theme continues
-58                 to determine the Window background behind the Flutter UI.
-59            -->
-60            <meta-data
-60-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:20:13-23:17
-61                android:name="io.flutter.embedding.android.NormalTheme"
-61-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:21:15-70
-62                android:resource="@style/NormalTheme" />
-62-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:22:15-52
-63
-64            <intent-filter>
-64-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:24:13-27:29
-65                <action android:name="android.intent.action.MAIN" />
-65-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:25:17-68
-65-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:25:25-66
-66
-67                <category android:name="android.intent.category.LAUNCHER" />
-67-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:26:17-76
-67-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:26:27-74
-68            </intent-filter>
-69            <intent-filter>
-69-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:29:13-35:29
-70                <action android:name="android.intent.action.VIEW" />
-70-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:30:17-68
-70-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:30:25-66
-71
-72                <category android:name="android.intent.category.DEFAULT" />
-72-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:31:17-75
-72-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:31:27-73
-73                <category android:name="android.intent.category.BROWSABLE" />
-73-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:32:17-77
-73-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:32:27-75
-74
-75                <data android:scheme="https" />
-75-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
-75-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:33:23-45
-76                <data android:scheme="http" />
-76-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
-76-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:33:23-45
-77            </intent-filter>
-78        </activity>
-79        <!--
-80             Don't delete the meta-data below.
-81             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-82        -->
-83        <meta-data
-83-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:40:9-42:33
-84            android:name="flutterEmbedding"
-84-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:41:13-44
-85            android:value="2" />
-85-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:42:13-30
+38            <data android:mimeType="*/*" />
+38-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
+38-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:19-48
+39        </intent>
+40    </queries>
+41
+42    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+42-->[androidx.media3:media3-common:1.4.1] /home/herzen/.gradle/caches/transforms-3/701b6c5c8237d33bcc955f068ff48577/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:5-79
+42-->[androidx.media3:media3-common:1.4.1] /home/herzen/.gradle/caches/transforms-3/701b6c5c8237d33bcc955f068ff48577/transformed/jetified-media3-common-1.4.1/AndroidManifest.xml:22:22-76
+43
+44    <permission
+44-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+45        android:name="com.herzen.loverquest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+45-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+46        android:protectionLevel="signature" />
+46-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+47
+48    <uses-permission android:name="com.herzen.loverquest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+48-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+48-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+49
+50    <application
+51        android:name="android.app.Application"
+51-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:5:9-42
+52        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+52-->[androidx.core:core:1.15.0] /home/herzen/.gradle/caches/transforms-3/57801d635165f09690fc76c7f9abf2cc/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+53        android:extractNativeLibs="true"
+54        android:icon="@mipmap/launcher_icon"
+54-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:6:9-45
+55        android:label="Loverquest" >
+55-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:4:9-35
+56        <activity
+56-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:7:9-37:20
+57            android:name="com.herzen.loverquest.MainActivity"
+57-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:8:13-62
+58            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+58-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:13:13-163
+59            android:exported="true"
+59-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:9:13-36
+60            android:hardwareAccelerated="true"
+60-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:14:13-47
+61            android:launchMode="singleTop"
+61-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:10:13-43
+62            android:taskAffinity=""
+62-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:11:13-36
+63            android:theme="@style/LaunchTheme"
+63-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:12:13-47
+64            android:windowSoftInputMode="adjustResize" >
+64-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:15:13-55
+65
+66            <!--
+67                 Specifies an Android theme to apply to this Activity as soon as
+68                 the Android process has started. This theme is visible to the user
+69                 while the Flutter UI initializes. After that, this theme continues
+70                 to determine the Window background behind the Flutter UI.
+71            -->
+72            <meta-data
+72-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:20:13-23:17
+73                android:name="io.flutter.embedding.android.NormalTheme"
+73-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:21:15-70
+74                android:resource="@style/NormalTheme" />
+74-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:22:15-52
+75
+76            <intent-filter>
+76-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:24:13-27:29
+77                <action android:name="android.intent.action.MAIN" />
+77-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:25:17-68
+77-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:25:25-66
+78
+79                <category android:name="android.intent.category.LAUNCHER" />
+79-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:26:17-76
+79-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:26:27-74
+80            </intent-filter>
+81            <intent-filter>
+81-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:29:13-35:29
+82                <action android:name="android.intent.action.VIEW" />
+82-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:13-65
+82-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:57:21-62
+83
+84                <category android:name="android.intent.category.DEFAULT" />
+84-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:31:17-75
+84-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:31:27-73
+85                <category android:name="android.intent.category.BROWSABLE" />
+85-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:32:17-77
+85-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:32:27-75
 86
-87        <activity
-87-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-11:74
-88            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-88-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-74
-89            android:exported="false"
-89-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-37
-90            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-90-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-71
-91
-92        <provider
-92-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:24:9-32:20
-93            android:name="androidx.startup.InitializationProvider"
-93-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:25:13-67
-94            android:authorities="com.herzen.loverquest.androidx-startup"
-94-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:26:13-68
-95            android:exported="false" >
-95-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:27:13-37
-96            <meta-data
-96-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
-97                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-97-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
-98                android:value="androidx.startup" />
-98-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
-99            <meta-data
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
-100                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-100-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
-101                android:value="androidx.startup" />
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
-102        </provider>
+87                <data android:scheme="https" />
+87-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
+87-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:33:23-45
+88                <data android:scheme="http" />
+88-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:52:13-50
+88-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:33:23-45
+89            </intent-filter>
+90        </activity>
+91        <!--
+92             Don't delete the meta-data below.
+93             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+94        -->
+95        <meta-data
+95-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:40:9-42:33
+96            android:name="flutterEmbedding"
+96-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:41:13-44
+97            android:value="2" />
+97-->/home/herzen/Documenti/GitHub/loverquest/android/app/src/main/AndroidManifest.xml:42:13-30
+98
+99        <activity
+99-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:8:9-11:74
+100            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+100-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:9:13-74
+101            android:exported="false"
+101-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:10:13-37
+102            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+102-->[:url_launcher_android] /home/herzen/Documenti/GitHub/loverquest/build/url_launcher_android/intermediates/merged_manifest/release/AndroidManifest.xml:11:13-71
 103
-104        <uses-library
-104-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
-105            android:name="androidx.window.extensions"
-105-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
-106            android:required="false" />
-106-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
-107        <uses-library
-107-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
-108            android:name="androidx.window.sidecar"
-108-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
-109            android:required="false" />
-109-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
-110
-111        <receiver
-111-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
-112            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-112-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
-113            android:directBootAware="false"
-113-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
-114            android:enabled="true"
-114-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
-115            android:exported="true"
-115-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
-116            android:permission="android.permission.DUMP" >
-116-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
-117            <intent-filter>
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
-118                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-118-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-118-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
-119            </intent-filter>
-120            <intent-filter>
-120-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
-121                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-121-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-121-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
-122            </intent-filter>
-123            <intent-filter>
-123-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
-124                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-124-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-124-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
-125            </intent-filter>
-126            <intent-filter>
-126-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
-127                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-127-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-127-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
-128            </intent-filter>
-129        </receiver>
-130    </application>
-131
-132</manifest>
+104        <provider
+104-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:24:9-32:20
+105            android:name="androidx.startup.InitializationProvider"
+105-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:25:13-67
+106            android:authorities="com.herzen.loverquest.androidx-startup"
+106-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:26:13-68
+107            android:exported="false" >
+107-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:27:13-37
+108            <meta-data
+108-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
+109                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+109-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
+110                android:value="androidx.startup" />
+110-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/herzen/.gradle/caches/transforms-3/f658e4dcc9c7e799291432081b9c574d/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
+111            <meta-data
+111-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+112                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+112-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+113                android:value="androidx.startup" />
+113-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+114        </provider>
+115
+116        <uses-library
+116-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+117            android:name="androidx.window.extensions"
+117-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+118            android:required="false" />
+118-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+119        <uses-library
+119-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+120            android:name="androidx.window.sidecar"
+120-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+121            android:required="false" />
+121-->[androidx.window:window:1.2.0] /home/herzen/.gradle/caches/transforms-3/2a16a3efb2b7a9568c49a2b2ced554e3/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+122
+123        <receiver
+123-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+124            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+124-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+125            android:directBootAware="false"
+125-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+126            android:enabled="true"
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+127            android:exported="true"
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+128            android:permission="android.permission.DUMP" >
+128-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+129            <intent-filter>
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+130                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+130-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+130-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+131            </intent-filter>
+132            <intent-filter>
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+133                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+134            </intent-filter>
+135            <intent-filter>
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+136                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+137            </intent-filter>
+138            <intent-filter>
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+139                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/herzen/.gradle/caches/transforms-3/0242a8f2efbd84dd69a959938a45ee9f/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+140            </intent-filter>
+141        </receiver>
+142    </application>
+143
+144</manifest>

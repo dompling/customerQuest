@@ -20,6 +20,18 @@
 
             <data android:mimeType="text/plain" />
         </intent>
+
+        <!-- Per verificare la possibilità di aprire URL HTTP e HTTPS -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="http" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="https" />
+        </intent>
         <intent>
             <action android:name="android.intent.action.GET_CONTENT" />
 
