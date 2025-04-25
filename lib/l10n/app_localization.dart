@@ -1211,11 +1211,23 @@ abstract class AppLocalizations {
   /// **'Developed with love by Herzen'**
   String get settings_main_page_credits_label;
 
+  /// No description provided for @settings_main_page_other_section_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Misc'**
+  String get settings_main_page_other_section_label;
+
   /// No description provided for @settings_main_page_license_label.
   ///
   /// In en, this message translates to:
-  /// **'App license'**
+  /// **'App License'**
   String get settings_main_page_license_label;
+
+  /// No description provided for @settings_main_page_privacy_policy_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get settings_main_page_privacy_policy_label;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

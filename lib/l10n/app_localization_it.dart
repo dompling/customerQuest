@@ -573,5 +573,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get settings_main_page_credits_label => 'Sviluppato con amore da Herzen';
 
   @override
+  String get settings_main_page_other_section_label => 'Altro';
+
+  @override
   String get settings_main_page_license_label => 'Licenza dell\'app';
+
+  @override
+  String get settings_main_page_privacy_policy_label => 'Informativa sulla privacy';
 }

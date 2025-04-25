@@ -573,5 +573,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings_main_page_credits_label => 'Developed with love by Herzen';
 
   @override
-  String get settings_main_page_license_label => 'App license';
+  String get settings_main_page_other_section_label => 'Misc';
+
+  @override
+  String get settings_main_page_license_label => 'App License';
+
+  @override
+  String get settings_main_page_privacy_policy_label => 'Privacy policy';
 }

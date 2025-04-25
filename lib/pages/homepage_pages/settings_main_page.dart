@@ -429,11 +429,41 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
                     ),
 
+                    //------------------------------------------------------------------------------
+
+                    // OTHER SECTION TITLE LABEL
+                    Text(
+
+                      // TEXT
+                        AppLocalizations.of(context)!.settings_main_page_other_section_label,
+
+                        // TEXT STYLE
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold
+                        )
+
+                    ),
+
                     // LICENSE BUTTON
                     ListTile(
 
                       // BUTTON LABEL
                       title: Text(AppLocalizations.of(context)!.settings_main_page_license_label),
+
+                      // BUTTON ICON
+                      leading: Icon(Icons.find_in_page),
+
+                      // OPEN LINK FUNCTION
+                      onTap: () => open_link("https://github.com/H3rz3n/loverquest/blob/main/LICENSE"),
+
+                    ),
+
+                    // PRIVACY POLICY BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_privacy_policy_label),
 
                       // BUTTON ICON
                       leading: Icon(Icons.find_in_page),

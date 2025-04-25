@@ -212,6 +212,9 @@
   "settings_main_page_github_page_label": "Vai alla pagina Github",
   "settings_main_page_credits_section_label": "Crediti",
   "settings_main_page_credits_label": "Sviluppato con amore da Herzen",
-  "settings_main_page_license_label": "Licenza dell'app"
+  "settings_main_page_other_section_label": "Altro",
+  "settings_main_page_license_label": "Licenza dell'app",
+  "settings_main_page_privacy_policy_label": "Informativa sulla privacy"
+
 
 }
