@@ -27,6 +27,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get donation_reminder_dialog_donate_button_label => 'Donate';
 
   @override
+  String get review_reminder_dialog_title => 'Help us !';
+
+  @override
+  String get review_reminder_dialog_content => 'If you enjoyed Loverquest and want to support it, consider leaving a review on Google Play.';
+
+  @override
+  String get review_reminder_dialog_review_button_label => 'Support us';
+
+  @override
   String get online_play_disclaimer_dialog_title => 'Warning !';
 
   @override

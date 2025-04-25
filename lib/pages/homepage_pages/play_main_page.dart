@@ -79,6 +79,10 @@ class _PlayMainPageState extends State<PlayMainPage> {
     // CHECKING IF IS NECESSARY TO SHOW THE DONATION REMINDER
     WidgetsBinding.instance.addPostFrameCallback((_){check_donation_reminder();});
 
+    // CHECKING IF IS NECESSARY TO SHOW THE REVIEW REMINDER
+    WidgetsBinding.instance.addPostFrameCallback((_){check_review_reminder();});
+
+
   }
 
   // FUNCTION TO CHECK IF PREVIOUS MATCH DATA EXIST
@@ -391,6 +395,173 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
                     // TEXT
                     AppLocalizations.of(context)!.donation_reminder_dialog_donate_button_label,
+
+                  ),
+
+                ),
+
+                // EXIT BUTTON
+                TextButton(
+
+                  // STYLE
+                  style: ButtonStyle(
+                    foregroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.onPrimary),
+                    backgroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.primary),
+                    padding: WidgetStateProperty.all(
+                        EdgeInsets.symmetric(horizontal: 15, vertical: 10)),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+                  ),
+
+                  // FUNCTION
+                  onPressed: () => Navigator.of(context).pop(),
+
+                  // BUTTON CONTENT
+                  child: Text(
+
+                    // TEXT
+                    AppLocalizations.of(context)!.app_splash_screen_close_button_label,
+
+                  ),
+
+                ),
+
+
+
+              ],
+
+            ),
+
+          ],
+
+
+        );
+
+      },
+
+    );
+
+  }
+
+  // CHECKING IF THE USER HAS PLAYED ENOUGH GAME TO SHOW A REVIEW REMINDER
+  Future<void> check_review_reminder() async {
+
+    // LOADING THE APP PREFERENCES
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    // GETTING THE PLAYED GAMES NUMBER, IF THERE ARE NOT SETTING IT TO ZERO
+    int played_games = prefs.getInt('played_games') ?? 1;
+
+    // CHECKING IF THE USER HAS PLAYED A NUMBER OF MATCH THAT IS DIVISIBLE BY 3
+    if (played_games % 5 == 0) {
+
+      // SHOWING THE DONATION REMINDER DIALOG
+      show_review_dialog(context);
+
+    }
+
+  }
+
+  // REVIEW REMINDER DIALOG
+  void show_review_dialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+
+        // DIALOG
+        return AlertDialog(
+
+          // DIALOG TITLE
+          title: Text(
+
+            // TEXT
+            AppLocalizations.of(context)!.review_reminder_dialog_title,
+
+            // ALIGNMENT
+            textAlign: TextAlign.center,
+
+            // STYLE
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
+
+          // DIALOG CONTENT
+          content: Container(
+
+            // SETTING THE WIDTH LIMIT
+            constraints: BoxConstraints(maxWidth: 500),
+
+            // CONTAINER CONTENT
+            child: SingleChildScrollView(
+
+              child: Text(
+
+                // TEXT
+                AppLocalizations.of(context)!.review_reminder_dialog_content,
+
+                // ALIGNMENT
+                textAlign: TextAlign.center,
+
+                // STYLE
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.normal,
+                ),
+
+              ),
+
+            ),
+
+          ),
+
+          // DIALOG BUTTONS
+          actions: [
+
+            // BUTTON ROW
+            Row(
+
+              // ALIGN
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+              // ROW CONTENT
+              children: [
+
+                // DONATE BUTTON
+                TextButton(
+
+                  // STYLE
+                  style: ButtonStyle(
+                    foregroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.onPrimary),
+                    backgroundColor: WidgetStateProperty.all(
+                        Theme.of(context).colorScheme.secondary),
+                    padding: WidgetStateProperty.all(
+                        EdgeInsets.symmetric(horizontal: 15, vertical: 10)),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                    ),
+                  ),
+
+                  // FUNCTION
+                  onPressed: () => open_link("https://github.com/H3rz3n/loverquest/tree/main?tab=readme-ov-file#how-can-i-contribute-to-the-project-"),
+
+                  // BUTTON CONTENT
+                  child: Text(
+
+                    // TEXT
+                    AppLocalizations.of(context)!.review_reminder_dialog_review_button_label,
 
                   ),
 

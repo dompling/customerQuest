@@ -131,6 +131,24 @@ abstract class AppLocalizations {
   /// **'Donate'**
   String get donation_reminder_dialog_donate_button_label;
 
+  /// No description provided for @review_reminder_dialog_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Help us !'**
+  String get review_reminder_dialog_title;
+
+  /// No description provided for @review_reminder_dialog_content.
+  ///
+  /// In en, this message translates to:
+  /// **'If you enjoyed Loverquest and want to support it, consider leaving a review on Google Play.'**
+  String get review_reminder_dialog_content;
+
+  /// No description provided for @review_reminder_dialog_review_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Support us'**
+  String get review_reminder_dialog_review_button_label;
+
   /// No description provided for @online_play_disclaimer_dialog_title.
   ///
   /// In en, this message translates to:
