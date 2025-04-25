@@ -469,7 +469,7 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
                       leading: Icon(Icons.find_in_page),
 
                       // OPEN LINK FUNCTION
-                      onTap: () => open_link("https://github.com/H3rz3n/loverquest/blob/main/LICENSE"),
+                      onTap: () => open_link("https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md"),
 
                     ),
 
