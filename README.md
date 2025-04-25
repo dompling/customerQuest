@@ -19,7 +19,7 @@ One of its key strengths is its high level of customization: you can choose from
 Additionally, Loverquest respects your privacy: it does not collect personal data, does not access the Internet, and does not display ads. For us, intimacy is a serious matter, which is why we are committed to ensuring **maximum privacy**.  
 
 <p align="center">
-  <img src="/github_pages/assets/carousels/en/02_en_carousel.png" alt="Banner" width="1640"/>
+  <img src="/github_pages/assets/carousels/en/01_en_carousel.png" alt="Banner" width="1640"/>
 </p>
 
 ## Game Modes  
@@ -35,7 +35,7 @@ At Loverquest, we believe that love belongs to everyone. To ensure an inclusive 
 - **Gay couple:** A couple where both partners have male genitalia.
 
 <p align="center">
-  <img src="/github_pages/assets/carousels/en/01_en_carousel.png" alt="Banner" width="1640"/>
+  <img src="/github_pages/assets/carousels/en/02_en_carousel.png" alt="Banner" width="1640"/>
 </p>  
 
 ## Creating Custom Decks  
