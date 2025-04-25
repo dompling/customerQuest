@@ -44,7 +44,7 @@ Future<List<String>> get_default_deck_paths(BuildContext context, {bool? is_pres
   if (is_presence == null) {
     folders = ["presence", "distance"];
   } else {
-    folders = [!is_presence ? "presence" : "distance"];
+    folders = [is_presence ? "presence" : "distance"];
   }
 
   // INITIALIZING THE DECKS FILE PATHS LIST

@@ -652,7 +652,7 @@ class _PlayPageState extends State<PlayPage> {
                   //------------------------------------------------------------------------------
 
                   // PLAYER DATA CONTAINER
-                  !widget.game_type ?Row(
+                  widget.game_type ?Row(
 
                     // ALIGNMENT
                     mainAxisAlignment: MainAxisAlignment.center,

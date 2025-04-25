@@ -216,9 +216,9 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
       if (selected_option_game_type != 'both') {
 
         // CHECKING IF WHICH IS THE SELECTED FILTER
-        if (selected_option_game_type == "distance") {
+        if (selected_option_game_type != "distance") {
 
-          // SETTING THE FILTER AS ONLINE ONLY
+          // SETTING THE FILTER AS PRESENCE ONLY
           play_presence = true;
 
           // SETTING THE FILTER AS LOCAL ONLY
