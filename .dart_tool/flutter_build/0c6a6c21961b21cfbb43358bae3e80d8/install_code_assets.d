@@ -1,1 +1,0 @@
- /home/herzen/Documenti/GitHub/loverquest/.dart_tool/flutter_build/0c6a6c21961b21cfbb43358bae3e80d8/native_assets.json: 
