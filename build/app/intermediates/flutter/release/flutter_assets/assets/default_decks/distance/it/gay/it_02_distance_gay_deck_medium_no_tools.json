@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "name": "Curiosi",
+    "description": "La vostra curiosità cresce e siete pronti a uscire dalla vostra zona di comfort. Scoprite sfide emozionanti pensate per avvicinarvi ancora di più, mantenendo il tutto giocoso e spontaneo!",
+    "couple_type": "gay",
+    "play_distance": true,
+    "language": "it",
+    "total_quests": 17,
+    "required_tools": []
+
+  },
+
+
+
+  "quests": [
+
+    {
+      "moment": "early",
+      "required_tools": [],
+      "timer": 7,
+      "content": ""
+    }
+
+  ]
+
+}

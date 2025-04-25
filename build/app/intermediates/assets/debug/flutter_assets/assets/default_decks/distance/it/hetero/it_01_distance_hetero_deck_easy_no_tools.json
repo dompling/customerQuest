@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "name": "Esploratori",
+    "description": "State muovendo i primi passi in un mondo di intimità giocosa. Vi aspettano sfide leggere, divertenti e semplici, perfette per rompere il ghiaccio insieme e accendere nuove sensazioni!",
+    "couple_type": "hetero",
+    "play_distance": true,
+    "language": "it",
+    "total_quests": 25,
+    "required_tools": []
+
+  },
+
+
+
+  "quests": [
+
+    {
+      "moment": "early",
+      "required_tools": [],
+      "timer": 7,
+      "content": ""
+    }
+
+  ]
+
+}

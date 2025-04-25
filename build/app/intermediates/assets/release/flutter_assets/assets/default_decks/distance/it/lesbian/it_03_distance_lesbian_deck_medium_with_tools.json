@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "name": "Sperimentatori",
+    "description": "È il momento di osare un po’ di più! Queste sfide vi aiuteranno a esplorare nuovi desideri, superare i vostri limiti e accendere la passione, sempre nel rispetto e nella complicità.",
+    "couple_type": "lesbian",
+    "play_distance": true,
+    "language": "it",
+    "total_quests": 13,
+    "required_tools": []
+
+  },
+
+
+
+  "quests": [
+
+    {
+      "moment": "early",
+      "required_tools": [],
+      "timer": 7,
+      "content": ""
+    }
+
+  ]
+
+}

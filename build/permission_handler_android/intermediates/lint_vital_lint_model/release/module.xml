@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/home/herzen/.pub-cache/hosted/pub.dev/permission_handler_android-13.0.1/android"
+    name=":permission_handler_android"
+    type="LIBRARY"
+    maven="com.baseflow.permissionhandler:permission_handler_android:"
+    agpVersion="8.2.2"
+    buildFolder="/home/herzen/Documenti/GitHub/loverquest/build/permission_handler_android"
+    bootClassPath="/home/herzen/Android/Sdk/platforms/android-35/android.jar:/home/herzen/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="17"
+    compileTarget="android-35"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

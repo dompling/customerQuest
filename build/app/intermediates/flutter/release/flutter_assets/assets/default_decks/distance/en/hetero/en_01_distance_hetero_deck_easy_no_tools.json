@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "name": "Novice",
+    "description": "You're taking your first steps into a world of playful intimacy. Light, fun, and easy challenges await—perfect for breaking the ice and sparking new sensations!",
+    "couple_type": "hetero",
+    "play_distance": true,
+    "language": "en",
+    "total_quests": 25,
+    "required_tools": []
+
+  },
+
+
+
+  "quests": [
+
+    {
+      "moment": "early",
+      "required_tools": [],
+      "timer": 7,
+      "content": ""
+    }
+
+  ]
+
+}

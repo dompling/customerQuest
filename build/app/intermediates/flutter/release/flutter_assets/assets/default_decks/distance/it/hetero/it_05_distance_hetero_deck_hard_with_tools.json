@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "name": "Vogliosi",
+    "description": "La passione si scatena! Questo deck è per i più audaci, dove intensità, fantasia e piacere si fondono in un’esperienza indimenticabile. Siete pronti a lasciarvi andare completamente?",
+    "couple_type": "hetero",
+    "play_distance": true,
+    "language": "it",
+    "total_quests": 21,
+    "required_tools": []
+
+  },
+
+
+
+  "quests": [
+
+    {
+      "moment": "early",
+      "required_tools": [],
+      "timer": 7,
+      "content": ""
+    }
+
+  ]
+
+}

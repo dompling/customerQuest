@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   width="800"
+   height="800"
+   viewBox="0 0 1024 1024"
+   class="icon"
+   version="1.1"
+   fill="#000000"
+   id="svg3"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <g
+     id="SVGRepo_iconCarrier">
+    <path
+       d="m 862.90625,932.1875 h -699.9375 c -38.71875,0 -70.125,-31.40625 -70.125,-70.125 V 432.5 c 0,-38.71875 31.40625,-70.125 70.125,-70.125 h 699.9375 c 38.71875,0 70.125,31.40625 70.125,70.125 v 429.5625 c 0,38.71875 -31.40625,70.125 -70.125,70.125 z"
+       fill="#62a0ea"
+       id="path1" />
+    <path
+       d="m 784.0625,227.5625 h -544.125 c -32.4375,0 -58.78125,26.34375 -58.78125,58.78125 v 45.9375 h 661.6875 v -45.9375 c 0,-32.53125 -26.34375,-58.78125 -58.78125,-58.78125 z"
+       fill="#dc8add"
+       id="path2" />
+    <path
+       d="M 721.25,91.34375 H 306.59375 c -32.4375,0 -58.78125,26.34375 -58.78125,58.78125 v 45.9375 H 780.125 V 150.125 C 780.03125,117.6875 753.78125,91.34375 721.25,91.34375 Z"
+       fill="#f66151"
+       id="path3" />
+  </g>
+  <g
+     id="g3"
+     transform="translate(2.701828,56.60832)">
+    <rect
+       style="fill:#dae7f6;fill-opacity:1;stroke:none;stroke-width:1.49456;stroke-linecap:round;stroke-linejoin:round"
+       id="rect3"
+       width="617.93097"
+       height="62.675877"
+       x="197.83707"
+       y="421.45673"
+       rx="25.6"
+       ry="31.337938" />
+    <rect
+       style="fill:#dae7f6;fill-opacity:1;stroke:none;stroke-width:1.49456;stroke-linecap:round;stroke-linejoin:round"
+       id="rect3-3"
+       width="617.93097"
+       height="62.675877"
+       x="199.70969"
+       y="566.30865"
+       rx="25.6"
+       ry="31.337938" />
+    <rect
+       style="fill:#dae7f6;fill-opacity:1;stroke:none;stroke-width:1.49456;stroke-linecap:round;stroke-linejoin:round"
+       id="rect3-6"
+       width="617.93097"
+       height="62.675877"
+       x="204.70331"
+       y="697.21326"
+       rx="25.6"
+       ry="31.337938" />
+  </g>
+</svg>
