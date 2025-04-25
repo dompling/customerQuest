@@ -16,7 +16,7 @@ Uno dei suoi punti di forza è la grande personalizzazione: puoi scegliere tra m
 Inoltre, Loverquest rispetta la tua privacy: non raccoglie dati personali, non accede a Internet e non mostra pubblicità. Per noi, l’intimità è una cosa seria, e per questo ci impegniamo a garantirti la massima riservatezza.
 
 <p align="center">
-  <img src="/github_pages/assets/screen_carousel_1.png" alt="Banner" width="1100"/>
+  <img src="/github_pages/assets/carousels/it/01_it_carousel.png" alt="Banner" width="1640"/>
 </p>
 
 ## Modalità di gioco
@@ -31,14 +31,14 @@ In Loverquest crediamo che l’amore appartenga a tutti. Per garantire un'esperi
 - **Coppia gay:** Coppia in cui entrambi i partner hanno genitali maschili.
 
 <p align="center">
-  <img src="/github_pages/assets/screen_carousel_2.png" alt="Banner" width="1100"/>
+  <img src="/github_pages/assets/carousels/it/02_it_carousel.png" alt="Banner" width="1640"/>
 </p>  
 
 ## Creazione di deck personalizzati
 Oltre ai numerosi deck preimpostati per ogni tipologia di coppia e modalità di gioco, Loverquest permette agli utenti di creare senza limiti deck e quest personalizzate, offrendo un’esperienza davvero unica ed eccitante.
 
 <p align="center">
-  <img src="/github_pages/assets/screen_carousel_3.png" alt="Banner" width="1100"/>
+  <img src="/github_pages/assets/carousels/it/03_it_carousel.png" alt="Banner" width="1640"/>
 </p>
 
 ## Lingue supportate
