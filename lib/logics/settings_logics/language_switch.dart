@@ -3,7 +3,6 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:ui';
 
 //------------------------------------------------------------------------------
 
@@ -33,22 +32,11 @@ class LocaleProvider extends ChangeNotifier {
     // GETTING THE SAVED LANGUAGE
     String? savedLanguage = prefs.getString('selected_language');
 
-    if (savedLanguage != null) {
-      // IF A LANGUAGE IS SAVED, USE IT
-      _locale = Locale(savedLanguage, '');
-    } else {
-      // GET SYSTEM LOCALE
-      String systemLanguage = PlatformDispatcher.instance.locale.languageCode;
+    savedLanguage ??= "en";
 
-      // CHECK IF SYSTEM LANGUAGE IS SUPPORTED
-      if (supportedLanguages.contains(systemLanguage)) {
-        _locale = Locale(systemLanguage, '');
-      } else {
-        // DEFAULT TO ENGLISH WITHOUT SAVING
-        _locale = Locale('en', '');
-      }
-    }
-
+    // IF A LANGUAGE IS SAVED, USE IT
+    _locale = Locale(savedLanguage, '');
+  
     // NOTIFY LISTENERS TO UPDATE UI
     notifyListeners();
   }

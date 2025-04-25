@@ -3,7 +3,7 @@
     "name": "Daring",
     "description": "It’s time to get a little bolder! These challenges will push your boundaries, ignite new desires, and turn up the heat—all while keeping mutual trust at the center.",
     "couple_type": "hetero",
-    "play_distance": false,
+    "play_presence": true,
     "language": "en",
     "total_quests": 54,
     "required_tools": ["blindfold", "handcuffs"]

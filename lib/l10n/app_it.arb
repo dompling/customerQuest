@@ -90,7 +90,7 @@
   "deck_info_information_requested_tools_label": "Strumenti richiesti: ",
   "deck_info_information_designated_player_label": "Tipo di giocatore designato: ",
   "deck_info_information_description_label": "Descrizione: ",
-  "deck_info_start_game_button_label": "Avvia il gioco",
+  "deck_info_select_deck_button_label": "Seleziona questo mazzo",
   "deck_info_quest_list_title": "Lista delle quest",
   "deck_info_quest_info_early_quest_type": "Quest iniziali",
   "deck_info_quest_info_mid_quest_type": "Quest intermedie",
@@ -106,6 +106,16 @@
   "tags_list_bdsm_tag": "BDSM",
 
   "deck_info_deck_unplayable_error": "Non puoi giocare un deck senza quest ! Aggiungi delle quest a questo deck oppure selezionane un altro per continuare.",
+
+  "select_game_speed_page_title":"Seleziona il ritmo di gioco",
+  "select_game_speed_speed_1_title": "Ho poco tempo",
+  "select_game_speed_speed_2_title": "Fast & fun",
+  "select_game_speed_speed_3_title": "Non ho fretta",
+  "select_game_speed_speed_4_title": "Voglio provarle tutte",
+  "select_game_speed_speed_1_subtitle": "Le quest non passeranno alla categoria successiva finché non sarà stato usato almeno il 25% di quelle della categoria attuale.",
+  "select_game_speed_speed_2_subtitle": "Le quest non passeranno alla categoria successiva finché non sarà stato usato almeno il 50% di quelle della categoria attuale.",
+  "select_game_speed_speed_3_subtitle": "Le quest non passeranno alla categoria successiva finché non sarà stato usato almeno il 75% di quelle della categoria attuale.",
+  "select_game_speed_speed_4_subtitle": "Le quest non passeranno alla categoria successiva finché non saranno state usate tutte le quest della categoria attuale.",
 
   "quest_tool_female_lingerie": "lingerie da donna",
   "quest_tool_male_lingerie": "lingerie da uomo",
@@ -142,6 +152,7 @@
   "play_page_title": "La tua quest",
   "play_page_completed_button": "Completata",
   "play_page_replace_button": "Sostituisci",
+  "play_page_timer_label": "Timer",
 
   "deck_list_main_page_title": "Gestici i mazzi",
   "deck_list_main_page_default_decks_section_title": "Mazzi predefiniti",
@@ -151,15 +162,17 @@
 
   "deck_management_page_default_deck_list": "Lista dei mazzi predefiniti",
   "deck_management_page_custom_deck_list": "Lista dei mazzi personalizzati",
-
   "deck_management_page_import_error_text": "C'è stato un errore durante l'importazione del deck. Scegli un deck valido per Loverquest e prova di nuovo.",
-
   "deck_management_press_menu_delete": "Elimina",
   "deck_management_press_menu_export": "Esporta",
+  "deck_management_press_menu_duplicate": "Duplica",
+  "deck_management_press_menu_edit": "Modifica",
   "deck_management_delete_dialog_title": "Sei sicuro?",
   "deck_management_delete_dialog_subtitle": "Vuoi cancellarlo ?",
   "deck_management_delete_dialog_yes_button_label": "Si",
   "deck_management_delete_dialog_no_button_label": "No",
+  "deck_management_page_no_decks_text": "Mi spiace, ma non c'è niente qui",
+  "deck_management_page_not_done_yet": "Mi spiace, prova a passare dopo il prossimo aggiornamento",
 
   "deck_summary_editor_title": "Informazioni sul mazzo",
   "deck_summary_editor_insert_text_hint": "Inserisci del testo...",

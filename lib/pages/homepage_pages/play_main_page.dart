@@ -9,8 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/pages/play_pages/01_select_game_type_page.dart';
-import 'package:loverquest/pages/play_pages/07_play_page.dart';
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/pages/play_pages/08_play_page.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
 import 'package:loverquest/logics/play_logics/save_and_load_current_match.dart';
 
@@ -48,6 +48,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
   Quest current_quest = Quest.empty();
   String current_player_alias = "";
   late Players first_player;
+  int quest_switch_multiplier = 1;
 
 
   //------------------------------------------------------------------------------
@@ -453,6 +454,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
     players_list = gameData['players_list'];
     current_quest = gameData['current_quest'];
     current_player_alias = gameData['current_player_alias'];
+    quest_switch_multiplier = gameData['quest_switch_multiplier'];
 
   }
 
@@ -705,6 +707,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
                           late_quests_list: [],
                           end_quests_list: [],
                           passed_current_quest: current_quest,
+                          quest_switch_multiplier: quest_switch_multiplier,
 
                         )
 

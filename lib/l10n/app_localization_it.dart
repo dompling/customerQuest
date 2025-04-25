@@ -240,7 +240,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get deck_info_information_description_label => 'Descrizione: ';
 
   @override
-  String get deck_info_start_game_button_label => 'Avvia il gioco';
+  String get deck_info_select_deck_button_label => 'Seleziona questo mazzo';
 
   @override
   String get deck_info_quest_list_title => 'Lista delle quest';
@@ -280,6 +280,33 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get deck_info_deck_unplayable_error => 'Non puoi giocare un deck senza quest ! Aggiungi delle quest a questo deck oppure selezionane un altro per continuare.';
+
+  @override
+  String get select_game_speed_page_title => 'Seleziona il ritmo di gioco';
+
+  @override
+  String get select_game_speed_speed_1_title => 'Ho poco tempo';
+
+  @override
+  String get select_game_speed_speed_2_title => 'Fast & fun';
+
+  @override
+  String get select_game_speed_speed_3_title => 'Non ho fretta';
+
+  @override
+  String get select_game_speed_speed_4_title => 'Voglio provarle tutte';
+
+  @override
+  String get select_game_speed_speed_1_subtitle => 'Le quest non passeranno alla categoria successiva finché non sarà stato usato almeno il 25% di quelle della categoria attuale.';
+
+  @override
+  String get select_game_speed_speed_2_subtitle => 'Le quest non passeranno alla categoria successiva finché non sarà stato usato almeno il 50% di quelle della categoria attuale.';
+
+  @override
+  String get select_game_speed_speed_3_subtitle => 'Le quest non passeranno alla categoria successiva finché non sarà stato usato almeno il 75% di quelle della categoria attuale.';
+
+  @override
+  String get select_game_speed_speed_4_subtitle => 'Le quest non passeranno alla categoria successiva finché non saranno state usate tutte le quest della categoria attuale.';
 
   @override
   String get quest_tool_female_lingerie => 'lingerie da donna';
@@ -384,6 +411,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get play_page_replace_button => 'Sostituisci';
 
   @override
+  String get play_page_timer_label => 'Timer';
+
+  @override
   String get deck_list_main_page_title => 'Gestici i mazzi';
 
   @override
@@ -414,6 +444,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get deck_management_press_menu_export => 'Esporta';
 
   @override
+  String get deck_management_press_menu_duplicate => 'Duplica';
+
+  @override
+  String get deck_management_press_menu_edit => 'Modifica';
+
+  @override
   String get deck_management_delete_dialog_title => 'Sei sicuro?';
 
   @override
@@ -424,6 +460,12 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get deck_management_delete_dialog_no_button_label => 'No';
+
+  @override
+  String get deck_management_page_no_decks_text => 'Mi spiace, ma non c\'è niente qui';
+
+  @override
+  String get deck_management_page_not_done_yet => 'Mi spiace, prova a passare dopo il prossimo aggiornamento';
 
   @override
   String get deck_summary_editor_title => 'Informazioni sul mazzo';

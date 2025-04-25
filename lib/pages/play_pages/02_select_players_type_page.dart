@@ -152,9 +152,9 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
     super.initState();
 
     // IF THE GAME TYPE IS ONLINE, SHOW AN INFORMATIVE DIALOG
-    if (widget.game_type) {
+    if (!widget.game_type) {
 
-      // CHECKING IF IS NECESSARY TO SHOW THE DONATION REMINDER
+      // CHECKING IF IS NECESSARY TO SHOW THE WARNING
       WidgetsBinding.instance.addPostFrameCallback((_){show_disclaimer_dialog(context);});
 
     }
@@ -293,7 +293,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.game_type != true) {
+                          if (widget.game_type == true) {
 
                             // PAGE LINKER
                             Navigator.push(
@@ -484,7 +484,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.game_type != true) {
+                          if (widget.game_type == true) {
 
                             // PAGE LINKER
                             Navigator.push(
@@ -668,7 +668,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.game_type != true) {
+                          if (widget.game_type == true) {
 
                             // PAGE LINKER
                             Navigator.push(

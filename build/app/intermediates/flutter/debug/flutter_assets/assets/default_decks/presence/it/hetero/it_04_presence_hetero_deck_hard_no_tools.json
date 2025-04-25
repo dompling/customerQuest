@@ -3,7 +3,7 @@
     "name": "Affiatati",
     "description": "La vostra intesa è forte e siete pronti a esplorare piaceri più profondi insieme. Queste sfide intensificheranno la vostra sintonia e vi porteranno a un livello di intimità tutto nuovo.",
     "couple_type": "hetero",
-    "play_distance": false,
+    "play_presence": true,
     "language": "it",
     "total_quests": 59,
     "required_tools": []

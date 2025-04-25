@@ -3,7 +3,7 @@
     "name": "Passion",
     "description": "Passion unleashed! This level is for the truly adventurous, where intensity, fantasy, and pleasure merge into an unforgettable experience. Are you ready to go all in?",
     "couple_type": "hetero",
-    "play_distance": false,
+    "play_presence": true,
     "language": "en",
     "total_quests": 69,
     "required_tools": ["blindfold", "handcuffs", "ropes"]

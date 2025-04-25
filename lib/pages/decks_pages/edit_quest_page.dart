@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import 'package:loverquest/logics/settings_logics/utility.dart';
 import 'package:loverquest/logics/decks_logics/save_deck.dart';
 import 'package:loverquest/logics/decks_logics/translate_tools.dart';
@@ -154,7 +154,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
                       deck_description: widget.selected_deck.summary.description,
                       deck_language: widget.selected_deck.summary.language,
                       couple_type: widget.selected_deck.summary.couple_type,
-                      play_distance: widget.selected_deck.summary.play_distance,
+                      play_presence: widget.selected_deck.summary.play_presence,
                       deck_tags: widget.selected_deck.summary.tags,
                       selected_deck: widget.selected_deck,
                     );
@@ -262,7 +262,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
   //------------------------------------------------------------------------------
 
   // CHECKING CONTINUE TO NEXT PAGE CONDITION
-  Future<void> check_and_save_quest() async {
+  Future<bool> check_and_save_quest() async {
 
     // INITIALIZING THE FIELDS VARIABLES
     quest_timer = int.tryParse(_quest_timer_controller.text) ?? 0;
@@ -327,6 +327,8 @@ class _QuestEditPageState extends State<QuestEditPage> {
         ),
       );
 
+      return false;
+
     } else {
 
       try {
@@ -354,12 +356,11 @@ class _QuestEditPageState extends State<QuestEditPage> {
           new_quest: new_quest,
         );
 
-        // GOING BACK TO THE MAIN EDIT PAGE
-        Navigator.pop(context);
-
+        return true;
 
       } catch (e) {
         // ERROR
+        return false;
       }
 
     }
@@ -1811,620 +1812,642 @@ class _QuestEditPageState extends State<QuestEditPage> {
     //------------------------------------------------------------------------------
 
     // PAGE CONTENT
-    return Scaffold(
+    return PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) async {
 
-      // APP BAR
-      appBar: AppBar(
+      // IF THE PAGE IS ALREADY CLOSE, DO NOTHING
+      if (didPop) return;
 
-        // DEFINING THE ACTION BUTTONS
-        actions: [
+      // SAVING DECK DATA
+      bool success = await check_and_save_quest();
 
-          // DELETE ICON BUTTON
-          widget.show_delete_button ? IconButton(
-            icon: Icon(Icons.delete),
-            onPressed: () async {
+      // GOING BACK TO THE EDITOR MAIN PAGE
+      if (success) {
+        Navigator.of(context).pop();
+      }
 
-              // SHOWING THE DELETE DIALOG
-              await show_confirmation_dialog(context);
+    },
 
-              // CHECKING IF THE CONTEXT IS STILL VALID
-              if (!context.mounted) {return;}
+      child: Scaffold(
 
-              // GOING BACK TO THE PREVIOUS PAGE
-              Navigator.of(context).pop();
+        // APP BAR
+        appBar: AppBar(
 
-            },
+          // DEFINING THE ACTION BUTTONS
+          actions: [
 
-          ): SizedBox(),
+            // DELETE ICON BUTTON
+            widget.show_delete_button ? IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () async {
 
-        ],
+                // SHOWING THE DELETE DIALOG
+                await show_confirmation_dialog(context);
 
-      ),
+                // CHECKING IF THE CONTEXT IS STILL VALID
+                if (!context.mounted) {return;}
+
+                // GOING BACK TO THE PREVIOUS PAGE
+                Navigator.of(context).pop();
+
+              },
+
+            ): SizedBox(),
+
+          ],
+
+        ),
 
 
-      // SCAFFOLD CONTENT
-      body: SafeArea(
+        // SCAFFOLD CONTENT
+        body: SafeArea(
 
-        // SAFE AREA CONTENT
-        child: Align(
+          // SAFE AREA CONTENT
+          child: Align(
 
-          // ALIGNMENT
-          alignment: Alignment.center,
+            // ALIGNMENT
+            alignment: Alignment.center,
 
-          // ALIGN CONTENT
-          child: Container(
+            // ALIGN CONTENT
+            child: Container(
 
-            // SETTING THE WIDTH LIMIT
-            constraints: BoxConstraints(maxWidth: 600),
+              // SETTING THE WIDTH LIMIT
+              constraints: BoxConstraints(maxWidth: 600),
 
-            // PAGE PADDING
-            padding: EdgeInsets.all(15),
+              // PAGE PADDING
+              padding: EdgeInsets.all(15),
 
-            // PAGE ALIGNMENT
-            alignment: Alignment.topCenter,
+              // PAGE ALIGNMENT
+              alignment: Alignment.topCenter,
 
-            // CONTAINER CONTENT
-            child: SingleChildScrollView(
+              // CONTAINER CONTENT
+              child: SingleChildScrollView(
 
-              // SCROLLABLE CONTAINER CONTENT
-              child: Column(
+                // SCROLLABLE CONTAINER CONTENT
+                child: Column(
 
-                // COLUMN CONTENT
-                children: [
+                  // COLUMN CONTENT
+                  children: [
 
-                  //------------------------------------------------------------------------------
+                    //------------------------------------------------------------------------------
 
-                  // SPACER
-                  const SizedBox(height: 30),
+                    // SPACER
+                    const SizedBox(height: 30),
 
-                  //------------------------------------------------------------------------------
+                    //------------------------------------------------------------------------------
 
-                  // PAGE LOGO
-                  Image.asset(
-                    'assets/images/deck_editor_icon.png',
-                    width: 140,
-                    height: 140,
-                    fit: BoxFit.contain,
-                  ),
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 30),
-
-                  //------------------------------------------------------------------------------
-
-                  // PAGE TITLE CONTAINER
-                  FractionallySizedBox(
-
-                    // DYNAMIC WIDTH
-                    widthFactor: 0.8,
-
-                    // TITLE
-                    child: Text(
-                      // TEXT
-                      AppLocalizations.of(context)!.quest_editor_page_title,
-
-                      // TEXT ALIGNMENT
-                      textAlign: TextAlign.center,
-
-                      // TEXT STYLE
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-
-                      ),
+                    // PAGE LOGO
+                    Image.asset(
+                      'assets/images/deck_editor_icon.png',
+                      width: 140,
+                      height: 140,
+                      fit: BoxFit.contain,
                     ),
 
-                  ),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // SPACER
+                    const SizedBox(height: 30),
 
-                  // SPACER
-                  const SizedBox(height: 15),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // PAGE TITLE CONTAINER
+                    FractionallySizedBox(
 
-                  // QUEST MOMENT LABEL AND QUEST MOMENT SEGMENTED BUTTON
-                  Column(
+                      // DYNAMIC WIDTH
+                      widthFactor: 0.8,
 
-                    // ALIGNMENT
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    // COLUMN CONTENT
-                    children: [
-
-                      // CARD TEXT
-                      Text(
-                        // TEXT
-                        AppLocalizations.of(context)!.quest_editor_page_quest_type,
-
-                        // TEXT STYLE
-                        style: TextStyle(
-                          fontSize: 18.5,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // SPACER
-                      const SizedBox(height: 5),
-
-                      //------------------------------------------------------------------------------
-
-                      // COUPLE TYPE FILTER SELECTOR
-                      SizedBox(
-
-                        // WIDTH
-                        width: double.infinity,
-
-                        // CONTAINER CONTENT
-                        child:  SegmentedButton<String>(
-
-                          // DEFINING THE OPTIONS
-                          segments: <ButtonSegment<String>>[
-                            ButtonSegment(value: 'early', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_early, style: TextStyle(fontSize: 12))),
-                            ButtonSegment(value: 'mid', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_mid, style: TextStyle(fontSize: 12))),
-                            ButtonSegment(value: 'late', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_late, style: TextStyle(fontSize: 12))),
-                            ButtonSegment(value: 'end', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_end, style: TextStyle(fontSize: 12))),
-                          ],
-
-                          // SETTING THE SELECTED OPTION
-                          selected: {selected_option_quest_moment},
-
-                          // HIDING THE SELECTED ICON
-                          showSelectedIcon: false,
-
-                          // GETTING THE USER CHOICE
-                          onSelectionChanged: (Set<String> newSelection) {
-                            setState(() {
-                              selected_option_quest_moment = newSelection.first;
-                            });
-                          },
-
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                    ],
-
-                  ),
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 15),
-
-                  //------------------------------------------------------------------------------
-
-                  // QUEST REQUIRED TOOLS LABEL AND QUEST REQUIRED TOOLS TEXTBOX CONTAINER
-                  Column(
-
-                    // ALIGNMENT
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    // COLUMN CONTENT
-                    children: [
-
-                      // CARD TEXT
-                      Text(
-                        // TEXT
-                        AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
-
-                        // TEXT STYLE
-                        style: TextStyle(
-                          fontSize: 18.5,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // SPACER
-                      const SizedBox(height: 5),
-
-                      //------------------------------------------------------------------------------
-
-                      // CARD TEXT
-                      TextField(
-
-                        // TEXT CONTROLLER
-                        controller: _quest_tool_controller,
-
-                        // SETTING THE TEXT FIELD AD READ-ONLY
-                        readOnly: true,
-
-                        // ALLOWING THE TEXT FIELD DO GO MULTILINE
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-
-                        // ON TAP FUNCTION
-                        onTap: () {
-
-                          show_tools_dialog(context).then((_) {
-
-                            setState(() {
-
-                              // GETTING THE TRANSLATED TOOLS LIST
-                              translated_tools_list = translate_tools(context, tools_list);
-
-                              // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
-                              translated_tools_list[0] = translated_tools_list[0][0].toUpperCase() + translated_tools_list[0].substring(1);
-
-                              // UPDATING THE TEXT FIELD
-                              _quest_tool_controller.text = translated_tools_list.join(", ");
-
-                            });
-
-                          });
-
-                        },
-
-                        // INPUT TEXT STYLING
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
-
-                        // TEXT FIELD STYLING
-                        decoration: InputDecoration(
-
-                          // HINT TEXT
-                          hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
-
-                          // HINT TEXT STYLE
-                          hintStyle: TextStyle(
-                            fontSize: 13,
-                            fontStyle: FontStyle.normal,
-                          ),
-
-                          // BORDER
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide.none
-                          ),
-
-                          // BACKGROUND COLOR
-                          filled: true,
-                          fillColor: Colors.grey[800],
-
-                          // PADDING
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: 15,
-                            horizontal: 20,
-                          ),
-
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                    ],
-
-                  ),
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 15),
-
-                  //------------------------------------------------------------------------------
-
-                  // QUEST PLAYER TYPE LABEL AND QUEST PLAYER TYPE SEGMENTED BUTTON
-                  Column(
-
-                    // ALIGNMENT
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    // COLUMN CONTENT
-                    children: [
-
-                      // CARD TEXT
-                      Text(
-                        // TEXT
-                        AppLocalizations.of(context)!.quest_editor_page_player_type_title,
-
-                        // TEXT STYLE
-                        style: TextStyle(
-                          fontSize: 18.5,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // SPACER
-                      const SizedBox(height: 5),
-
-                      //------------------------------------------------------------------------------
-
-                      // COUPLE TYPE SELECTOR
-                      SizedBox(
-
-                        // WIDTH
-                        width: double.infinity,
-
-                        // CONTAINER CONTENT
-                        child:  SegmentedButton<String>(
-
-                          // DEFINING THE OPTIONS
-                          segments: <ButtonSegment<String>>[
-                            ButtonSegment(value: 'both', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_both, style: TextStyle(fontSize: 12))),
-                            ButtonSegment(value: 'male', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_male, style: TextStyle(fontSize: 12))),
-                            ButtonSegment(value: 'female', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_female, style: TextStyle(fontSize: 12))),
-                          ],
-
-                          // SETTING THE SELECTED OPTION
-                          selected: {selected_option_player_type},
-
-                          // HIDING THE SELECTED ICON
-                          showSelectedIcon: false,
-
-                          // GETTING THE USER CHOICE
-                          onSelectionChanged: (Set<String> newSelection) {
-                            setState(() {
-                              selected_option_player_type = newSelection.first;
-                            });
-                          },
-
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                    ],
-
-                  ),
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 15),
-
-                  //------------------------------------------------------------------------------
-
-                  // QUEST TIMER LABEL AND QUEST TIMER TEXTBOX CONTAINER
-                  Column(
-
-                    // ALIGNMENT
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    // COLUMN CONTENT
-                    children: [
-
-                      // CARD TEXT
-                      Text(
-                        // TEXT
-                        AppLocalizations.of(context)!.quest_editor_page_quest_timer_label,
-
-                        // TEXT STYLE
-                        style: TextStyle(
-                          fontSize: 18.5,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // SPACER
-                      const SizedBox(height: 5),
-
-                      //------------------------------------------------------------------------------
-
-                      // CARD TEXT
-                      TextField(
-
-                        // TEXT CONTROLLER
-                        controller: _quest_timer_controller,
-
-                        // SETTING THE USE OF THE NUMBER KEYBOARD
-                        keyboardType: TextInputType.number,
-
-                        // ALLOWING ONLY THE INPUT OF INT NUMBERS
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.digitsOnly
-                        ],
-
-                        // INPUT TEXT STYLING
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
-
-                        // TEXT FIELD STYLING
-                        decoration: InputDecoration(
-
-                          // HINT TEXT
-                          hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
-
-                          // HINT TEXT STYLE
-                          hintStyle: TextStyle(
-                            fontSize: 13,
-                            fontStyle: FontStyle.normal,
-                          ),
-
-                          // BORDER
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide.none
-                          ),
-
-                          // BACKGROUND COLOR
-                          filled: true,
-                          fillColor: Colors.grey[800],
-
-                          // PADDING
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: 15,
-                            horizontal: 20,
-                          ),
-
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                    ],
-
-                  ),
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 15),
-
-                  //------------------------------------------------------------------------------
-
-                  // DECK DESCRIPTION LABEL AND DECK DESCRIPTION TEXTBOX CONTAINER
-                  Column(
-
-                    // ALIGNMENT
-                    crossAxisAlignment: CrossAxisAlignment.start,
-
-                    // COLUMN CONTENT
-                    children: [
-
-                      // CARD TEXT
-                      Text(
-                        // TEXT
-                        AppLocalizations.of(context)!.quest_editor_page_quest_content_label,
-
-                        // TEXT STYLE
-                        style: TextStyle(
-                          fontSize: 18.5,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                      // SPACER
-                      const SizedBox(height: 5),
-
-                      //------------------------------------------------------------------------------
-
-                      // CARD TEXT
-                      TextField(
-
-                        // TEXT CONTROLLER
-                        controller: _quest_content_controller,
-
-                        // ALLOWING THE TEXT FIELD DO GO MULTILINE
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-
-                        // INPUT TEXT STYLING
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
-
-                        // TEXT FIELD STYLING
-                        decoration: InputDecoration(
-
-                          // HINT TEXT
-                          hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
-
-                          // HINT TEXT STYLE
-                          hintStyle: TextStyle(
-                            fontSize: 13,
-                            fontStyle: FontStyle.normal,
-                          ),
-
-                          // BORDER
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide.none
-                          ),
-
-                          // BACKGROUND COLOR
-                          filled: true,
-                          fillColor: Colors.grey[800],
-
-                          // PADDING
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: 15,
-                            horizontal: 20,
-                          ),
-
-                        ),
-
-                      ),
-
-                      //------------------------------------------------------------------------------
-
-                    ],
-
-                  ),
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 30),
-
-                  //------------------------------------------------------------------------------
-
-                  // BUTTON BOX
-                  SizedBox(
-
-                    // DYNAMIC SIZE
-                    width: 180,
-
-                    // BOX CONTENT
-                    child: ElevatedButton(
-
-                      // BUTTON STYLE PARAMETERS
-                      style: ButtonStyle(
-
-                        // NORMAL TEXT COLOR
-                        foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                        // NORMAL BACKGROUND COLOR
-                        backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                        // MINIMUM SIZE
-                        minimumSize: WidgetStateProperty.all(Size(100, 60)),
-
-                        // PADDING
-                        padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
-
-                        // BORDER RADIUS
-                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                        ),
-
-                      ),
-
-                      // ON PRESSED CALL
-                      onPressed: () async {
-
-                        // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
-                        check_and_save_quest();
-
-                      },
-
-                      // BUTTON CONTENT
+                      // TITLE
                       child: Text(
-
                         // TEXT
-                        AppLocalizations.of(context)!.define_players_name_confirm_button,
+                        AppLocalizations.of(context)!.quest_editor_page_title,
 
                         // TEXT ALIGNMENT
                         textAlign: TextAlign.center,
 
                         // TEXT STYLE
                         style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
 
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 15),
+
+                    //------------------------------------------------------------------------------
+
+                    // QUEST MOMENT LABEL AND QUEST MOMENT SEGMENTED BUTTON
+                    Column(
+
+                      // ALIGNMENT
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      // COLUMN CONTENT
+                      children: [
+
+                        // CARD TEXT
+                        Text(
+                          // TEXT
+                          AppLocalizations.of(context)!.quest_editor_page_quest_type,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 18.5,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(height: 5),
+
+                        //------------------------------------------------------------------------------
+
+                        // COUPLE TYPE FILTER SELECTOR
+                        SizedBox(
+
+                          // WIDTH
+                          width: double.infinity,
+
+                          // CONTAINER CONTENT
+                          child:  SegmentedButton<String>(
+
+                            // DEFINING THE OPTIONS
+                            segments: <ButtonSegment<String>>[
+                              ButtonSegment(value: 'early', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_early, style: TextStyle(fontSize: 12))),
+                              ButtonSegment(value: 'mid', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_mid, style: TextStyle(fontSize: 12))),
+                              ButtonSegment(value: 'late', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_late, style: TextStyle(fontSize: 12))),
+                              ButtonSegment(value: 'end', label: Text(AppLocalizations.of(context)!.quest_editor_page_quest_type_end, style: TextStyle(fontSize: 12))),
+                            ],
+
+                            // SETTING THE SELECTED OPTION
+                            selected: {selected_option_quest_moment},
+
+                            // HIDING THE SELECTED ICON
+                            showSelectedIcon: false,
+
+                            // GETTING THE USER CHOICE
+                            onSelectionChanged: (Set<String> newSelection) {
+                              setState(() {
+                                selected_option_quest_moment = newSelection.first;
+                              });
+                            },
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ],
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 15),
+
+                    //------------------------------------------------------------------------------
+
+                    // QUEST REQUIRED TOOLS LABEL AND QUEST REQUIRED TOOLS TEXTBOX CONTAINER
+                    Column(
+
+                      // ALIGNMENT
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      // COLUMN CONTENT
+                      children: [
+
+                        // CARD TEXT
+                        Text(
+                          // TEXT
+                          AppLocalizations.of(context)!.deck_info_information_requested_tools_label,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 18.5,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(height: 5),
+
+                        //------------------------------------------------------------------------------
+
+                        // CARD TEXT
+                        TextField(
+
+                          // TEXT CONTROLLER
+                          controller: _quest_tool_controller,
+
+                          // SETTING THE TEXT FIELD AD READ-ONLY
+                          readOnly: true,
+
+                          // ALLOWING THE TEXT FIELD DO GO MULTILINE
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+
+                          // ON TAP FUNCTION
+                          onTap: () {
+
+                            show_tools_dialog(context).then((_) {
+
+                              setState(() {
+
+                                // GETTING THE TRANSLATED TOOLS LIST
+                                translated_tools_list = translate_tools(context, tools_list);
+
+                                // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+                                translated_tools_list[0] = translated_tools_list[0][0].toUpperCase() + translated_tools_list[0].substring(1);
+
+                                // UPDATING THE TEXT FIELD
+                                _quest_tool_controller.text = translated_tools_list.join(", ");
+
+                              });
+
+                            });
+
+                          },
+
+                          // INPUT TEXT STYLING
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+
+                          // TEXT FIELD STYLING
+                          decoration: InputDecoration(
+
+                            // HINT TEXT
+                            hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
+
+                            // HINT TEXT STYLE
+                            hintStyle: TextStyle(
+                              fontSize: 13,
+                              fontStyle: FontStyle.normal,
+                            ),
+
+                            // BORDER
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide.none
+                            ),
+
+                            // BACKGROUND COLOR
+                            filled: true,
+                            fillColor: Colors.grey[800],
+
+                            // PADDING
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
+                            ),
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ],
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 15),
+
+                    //------------------------------------------------------------------------------
+
+                    // QUEST PLAYER TYPE LABEL AND QUEST PLAYER TYPE SEGMENTED BUTTON
+                    Column(
+
+                      // ALIGNMENT
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      // COLUMN CONTENT
+                      children: [
+
+                        // CARD TEXT
+                        Text(
+                          // TEXT
+                          AppLocalizations.of(context)!.quest_editor_page_player_type_title,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 18.5,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(height: 5),
+
+                        //------------------------------------------------------------------------------
+
+                        // COUPLE TYPE SELECTOR
+                        SizedBox(
+
+                          // WIDTH
+                          width: double.infinity,
+
+                          // CONTAINER CONTENT
+                          child:  SegmentedButton<String>(
+
+                            // DEFINING THE OPTIONS
+                            segments: <ButtonSegment<String>>[
+                              ButtonSegment(value: 'both', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_both, style: TextStyle(fontSize: 12))),
+                              ButtonSegment(value: 'male', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_male, style: TextStyle(fontSize: 12))),
+                              ButtonSegment(value: 'female', label: Text(AppLocalizations.of(context)!.quest_editor_page_player_type_female, style: TextStyle(fontSize: 12))),
+                            ],
+
+                            // SETTING THE SELECTED OPTION
+                            selected: {selected_option_player_type},
+
+                            // HIDING THE SELECTED ICON
+                            showSelectedIcon: false,
+
+                            // GETTING THE USER CHOICE
+                            onSelectionChanged: (Set<String> newSelection) {
+                              setState(() {
+                                selected_option_player_type = newSelection.first;
+                              });
+                            },
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ],
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 15),
+
+                    //------------------------------------------------------------------------------
+
+                    // QUEST TIMER LABEL AND QUEST TIMER TEXTBOX CONTAINER
+                    Column(
+
+                      // ALIGNMENT
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      // COLUMN CONTENT
+                      children: [
+
+                        // CARD TEXT
+                        Text(
+                          // TEXT
+                          AppLocalizations.of(context)!.quest_editor_page_quest_timer_label,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 18.5,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(height: 5),
+
+                        //------------------------------------------------------------------------------
+
+                        // CARD TEXT
+                        TextField(
+
+                          // TEXT CONTROLLER
+                          controller: _quest_timer_controller,
+
+                          // SETTING THE USE OF THE NUMBER KEYBOARD
+                          keyboardType: TextInputType.number,
+
+                          // ALLOWING ONLY THE INPUT OF INT NUMBERS
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+
+                          // INPUT TEXT STYLING
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+
+                          // TEXT FIELD STYLING
+                          decoration: InputDecoration(
+
+                            // HINT TEXT
+                            hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
+
+                            // HINT TEXT STYLE
+                            hintStyle: TextStyle(
+                              fontSize: 13,
+                              fontStyle: FontStyle.normal,
+                            ),
+
+                            // BORDER
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide.none
+                            ),
+
+                            // BACKGROUND COLOR
+                            filled: true,
+                            fillColor: Colors.grey[800],
+
+                            // PADDING
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
+                            ),
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ],
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 15),
+
+                    //------------------------------------------------------------------------------
+
+                    // DECK DESCRIPTION LABEL AND DECK DESCRIPTION TEXTBOX CONTAINER
+                    Column(
+
+                      // ALIGNMENT
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      // COLUMN CONTENT
+                      children: [
+
+                        // CARD TEXT
+                        Text(
+                          // TEXT
+                          AppLocalizations.of(context)!.quest_editor_page_quest_content_label,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+                            fontSize: 18.5,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(height: 5),
+
+                        //------------------------------------------------------------------------------
+
+                        // CARD TEXT
+                        TextField(
+
+                          // TEXT CONTROLLER
+                          controller: _quest_content_controller,
+
+                          // ALLOWING THE TEXT FIELD DO GO MULTILINE
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+
+                          // INPUT TEXT STYLING
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+
+                          // TEXT FIELD STYLING
+                          decoration: InputDecoration(
+
+                            // HINT TEXT
+                            hintText: AppLocalizations.of(context)!.deck_summary_editor_insert_text_hint,
+
+                            // HINT TEXT STYLE
+                            hintStyle: TextStyle(
+                              fontSize: 13,
+                              fontStyle: FontStyle.normal,
+                            ),
+
+                            // BORDER
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide.none
+                            ),
+
+                            // BACKGROUND COLOR
+                            filled: true,
+                            fillColor: Colors.grey[800],
+
+                            // PADDING
+                            contentPadding: EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 20,
+                            ),
+
+                          ),
+
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                      ],
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 30),
+
+                    //------------------------------------------------------------------------------
+
+                    // BUTTON BOX
+                    SizedBox(
+
+                      // DYNAMIC SIZE
+                      width: 180,
+
+                      // BOX CONTENT
+                      child: ElevatedButton(
+
+                        // BUTTON STYLE PARAMETERS
+                        style: ButtonStyle(
+
+                          // NORMAL TEXT COLOR
+                          foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+
+                          // NORMAL BACKGROUND COLOR
+                          backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
+
+                          // MINIMUM SIZE
+                          minimumSize: WidgetStateProperty.all(Size(100, 60)),
+
+                          // PADDING
+                          padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+
+                          // BORDER RADIUS
+                          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                          ),
+
+                        ),
+
+                        // ON PRESSED CALL
+                        onPressed: () async {
+
+                          // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
+                          check_and_save_quest();
+
+                          // GOING BACK TO THE MAIN EDIT PAGE
+                          Navigator.pop(context);
+
+                        },
+
+                        // BUTTON CONTENT
+                        child: Text(
+
+                          // TEXT
+                          AppLocalizations.of(context)!.define_players_name_confirm_button,
+
+                          // TEXT ALIGNMENT
+                          textAlign: TextAlign.center,
+
+                          // TEXT STYLE
+                          style: TextStyle(
+
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+
+                          ),
 
                         ),
 
@@ -2432,11 +2455,11 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
                     ),
 
-                  ),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                  ],
 
-                ],
+                ),
 
               ),
 

@@ -7,13 +7,14 @@ import 'package:loverquest/l10n/app_localization.dart';
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/translate_tools.dart';
 import 'package:loverquest/logics/decks_logics/translate_tags.dart';
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/decks_logics/export_decks.dart';
 import 'package:loverquest/logics/decks_logics/save_deck.dart';
 import 'package:loverquest/pages/decks_pages/edit_deck_summary_page.dart';
 import 'package:loverquest/pages/decks_pages/edit_quest_page.dart';
 import 'package:loverquest/pages/decks_pages/delete_deck_dialog.dart';
+import 'package:loverquest/pages/decks_pages/deck_management_page.dart';
 
 //------------------------------------------------------------------------------
 
@@ -175,7 +176,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                       deck_description: current_deck.summary.description,
                       deck_language: current_deck.summary.language,
                       couple_type: current_deck.summary.couple_type,
-                      play_distance: current_deck.summary.play_distance,
+                      play_presence: current_deck.summary.play_presence,
                       deck_tags: current_deck.summary.tags,
                       selected_deck: current_deck,
                     );
@@ -360,7 +361,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
       }
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (current_deck.summary.play_distance) {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;}
+      if (current_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;}
 
       // GETTING THE LANGUAGE INFO
       deck_language_label = get_language_info(context, current_deck.summary.language);
@@ -458,7 +459,43 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
         // DEFINING THE ACTION BUTTONS
         actions: [
 
-          // NEW DECK ICON BUTTON
+          // DUPLICATE DECK ICON BUTTON
+          IconButton(
+            icon: Icon(Icons.copy),
+            onPressed: () async {
+
+              // SAVING THE DECK
+              String new_duplicated_deck_file_path = await DeckSaver.save_deck(
+
+                  deck_name: "${widget.selected_deck.summary.name}_2",
+                  deck_description: widget.selected_deck.summary.description,
+                  deck_language: widget.selected_deck.summary.language,
+                  couple_type: widget.selected_deck.summary.couple_type,
+                  play_presence: widget.selected_deck.summary.play_presence,
+                  deck_tags: widget.selected_deck.summary.tags,
+                  selected_deck: widget.selected_deck,
+                  duplication: true
+
+              );
+
+              // INITIALIZING THE DUPLICATED DECK
+              DeckReader new_duplicated_deck = DeckReader(new_duplicated_deck_file_path);
+
+              // LOADING THE DUPLICATED DECK
+              await new_duplicated_deck.load_deck();
+
+              Navigator.pop(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DeckManagementPage(load_default_decks: false),
+                ),
+              );
+
+            },
+
+          ),
+
+          // EXPORT ICON BUTTON
           IconButton(
             icon: Icon(Icons.share),
             onPressed: () async { await export_json_file(current_deck.deck_file_path, current_deck.summary.name); },
@@ -574,8 +611,12 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                                 ).then((saved_file_path) {
 
-                                  //
-                                  reload_after_editing(saved_file_path);
+                                  if (saved_file_path != null) {
+
+                                    // RELOADING THE PAGE CONTENT TO SHOW THE CHANGES
+                                    reload_after_editing(saved_file_path);
+
+                                  }
 
                                 });
 
@@ -1214,6 +1255,41 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                                       ),
 
+                                      // DUPLICATE ENTRY
+                                      PopupMenuItem(
+
+                                        // ENTRY VALUE
+                                        value: 'duplicate',
+
+                                        // ENTRY CONTENT
+                                        child: Row(
+
+                                          // ROW CONTENT
+                                          children: [
+
+                                            // ENTRY ICON
+                                            Icon(
+
+                                              // ICON
+                                              Icons.copy,
+
+                                              // ICON SIZE
+                                              size: 18,
+
+                                            ),
+
+                                            // SPACER
+                                            SizedBox(width: 5),
+
+                                            // ENTRY TEXT
+                                            Expanded(child: Text(AppLocalizations.of(context)!.deck_management_press_menu_duplicate)),
+
+                                          ],
+
+                                        ),
+
+                                      ),
+
                                     ],
 
                                     // MENU CONDITION ON ANY BUTTON PRESSED
@@ -1226,6 +1302,37 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                                       // SHOWING THE DELETE DIALOG
                                       show_confirmation_dialog(context);
+
+                                    } else if (value == "duplicate") {
+
+                                      // CREATING THE NEW DUPLICATED QUEST
+                                      Quest duplicated_quest = Quest(moment: all_quests_list[index].moment, required_tools: all_quests_list[index].required_tools, player_type: all_quests_list[index].player_type, timer: all_quests_list[index].timer, content: "${all_quests_list[index].content}_2");
+
+                                      // ADDING THE QUEST TO THE QUEST LIST
+                                      all_quests_list.add(duplicated_quest);
+
+                                      // REPLACING INSIDE THE DECK THE OLD QUEST LIST WITH THE NEW QUEST LIST
+                                      current_deck.quests = all_quests_list;
+
+                                      // SAVING THE EDITED DECK
+                                      String saved_deck_file_path = await DeckSaver.save_deck(
+
+                                          deck_name: current_deck.summary.name,
+                                          deck_description: current_deck.summary.description,
+                                          deck_language: current_deck.summary.language,
+                                          couple_type: current_deck.summary.couple_type,
+                                          play_presence: current_deck.summary.play_presence,
+                                          deck_tags: current_deck.summary.tags,
+                                          selected_deck: current_deck,
+
+                                      );
+
+                                      // UPDATING THE PAGE LIST
+                                      await reload_after_editing(saved_deck_file_path);
+
+                                      setState(() {
+
+                                      });
 
                                     }
 

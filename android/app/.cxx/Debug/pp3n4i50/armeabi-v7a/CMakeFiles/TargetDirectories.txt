@@ -1,0 +1,2 @@
+/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/Debug/pp3n4i50/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/Debug/pp3n4i50/armeabi-v7a/CMakeFiles/rebuild_cache.dir

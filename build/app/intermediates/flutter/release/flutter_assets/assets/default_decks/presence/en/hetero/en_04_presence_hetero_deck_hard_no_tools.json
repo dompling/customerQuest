@@ -3,7 +3,7 @@
     "name": "Synergy",
     "description": "Your connection is strong, and you’re ready to explore deeper pleasures together. These challenges will enhance your chemistry and unlock a whole new level of intimacy.",
     "couple_type": "hetero",
-    "play_distance": false,
+    "play_presence": true,
     "language": "en",
     "total_quests": 59,
     "required_tools": []

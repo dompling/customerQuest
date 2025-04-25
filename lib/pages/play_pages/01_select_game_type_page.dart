@@ -153,7 +153,7 @@ class SelectGameTypePage extends StatelessWidget {
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => SelectPlayersTypePage(game_type: false,),
+                            builder: (context) => SelectPlayersTypePage(game_type: true,),
 
                           ),
 
@@ -315,7 +315,7 @@ class SelectGameTypePage extends StatelessWidget {
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => SelectPlayersTypePage(game_type: true,),
+                            builder: (context) => SelectPlayersTypePage(game_type: false,),
 
                           ),
 

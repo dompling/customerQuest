@@ -545,11 +545,11 @@ abstract class AppLocalizations {
   /// **'Description: '**
   String get deck_info_information_description_label;
 
-  /// No description provided for @deck_info_start_game_button_label.
+  /// No description provided for @deck_info_select_deck_button_label.
   ///
   /// In en, this message translates to:
-  /// **'Start game'**
-  String get deck_info_start_game_button_label;
+  /// **'Select this deck'**
+  String get deck_info_select_deck_button_label;
 
   /// No description provided for @deck_info_quest_list_title.
   ///
@@ -628,6 +628,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You can\'t play a deck without quests ! Please add some quests to this deck or select another deck to continue.'**
   String get deck_info_deck_unplayable_error;
+
+  /// No description provided for @select_game_speed_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the game pace'**
+  String get select_game_speed_page_title;
+
+  /// No description provided for @select_game_speed_speed_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m out of time'**
+  String get select_game_speed_speed_1_title;
+
+  /// No description provided for @select_game_speed_speed_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast & fun'**
+  String get select_game_speed_speed_2_title;
+
+  /// No description provided for @select_game_speed_speed_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m not in a hurry'**
+  String get select_game_speed_speed_3_title;
+
+  /// No description provided for @select_game_speed_speed_4_title.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to try it all'**
+  String get select_game_speed_speed_4_title;
+
+  /// No description provided for @select_game_speed_speed_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quests will only move to the next category after at least 25% of the previous category has been used.'**
+  String get select_game_speed_speed_1_subtitle;
+
+  /// No description provided for @select_game_speed_speed_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quests will only move to the next category after at least 50% of the previous category has been used.'**
+  String get select_game_speed_speed_2_subtitle;
+
+  /// No description provided for @select_game_speed_speed_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quests will only move to the next category after at least 75% of the previous category has been used.'**
+  String get select_game_speed_speed_3_subtitle;
+
+  /// No description provided for @select_game_speed_speed_4_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quests will only move to the next category after all the quest of the previous category has been used.'**
+  String get select_game_speed_speed_4_subtitle;
 
   /// No description provided for @quest_tool_female_lingerie.
   ///
@@ -833,6 +887,12 @@ abstract class AppLocalizations {
   /// **'Replace'**
   String get play_page_replace_button;
 
+  /// No description provided for @play_page_timer_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Timer'**
+  String get play_page_timer_label;
+
   /// No description provided for @deck_list_main_page_title.
   ///
   /// In en, this message translates to:
@@ -893,6 +953,18 @@ abstract class AppLocalizations {
   /// **'Export'**
   String get deck_management_press_menu_export;
 
+  /// No description provided for @deck_management_press_menu_duplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate'**
+  String get deck_management_press_menu_duplicate;
+
+  /// No description provided for @deck_management_press_menu_edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get deck_management_press_menu_edit;
+
   /// No description provided for @deck_management_delete_dialog_title.
   ///
   /// In en, this message translates to:
@@ -916,6 +988,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No'**
   String get deck_management_delete_dialog_no_button_label;
+
+  /// No description provided for @deck_management_page_no_decks_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, there is nothing here'**
+  String get deck_management_page_no_decks_text;
+
+  /// No description provided for @deck_management_page_not_done_yet.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, try to come here after the next update'**
+  String get deck_management_page_not_done_yet;
 
   /// No description provided for @deck_summary_editor_title.
   ///

@@ -1,0 +1,1 @@
+/home/herzen/Documenti/GitHub/loverquest/build/app/intermediates/cxx/RelWithDebInfo/q3540322/obj/x86_64

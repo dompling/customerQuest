@@ -1,0 +1,1 @@
+/home/herzen/Documenti/GitHub/loverquest/build/app/intermediates/cxx/RelWithDebInfo/4j2z4662/obj/arm64-v8a

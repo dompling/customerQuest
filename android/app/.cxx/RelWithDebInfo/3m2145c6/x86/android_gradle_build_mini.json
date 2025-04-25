@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/herzen/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/herzen/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/RelWithDebInfo/3m2145c6/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/herzen/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/RelWithDebInfo/3m2145c6/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

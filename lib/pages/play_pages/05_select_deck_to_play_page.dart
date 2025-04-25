@@ -6,7 +6,7 @@ import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/deck_list_reader.dart';
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/decks_logics/deck_filters.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
@@ -191,7 +191,20 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
             alignment: Alignment.topCenter,
 
             // SAFE AREA CONTENT
-            child: CustomScrollView (
+            child: filtered_deck_managers.isEmpty ? Center(
+
+              child: Text(
+
+                widget.game_type ? AppLocalizations.of(context)!.deck_management_page_no_decks_text: AppLocalizations.of(context)!.deck_management_page_not_done_yet,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
+
+              ),
+
+            )
+
+            // DYNAMIC PART OF THE PAGE
+            : CustomScrollView (
 
               // PAGE CONTENT
               slivers: [
@@ -281,6 +294,11 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                       // GETTING DECK DIFFICULTY INFO
                       LanguageInfo language_info_object = get_language_info(context, filtered_deck_managers[index].summary.language);
                       ToolsInfo tools_info_object = get_tools_info(context, deck_tools);
+                      OralSexTagInfo oral_sex_tag_object = get_oral_tag_info(context, filtered_deck_managers[index].summary.tags);
+                      AnalSexTagInfo anal_sex_tag_object = get_anal_tag_info(context, filtered_deck_managers[index].summary.tags);
+                      VaginalSexTagInfo vaginal_sex_tag_object = get_vaginal_tag_info(context, filtered_deck_managers[index].summary.tags);
+                      BondageTagInfo bondage_tag_object = get_bondage_tag_info(context, filtered_deck_managers[index].summary.tags);
+                      BdsmTagInfo bdsm_tag_object = get_bdsm_tag_info(context, filtered_deck_managers[index].summary.tags);
 
                       // DYNAMIC LIST CONTENT
                       return Align(
@@ -424,7 +442,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                                                 // BORDER STYLE
                                                 border: Border.all(
                                                   color: language_info_object.border_color,
-                                                  width: 2,
+                                                  width: 1,
                                                 ),
 
                                               ),
@@ -464,7 +482,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                                                 // BORDER STYLE
                                                 border: Border.all(
                                                   color: tools_info_object.border_color,
-                                                  width: 2,
+                                                  width: 1,
                                                 ),
 
                                               ),
@@ -503,8 +521,8 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
                                                 // BORDER STYLE
                                                 border: Border.all(
-                                                  color: Color(0xff6aab92),
-                                                  width: 2,
+                                                  color: Color(0xff376255),
+                                                  width: 1,
                                                 ),
 
                                               ),
@@ -514,6 +532,212 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
                                                 // TEXT
                                                 '$deck_quest_number quest',
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // ORAL SEX TAG
+                                            if (oral_sex_tag_object.show_tag)
+
+                                              Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: oral_sex_tag_object.background_color,
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: oral_sex_tag_object.background_color,
+                                                  width: 1,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                oral_sex_tag_object.label,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // ANAL SEX TAG
+                                            if (anal_sex_tag_object.show_tag)
+                                              Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: anal_sex_tag_object.background_color,
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: anal_sex_tag_object.background_color,
+                                                  width: 1,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                anal_sex_tag_object.label,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // VAGINAL SEX TAG
+                                            if (vaginal_sex_tag_object.show_tag)
+                                              Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: vaginal_sex_tag_object.background_color,
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: vaginal_sex_tag_object.background_color,
+                                                  width: 1,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                vaginal_sex_tag_object.label,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // BONDAGE SEX TAG
+                                            if (bondage_tag_object.show_tag)
+                                              Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: bondage_tag_object.background_color,
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: bondage_tag_object.background_color,
+                                                  width: 1,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                bondage_tag_object.label,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+                                                  fontSize: 13,
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // BDSM SEX TAG
+                                            if (bdsm_tag_object.show_tag)
+                                              Container(
+
+                                              // PADDING
+                                              padding: EdgeInsets.all(7),
+
+                                              //CONTAINER STYLE
+                                              decoration: BoxDecoration(
+
+                                                // BACKGROUND COLOR
+                                                color: bdsm_tag_object.background_color,
+
+                                                // BORDER RADIUS
+                                                borderRadius: BorderRadius.circular(16),
+
+                                                // BORDER STYLE
+                                                border: Border.all(
+                                                  color: bdsm_tag_object.background_color,
+                                                  width: 1,
+                                                ),
+
+                                              ),
+
+                                              // CONTAINER CONTENT
+                                              child: Text(
+
+                                                // TEXT
+                                                bdsm_tag_object.label,
 
                                                 // TEXT STYLE
                                                 style: TextStyle(

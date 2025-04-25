@@ -240,7 +240,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deck_info_information_description_label => 'Description: ';
 
   @override
-  String get deck_info_start_game_button_label => 'Start game';
+  String get deck_info_select_deck_button_label => 'Select this deck';
 
   @override
   String get deck_info_quest_list_title => 'Quest list';
@@ -280,6 +280,33 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deck_info_deck_unplayable_error => 'You can\'t play a deck without quests ! Please add some quests to this deck or select another deck to continue.';
+
+  @override
+  String get select_game_speed_page_title => 'Select the game pace';
+
+  @override
+  String get select_game_speed_speed_1_title => 'I\'m out of time';
+
+  @override
+  String get select_game_speed_speed_2_title => 'Fast & fun';
+
+  @override
+  String get select_game_speed_speed_3_title => 'I\'m not in a hurry';
+
+  @override
+  String get select_game_speed_speed_4_title => 'I want to try it all';
+
+  @override
+  String get select_game_speed_speed_1_subtitle => 'Quests will only move to the next category after at least 25% of the previous category has been used.';
+
+  @override
+  String get select_game_speed_speed_2_subtitle => 'Quests will only move to the next category after at least 50% of the previous category has been used.';
+
+  @override
+  String get select_game_speed_speed_3_subtitle => 'Quests will only move to the next category after at least 75% of the previous category has been used.';
+
+  @override
+  String get select_game_speed_speed_4_subtitle => 'Quests will only move to the next category after all the quest of the previous category has been used.';
 
   @override
   String get quest_tool_female_lingerie => 'female lingerie';
@@ -384,6 +411,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get play_page_replace_button => 'Replace';
 
   @override
+  String get play_page_timer_label => 'Timer';
+
+  @override
   String get deck_list_main_page_title => 'Manage decks';
 
   @override
@@ -414,6 +444,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deck_management_press_menu_export => 'Export';
 
   @override
+  String get deck_management_press_menu_duplicate => 'Duplicate';
+
+  @override
+  String get deck_management_press_menu_edit => 'Edit';
+
+  @override
   String get deck_management_delete_dialog_title => 'Are you sure?';
 
   @override
@@ -424,6 +460,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deck_management_delete_dialog_no_button_label => 'No';
+
+  @override
+  String get deck_management_page_no_decks_text => 'Sorry, there is nothing here';
+
+  @override
+  String get deck_management_page_not_done_yet => 'Sorry, try to come here after the next update';
 
   @override
   String get deck_summary_editor_title => 'Deck summary info';

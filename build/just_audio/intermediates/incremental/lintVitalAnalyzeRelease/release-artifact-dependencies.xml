@@ -1,6 +1,6 @@
 <dependencies>
   <compile
-      roots="androidx.media3:media3-exoplayer:1.4.1@aar,androidx.media3:media3-exoplayer-dash:1.4.1@aar,androidx.media3:media3-exoplayer-hls:1.4.1@aar,androidx.media3:media3-exoplayer-smoothstreaming:1.4.1@aar,:@@:audio_session::release,io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.2.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.annotation:annotation-jvm:1.8.0@jar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.media3:media3-container:1.4.1@aar,androidx.media3:media3-common:1.4.1@aar,androidx.annotation:annotation-experimental:1.4.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar,com.google.guava:guava:33.0.0-android@jar,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,com.google.guava:failureaccess:1.0.2@jar,androidx.media3:media3-database:1.4.1@aar,androidx.media3:media3-datasource:1.4.1@aar,androidx.media3:media3-decoder:1.4.1@aar,androidx.media3:media3-extractor:1.4.1@aar,com.getkeepsafe.relinker:relinker:1.4.5@aar">
+      roots="androidx.media3:media3-exoplayer:1.4.1@aar,androidx.media3:media3-exoplayer-dash:1.4.1@aar,androidx.media3:media3-exoplayer-hls:1.4.1@aar,androidx.media3:media3-exoplayer-smoothstreaming:1.4.1@aar,:@@:audio_session::release,io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.2.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.annotation:annotation-jvm:1.8.0@jar,androidx.window:window-java:1.2.0@aar,androidx.window:window:1.2.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar,androidx.media3:media3-container:1.4.1@aar,androidx.media3:media3-common:1.4.1@aar,androidx.annotation:annotation-experimental:1.4.0@aar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar,com.google.guava:guava:33.0.0-android@jar,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,com.google.guava:failureaccess:1.0.2@jar,androidx.media3:media3-database:1.4.1@aar,androidx.media3:media3-datasource:1.4.1@aar,androidx.media3:media3-decoder:1.4.1@aar,androidx.media3:media3-extractor:1.4.1@aar,com.getkeepsafe.relinker:relinker:1.4.5@aar">
     <dependency
         name="androidx.media3:media3-exoplayer:1.4.1@aar"
         simpleName="androidx.media3:media3-exoplayer"/>
@@ -86,11 +86,20 @@
         name="androidx.annotation:annotation-jvm:1.8.0@jar"
         simpleName="androidx.annotation:annotation-jvm"/>
     <dependency
+        name="androidx.window:window-java:1.2.0@aar"
+        simpleName="androidx.window:window-java"/>
+    <dependency
         name="androidx.window:window:1.2.0@aar"
         simpleName="androidx.window:window"/>
     <dependency
-        name="androidx.window:window-java:1.2.0@aar"
-        simpleName="androidx.window:window-java"/>
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
+        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"/>
+    <dependency
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
+        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-android"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar"
+        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
     <dependency
         name="androidx.media3:media3-container:1.4.1@aar"
         simpleName="androidx.media3:media3-container"/>
@@ -101,16 +110,7 @@
         name="androidx.annotation:annotation-experimental:1.4.0@aar"
         simpleName="androidx.annotation:annotation-experimental"/>
     <dependency
-        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
-        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"/>
-    <dependency
-        name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
-        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-android"/>
-    <dependency
-        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar"
-        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
-    <dependency
-        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar"
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk7"/>
     <dependency
         name="org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar"
@@ -153,7 +153,7 @@
         simpleName="com.getkeepsafe.relinker:relinker"/>
   </compile>
   <package
-      roots="androidx.media3:media3-extractor:1.4.1@aar,androidx.media3:media3-container:1.4.1@aar,androidx.media3:media3-datasource:1.4.1@aar,androidx.media3:media3-decoder:1.4.1@aar,androidx.media3:media3-database:1.4.1@aar,androidx.media3:media3-common:1.4.1@aar,androidx.media3:media3-exoplayer-dash:1.4.1@aar,androidx.media3:media3-exoplayer-hls:1.4.1@aar,androidx.media3:media3-exoplayer-smoothstreaming:1.4.1@aar,androidx.media3:media3-exoplayer:1.4.1@aar,:@@:audio_session::release,io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar,androidx.media:media:1.7.0@aar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.customview:customview:1.0.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.2.0@jar,androidx.exifinterface:exifinterface:1.3.6@aar,androidx.profileinstaller:profileinstaller:1.3.1@aar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,androidx.interpolator:interpolator:1.0.0@aar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.concurrent:concurrent-futures:1.1.0@jar,androidx.window.extensions.core:core:1.0.0@aar,com.getkeepsafe.relinker:relinker:1.4.5@aar,com.google.guava:guava:33.0.0-android@jar,androidx.annotation:annotation-experimental:1.4.0@aar,androidx.annotation:annotation-jvm:1.8.0@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,com.google.guava:failureaccess:1.0.2@jar,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar">
+      roots="androidx.media3:media3-extractor:1.4.1@aar,androidx.media3:media3-container:1.4.1@aar,androidx.media3:media3-datasource:1.4.1@aar,androidx.media3:media3-decoder:1.4.1@aar,androidx.media3:media3-database:1.4.1@aar,androidx.media3:media3-common:1.4.1@aar,androidx.media3:media3-exoplayer-dash:1.4.1@aar,androidx.media3:media3-exoplayer-hls:1.4.1@aar,androidx.media3:media3-exoplayer-smoothstreaming:1.4.1@aar,androidx.media3:media3-exoplayer:1.4.1@aar,:@@:audio_session::release,io.flutter:flutter_embedding_release:1.0.0-18b71d647a292a980abb405ac7d16fe1f0b20434@jar,androidx.media:media:1.7.0@aar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.2.0@jar,androidx.exifinterface:exifinterface:1.3.6@aar,androidx.profileinstaller:profileinstaller:1.3.1@aar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,androidx.interpolator:interpolator:1.0.0@aar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.concurrent:concurrent-futures:1.1.0@jar,androidx.window.extensions.core:core:1.0.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar,com.getkeepsafe.relinker:relinker:1.4.5@aar,com.google.guava:guava:33.0.0-android@jar,androidx.annotation:annotation-experimental:1.4.0@aar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar,androidx.annotation:annotation-jvm:1.8.0@jar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,com.google.guava:failureaccess:1.0.2@jar,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar">
     <dependency
         name="androidx.media3:media3-extractor:1.4.1@aar"
         simpleName="androidx.media3:media3-extractor"/>
@@ -194,12 +194,6 @@
         name="androidx.media:media:1.7.0@aar"
         simpleName="androidx.media:media"/>
     <dependency
-        name="androidx.window:window:1.2.0@aar"
-        simpleName="androidx.window:window"/>
-    <dependency
-        name="androidx.window:window-java:1.2.0@aar"
-        simpleName="androidx.window:window-java"/>
-    <dependency
         name="androidx.fragment:fragment:1.7.1@aar"
         simpleName="androidx.fragment:fragment"/>
     <dependency
@@ -208,9 +202,6 @@
     <dependency
         name="androidx.loader:loader:1.0.0@aar"
         simpleName="androidx.loader:loader"/>
-    <dependency
-        name="androidx.viewpager:viewpager:1.0.0@aar"
-        simpleName="androidx.viewpager:viewpager"/>
     <dependency
         name="androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar"
         simpleName="androidx.lifecycle:lifecycle-livedata-core-ktx"/>
@@ -244,6 +235,15 @@
     <dependency
         name="androidx.core:core-ktx:1.13.1@aar"
         simpleName="androidx.core:core-ktx"/>
+    <dependency
+        name="androidx.window:window:1.2.0@aar"
+        simpleName="androidx.window:window"/>
+    <dependency
+        name="androidx.window:window-java:1.2.0@aar"
+        simpleName="androidx.window:window-java"/>
+    <dependency
+        name="androidx.viewpager:viewpager:1.0.0@aar"
+        simpleName="androidx.viewpager:viewpager"/>
     <dependency
         name="androidx.customview:customview:1.0.0@aar"
         simpleName="androidx.customview:customview"/>
@@ -284,6 +284,15 @@
         name="androidx.window.extensions.core:core:1.0.0@aar"
         simpleName="androidx.window.extensions.core:core"/>
     <dependency
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
+        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"/>
+    <dependency
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
+        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-android"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar"
+        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
+    <dependency
         name="com.getkeepsafe.relinker:relinker:1.4.5@aar"
         simpleName="com.getkeepsafe.relinker:relinker"/>
     <dependency
@@ -293,20 +302,11 @@
         name="androidx.annotation:annotation-experimental:1.4.0@aar"
         simpleName="androidx.annotation:annotation-experimental"/>
     <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar"
+        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk7"/>
+    <dependency
         name="androidx.annotation:annotation-jvm:1.8.0@jar"
         simpleName="androidx.annotation:annotation-jvm"/>
-    <dependency
-        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
-        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"/>
-    <dependency
-        name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
-        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-android"/>
-    <dependency
-        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar"
-        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
-    <dependency
-        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar"
-        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk7"/>
     <dependency
         name="org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib"/>

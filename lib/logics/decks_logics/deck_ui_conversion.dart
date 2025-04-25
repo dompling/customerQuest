@@ -26,15 +26,16 @@ LanguageInfo get_language_info(BuildContext context, String deck_lang) {
   // GETTING THE CASE USING DIFFICULTY NUMBER
   switch (deck_lang) {
     case "it":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_it, Color(0xff6b6b6b), Color(0xff6b6b6b), "it");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_it, Color(
+          0xff4b709c), Color(0xff4b709c), "it");
     case "es":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_es, Color(0xff6b6b6b), Color(0xff6b6b6b), "es");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_es, Color(0xff4b709c), Color(0xff4b709c), "es");
     case "de":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_de, Color(0xff6b6b6b), Color(0xff6b6b6b), "de");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_de, Color(0xff4b709c), Color(0xff4b709c), "de");
     case "fr":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_fr, Color(0xff6b6b6b), Color(0xff6b6b6b), "fr");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_fr, Color(0xff4b709c), Color(0xff4b709c), "fr");
     default:
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_en, Color(0xff6b6b6b), Color(0xff6b6b6b), "en");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_en, Color(0xff4b709c), Color(0xff4b709c), "en");
   }
 
 }
@@ -62,13 +63,16 @@ CoupleTypeInfo get_couple_type_info(BuildContext context, String couple_type) {
   switch (couple_type) {
     case "hetero":
       return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_hetero, Color(
-          0xb361bd47), Color(0xb361bd47));
+          0xb3a52d2d), Color(0xb3a52d2d));
     case "lesbian":
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_lesbian, Color(0x9ed382ea), Color(0x9ed382ea));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_lesbian, Color(0x9ed382ea),
+          Color(0x9ed382ea));
     case "gay":
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_gay, Color(0xb3324059), Color(0xb3324059));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_gay, Color(
+          0xb3324059), Color(0xb3324059));
     default:
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_not_spec, Color(0xff4e4e4e), Color(0xff4e4e4e));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_not_spec, Color(0xff4e4e4e),
+          Color(0xff4e4e4e));
   }
 
 }
@@ -98,10 +102,10 @@ GameTypeInfo get_game_type_type_info(BuildContext context, bool play_distance) {
   switch (play_distance) {
     case  false:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_presence, Color(
-          0xb3a25b5b), Color(0xb3a25b5b));
+          0xb3bc3058), Color(0xb3bc3058));
     case true:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_distance, Color(
-          0x9e82c2ea), Color(0x9e82c2ea));
+          0x9e6b4ad8), Color(0x9e6b4ad8));
   }
 
 }
@@ -131,7 +135,7 @@ ToolsInfo get_tools_info(BuildContext context, List<String> deck_tools_list) {
   if (deck_tools_list.isEmpty) {
 
     return ToolsInfo(AppLocalizations.of(context)!.no_tools_label, Color(
-        0xff453762), Color(0xff453762));
+        0xff2a7539), Color(0xff2a7539));
 
   } else {
 
@@ -281,14 +285,14 @@ BondageTagInfo get_bondage_tag_info(BuildContext context, List<String> deck_tags
   if (deck_tags_list.contains("bondage")) {
 
     return BondageTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
-        0xff913289), Color(
-        0xff913289), true);
+        0xff473291), Color(
+        0xff473291), true);
 
   } else {
 
     return BondageTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
-        0xff913289), Color(
-        0xff913289), false);
+        0xff473291), Color(
+        0xff473291), false);
 
   }
 

@@ -3,7 +3,7 @@
 
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 
 
 

@@ -6,10 +6,10 @@ import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/translate_tools.dart';
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
-import 'package:loverquest/pages/play_pages/07_play_page.dart';
+import 'package:loverquest/pages/play_pages/07_select_game_speed.dart';
 
 //------------------------------------------------------------------------------
 
@@ -291,7 +291,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     setState(() {
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (widget.selected_deck.summary.play_distance) {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;}
+      if (widget.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;}
 
       // GETTING THE LANGUAGE INFO
       deck_language_label = get_language_info(context, widget.selected_deck.summary.language);
@@ -728,25 +728,23 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                     if(is_playable) {
 
                                       // PAGE LINKER
-                                      Navigator.pushAndRemoveUntil(
+                                      Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => PlayPage(
+                                        MaterialPageRoute(builder: (context) => SelectGameSpeed(
 
                                           game_type: widget.game_type,
                                           player_1_object: widget.player_1_object,
                                           player_2_object: widget.player_2_object,
-                                          first_player: widget.first_player,
+                                          first_player_object: widget.first_player,
                                           early_quests_list: early_quests_list,
                                           mid_quests_list: mid_quests_list,
                                           late_quests_list: late_quests_list,
                                           end_quests_list: end_quests_list,
-                                          passed_current_quest: Quest.empty(),
 
                                         )
 
                                         ),
 
-                                            (Route<dynamic> route) => false,
                                       );
 
                                     }
@@ -757,7 +755,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                   child: Text(
 
                                     // TEXT
-                                    AppLocalizations.of(context)!.deck_info_start_game_button_label,
+                                    AppLocalizations.of(context)!.deck_info_select_deck_button_label,
 
                                     // TEXT ALIGNMENT
                                     textAlign: TextAlign.center,

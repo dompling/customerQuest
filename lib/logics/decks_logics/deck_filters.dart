@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 
 bool containsAny(List<String> list1, List<String> list2) {
   return list2.any((element) => list1.contains(element));
@@ -50,7 +50,7 @@ List<DeckReader> filter_decks_for_couple_type (List<DeckReader> loaded_decks_lis
 
 
 // FILTERING DECK LIST FOR PRESENCE - DISTANCE
-List<DeckReader> filter_decks_for_presence_distance (List<DeckReader> loaded_decks_list, bool play_distance) {
+List<DeckReader> filter_decks_for_presence_distance (List<DeckReader> loaded_decks_list, bool play_presence) {
 
   //------------------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ List<DeckReader> filter_decks_for_presence_distance (List<DeckReader> loaded_dec
   for (DeckReader loaded_deck in loaded_decks_list) {
 
     // CHECKING IF THE DECK COUPLE IS COMPATIBLE WITH THE ONE SELECTED
-    if (loaded_deck.summary.play_distance == play_distance) {
+    if (loaded_deck.summary.play_presence == play_presence) {
 
       // ADDING THE DECK TO THE FILTERED LIST
       filtered_list.add(loaded_deck);
@@ -141,7 +141,7 @@ List<DeckReader> filter_decks_for_couple_type_and_game_type (List<DeckReader> lo
   for (DeckReader loaded_deck in loaded_decks_list) {
 
     // CHECKING IF THE DECK COUPLE TYPE MATCH THE SELECTED ONE
-    if ((loaded_deck.summary.couple_type.toLowerCase() == couple_type.toLowerCase()) && (loaded_deck.summary.play_distance == game_type)) {
+    if ((loaded_deck.summary.couple_type.toLowerCase() == couple_type.toLowerCase()) && (loaded_deck.summary.play_presence == game_type)) {
 
       // ADDING THE DECK TO THE FILTERED LIST
       filtered_list.add(loaded_deck);

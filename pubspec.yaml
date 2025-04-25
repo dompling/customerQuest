@@ -17,7 +17,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ^3.6.2
@@ -40,40 +40,40 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
+  cupertino_icons: any
 
   # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
-  path_provider: ^2.1.5
+  path_provider: any
 
   # NECESSARY TO ALLOW TE CUSTOM DECK IMPORT/EXPORT
-  path: ^1.8.3
+  path: any
 
   # NECESSARY TO ALLOW TE CUSTOM DECK IMPORT/EXPORT
-  flutter_file_saver: ^0.8.1
+  flutter_file_saver: any
 
   # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
-  permission_handler: ^12.0.0+1
+  permission_handler: any
 
   # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
-  file_picker: ^10.1.2
+  file_picker: any
 
   # NECESSARY TO ALLOW THE CUSTOM DECK IMPORT/EXPORT
-  provider: ^6.0.5
+  provider: any
 
   # NECESSARY TO OPEN URL IN THE SYSTEM BROWSER
-  url_launcher: ^6.2.5
+  url_launcher: any
 
   #
-  shared_preferences: ^2.5.2
+  shared_preferences: any
 
   # NECESSARY TO ALLOW TEXT MARKDOWN
-  flutter_markdown: ^0.7.7
+  flutter_markdown: any
 
   # NECESSARY TO REPRODUCE THE TIMER ALARM
-  just_audio: ^0.9.36
+  just_audio: any
 
   # NECESSARY TO KEEP THE SCREEN ON
-  wakelock_plus: ^1.2.11
+  wakelock_plus: any
 
 dev_dependencies:
   flutter_test:
@@ -84,10 +84,10 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: any
   intl_utils: any
 
-  flutter_launcher_icons: "^0.14.3"
+  flutter_launcher_icons: any
 
 
 # For information on the generic Dart part of this file, see the

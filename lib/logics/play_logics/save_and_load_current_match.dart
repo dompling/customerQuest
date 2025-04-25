@@ -9,7 +9,7 @@ import 'package:path_provider/path_provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/player_class.dart';
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 
 //------------------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ class GameStorage {
   //------------------------------------------------------------------------------
 
   // METHOD TO SAVE ON THE SAME JSON FILE BOTH PLAYERS DATA AND ALL QUEST
-  static Future<void> save_game_data(bool game_type, List<Players> players_list, Quest current_quest, String current_player_alias) async {
+  static Future<void> save_game_data(bool game_type, List<Players> players_list, Quest current_quest, String current_player_alias, int quest_switch_multiplier) async {
     
     // GETTING THE TMP FILE PATH
     final file = await get_file();
@@ -45,6 +45,7 @@ class GameStorage {
       'players_list': players_list.map((p) => p.toJson()).toList(),
       'current_quest': current_quest.toJson(),
       'current_player_alias': current_player_alias,
+      'quest_switch_multiplier': quest_switch_multiplier,
 
     });
     
@@ -89,6 +90,7 @@ class GameStorage {
           'players_list': players_list,
           'current_quest': current_quest,
           'current_player_alias': jsonData['current_player_alias'] ?? "none",
+          'quest_switch_multiplier': jsonData['quest_switch_multiplier'] ?? 1,
         };
         
       }
@@ -107,6 +109,7 @@ class GameStorage {
       'players_list': [],
       'current_quest': Quest.empty(),
       'current_player_alias': 'none',
+      'quest_switch_multiplier': 1,
     };
   }
 

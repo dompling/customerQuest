@@ -1,0 +1,2 @@
+/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/RelWithDebInfo/3m2145c6/x86/CMakeFiles/edit_cache.dir
+/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/RelWithDebInfo/3m2145c6/x86/CMakeFiles/rebuild_cache.dir

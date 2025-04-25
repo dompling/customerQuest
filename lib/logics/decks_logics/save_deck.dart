@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'package:path_provider/path_provider.dart';
 
 // CUSTOM FILE
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 
 //------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ class DeckSaver {
   //------------------------------------------------------------------------------
 
   // FUNCTION TO CONVERT DATA IN A JSON DECK
-  static Future<String> save_deck({ required String deck_name, required String deck_description, required String deck_language, required String couple_type, required bool play_distance, required List<String> deck_tags, DeckReader? selected_deck,}) async {
+  static Future<String> save_deck({ required String deck_name, required String deck_description, required String deck_language, required String couple_type, required bool play_presence, required List<String> deck_tags, DeckReader? selected_deck, bool? duplication = false}) async {
 
     try {
 
@@ -75,7 +75,7 @@ class DeckSaver {
         name: deck_name,
         description: deck_description,
         couple_type: couple_type,
-        play_distance: play_distance,
+        play_presence: play_presence,
         language: deck_language,
         total_quests: deck_quest_number,
         required_tools: deck_quest_tools,
@@ -94,7 +94,7 @@ class DeckSaver {
 
       // DEFINING THE FILE NAME AND PATH
       String file_path;
-      if (selected_deck != null) {
+      if (selected_deck != null && duplication == false) {
         file_path = selected_deck.deck_file_path;
       } else {
         Directory appDocDir = await getApplicationDocumentsDirectory();
@@ -117,7 +117,7 @@ class DeckSaver {
     } catch (e) {
 
       // ERROR
-      throw Exception("Errore nel salvataggio del deck: $e");
+      throw Exception("ERROR] - There was an error saving the deck: $e");
 
     }
 
@@ -142,7 +142,7 @@ class DeckSaver {
         deck_description: selected_deck.summary.description,
         deck_language: selected_deck.summary.language,
         couple_type: selected_deck.summary.couple_type,
-        play_distance: selected_deck.summary.play_distance,
+        play_presence: selected_deck.summary.play_presence,
         deck_tags: selected_deck.summary.tags,
         selected_deck: selected_deck,
       );

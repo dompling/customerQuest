@@ -1,0 +1,2 @@
+/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/Debug/6h2v374s/x86_64/CMakeFiles/edit_cache.dir
+/home/herzen/Documenti/GitHub/loverquest/android/app/.cxx/Debug/6h2v374s/x86_64/CMakeFiles/rebuild_cache.dir

@@ -1,14 +1,14 @@
 <lint-module
     format="1"
-    dir="/home/herzen/.pub-cache/hosted/pub.dev/just_audio-0.9.46/android"
+    dir="/home/herzen/.pub-cache/hosted/pub.dev/just_audio-0.10.0/android"
     name=":just_audio"
     type="LIBRARY"
-    maven="com.ryanheise.just_audio:just_audio:"
-    agpVersion="8.2.2"
+    maven="com.ryanheise.just_audio:just_audio:1.0"
+    agpVersion="8.9.2"
     buildFolder="/home/herzen/Documenti/GitHub/loverquest/build/just_audio"
-    bootClassPath="/home/herzen/Android/Sdk/platforms/android-34/android.jar:/home/herzen/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
-    javaSourceLevel="1.8"
-    compileTarget="android-34"
+    bootClassPath="/home/herzen/Android/Sdk/platforms/android-35/android.jar:/home/herzen/Android/Sdk/build-tools/35.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="11"
+    compileTarget="android-35"
     neverShrinking="true">
   <lintOptions
       disable="AndroidGradlePluginVersion,InvalidPackage,GradleDependency,NewerVersionAvailable"

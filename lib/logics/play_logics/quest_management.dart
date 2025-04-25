@@ -4,7 +4,7 @@
 import 'dart:math';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import  'package:loverquest/logics/play_logics/player_class.dart';
 
 

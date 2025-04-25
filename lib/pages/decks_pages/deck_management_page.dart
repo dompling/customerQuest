@@ -6,16 +6,18 @@ import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/deck_list_reader.dart';
-import 'package:loverquest/logics/decks_logics/quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
 import 'package:loverquest/logics/decks_logics/deck_filters.dart';
 import 'package:loverquest/logics/decks_logics/import_decks.dart';
 import 'package:loverquest/logics/decks_logics/export_decks.dart';
 import 'package:loverquest/pages/decks_pages/deck_filters_ui_page.dart';
-import 'package:loverquest/pages/decks_pages/deck_info_page.dart';
+import 'package:loverquest/pages/decks_pages/stock_deck_info_page.dart';
 import 'package:loverquest/pages/decks_pages/deck_editor_main_page.dart';
 import 'package:loverquest/pages/decks_pages/delete_deck_dialog.dart';
 import 'package:loverquest/pages/decks_pages/edit_deck_summary_page.dart';
+import 'package:loverquest/logics/decks_logics/save_deck.dart';
+
 
 //------------------------------------------------------------------------------
 
@@ -26,9 +28,10 @@ class DeckManagementPage extends StatefulWidget {
 
   // CLASS PARAMETERS
   final bool load_default_decks;
+  final DeckReader? deck_to_edit;
 
   // CLASS CONSTRUCTOR
-  const DeckManagementPage({required this.load_default_decks, super.key});
+  const DeckManagementPage({required this.load_default_decks, this. deck_to_edit, super.key});
 
   @override
   State<DeckManagementPage> createState() => _DeckManagementPageState();
@@ -62,6 +65,31 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
   //------------------------------------------------------------------------------
 
   // CLASS INITIAL STATE
+  @override
+  void initState() {
+    super.initState();
+
+    // WAITING FOR THE END OF THE FIRST FRAME
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+
+      // CHECKING THAT THE GIVEN DECK IS NOT NULL
+      if (widget.deck_to_edit != null) {
+
+        // OPENING THE EDIT MAIN PAGE
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => DeckEditMainPage(selected_deck: widget.deck_to_edit!),
+          ),
+        );
+
+      }
+
+    });
+
+  }
+
+  // CLASS CODE EXECUTED AFTER EVERY RELOADING
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -174,7 +202,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
       List<DeckReader> temp_filtered_list = List.from(loaded_decks_list);
 
       // DEFINING THE PLAY DISTANCE VAR
-      bool play_distance = true;
+      bool play_presence = true;
 
       // CHECKING IF THE COUPLE FILTER HAS BEEN SET
       if (selected_option_couple_type != 'all') {
@@ -191,13 +219,13 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
         if (selected_option_game_type == "distance") {
 
           // SETTING THE FILTER AS ONLINE ONLY
-          play_distance = true;
+          play_presence = true;
 
           // SETTING THE FILTER AS LOCAL ONLY
-        } else {play_distance = false;}
+        } else {play_presence = false;}
 
         // GETTING THE FILTERED LIST
-        temp_filtered_list = filter_decks_for_presence_distance(temp_filtered_list, play_distance);
+        temp_filtered_list = filter_decks_for_presence_distance(temp_filtered_list, play_presence);
 
       }
 
@@ -404,8 +432,20 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
             // PAGE ALIGNMENT
             alignment: Alignment.topCenter,
 
-            // SAFE AREA CONTENT
-            child: CustomScrollView (
+            // TEXT TO DISPLAY IF THERE ARE NO DECKS
+            child: filtered_decks_list.isEmpty ? Center(
+
+              child: Text(
+
+                AppLocalizations.of(context)!.deck_management_page_no_decks_text,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
+              ),
+
+            )
+
+            // DYNAMIC PART OF THE PAGE
+            : CustomScrollView (
 
               // PAGE CONTENT
               slivers: [
@@ -465,8 +505,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                 //------------------------------------------------------------------------------
 
-                // DYNAMIC PART OF THE PAGE
-                SliverList(
+                 SliverList(
 
                   // DYNAMIC PART OF THE WIDGET
                   delegate: SliverChildBuilderDelegate(
@@ -484,7 +523,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                       // GETTING DECK TAG INFO
                       LanguageInfo language_info_object = get_language_info(context, filtered_decks_list[index].summary.language);
                       CoupleTypeInfo couple_type_info_object = get_couple_type_info(context, filtered_decks_list[index].summary.couple_type);
-                      GameTypeInfo game_type_info_object = get_game_type_type_info(context, filtered_decks_list[index].summary.play_distance);
+                      GameTypeInfo game_type_info_object = get_game_type_type_info(context, filtered_decks_list[index].summary.play_presence);
                       ToolsInfo tools_info_object = get_tools_info(context, filtered_decks_list[index].summary.required_tools);
                       OralSexTagInfo oral_sex_tag_object = get_oral_tag_info(context, filtered_decks_list[index].summary.tags);
                       AnalSexTagInfo anal_sex_tag_object = get_anal_tag_info(context, filtered_decks_list[index].summary.tags);
@@ -527,40 +566,42 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                   // MENU CONTENT
                                   items: [
 
-                                    // DELETE ENTRY
-                                    PopupMenuItem(
+                                    if (!widget.load_default_decks)
 
-                                      // ENTRY VALUE
-                                      value: 'delete',
+                                      // DELETE ENTRY
+                                      PopupMenuItem(
 
-                                      // ENTRY CONTENT
-                                      child: Row(
+                                        // ENTRY VALUE
+                                        value: 'delete',
 
-                                        // ROW CONTENT
-                                        children: [
+                                        // ENTRY CONTENT
+                                        child: Row(
 
-                                          // ENTRY ICON
-                                          Icon(
+                                          // ROW CONTENT
+                                          children: [
 
-                                            // ICON
-                                            Icons.delete,
+                                            // ENTRY ICON
+                                            Icon(
 
-                                            // ICON SIZE
-                                            size: 18,
+                                              // ICON
+                                              Icons.delete,
 
-                                          ),
+                                              // ICON SIZE
+                                              size: 18,
 
-                                          // SPACER
-                                          SizedBox(width: 5),
+                                            ),
 
-                                          // ENTRY TEXT
-                                          Expanded(child: Text(AppLocalizations.of(context)!.deck_management_press_menu_delete)),
+                                            // SPACER
+                                            SizedBox(width: 5),
 
-                                        ],
+                                            // ENTRY TEXT
+                                            Expanded(child: Text(AppLocalizations.of(context)!.deck_management_press_menu_delete)),
+
+                                          ],
+
+                                        ),
 
                                       ),
-
-                                    ),
 
                                     // EXPORT ENTRY
                                     PopupMenuItem(
@@ -597,6 +638,80 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                     ),
 
+                                    if (!widget.load_default_decks)
+
+                                      // DUPLICATE ENTRY
+                                      PopupMenuItem(
+
+                                        // ENTRY VALUE
+                                        value: 'duplicate',
+
+                                        // ENTRY CONTENT
+                                        child: Row(
+
+                                          // ROW CONTENT
+                                          children: [
+
+                                            // ENTRY ICON
+                                            Icon(
+
+                                              // ICON
+                                              Icons.copy,
+
+                                              // ICON SIZE
+                                              size: 18,
+
+                                            ),
+
+                                            // SPACER
+                                            SizedBox(width: 5),
+
+                                            // ENTRY TEXT
+                                            Expanded(child: Text(AppLocalizations.of(context)!.deck_management_press_menu_duplicate)),
+
+                                          ],
+
+                                        ),
+
+                                      ),
+
+                                    if (widget.load_default_decks)
+
+                                      // EDIT ENTRY
+                                      PopupMenuItem(
+
+                                        // ENTRY VALUE
+                                        value: 'edit',
+
+                                        // ENTRY CONTENT
+                                        child: Row(
+
+                                          // ROW CONTENT
+                                          children: [
+
+                                            // ENTRY ICON
+                                            Icon(
+
+                                              // ICON
+                                              Icons.edit,
+
+                                              // ICON SIZE
+                                              size: 18,
+
+                                            ),
+
+                                            // SPACER
+                                            SizedBox(width: 5),
+
+                                            // ENTRY TEXT
+                                            Expanded(child: Text(AppLocalizations.of(context)!.deck_management_press_menu_edit)),
+
+                                          ],
+
+                                        ),
+
+                                      ),
+
                                   ],
 
                                   // MENU CONDITION ON ANY BUTTON PRESSED
@@ -605,15 +720,77 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                   // CHECKING WHICH OPTION WAS CHOOSE
                                   if (value == "export") {
 
-                                    // EXPORTING THE DECK
-                                    await export_json_file(deck_file_path, deck_name);
+                                    if (widget.load_default_decks) {
+
+                                      // EXPORTING THE DECK
+                                      await export_json_file(deck_file_path, deck_name, isAsset: true);
+
+                                    } else {
+
+                                      // EXPORTING THE DECK
+                                      await export_json_file(deck_file_path, deck_name);
+
+                                    }
 
                                   } else if (value == "delete") {
 
                                     // SHOWING THE DELETE DIALOG
                                     showDeckDeleteDialog(deck_file_path, deck_name);
 
+                                  } else if (value == "duplicate") {
+
+                                    // SAVING THE DECK
+                                    await DeckSaver.save_deck(
+
+                                      deck_name: "${filtered_decks_list[index].summary.name}_2",
+                                      deck_description: filtered_decks_list[index].summary.description,
+                                      deck_language: filtered_decks_list[index].summary.language,
+                                      couple_type: filtered_decks_list[index].summary.couple_type,
+                                      play_presence: filtered_decks_list[index].summary.play_presence,
+                                      deck_tags: filtered_decks_list[index].summary.tags,
+                                      selected_deck: filtered_decks_list[index],
+                                      duplication: true
+
+                                    );
+
+                                    // UPDATING THE PAGE LIST
+                                    await load_all_custom_decks();
+
+                                    setState(() {
+
+                                    });
+
+                                  } else if (value == "edit") {
+
+                                    // SAVING THE DECK
+                                   String new_duplicated_deck_file_path = await DeckSaver.save_deck(
+
+                                        deck_name: "${filtered_decks_list[index].summary.name}_2",
+                                        deck_description: filtered_decks_list[index].summary.description,
+                                        deck_language: filtered_decks_list[index].summary.language,
+                                        couple_type: filtered_decks_list[index].summary.couple_type,
+                                        play_presence: filtered_decks_list[index].summary.play_presence,
+                                        deck_tags: filtered_decks_list[index].summary.tags,
+                                        selected_deck: filtered_decks_list[index],
+                                        duplication: true
+
+                                    );
+
+                                   // INITIALIZING THE DUPLICATED DECK
+                                   DeckReader new_duplicated_deck = DeckReader(new_duplicated_deck_file_path);
+
+                                   // LOADING THE DUPLICATED DECK
+                                   await new_duplicated_deck.load_deck();
+
+                                   Navigator.pushReplacement(
+                                     context,
+                                     MaterialPageRoute(
+                                       builder: (context) => DeckManagementPage(load_default_decks: false, deck_to_edit: new_duplicated_deck,),
+                                     ),
+                                   );
+
                                   }
+
 
                                 });
 
@@ -671,8 +848,6 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                         builder: (context) => DeckInfoPage(
 
                                           selected_deck: filtered_decks_list[index],
-                                          can_edit: true,
-                                          game_type: false,
 
                                         ),
 
@@ -779,8 +954,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                                   // BORDER STYLE
                                                   border: Border.all(
-                                                    color: language_info_object.border_color,
-                                                    width: 2,
+                                                    color: language_info_object.background_color,
+                                                    width: 1,
                                                   ),
 
                                                 ),
@@ -819,8 +994,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                                   // BORDER STYLE
                                                   border: Border.all(
-                                                    color: couple_type_info_object.border_color,
-                                                    width: 2,
+                                                    color: couple_type_info_object.background_color,
+                                                    width: 1,
                                                   ),
 
                                                 ),
@@ -859,8 +1034,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                                   // BORDER STYLE
                                                   border: Border.all(
-                                                    color: game_type_info_object.border_color,
-                                                    width: 2,
+                                                    color: game_type_info_object.background_color,
+                                                    width: 1,
                                                   ),
 
                                                 ),
@@ -899,8 +1074,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                                                   // BORDER STYLE
                                                   border: Border.all(
-                                                    color: tools_info_object.border_color,
-                                                    width: 2,
+                                                    color: tools_info_object.background_color,
+                                                    width: 1,
                                                   ),
 
                                                 ),
@@ -940,7 +1115,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                                   // BORDER STYLE
                                                   border: Border.all(
                                                     color: Color(0xff376255),
-                                                    width: 2,
+                                                    width: 1,
                                                   ),
 
                                                 ),
@@ -963,202 +1138,208 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                               //------------------------------------------------------------------------------
 
                                               // ORAL SEX TAG
-                                              oral_sex_tag_object.show_tag ? Container(
+                                              if (oral_sex_tag_object.show_tag)
 
-                                                // PADDING
-                                                padding: EdgeInsets.all(7),
+                                                Container(
 
-                                                //CONTAINER STYLE
-                                                decoration: BoxDecoration(
+                                                  // PADDING
+                                                  padding: EdgeInsets.all(7),
 
-                                                  // BACKGROUND COLOR
-                                                  color: oral_sex_tag_object.background_color,
+                                                  //CONTAINER STYLE
+                                                  decoration: BoxDecoration(
 
-                                                  // BORDER RADIUS
-                                                  borderRadius: BorderRadius.circular(16),
+                                                    // BACKGROUND COLOR
+                                                    color: oral_sex_tag_object.background_color,
 
-                                                  // BORDER STYLE
-                                                  border: Border.all(
-                                                    color: oral_sex_tag_object.border_color,
-                                                    width: 2,
+                                                    // BORDER RADIUS
+                                                    borderRadius: BorderRadius.circular(16),
+
+                                                    // BORDER STYLE
+                                                    border: Border.all(
+                                                      color: oral_sex_tag_object.background_color,
+                                                      width: 1,
+                                                    ),
+
+                                                  ),
+
+                                                  // CONTAINER CONTENT
+                                                  child: Text(
+
+                                                    // TEXT
+                                                    oral_sex_tag_object.label,
+
+                                                    // TEXT STYLE
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                    ),
+
                                                   ),
 
                                                 ),
-
-                                                // CONTAINER CONTENT
-                                                child: Text(
-
-                                                  // TEXT
-                                                  oral_sex_tag_object.label,
-
-                                                  // TEXT STYLE
-                                                  style: TextStyle(
-                                                    fontSize: 13,
-                                                  ),
-
-                                                ),
-
-                                              ): SizedBox(),
 
                                               //------------------------------------------------------------------------------
 
-                                              // ORAL SEX TAG
-                                              anal_sex_tag_object.show_tag ? Container(
+                                              // ANAL SEX TAG
+                                              if (anal_sex_tag_object.show_tag)
+                                                Container(
 
-                                                // PADDING
-                                                padding: EdgeInsets.all(7),
+                                                  // PADDING
+                                                  padding: EdgeInsets.all(7),
 
-                                                //CONTAINER STYLE
-                                                decoration: BoxDecoration(
+                                                  //CONTAINER STYLE
+                                                  decoration: BoxDecoration(
 
-                                                  // BACKGROUND COLOR
-                                                  color: anal_sex_tag_object.background_color,
+                                                    // BACKGROUND COLOR
+                                                    color: anal_sex_tag_object.background_color,
 
-                                                  // BORDER RADIUS
-                                                  borderRadius: BorderRadius.circular(16),
+                                                    // BORDER RADIUS
+                                                    borderRadius: BorderRadius.circular(16),
 
-                                                  // BORDER STYLE
-                                                  border: Border.all(
-                                                    color: anal_sex_tag_object.border_color,
-                                                    width: 2,
+                                                    // BORDER STYLE
+                                                    border: Border.all(
+                                                      color: anal_sex_tag_object.background_color,
+                                                      width: 1,
+                                                    ),
+
+                                                  ),
+
+                                                  // CONTAINER CONTENT
+                                                  child: Text(
+
+                                                    // TEXT
+                                                    anal_sex_tag_object.label,
+
+                                                    // TEXT STYLE
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                    ),
+
                                                   ),
 
                                                 ),
-
-                                                // CONTAINER CONTENT
-                                                child: Text(
-
-                                                  // TEXT
-                                                  anal_sex_tag_object.label,
-
-                                                  // TEXT STYLE
-                                                  style: TextStyle(
-                                                    fontSize: 13,
-                                                  ),
-
-                                                ),
-
-                                              ): SizedBox(),
 
                                               //------------------------------------------------------------------------------
 
-                                              // ORAL SEX TAG
-                                              vaginal_sex_tag_object.show_tag ? Container(
+                                              // VAGINAL SEX TAG
+                                              if (vaginal_sex_tag_object.show_tag)
+                                                Container(
 
-                                                // PADDING
-                                                padding: EdgeInsets.all(7),
+                                                  // PADDING
+                                                  padding: EdgeInsets.all(7),
 
-                                                //CONTAINER STYLE
-                                                decoration: BoxDecoration(
+                                                  //CONTAINER STYLE
+                                                  decoration: BoxDecoration(
 
-                                                  // BACKGROUND COLOR
-                                                  color: vaginal_sex_tag_object.background_color,
+                                                    // BACKGROUND COLOR
+                                                    color: vaginal_sex_tag_object.background_color,
 
-                                                  // BORDER RADIUS
-                                                  borderRadius: BorderRadius.circular(16),
+                                                    // BORDER RADIUS
+                                                    borderRadius: BorderRadius.circular(16),
 
-                                                  // BORDER STYLE
-                                                  border: Border.all(
-                                                    color: vaginal_sex_tag_object.border_color,
-                                                    width: 2,
+                                                    // BORDER STYLE
+                                                    border: Border.all(
+                                                      color: vaginal_sex_tag_object.background_color,
+                                                      width: 1,
+                                                    ),
+
+                                                  ),
+
+                                                  // CONTAINER CONTENT
+                                                  child: Text(
+
+                                                    // TEXT
+                                                    vaginal_sex_tag_object.label,
+
+                                                    // TEXT STYLE
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                    ),
+
                                                   ),
 
                                                 ),
-
-                                                // CONTAINER CONTENT
-                                                child: Text(
-
-                                                  // TEXT
-                                                  vaginal_sex_tag_object.label,
-
-                                                  // TEXT STYLE
-                                                  style: TextStyle(
-                                                    fontSize: 13,
-                                                  ),
-
-                                                ),
-
-                                              ): SizedBox(),
 
                                               //------------------------------------------------------------------------------
 
-                                              // ORAL SEX TAG
-                                              bondage_tag_object.show_tag ? Container(
+                                              // BONDAGE SEX TAG
+                                              if (bondage_tag_object.show_tag)
+                                                Container(
 
-                                                // PADDING
-                                                padding: EdgeInsets.all(7),
+                                                  // PADDING
+                                                  padding: EdgeInsets.all(7),
 
-                                                //CONTAINER STYLE
-                                                decoration: BoxDecoration(
+                                                  //CONTAINER STYLE
+                                                  decoration: BoxDecoration(
 
-                                                  // BACKGROUND COLOR
-                                                  color: bondage_tag_object.background_color,
+                                                    // BACKGROUND COLOR
+                                                    color: bondage_tag_object.background_color,
 
-                                                  // BORDER RADIUS
-                                                  borderRadius: BorderRadius.circular(16),
+                                                    // BORDER RADIUS
+                                                    borderRadius: BorderRadius.circular(16),
 
-                                                  // BORDER STYLE
-                                                  border: Border.all(
-                                                    color: bondage_tag_object.border_color,
-                                                    width: 2,
+                                                    // BORDER STYLE
+                                                    border: Border.all(
+                                                      color: bondage_tag_object.background_color,
+                                                      width: 1,
+                                                    ),
+
+                                                  ),
+
+                                                  // CONTAINER CONTENT
+                                                  child: Text(
+
+                                                    // TEXT
+                                                    bondage_tag_object.label,
+
+                                                    // TEXT STYLE
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                    ),
+
                                                   ),
 
                                                 ),
-
-                                                // CONTAINER CONTENT
-                                                child: Text(
-
-                                                  // TEXT
-                                                  bondage_tag_object.label,
-
-                                                  // TEXT STYLE
-                                                  style: TextStyle(
-                                                    fontSize: 13,
-                                                  ),
-
-                                                ),
-
-                                              ): SizedBox(),
 
                                               //------------------------------------------------------------------------------
 
-                                              // ORAL SEX TAG
-                                              bdsm_tag_object.show_tag ? Container(
+                                              // BDSM SEX TAG
+                                              if (bdsm_tag_object.show_tag)
+                                                Container(
 
-                                                // PADDING
-                                                padding: EdgeInsets.all(7),
+                                                  // PADDING
+                                                  padding: EdgeInsets.all(7),
 
-                                                //CONTAINER STYLE
-                                                decoration: BoxDecoration(
+                                                  //CONTAINER STYLE
+                                                  decoration: BoxDecoration(
 
-                                                  // BACKGROUND COLOR
-                                                  color: bdsm_tag_object.background_color,
+                                                    // BACKGROUND COLOR
+                                                    color: bdsm_tag_object.background_color,
 
-                                                  // BORDER RADIUS
-                                                  borderRadius: BorderRadius.circular(16),
+                                                    // BORDER RADIUS
+                                                    borderRadius: BorderRadius.circular(16),
 
-                                                  // BORDER STYLE
-                                                  border: Border.all(
-                                                    color: bdsm_tag_object.border_color,
-                                                    width: 2,
+                                                    // BORDER STYLE
+                                                    border: Border.all(
+                                                      color: bdsm_tag_object.background_color,
+                                                      width: 1,
+                                                    ),
+
+                                                  ),
+
+                                                  // CONTAINER CONTENT
+                                                  child: Text(
+
+                                                    // TEXT
+                                                    bdsm_tag_object.label,
+
+                                                    // TEXT STYLE
+                                                    style: TextStyle(
+                                                      fontSize: 13,
+                                                    ),
+
                                                   ),
 
                                                 ),
-
-                                                // CONTAINER CONTENT
-                                                child: Text(
-
-                                                  // TEXT
-                                                  bdsm_tag_object.label,
-
-                                                  // TEXT STYLE
-                                                  style: TextStyle(
-                                                    fontSize: 13,
-                                                  ),
-
-                                                ),
-
-                                              ): SizedBox(),
 
                                               //------------------------------------------------------------------------------
 
