@@ -1,1 +1,0 @@
-com.maniak.flutter_file_manager_android
