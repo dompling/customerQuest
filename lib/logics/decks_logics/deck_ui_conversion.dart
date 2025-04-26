@@ -100,10 +100,10 @@ GameTypeInfo get_game_type_type_info(BuildContext context, bool play_distance) {
 
   // GETTING THE CASE OF PLAY DISTANCE - TRUE - FALSE
   switch (play_distance) {
-    case  false:
+    case  true:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_presence, Color(
           0xb3bc3058), Color(0xb3bc3058));
-    case true:
+    case false:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_distance, Color(
           0x9e6b4ad8), Color(0x9e6b4ad8));
   }
@@ -173,11 +173,11 @@ OralSexTagInfo get_oral_tag_info(BuildContext context, List<String> deck_tags_li
   if (deck_tags_list.contains("oral_sex")) {
 
     return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(
-        0xffcf7636), Color(0xffcf7636), true);
+        0xffa36d4c), Color(0xffa36d4c), true);
 
   } else {
 
-    return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(0xffcf7636), Color(0xffcf7636), false);
+    return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(0xffa36d4c), Color(0xffa36d4c), false);
 
   }
 

@@ -291,7 +291,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     setState(() {
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (widget.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;}
+      if (widget.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
 
       // GETTING THE LANGUAGE INFO
       deck_language_label = get_language_info(context, widget.selected_deck.summary.language);
