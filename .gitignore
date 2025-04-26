@@ -53,3 +53,4 @@ web/generated_plugin_registrant.dart
 *.tmp
 *.swp
 .DS_Store
+/android/app/.cxx/

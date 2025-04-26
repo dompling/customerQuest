@@ -361,7 +361,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
       }
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (current_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;}
+      if (current_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
 
       // GETTING THE LANGUAGE INFO
       deck_language_label = get_language_info(context, current_deck.summary.language);

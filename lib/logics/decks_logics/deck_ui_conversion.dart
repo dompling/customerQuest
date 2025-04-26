@@ -27,15 +27,15 @@ LanguageInfo get_language_info(BuildContext context, String deck_lang) {
   switch (deck_lang) {
     case "it":
       return LanguageInfo(AppLocalizations.of(context)!.deck_language_it, Color(
-          0xff4b709c), Color(0xff4b709c), "it");
+          0xffa26b58), Color(0xffa26b58), "it");
     case "es":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_es, Color(0xff4b709c), Color(0xff4b709c), "es");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_es, Color(0xffa26b58), Color(0xffa26b58), "es");
     case "de":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_de, Color(0xff4b709c), Color(0xff4b709c), "de");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_de, Color(0xffa26b58), Color(0xffa26b58), "de");
     case "fr":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_fr, Color(0xff4b709c), Color(0xff4b709c), "fr");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_fr, Color(0xffa26b58), Color(0xffa26b58), "fr");
     default:
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_en, Color(0xff4b709c), Color(0xff4b709c), "en");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_en, Color(0xffa26b58), Color(0xffa26b58), "en");
   }
 
 }
@@ -63,13 +63,13 @@ CoupleTypeInfo get_couple_type_info(BuildContext context, String couple_type) {
   switch (couple_type) {
     case "hetero":
       return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_hetero, Color(
-          0xb3a52d2d), Color(0xb3a52d2d));
+          0xffa28358), Color(0xffa28358));
     case "lesbian":
-      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_lesbian, Color(0x9ed382ea),
-          Color(0x9ed382ea));
+      return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_lesbian, Color(0xffa25878),
+          Color(0xffa25878));
     case "gay":
       return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_gay, Color(
-          0xb3324059), Color(0xb3324059));
+          0xff587ba2), Color(0xff587ba2));
     default:
       return CoupleTypeInfo(AppLocalizations.of(context)!.deck_couple_type_tag_label_not_spec, Color(0xff4e4e4e),
           Color(0xff4e4e4e));
@@ -102,10 +102,10 @@ GameTypeInfo get_game_type_type_info(BuildContext context, bool play_distance) {
   switch (play_distance) {
     case  true:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_presence, Color(
-          0xb3bc3058), Color(0xb3bc3058));
+          0xffa25858), Color(0xffa25858));
     case false:
       return GameTypeInfo(AppLocalizations.of(context)!.deck_game_type_tag_label_distance, Color(
-          0x9e6b4ad8), Color(0x9e6b4ad8));
+          0xff8258a2), Color(0xff8258a2));
   }
 
 }
@@ -135,12 +135,12 @@ ToolsInfo get_tools_info(BuildContext context, List<String> deck_tools_list) {
   if (deck_tools_list.isEmpty) {
 
     return ToolsInfo(AppLocalizations.of(context)!.no_tools_label, Color(
-        0xff2a7539), Color(0xff2a7539));
+        0xff62a258), Color(0xff62a258));
 
   } else {
 
     return ToolsInfo(AppLocalizations.of(context)!.tools_label, Color(
-        0xff7b4465), Color(0xff7b4465));
+        0xff5883a2), Color(0xff5883a2));
 
   }
 
@@ -173,11 +173,11 @@ OralSexTagInfo get_oral_tag_info(BuildContext context, List<String> deck_tags_li
   if (deck_tags_list.contains("oral_sex")) {
 
     return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(
-        0xffa36d4c), Color(0xffa36d4c), true);
+        0xffa29558), Color(0xffa29558), true);
 
   } else {
 
-    return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(0xffa36d4c), Color(0xffa36d4c), false);
+    return OralSexTagInfo(AppLocalizations.of(context)!.deck_oral_sex_tag_label, Color(0xffa29558), Color(0xffa29558), false);
 
   }
 
@@ -208,13 +208,13 @@ VaginalSexTagInfo get_vaginal_tag_info(BuildContext context, List<String> deck_t
   // CHECKING IF THE TAG HAS TO BE SHOWN
   if (deck_tags_list.contains("vaginal_sex")) {
 
-    return VaginalSexTagInfo(AppLocalizations.of(context)!.deck_vaginal_sex_tag_label, Color(0xff793d82), Color(
-        0xff793d82), true);
+    return VaginalSexTagInfo(AppLocalizations.of(context)!.deck_vaginal_sex_tag_label, Color(0xff8758a2), Color(
+        0xff8758a2), true);
 
   } else {
 
-    return VaginalSexTagInfo(AppLocalizations.of(context)!.deck_vaginal_sex_tag_label, Color(0xff793d82), Color(
-        0xff793d82), false);
+    return VaginalSexTagInfo(AppLocalizations.of(context)!.deck_vaginal_sex_tag_label, Color(0xff8758a2), Color(
+        0xff8758a2), false);
 
   }
 
@@ -246,14 +246,14 @@ AnalSexTagInfo get_anal_tag_info(BuildContext context, List<String> deck_tags_li
   if (deck_tags_list.contains("anal_sex")) {
 
     return AnalSexTagInfo(AppLocalizations.of(context)!.deck_anal_sex_tag_label, Color(
-        0xff329180), Color(
-        0xff329180), true);
+        0xff586fa2), Color(
+        0xff586fa2), true);
 
   } else {
 
     return AnalSexTagInfo(AppLocalizations.of(context)!.deck_anal_sex_tag_label, Color(
-        0xff329180), Color(
-        0xff329180), false);
+        0xff586fa2), Color(
+        0xff586fa2), false);
 
   }
 
@@ -285,14 +285,14 @@ BondageTagInfo get_bondage_tag_info(BuildContext context, List<String> deck_tags
   if (deck_tags_list.contains("bondage")) {
 
     return BondageTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
-        0xff473291), Color(
-        0xff473291), true);
+        0xffa2588a), Color(
+        0xffa2588a), true);
 
   } else {
 
     return BondageTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
-        0xff473291), Color(
-        0xff473291), false);
+        0xffa2588a), Color(
+        0xffa2588a), false);
 
   }
 
@@ -324,14 +324,14 @@ BdsmTagInfo get_bdsm_tag_info(BuildContext context, List<String> deck_tags_list)
   if (deck_tags_list.contains("bdsm")) {
 
     return BdsmTagInfo(AppLocalizations.of(context)!.deck_bdsm_tag_label, Color(
-        0xff491c1c), Color(
-        0xff491c1c), true);
+        0xffa26558), Color(
+        0xffa26558), true);
 
   } else {
 
     return BdsmTagInfo(AppLocalizations.of(context)!.deck_bondage_tag_label, Color(
-        0xff491c1c), Color(
-        0xff491c1c), false);
+        0xffa26558), Color(
+        0xffa26558), false);
 
   }
 
