@@ -7,12 +7,14 @@ import 'dart:async';
 import 'package:loverquest/l10n/app_localization.dart';
 import 'package:loverquest/logics/play_logics/timer_controller.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
+import 'package:flutter_debouncer/flutter_debouncer.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
 import 'package:loverquest/logics/play_logics/player_class.dart';
 import 'package:loverquest/logics/play_logics/quest_management.dart';
 import 'package:loverquest/logics/play_logics/save_and_load_current_match.dart';
+import 'package:loverquest/main.dart';
 
 //------------------------------------------------------------
 
@@ -69,6 +71,14 @@ class _PlayPageState extends State<PlayPage> {
 
   //------------------------------------------------------------------------------
 
+  // DEFINING THE BUTTON DISABLED FLAG
+  late final Debouncer _buttonDebouncer;
+
+  // INITIALIZING THE NO MORE QUESTS FLAG
+  bool no_more_quests = false;
+
+  //------------------------------------------------------------------------------
+
   // INITIALIZING THE PLAYERS VARIABLES
   late String current_player_alias;
   late Players current_player;
@@ -87,6 +97,8 @@ class _PlayPageState extends State<PlayPage> {
   // INITIALIZING THE QUEST VARIABLES
   late Quest current_quest;
   int partial_score = 0;
+  late String end_quest_type;
+  late String start_quest_type;
 
   //------------------------------------------------------------------------------
 
@@ -124,13 +136,28 @@ class _PlayPageState extends State<PlayPage> {
       timer_controller = TimerController(totalSeconds: current_quest.timer * 60);
 
       // INITIALIZING THE TIMER
-      timer_controller.onTick = () => setState(() {});
+      timer_controller.onTick = () {
+
+        // CHECKING IF THE PAGE IS STILL EXISTING
+        if (!mounted) return;
+
+        setState(() {});
+
+      };
 
       // SETTING THE TIMER ALARM SOUND ON TIMER END
       timer_controller.onComplete = () {
+
+        // CHECKING IF THE PAGE IS STILL EXISTING
+        if (!mounted) return;
+
         playAlarmSound();
+
         setState(() {});
+
       };
+
+
       setState(() {
 
         // SETTING THE TIMER HAS TO SHOW
@@ -166,6 +193,13 @@ class _PlayPageState extends State<PlayPage> {
 
     // ENABLING THE ALWAYS ON DISPLAY
     WakelockPlus.enable();
+
+    //------------------------------------------------------------------------------
+
+    // INITIALIZING THE BUTTON DOUBLE CLICK CONTROLLER
+    _buttonDebouncer = Debouncer();
+
+    //------------------------------------------------------------------------------
 
   }
 
@@ -207,18 +241,16 @@ class _PlayPageState extends State<PlayPage> {
       player_two.player_end_quest_list = filter_quest_list_by_sex(player_two, widget.end_quests_list);
       player_two.player_end_quest_list_counter = player_two.player_end_quest_list.length;
 
+      // GETTING THE END QUEST TYPE
+      end_quest_type = getting_end_quest_type(player_one, player_two);
+
+      // SETTING THE INITIAL QUEST LIST AND QUEST LIST COUNTER
+      current_player = getting_start_quest_type(player_one, player_two, current_player);
+      player_one = getting_start_quest_type(player_one, player_two, player_one);
+      player_two = getting_start_quest_type(player_one, player_two, player_two);
+
       // SETTING THE INITIAL QUEST
-      current_quest = select_random_quest(current_player.player_early_quest_list);
-
-      // SETTING THE INITIAL QUEST LIST
-      current_player.player_current_quest_list = current_player.player_early_quest_list;
-      player_one.player_current_quest_list = player_one.player_early_quest_list;
-      player_two.player_current_quest_list = player_two.player_early_quest_list;
-
-      // SETTING THE INITIAL QUEST LIST COUNTER
-      current_player.player_current_quest_list_counter = current_player.player_early_quest_list_counter;
-      player_one.player_current_quest_list_counter = player_one.player_early_quest_list_counter;
-      player_two.player_current_quest_list_counter = player_two.player_early_quest_list_counter;
+      current_quest = select_random_quest(current_player.player_current_quest_list);
 
     } else {
 
@@ -243,6 +275,9 @@ class _PlayPageState extends State<PlayPage> {
     await GameStorage.save_game_data(widget.game_type, players_list, current_quest, current_player.player_alias, widget.quest_switch_multiplier);
 
     //------------------------------------------------------------------------------
+
+    // CHECKING IF THE PAGE IS STILL EXISTING
+    if (!mounted) return;
 
     // UPDATING THE WIDGET STATUS WITH THE LOADED DATA
     setState(() {
@@ -294,20 +329,27 @@ class _PlayPageState extends State<PlayPage> {
     //------------------------------------------------------------------------------
 
     // DEFINING THE FUNCTION THAT WILL CHANGE THE CURRENT PLAYER
-    void switch_playing_player() async{
+    Future<void> switch_playing_player() async{
 
+      //------------------------------------------------------------------------------
+
+      // CHECKING IF WE CAN SKIP ALL THE FUNCTION BECAUSE THERE ARE NO MORE QUEST TO DO
+      if(player_one.player_current_quest_list.isEmpty && player_two.player_current_quest_list.isEmpty) {
+
+        // SETTING THE QUESTS LIST AS EMPTY
+        setState(() {
+          no_more_quests = true;
+        });
+
+        // BLANK RETURN TO AVOID ANY ERROR
+        return;
+
+      }
+
+      //------------------------------------------------------------------------------
+
+      // SWITCHING THE PLAYER AND GETTING A NEW QUEST
       setState(() {
-
-        //------------------------------------------------------------------------------
-
-        // CHECKING IF WE CAN SKIP ALL THE FUNCTION BECAUSE THERE ARE NO MORE QUEST TO DO
-        if(player_one.player_early_quest_list.isEmpty && player_one.player_mid_quest_list.isEmpty && player_one.player_late_quest_list.isEmpty && player_one.player_end_quest_list.isEmpty &&
-            player_two.player_early_quest_list.isEmpty && player_two.player_mid_quest_list.isEmpty && player_two.player_late_quest_list.isEmpty && player_two .player_end_quest_list.isEmpty) {
-
-          // BLANK RETURN TO AVOID ANY ERROR
-          return;
-
-        }
 
         //------------------------------------------------------------------------------
 
@@ -321,11 +363,31 @@ class _PlayPageState extends State<PlayPage> {
 
         //------------------------------------------------------------------------------
 
+        // CHECKING WHO IS THE CURRENT PLAYER
+        if (current_player_alias == player_one.player_alias) {
+
+          // SETTING THE OTHER PLAYER TURN
+          current_player = player_two;
+          current_player_alias = player_two.player_alias;
+
+        }
+        else {
+
+          // SETTING THE OTHER PLAYER TURN
+          current_player = player_one;
+          current_player_alias = player_one.player_alias;
+
+        }
+
+        //------------------------------------------------------------------------------
+
         // INITIALIZING THE QUEST CHANGE FLAG
         bool quest_unchanged = true;
 
         // WHILE A NEW QUEST HAS NOT BEEN SET, EXECUTE THIS
         do {
+
+          //------------------------------------------------------------------------------
 
           // CHECKING IF IS NECESSARY TO SWITCH THE QUEST TYPE
           if ((current_player.player_current_quest_list_counter - current_player.player_current_quest_list.length) >= (current_player.player_current_quest_list_counter/4)*widget.quest_switch_multiplier) {
@@ -345,28 +407,10 @@ class _PlayPageState extends State<PlayPage> {
 
           }
 
+          //------------------------------------------------------------------------------
 
           // CHECKING IF IS POSSIBLE TO GET A NEW QUEST
-          if(player_one.player_current_quest_list.isNotEmpty && player_two.player_current_quest_list.isNotEmpty) {
-
-            //------------------------------------------------------------------------------
-
-            // CHECKING WHO IS THE CURRENT PLAYER
-            if (current_player_alias == player_one.player_alias) {
-
-              // SETTING THE OTHER PLAYER TURN
-              current_player = player_two;
-              current_player_alias = player_two.player_alias;
-
-            } else {
-
-              // SETTING THE OTHER PLAYER TURN
-              current_player = player_one;
-              current_player_alias = player_one.player_alias;
-
-            }
-
-            //------------------------------------------------------------------------------
+          if(current_player.player_current_quest_list.isNotEmpty && current_quest.moment != end_quest_type) {
 
             // GETTING THE NEW QUEST
             current_quest = select_random_quest(current_player.player_current_quest_list);
@@ -374,24 +418,34 @@ class _PlayPageState extends State<PlayPage> {
             // CHECKING IF IS NECESSARY TO SHOW THE TIMER
             check_if_show_timer(current_quest);
 
-            //------------------------------------------------------------------------------
-
             // FLAG THE QUEST HAS CHANGED
             quest_unchanged = false;
 
-            //------------------------------------------------------------------------------
+            // CHECKING IF IN THE END SECTION IS NECESSARY TO FORCE SWITCH PLAYER IN ORDER TO GET A NEW QUEST
+          }
 
+          // CHECKING IF IS POSSIBLE TO GET A NEW QUEST IN THE END PHASE
+          else if (current_quest.moment == end_quest_type) {
 
-          // CHECKING IF IN THE END SECTION IS NECESSARY TO FORCE SWITCH PLAYER IN ORDER TO GET A NEW QUEST
-          } else if (current_player.player_current_quest_list.isEmpty && current_quest.moment == "end") {
+            // CHECKING IF THE CURRENT PLAYER HAS AT LEAST ONE QUEST TO PLAY
+            if(current_player.player_current_quest_list.isNotEmpty) {
 
-            // CHECKING WHO IS THE CURRENT PLAYER
-            if (current_player_alias == player_one.player_alias) {
+              // GETTING THE NEW QUEST
+              current_quest = select_random_quest(current_player.player_current_quest_list);
 
-              // CHECKING IF THE PLAYER TWO HAS AT LEAST ONE END QUEST
-              if(player_two.player_end_quest_list.isNotEmpty) {
+              // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+              check_if_show_timer(current_quest);
 
-                //------------------------------------------------------------------------------
+              // FLAG THE QUEST HAS CHANGED
+              quest_unchanged = false;
+
+            } else
+
+            // CHECKING IF THE OTHER PLAYER IS PLAYER 2
+            if(current_player_alias == player_one.player_alias) {
+
+              // CHECKING IF THE PLAYER 2 HAS AT LEAST ONE QUEST IN HIS CURRENT QUEST LIST
+              if(player_two.player_current_quest_list.isNotEmpty) {
 
                 // SETTING THE OTHER PLAYER TURN
                 current_player = player_two;
@@ -403,21 +457,16 @@ class _PlayPageState extends State<PlayPage> {
                 // CHECKING IF IS NECESSARY TO SHOW THE TIMER
                 check_if_show_timer(current_quest);
 
-                //------------------------------------------------------------------------------
-
                 // FLAG THE QUEST HAS CHANGED
                 quest_unchanged = false;
 
-                //------------------------------------------------------------------------------
 
-              } else { break;}
+              } else { quest_unchanged = false; no_more_quests = true;}
 
             } else {
 
-              // CHECKING IF THE PLAYER ONE HAS AT LEAST ONE END QUEST
-              if(player_one.player_end_quest_list.isNotEmpty) {
-
-                //------------------------------------------------------------------------------
+              // CHECKING IF THE PLAYER 2 HAS AT LEAST ONE QUEST IN HIS CURRENT QUEST LIST
+              if(player_one.player_current_quest_list.isNotEmpty) {
 
                 // SETTING THE OTHER PLAYER TURN
                 current_player = player_one;
@@ -429,14 +478,10 @@ class _PlayPageState extends State<PlayPage> {
                 // CHECKING IF IS NECESSARY TO SHOW THE TIMER
                 check_if_show_timer(current_quest);
 
-                //------------------------------------------------------------------------------
-
                 // FLAG THE QUEST HAS CHANGED
                 quest_unchanged = false;
 
-                //------------------------------------------------------------------------------
-
-              } { break;}
+              } else { quest_unchanged = false; no_more_quests = true;}
 
             }
 
@@ -455,25 +500,32 @@ class _PlayPageState extends State<PlayPage> {
 
       //------------------------------------------------------------------------------
 
-    }
+      }
 
     //------------------------------------------------------------------------------
 
     // SKIP CURRENT QUEST
-    void skip_current_quest () async{
+    Future<void> skip_current_quest () async{
 
+      //------------------------------------------------------------------------------
+
+      // CHECKING IF WE CAN SKIP ALL THE FUNCTION BECAUSE THERE ARE NO MORE QUEST TO DO
+      if(player_one.player_current_quest_list.isEmpty && player_two.player_current_quest_list.isEmpty) {
+
+        // SETTING THE QUESTS LIST AS EMPTY
+        setState(() {
+          no_more_quests = true;
+        });
+
+        // BLANK RETURN TO AVOID ANY ERROR
+        return;
+
+      }
+
+      //------------------------------------------------------------------------------
+
+      // SWITCHING THE PLAYER AND GETTING A NEW QUEST
       setState(() {
-
-        //------------------------------------------------------------------------------
-
-        // CHECKING IF WE CAN SKIP ALL THE FUNCTION BECAUSE THERE ARE NO MORE QUEST TO DO
-        if(player_one.player_early_quest_list.isEmpty && player_one.player_mid_quest_list.isEmpty && player_one.player_late_quest_list.isEmpty && player_one.player_end_quest_list.isEmpty &&
-            player_two.player_early_quest_list.isEmpty && player_two.player_mid_quest_list.isEmpty && player_two.player_late_quest_list.isEmpty && player_two .player_end_quest_list.isEmpty) {
-
-          // BLANK RETURN TO AVOID ANY ERROR
-          return;
-
-        }
 
         //------------------------------------------------------------------------------
 
@@ -485,13 +537,15 @@ class _PlayPageState extends State<PlayPage> {
 
         }
 
-        //------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------
 
         // INITIALIZING THE QUEST CHANGE FLAG
         bool quest_unchanged = true;
 
         // WHILE A NEW QUEST HAS NOT BEEN SET, EXECUTE THIS
         do {
+
+          //------------------------------------------------------------------------------
 
           // CHECKING IF IS NECESSARY TO SWITCH THE QUEST TYPE
           if ((current_player.player_current_quest_list_counter - current_player.player_current_quest_list.length) >= (current_player.player_current_quest_list_counter/4)*widget.quest_switch_multiplier) {
@@ -511,11 +565,10 @@ class _PlayPageState extends State<PlayPage> {
 
           }
 
+          //------------------------------------------------------------------------------
 
           // CHECKING IF IS POSSIBLE TO GET A NEW QUEST
-          if(current_player.player_current_quest_list.isNotEmpty) {
-
-            //------------------------------------------------------------------------------
+          if(current_player.player_current_quest_list.isNotEmpty && current_quest.moment != end_quest_type) {
 
             // GETTING THE NEW QUEST
             current_quest = select_random_quest(current_player.player_current_quest_list);
@@ -523,23 +576,33 @@ class _PlayPageState extends State<PlayPage> {
             // CHECKING IF IS NECESSARY TO SHOW THE TIMER
             check_if_show_timer(current_quest);
 
-            //------------------------------------------------------------------------------
-
             // FLAG THE QUEST HAS CHANGED
             quest_unchanged = false;
 
-            //------------------------------------------------------------------------------
+          }
 
-          // CHECKING IF IN THE END SECTION IS NECESSARY TO FORCE SWITCH PLAYER IN ORDER TO GET A NEW QUEST
-          } else if (current_player.player_current_quest_list.isEmpty && current_quest.moment == "end") {
+          // CHECKING IF IS POSSIBLE TO GET A NEW QUEST IN THE END PHASE
+          else if (current_quest.moment == end_quest_type) {
 
-            // CHECKING WHO IS THE CURRENT PLAYER
-            if (current_player_alias == player_one.player_alias) {
+            // CHECKING IF THE CURRENT PLAYER HAS AT LEAST ONE QUEST TO PLAY
+            if(current_player.player_current_quest_list.isNotEmpty) {
 
-              // CHECKING IF THE PLAYER TWO HAS AT LEAST ONE END QUEST
-              if(player_two.player_end_quest_list.isNotEmpty) {
+              // GETTING THE NEW QUEST
+              current_quest = select_random_quest(current_player.player_current_quest_list);
 
-                //------------------------------------------------------------------------------
+              // CHECKING IF IS NECESSARY TO SHOW THE TIMER
+              check_if_show_timer(current_quest);
+
+              // FLAG THE QUEST HAS CHANGED
+              quest_unchanged = false;
+
+            } else
+
+            // CHECKING IF THE OTHER PLAYER IS PLAYER 2
+            if(current_player_alias == player_one.player_alias) {
+
+              // CHECKING IF THE PLAYER 2 HAS AT LEAST ONE QUEST IN HIS CURRENT QUEST LIST
+              if(player_two.player_current_quest_list.isNotEmpty) {
 
                 // SETTING THE OTHER PLAYER TURN
                 current_player = player_two;
@@ -551,21 +614,16 @@ class _PlayPageState extends State<PlayPage> {
                 // CHECKING IF IS NECESSARY TO SHOW THE TIMER
                 check_if_show_timer(current_quest);
 
-                //------------------------------------------------------------------------------
-
                 // FLAG THE QUEST HAS CHANGED
                 quest_unchanged = false;
 
-                //------------------------------------------------------------------------------
 
-              } else { break;}
+              } else { quest_unchanged = false; no_more_quests = true;}
 
             } else {
 
-              // CHECKING IF THE PLAYER ONE HAS AT LEAST ONE END QUEST
-              if(player_one.player_end_quest_list.isNotEmpty) {
-
-                //------------------------------------------------------------------------------
+              // CHECKING IF THE PLAYER 2 HAS AT LEAST ONE QUEST IN HIS CURRENT QUEST LIST
+              if(player_one.player_current_quest_list.isNotEmpty) {
 
                 // SETTING THE OTHER PLAYER TURN
                 current_player = player_one;
@@ -577,14 +635,10 @@ class _PlayPageState extends State<PlayPage> {
                 // CHECKING IF IS NECESSARY TO SHOW THE TIMER
                 check_if_show_timer(current_quest);
 
-                //------------------------------------------------------------------------------
-
                 // FLAG THE QUEST HAS CHANGED
                 quest_unchanged = false;
 
-                //------------------------------------------------------------------------------
-
-              } { break;}
+              } else { quest_unchanged = false; no_more_quests = true;}
 
             }
 
@@ -607,352 +661,591 @@ class _PlayPageState extends State<PlayPage> {
 
     //------------------------------------------------------------------------------
 
-    // PAGE CONTENT
-    return Scaffold(
+    // CHECKING IF IS NECESSARY TO SHOW THE GAME OVER UI OR THE PLAY UI
+    if (no_more_quests) {
 
-      // SCAFFOLD CONTENT
-      body: SafeArea(
+      // PAGE CONTENT WHEN THE GAME IS OVER
+      return Scaffold(
 
-        // SAFE AREA CONTENT
-        child: SingleChildScrollView(
+        // PAGE CONTENT
+          body: SafeArea(
 
-          // SCROLLABLE CONTAINER CONTENT
-          child: Align(
-
-            // ALIGNMENT
-            alignment: Alignment.center,
-
-            // ALIGN CONTENT
+            // SAFE AREA CONTENT
             child: Container(
 
-              // SETTING THE WIDTH LIMIT
-              constraints: BoxConstraints(maxWidth: 600),
-
               // PAGE PADDING
-              padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
 
-              // PAGE ALIGNMENT
-              alignment: Alignment.topCenter,
+                // PAGE ALIGNMENT
+                alignment: Alignment.topCenter,
 
-              // CONTAINER CONTENT
-              child: Column(
+                // SCROLLABLE CONTAINER
+                child: SingleChildScrollView(
 
-                // ALIGNMENT
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                  // MAIN COLUMN
+                  child: Column(
 
-                // COLUMN CONTENT
-                children: [
-
-                  //------------------------------------------------------------------------------
-
-                  // SPACER
-                  const SizedBox(height: 45),
-
-                  //------------------------------------------------------------------------------
-
-                  // PLAYER DATA CONTAINER
-                  widget.game_type ?Row(
-
-                    // ALIGNMENT
+                    // SIZE PARAMETERS
+                    mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
 
-                    // ROW CONTENT
+                    // COLUMN CONTENT
                     children: [
 
                       //------------------------------------------------------------------------------
 
-                      // PAGE LOGO
+                      // SPACER
+                      const SizedBox(height: 80),
+
+                      //------------------------------------------------------------------------------
+
+                      // APP LOGO
                       Image.asset(
-                        current_player.player_icon_path,
-                        width: 50,
-                        height: 50,
+                        'assets/images/main_icon.png',
+                        width: 140,
+                        height: 140,
                         fit: BoxFit.contain,
                       ),
 
                       //------------------------------------------------------------------------------
 
                       // SPACER
-                      const SizedBox(width: 15),
+                      const SizedBox(height: 45),
 
                       //------------------------------------------------------------------------------
 
-                      // PAGE TITLE CONTAINER
-                      Flexible(
+                      // TITLE
+                      Text(
 
-                        // TITLE
-                        child: Text(
-                          // TEXT
-                          current_player.player_alias,
+                        // TEXT
+                        AppLocalizations.of(context)!.play_page_end_page_title,
 
-                          // TEXT ALIGNMENT
-                          textAlign: TextAlign.center,
+                        // TEXT ALIGNMENT
+                        textAlign: TextAlign.center,
 
-                          // TEXT STYLE
-                          style: TextStyle(
+                        // TEXT STYLE
+                        style: TextStyle(
 
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
 
-                          ),
+
                         ),
 
                       ),
 
                       //------------------------------------------------------------------------------
 
-                    ],
+                      // SPACER
+                      const SizedBox(height: 10),
 
-                  ):const SizedBox.shrink(),
+                      //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                      // SUBTITLE
+                      Text(
 
-                  // SPACER
-                  const SizedBox(height: 30),
+                        // TEXT
+                        AppLocalizations.of(context)!.play_page_end_page_subtitle,
 
-                  //------------------------------------------------------------------------------
+                        // TEXT ALIGNMENT
+                        textAlign: TextAlign.center,
 
-                  // QUEST BOX
-                  Container(
+                        // TEXT STYLE
+                        style: TextStyle(
 
-                    // SIZE
-                    width: double.infinity,
+                          fontSize: 19,
+                          fontWeight: FontWeight.w400,
 
-                    // PADDING
-                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                        ),
 
-                    // ALIGNMENT
-                    alignment: Alignment.topCenter,
+                      ),
 
-                    // STYLING
-                    decoration: BoxDecoration(
+                      //------------------------------------------------------------------------------
 
-                      // BACKGROUND COLOR
-                      color: Theme.of(context).colorScheme.primary,
+                      // SPACER
+                      const SizedBox(height: 45),
 
-                      // BORDER RADIUS
-                      borderRadius: BorderRadius.circular(20),
+                      //------------------------------------------------------------------------------
 
-                    ),
+                      // NEW GAME BUTTON BOX
+                      SizedBox(
 
-                    // CONTAINER CONTENT
-                    child: Column(
+                        // DYNAMIC SIZE
+                        width: 180,
 
-                      // ALIGNMENT
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        // BOX CONTENT
+                        child: ElevatedButton(
 
-                        // COLUMN CONTENT
-                        children: [
+                          // BUTTON STYLE PARAMETERS
+                          style: ButtonStyle(
 
-                          //------------------------------------------------------------------------------
+                            // NORMAL TEXT COLOR
+                            foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
 
-                          // PAGE TITLE CONTAINER
-                          FractionallySizedBox(
+                            // NORMAL BACKGROUND COLOR
+                            backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
 
-                            // DYNAMIC WIDTH
-                            widthFactor: 0.8,
+                            // MINIMUM SIZE
+                            minimumSize: WidgetStateProperty.all(Size(100, 60)),
 
-                            // TITLE
-                            child: Text(
-                              // TEXT
-                              AppLocalizations.of(context)!.play_page_title,
+                            // PADDING
+                            padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
 
-                              // TEXT ALIGNMENT
-                              textAlign: TextAlign.center,
-
-                              // TEXT STYLE
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
-
+                            // BORDER RADIUS
+                            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
                               ),
                             ),
 
                           ),
 
-                          //------------------------------------------------------------------------------
+                          // ON PRESSED CALL
+                          onPressed: () {
 
-                          // SPACER
-                          const SizedBox(height: 15),
+                            // PAGE LINKER
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => const MainScreen()),
+                                  (Route<dynamic> route) => false,
+                            );
 
-                          //------------------------------------------------------------------------------
+                          },
 
-                          // QUEST TEXT BOX
-                          Text(
+                          // BUTTON CONTENT
+                          child: Text(
 
                             // TEXT
-                            current_quest.content,
+                            AppLocalizations.of(context)!.play_page_end_page_go_home_button_label,
+
+                            // TEXT ALIGNMENT
+                            textAlign: TextAlign.center,
 
                             // TEXT STYLE
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
+
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+
+                            ),
+
+                          ),
+
+                        ),
+
+                      ),
+
+                      //------------------------------------------------------------------------------
+
+                    ], // Children
+
+                  ),
+
+                )
+
+            ),
+
+          )
+
+      );
+
+
+    } else {
+
+
+      // PAGE CONTENT
+      return Scaffold(
+
+        // SCAFFOLD CONTENT
+        body: SafeArea(
+
+          // SAFE AREA CONTENT
+          child: SingleChildScrollView(
+
+            // SCROLLABLE CONTAINER CONTENT
+            child: Align(
+
+              // ALIGNMENT
+              alignment: Alignment.center,
+
+              // ALIGN CONTENT
+              child: Container(
+
+                // SETTING THE WIDTH LIMIT
+                constraints: BoxConstraints(maxWidth: 600),
+
+                // PAGE PADDING
+                padding: EdgeInsets.all(10),
+
+                // PAGE ALIGNMENT
+                alignment: Alignment.topCenter,
+
+                // CONTAINER CONTENT
+                child: Column(
+
+                  // ALIGNMENT
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+
+                  // COLUMN CONTENT
+                  children: [
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 45),
+
+                    //------------------------------------------------------------------------------
+
+                    // PLAYER DATA CONTAINER
+                    widget.game_type ? Row(
+
+                      // ALIGNMENT
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      // ROW CONTENT
+                      children: [
+
+                        //------------------------------------------------------------------------------
+
+                        // PAGE LOGO
+                        Image.asset(
+                          current_player.player_icon_path,
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.contain,
+                        ),
+
+                        //------------------------------------------------------------------------------
+
+                        // SPACER
+                        const SizedBox(width: 15),
+
+                        //------------------------------------------------------------------------------
+
+                        // PAGE TITLE CONTAINER
+                        Flexible(
+
+                          // TITLE
+                          child: Text(
+                            // TEXT
+                            current_player.player_alias,
+
+                            // TEXT ALIGNMENT
+                            textAlign: TextAlign.center,
+
+                            // TEXT STYLE
+                            style: TextStyle(
+
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
 
                             ),
                           ),
 
-                          //------------------------------------------------------------------------------
+                        ),
 
-                          // SPACER
-                          const SizedBox(height: 15),
+                        //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                      ],
 
-                          // PLAY DISCARD BUTTONS CONTAINER
-                          Container(
+                    ) : const SizedBox.shrink(),
 
-                            // SIZE
-                            width: double.infinity,
+                    //------------------------------------------------------------------------------
 
-                            // ALIGNMENT
-                            alignment: Alignment.center,
+                    // SPACER
+                    const SizedBox(height: 30),
 
-                            // BUTTON BOX
-                            child: Row(
+                    //------------------------------------------------------------------------------
 
-                              mainAxisAlignment: MainAxisAlignment.center,
+                    // QUEST BOX
+                    Container(
 
-                              // BOX CONTENT
-                              children: [
+                      // SIZE
+                      width: double.infinity,
 
-                                //------------------------------------------------------------------------------
+                      // PADDING
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 25),
 
-                                // QUEST DONE BUTTON BOX
-                                SizedBox(
+                      // ALIGNMENT
+                      alignment: Alignment.topCenter,
 
-                                  // FIXED WIDTH
-                                  width: 140,
+                      // STYLING
+                      decoration: BoxDecoration(
 
-                                  // QUEST DONE BUTTON
-                                  child: ElevatedButton(
+                        // BACKGROUND COLOR
+                        color: Theme
+                            .of(context)
+                            .colorScheme
+                            .primary,
 
-                                    // BUTTON STYLE PARAMETERS
-                                      style: ButtonStyle(
+                        // BORDER RADIUS
+                        borderRadius: BorderRadius.circular(20),
 
-                                        // NORMAL TEXT COLOR
-                                        foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+                      ),
 
-                                        // NORMAL BACKGROUND COLOR
-                                        backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                            157, 241, 129, 0.49411764705882355)),
+                      // CONTAINER CONTENT
+                      child: Column(
 
-                                        // PADDING
-                                        padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+                        // ALIGNMENT
+                          crossAxisAlignment: CrossAxisAlignment.center,
 
-                                        // BORDER RADIUS
-                                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                          RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(100),
+                          // COLUMN CONTENT
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // PAGE TITLE CONTAINER
+                            FractionallySizedBox(
+
+                              // DYNAMIC WIDTH
+                              widthFactor: 0.8,
+
+                              // TITLE
+                              child: Text(
+                                // TEXT
+                                AppLocalizations.of(context)!.play_page_title,
+
+                                // TEXT ALIGNMENT
+                                textAlign: TextAlign.center,
+
+                                // TEXT STYLE
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+
+                                ),
+                              ),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(height: 15),
+
+                            //------------------------------------------------------------------------------
+
+                            // QUEST TEXT BOX
+                            Text(
+
+                              // TEXT
+                              current_quest.content,
+
+                              // TEXT STYLE
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+
+                              ),
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(height: 15),
+
+                            //------------------------------------------------------------------------------
+
+                            // PLAY BUTTONS CONTAINER
+                            Container(
+
+                              // SIZE
+                              width: double.infinity,
+
+                              // ALIGNMENT
+                              alignment: Alignment.center,
+
+                              // BUTTON BOX
+                              child: Row(
+
+                                mainAxisAlignment: MainAxisAlignment.center,
+
+                                // BOX CONTENT
+                                children: [
+
+                                  //------------------------------------------------------------------------------
+
+                                  // QUEST DONE BUTTON BOX
+                                  SizedBox(
+
+                                    // FIXED WIDTH
+                                    width: 140,
+
+                                    // QUEST DONE BUTTON
+                                    child: ElevatedButton(
+
+                                      // BUTTON STYLE PARAMETERS
+                                        style: ButtonStyle(
+
+                                          // NORMAL TEXT COLOR
+                                          foregroundColor: WidgetStateProperty
+                                              .all(Theme
+                                              .of(context)
+                                              .colorScheme
+                                              .onPrimary),
+
+                                          // NORMAL BACKGROUND COLOR
+                                          backgroundColor: WidgetStateProperty
+                                              .all(Color.fromRGBO(
+                                              157, 241, 129,
+                                              0.49411764705882355)),
+
+                                          // PADDING
+                                          padding: WidgetStateProperty.all(
+                                              EdgeInsets.only(left: 15,
+                                                  right: 15,
+                                                  top: 15,
+                                                  bottom: 15)),
+
+                                          // BORDER RADIUS
+                                          shape: WidgetStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius: BorderRadius
+                                                  .circular(100),
+                                            ),
                                           ),
+
                                         ),
 
-                                      ),
+                                        // ON PRESSED CALL
+                                        onPressed: () {
+                                          _buttonDebouncer.debounce(
+                                            duration: Duration(milliseconds: 100),
+                                            onDebounce: () async {
+                                              await switch_playing_player();
+                                            },
+                                          );
+                                        },
 
-                                      // ON PRESSED CALL
-                                      onPressed: () { switch_playing_player(); },
+                                        // BUTTON CONTENT
+                                        child: Row(
 
-                                      // BUTTON CONTENT
-                                      child: Row(
+                                          // ALIGNMENT
+                                          mainAxisAlignment: MainAxisAlignment
+                                              .center,
 
-                                        // ALIGNMENT
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
 
-                                        children: [
+                                            //------------------------------------------------------------------------------
 
-                                          //------------------------------------------------------------------------------
+                                            // SCISSOR ICON
+                                            Icon(
 
-                                          // SCISSOR ICON
-                                          Icon(
+                                              // ICONS
+                                              Icons.verified_rounded,
 
-                                            // ICONS
-                                            Icons.verified_rounded,
-
-                                            // ICONS COLOR
-                                            color: Theme.of(context).colorScheme.onPrimary,
-
-                                          ),
-
-                                          //------------------------------------------------------------------------------
-
-                                          // SPACER
-                                          const SizedBox(width: 5),
-
-                                          //------------------------------------------------------------------------------
-
-                                          //BUTTON TEXT CONTAINER
-                                          Flexible(
-
-                                            // BUTTON TEXT
-                                            child: Text(
-
-                                              // TEXT
-                                              AppLocalizations.of(context)!.play_page_completed_button,
-
-                                              // TEXT ALIGNMENT
-                                              textAlign: TextAlign.center,
-
-                                              // TEXT STYLE
-                                              style: TextStyle(
-
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500,
-
-                                              ),
+                                              // ICONS COLOR
+                                              color: Theme
+                                                  .of(context)
+                                                  .colorScheme
+                                                  .onPrimary,
 
                                             ),
 
-                                          )
+                                            //------------------------------------------------------------------------------
 
-                                          //------------------------------------------------------------------------------
+                                            // SPACER
+                                            const SizedBox(width: 5),
 
-                                        ],
+                                            //------------------------------------------------------------------------------
 
-                                      )
+                                            //BUTTON TEXT CONTAINER
+                                            Flexible(
+
+                                              // BUTTON TEXT
+                                              child: Text(
+
+                                                // TEXT
+                                                AppLocalizations.of(context)!
+                                                    .play_page_completed_button,
+
+                                                // TEXT ALIGNMENT
+                                                textAlign: TextAlign.center,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+
+                                                ),
+
+                                              ),
+
+                                            )
+
+                                            //------------------------------------------------------------------------------
+
+                                          ],
+
+                                        )
+
+                                    ),
 
                                   ),
 
-                                ),
+                                  //------------------------------------------------------------------------------
 
-                                //------------------------------------------------------------------------------
+                                  // SPACER
+                                  const SizedBox(width: 15),
 
-                                // SPACER
-                                const SizedBox(width: 15),
+                                  //------------------------------------------------------------------------------
 
-                                //------------------------------------------------------------------------------
+                                  // QUEST DONE BUTTON BOX
+                                  SizedBox(
 
-                                // QUEST DONE BUTTON BOX
-                                SizedBox(
+                                    // FIXED WIDTH
+                                    width: 140,
 
-                                  // FIXED WIDTH
-                                  width: 140,
+                                    // SKIP QUEST  BUTTON
+                                    child: ElevatedButton(
 
-                                  // SKIP QUEST  BUTTON
-                                  child: ElevatedButton(
-
-                                    // BUTTON STYLE PARAMETERS
+                                      // BUTTON STYLE PARAMETERS
                                       style: ButtonStyle(
 
                                         // NORMAL TEXT COLOR
-                                        foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+                                        foregroundColor: WidgetStateProperty
+                                            .all(Theme
+                                            .of(context)
+                                            .colorScheme
+                                            .onPrimary),
 
                                         // NORMAL BACKGROUND COLOR
-                                        backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                            219, 157, 80, 0.8784313725490196)),
+                                        backgroundColor: WidgetStateProperty
+                                            .all(Color.fromRGBO(
+                                            219, 157, 80,
+                                            0.8784313725490196)),
 
                                         // PADDING
-                                        padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
+                                        padding: WidgetStateProperty.all(
+                                            EdgeInsets.only(left: 15,
+                                                right: 15,
+                                                top: 15,
+                                                bottom: 15)),
 
                                         // BORDER RADIUS
-                                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                        shape: WidgetStateProperty.all<
+                                            RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(100),
+                                            borderRadius: BorderRadius
+                                                .circular(100),
                                           ),
                                         ),
 
                                       ),
 
                                       // ON PRESSED CALL
-                                      onPressed: () { skip_current_quest(); },
+                                      onPressed: () {
+                                        _buttonDebouncer.debounce(
+                                          duration: Duration(milliseconds: 100),
+                                          onDebounce: () async {
+                                            await skip_current_quest();
+                                          },
+                                        );
+                                      },
 
                                       // BUTTON CONTENT
                                       child: Row(
@@ -971,7 +1264,10 @@ class _PlayPageState extends State<PlayPage> {
                                             Icons.cut,
 
                                             // ICONS COLOR
-                                            color: Theme.of(context).colorScheme.onPrimary,
+                                            color: Theme
+                                                .of(context)
+                                                .colorScheme
+                                                .onPrimary,
 
                                           ),
 
@@ -989,7 +1285,8 @@ class _PlayPageState extends State<PlayPage> {
                                             child: Text(
 
                                               // TEXT
-                                              AppLocalizations.of(context)!.play_page_replace_button,
+                                              AppLocalizations.of(context)!
+                                                  .play_page_replace_button,
 
                                               // TEXT ALIGNMENT
                                               textAlign: TextAlign.center,
@@ -1012,8 +1309,313 @@ class _PlayPageState extends State<PlayPage> {
 
                                       )
 
+                                    ),
+
+
                                   ),
 
+                                  //------------------------------------------------------------------------------
+
+                                ],
+
+                              ),
+
+                            )
+
+                            //------------------------------------------------------------------------------
+
+                          ]
+
+                      ),
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
+                    // SPACER
+                    const SizedBox(height: 15),
+
+                    //------------------------------------------------------------------------------
+
+                    // TIMER BOX
+                    show_timer ? Container(
+
+                      // SIZE
+                      width: double.infinity,
+
+                      // PADDING
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 25),
+
+                      // ALIGNMENT
+                      alignment: Alignment.topCenter,
+
+                      // STYLING
+                      decoration: BoxDecoration(
+
+                        // BACKGROUND COLOR
+                        color: Theme
+                            .of(context)
+                            .colorScheme
+                            .primary,
+
+                        // BORDER RADIUS
+                        borderRadius: BorderRadius.circular(20),
+
+                      ),
+
+                      // CONTAINER CONTENT
+                      child: Column(
+
+                        // ALIGNMENT
+                          crossAxisAlignment: CrossAxisAlignment.center,
+
+                          // COLUMN CONTENT
+                          children: [
+
+                            //------------------------------------------------------------------------------
+
+                            // TIMER TEXT
+                            Text(
+
+                              // TIMER TITLE TEXT
+                              AppLocalizations.of(context)!
+                                  .play_page_timer_label,
+
+                              // TEXT STYLE
+                              style: TextStyle(
+
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold
+
+                              ),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(height: 5),
+
+                            //------------------------------------------------------------------------------
+
+                            // TIMER TEXT
+                            Text(
+
+                              // TIMER TEXT
+                              timer_controller.formattedTime(),
+
+                              // TEXT STYLE
+                              style: TextStyle(
+
+                                  fontSize: 48,
+                                  fontWeight: FontWeight.bold
+
+                              ),
+
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(height: 5),
+
+                            //------------------------------------------------------------------------------
+
+                            // BUTTON ROW
+                            Row(
+
+                              mainAxisAlignment: MainAxisAlignment.center,
+
+                              children: [
+
+                                //------------------------------------------------------------------------------
+
+                                // PLAY/PAUSE BUTTON BOX
+                                SizedBox(
+
+                                  // FIXED SIZE
+                                  width: 60,
+                                  height: 60,
+
+                                  // QUEST DONE BUTTON
+                                  child: ElevatedButton(
+
+                                    // BUTTON STYLE PARAMETERS
+                                      style: ButtonStyle(
+
+                                        // NORMAL TEXT COLOR
+                                        foregroundColor: WidgetStateProperty
+                                            .all(Theme
+                                            .of(context)
+                                            .colorScheme
+                                            .onPrimary),
+
+                                        // NORMAL BACKGROUND COLOR
+                                        backgroundColor: WidgetStateProperty
+                                            .all(Color.fromRGBO(
+                                            86, 86, 86, 0.49411764705882355)),
+
+                                        // PADDING
+                                        padding: WidgetStateProperty.all(
+                                            EdgeInsets.only(left: 5,
+                                                right: 5,
+                                                top: 5,
+                                                bottom: 5)),
+
+                                        // BORDER RADIUS
+                                        shape: WidgetStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                100),
+                                          ),
+                                        ),
+
+                                      ),
+
+                                      // ON PRESSED CALL
+                                      onPressed: () {
+                                        setState(() {
+                                          // CHECKING WHICH BEHAVIOR DO
+                                          if (timer_controller.isRunning) {
+                                            timer_controller.pause();
+                                          } else {
+                                            timer_controller.start();
+                                          }
+                                        });
+                                      },
+
+                                      // BUTTON CONTENT
+                                      child: Row(
+
+                                        // ALIGNMENT
+                                        mainAxisAlignment: MainAxisAlignment
+                                            .center,
+
+                                        children: [
+
+                                          //------------------------------------------------------------------------------
+
+                                          // SCISSOR ICON
+                                          Icon(
+
+                                            // CHECKING WHICH ICON SHOW
+                                            timer_controller.isRunning ? Icons
+                                                .pause : Icons.play_arrow,
+
+                                            // ICON COLOR
+                                            color: Theme
+                                                .of(context)
+                                                .colorScheme
+                                                .onPrimary,
+
+                                            // ICON SIZE
+                                            size: 30,
+
+                                          ),
+
+                                          //------------------------------------------------------------------------------
+
+                                        ],
+
+                                      )
+
+                                  ),
+
+                                ),
+
+                                //------------------------------------------------------------------------------
+
+                                const SizedBox(width: 15),
+
+                                //------------------------------------------------------------------------------
+
+                                // RESET BUTTON BOX
+                                SizedBox(
+
+                                  // FIXED SIZE
+                                  width: 60,
+                                  height: 60,
+
+                                  // QUEST DONE BUTTON
+                                  child: ElevatedButton(
+
+                                    // BUTTON STYLE PARAMETERS
+                                      style: ButtonStyle(
+
+                                        // NORMAL TEXT COLOR
+                                        foregroundColor: WidgetStateProperty
+                                            .all(Theme
+                                            .of(context)
+                                            .colorScheme
+                                            .onPrimary),
+
+                                        // NORMAL BACKGROUND COLOR
+                                        backgroundColor: WidgetStateProperty
+                                            .all(Color.fromRGBO(
+                                            86, 86, 86, 0.49411764705882355)),
+
+                                        // PADDING
+                                        padding: WidgetStateProperty.all(
+                                            EdgeInsets.only(left: 5,
+                                                right: 5,
+                                                top: 5,
+                                                bottom: 5)),
+
+                                        // BORDER RADIUS
+                                        shape: WidgetStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                100),
+                                          ),
+                                        ),
+
+                                      ),
+
+                                      // ON PRESSED CALL
+                                      onPressed: () {
+                                        setState(() {
+                                          timer_controller.reset();
+                                        });
+                                      },
+
+
+                                      // BUTTON CONTENT
+                                      child: Row(
+
+                                        // ALIGNMENT
+                                        mainAxisAlignment: MainAxisAlignment
+                                            .center,
+
+                                        children: [
+
+                                          //------------------------------------------------------------------------------
+
+                                          // SCISSOR ICON
+                                          Icon(
+
+                                            // ICONS
+                                            Icons.restart_alt_rounded,
+
+                                            // ICONS COLOR
+                                            color: Theme
+                                                .of(context)
+                                                .colorScheme
+                                                .onPrimary,
+
+                                            size: 30,
+
+                                          ),
+
+                                          //------------------------------------------------------------------------------
+
+                                        ],
+
+                                      )
+
+                                  ),
 
                                 ),
 
@@ -1023,287 +1625,215 @@ class _PlayPageState extends State<PlayPage> {
 
                             ),
 
-                          )
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                          ]
 
-                        ]
+                      ),
 
-                    ),
+                    ) : const SizedBox.shrink(),
 
-                  ),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // SPACER
+                    const SizedBox(height: 15),
 
-                  // SPACER
-                  const SizedBox(height: 15),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                    // EXIT BUTTON BOX
+                    Container(
 
-                  // TIMER BOX
-                  show_timer ?Container(
+                      // SIZE
+                      width: double.infinity,
 
-                    // SIZE
-                    width: double.infinity,
-
-                    // PADDING
-                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-
-                    // ALIGNMENT
-                    alignment: Alignment.topCenter,
-
-                    // STYLING
-                    decoration: BoxDecoration(
-
-                      // BACKGROUND COLOR
-                      color: Theme.of(context).colorScheme.primary,
-
-                      // BORDER RADIUS
-                      borderRadius: BorderRadius.circular(20),
-
-                    ),
-
-                    // CONTAINER CONTENT
-                    child: Column(
+                      // PADDING
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 25),
 
                       // ALIGNMENT
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                      alignment: Alignment.topCenter,
 
-                        // COLUMN CONTENT
-                        children: [
+                      // STYLING
+                      decoration: BoxDecoration(
 
-                          //------------------------------------------------------------------------------
+                        // BACKGROUND COLOR
+                        color: Theme
+                            .of(context)
+                            .colorScheme
+                            .primary,
 
-                          // TIMER TEXT
-                          Text(
+                        // BORDER RADIUS
+                        borderRadius: BorderRadius.circular(20),
 
-                            // TIMER TITLE TEXT
-                            AppLocalizations.of(context)!.play_page_timer_label,
+                      ),
 
-                            // TEXT STYLE
-                            style: TextStyle(
+                      // CONTAINER CONTENT
+                      child: Column(
 
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold
+                        // ALIGNMENT
+                          crossAxisAlignment: CrossAxisAlignment.center,
 
-                            ),
+                          // COLUMN CONTENT
+                          children: [
 
-                          ),
+                            //------------------------------------------------------------------------------
 
-                          //------------------------------------------------------------------------------
+                            // PLAY DISCARD BUTTONS CONTAINER
+                            Container(
 
-                          // SPACER
-                          const SizedBox(height: 5),
+                              // SIZE
+                              width: double.infinity,
 
-                          //------------------------------------------------------------------------------
+                              // ALIGNMENT
+                              alignment: Alignment.center,
 
-                          // TIMER TEXT
-                          Text(
+                              // BUTTON BOX
+                              child: Row(
 
-                            // TIMER TEXT
-                            timer_controller.formattedTime(),
+                                mainAxisAlignment: MainAxisAlignment.center,
 
-                            // TEXT STYLE
-                            style: TextStyle(
+                                // BOX CONTENT
+                                children: [
 
-                                fontSize: 48,
-                                fontWeight: FontWeight.bold
+                                  //------------------------------------------------------------------------------
 
-                            ),
+                                  // QUEST DONE BUTTON BOX
+                                  SizedBox(
 
-                          ),
+                                    // FIXED WIDTH
+                                    width: 140,
 
-                          //------------------------------------------------------------------------------
+                                    // SKIP QUEST  BUTTON
+                                    child: ElevatedButton(
 
-                          // SPACER
-                          const SizedBox(height: 5),
+                                      // BUTTON STYLE PARAMETERS
+                                        style: ButtonStyle(
 
-                          //------------------------------------------------------------------------------
+                                          // NORMAL TEXT COLOR
+                                          foregroundColor: WidgetStateProperty
+                                              .all(Theme
+                                              .of(context)
+                                              .colorScheme
+                                              .onPrimary),
 
-                          // BUTTON ROW
-                          Row(
+                                          // NORMAL BACKGROUND COLOR
+                                          backgroundColor: WidgetStateProperty
+                                              .all(Color.fromRGBO(
+                                              219, 157, 80,
+                                              0.8784313725490196)),
 
-                            mainAxisAlignment: MainAxisAlignment.center,
+                                          // PADDING
+                                          padding: WidgetStateProperty.all(
+                                              EdgeInsets.only(left: 15,
+                                                  right: 15,
+                                                  top: 15,
+                                                  bottom: 15)),
 
-                            children: [
+                                          // BORDER RADIUS
+                                          shape: WidgetStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius: BorderRadius
+                                                  .circular(100),
+                                            ),
+                                          ),
 
-                              //------------------------------------------------------------------------------
-
-                              // PLAY/PAUSE BUTTON BOX
-                              SizedBox(
-
-                                // FIXED SIZE
-                                width: 60,
-                                height: 60,
-
-                                // QUEST DONE BUTTON
-                                child: ElevatedButton(
-
-                                  // BUTTON STYLE PARAMETERS
-                                    style: ButtonStyle(
-
-                                      // NORMAL TEXT COLOR
-                                      foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                                      // NORMAL BACKGROUND COLOR
-                                      backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                          86, 86, 86, 0.49411764705882355)),
-
-                                      // PADDING
-                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                                      // BORDER RADIUS
-                                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(100),
                                         ),
-                                      ),
+
+                                        // ON PRESSED CALL
+                                        onPressed: () {
+                                          skip_current_quest();
+                                        },
+
+                                        // BUTTON CONTENT
+                                        child: Row(
+
+                                          // ALIGNMENT
+                                          mainAxisAlignment: MainAxisAlignment
+                                              .center,
+
+                                          children: [
+
+                                            //------------------------------------------------------------------------------
+
+                                            // SCISSOR ICON
+                                            Icon(
+
+                                              // ICONS
+                                              Icons.cut,
+
+                                              // ICONS COLOR
+                                              color: Theme
+                                                  .of(context)
+                                                  .colorScheme
+                                                  .onPrimary,
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // SPACER
+                                            const SizedBox(width: 5),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // BUTTON TEXT CONTAINER
+                                            Flexible(
+
+                                              // BUTTON TEXT
+                                              child: Text(
+
+                                                // TEXT
+                                                AppLocalizations.of(context)!
+                                                    .play_page_replace_button,
+
+                                                // TEXT ALIGNMENT
+                                                textAlign: TextAlign.center,
+
+                                                // TEXT STYLE
+                                                style: TextStyle(
+
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500,
+
+                                                ),
+
+                                              ),
+
+                                            ),
+
+                                            //------------------------------------------------------------------------------
+
+                                          ],
+
+                                        )
 
                                     ),
 
-                                    // ON PRESSED CALL
-                                    onPressed: () {
-                                      setState(() {
 
-                                        // CHECKING WHICH BEHAVIOR DO
-                                        if (timer_controller.isRunning) {
-                                          timer_controller.pause();
-                                        } else {
-                                          timer_controller.start();
-                                        }
-                                      });
-                                    },
+                                  ),
 
-                                    // BUTTON CONTENT
-                                    child: Row(
+                                  //------------------------------------------------------------------------------
 
-                                      // ALIGNMENT
-                                      mainAxisAlignment: MainAxisAlignment.center,
-
-                                      children: [
-
-                                        //------------------------------------------------------------------------------
-
-                                        // SCISSOR ICON
-                                        Icon(
-
-                                          // CHECKING WHICH ICON SHOW
-                                          timer_controller.isRunning ? Icons.pause : Icons.play_arrow,
-
-                                          // ICON COLOR
-                                          color: Theme.of(context).colorScheme.onPrimary,
-
-                                          // ICON SIZE
-                                          size: 30,
-
-                                        ),
-
-                                        //------------------------------------------------------------------------------
-
-                                      ],
-
-                                    )
-
-                                ),
+                                ],
 
                               ),
 
-                              //------------------------------------------------------------------------------
+                            )
 
-                              const SizedBox(width: 15),
+                            //------------------------------------------------------------------------------
 
-                              //------------------------------------------------------------------------------
+                          ]
 
-                              // RESET BUTTON BOX
-                              SizedBox(
-
-                                // FIXED SIZE
-                                width: 60,
-                                height: 60,
-
-                                // QUEST DONE BUTTON
-                                child: ElevatedButton(
-
-                                  // BUTTON STYLE PARAMETERS
-                                    style: ButtonStyle(
-
-                                      // NORMAL TEXT COLOR
-                                      foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                                      // NORMAL BACKGROUND COLOR
-                                      backgroundColor: WidgetStateProperty.all(Color.fromRGBO(
-                                          86, 86, 86, 0.49411764705882355)),
-
-                                      // PADDING
-                                      padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                                      // BORDER RADIUS
-                                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                        RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(100),
-                                        ),
-                                      ),
-
-                                    ),
-
-                                    // ON PRESSED CALL
-                                    onPressed: () {
-                                      setState(() {
-                                        timer_controller.reset();
-                                      });
-                                    },
-
-
-                                    // BUTTON CONTENT
-                                    child: Row(
-
-                                      // ALIGNMENT
-                                      mainAxisAlignment: MainAxisAlignment.center,
-
-                                      children: [
-
-                                        //------------------------------------------------------------------------------
-
-                                        // SCISSOR ICON
-                                        Icon(
-
-                                          // ICONS
-                                          Icons.restart_alt_rounded,
-
-                                          // ICONS COLOR
-                                          color: Theme.of(context).colorScheme.onPrimary,
-
-                                          size: 30,
-
-                                        ),
-
-                                        //------------------------------------------------------------------------------
-
-                                      ],
-
-                                    )
-
-                                ),
-
-                              ),
-
-                              //------------------------------------------------------------------------------
-
-                            ],
-
-                          ),
-
-                          //------------------------------------------------------------------------------
-
-                        ]
+                      ),
 
                     ),
 
-                  ): const SizedBox.shrink(),
+                    //------------------------------------------------------------------------------
 
-                  //------------------------------------------------------------------------------
+                  ],
 
-                ],
+                ),
 
               ),
 
@@ -1313,9 +1843,9 @@ class _PlayPageState extends State<PlayPage> {
 
         ),
 
-      ),
+      );
 
-    );
+    }
 
   }
 

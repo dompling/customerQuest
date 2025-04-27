@@ -6,6 +6,7 @@ import 'package:loverquest/l10n/app_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:loverquest/logics/settings_logics/language_switch.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 //------------------------------------------------------------------------------
 
@@ -30,6 +31,9 @@ class SettingsMainPage extends StatefulWidget {
 
 // SETTINGS MAIN PAGE CONTENT
 class _SettingsMainPageState extends State<SettingsMainPage> {
+
+  // APP VERSION STRING
+  String app_version = '';
 
   //------------------------------------------------------------------------------
 
@@ -99,6 +103,66 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
                 //------------------------------------------------------------------------------
 
+                // FRENCH OPTION
+                ListTile(
+
+                  // LANGUAGE LABEL
+                  title: Text(AppLocalizations.of(context)!.deck_language_fr, textAlign: TextAlign.center,),
+
+                  // ON TAP FUNCTION CALL
+                  onTap: () {
+
+                    // SETTING THE UI LANGUAGE
+                    Provider.of<LocaleProvider>(context, listen: false).setLocale(Locale('fr', ''));
+
+                    // CLOSING THE DIALOG
+                    Navigator.pop(context);
+
+                  },
+                ),
+
+                //------------------------------------------------------------------------------
+
+                // SPANISH OPTION
+                ListTile(
+
+                  // LANGUAGE LABEL
+                  title: Text(AppLocalizations.of(context)!.deck_language_es, textAlign: TextAlign.center,),
+
+                  // ON TAP FUNCTION CALL
+                  onTap: () {
+
+                    // SETTING THE UI LANGUAGE
+                    Provider.of<LocaleProvider>(context, listen: false).setLocale(Locale('es', ''));
+
+                    // CLOSING THE DIALOG
+                    Navigator.pop(context);
+
+                  },
+                ),
+
+                //------------------------------------------------------------------------------
+
+                // GERMAN OPTION
+                ListTile(
+
+                  // LANGUAGE LABEL
+                  title: Text(AppLocalizations.of(context)!.deck_language_de, textAlign: TextAlign.center,),
+
+                  // ON TAP FUNCTION CALL
+                  onTap: () {
+
+                    // SETTING THE UI LANGUAGE
+                    Provider.of<LocaleProvider>(context, listen: false).setLocale(Locale('de', ''));
+
+                    // CLOSING THE DIALOG
+                    Navigator.pop(context);
+
+                  },
+                ),
+
+                //------------------------------------------------------------------------------
+
               ],
 
             ),
@@ -126,6 +190,27 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
   }
   
   //------------------------------------------------------------------------------
+
+  // FUNCTION TO GET THE APP VERSION NUMBER
+  Future<void> get_app_version() async {
+
+    // GETTING THE APP INFO
+    final info = await PackageInfo.fromPlatform();
+
+    // TRANSLATING THE APP INFO IN STRING
+    setState(() {
+      app_version = '${info.version}+${info.buildNumber}';
+    });
+
+  }
+
+  //------------------------------------------------------------------------------
+
+  @override
+  void initState() {
+    super.initState();
+    get_app_version();
+  }
 
   // PAGE WIDGET
   @override
@@ -431,6 +516,19 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
                     //------------------------------------------------------------------------------
 
+                    // SECTION DIVIDER
+                    Divider(
+
+                      // COLOR
+                      color: Theme.of(context).colorScheme.primary,
+
+                      // THICKNESS
+                      thickness: 2,
+
+                    ),
+
+                    //------------------------------------------------------------------------------
+
                     // OTHER SECTION TITLE LABEL
                     Text(
 
@@ -470,6 +568,17 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
                       // OPEN LINK FUNCTION
                       onTap: () => open_link("https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md"),
+
+                    ),
+
+                    // APP INFO BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text("${AppLocalizations.of(context)!.settings_main_page_app_info_label} $app_version"),
+
+                      // BUTTON ICON
+                      leading: Icon(Icons.settings),
 
                     ),
 

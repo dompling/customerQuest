@@ -423,6 +423,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get play_page_timer_label => 'Timer';
 
   @override
+  String get play_page_quest_no_quest_label => 'There are no more quests, please start a new game.';
+
+  @override
+  String get play_page_end_page_title => 'You have completed all the quests!';
+
+  @override
+  String get play_page_end_page_subtitle => 'Thank you for playing Loverquest, we hope you had fun';
+
+  @override
+  String get play_page_end_page_go_home_button_label => 'Exit';
+
+  @override
   String get deck_list_main_page_title => 'Manage decks';
 
   @override
@@ -589,4 +601,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settings_main_page_privacy_policy_label => 'Privacy policy';
+
+  @override
+  String get settings_main_page_app_info_label => 'App version :';
 }

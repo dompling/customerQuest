@@ -263,7 +263,12 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
               // LOADING THE DUPLICATED DECK
               await new_duplicated_deck.load_deck();
 
+              // CHECKING IF THE INTERFACE IS STILL MOUNTED
+              if (!mounted) return;
+
+              // GOING TO THE NEXT PAGE
               Navigator.pushReplacement(
+                // ignore: use_build_context_synchronously
                 context,
                 MaterialPageRoute(
                   builder: (context) => DeckManagementPage(load_default_decks: false, deck_to_edit: new_duplicated_deck,),

@@ -42,6 +42,9 @@ class _PlayMainPageState extends State<PlayMainPage> {
   // DEFINING THE PREVIOUS DATA PRESENCE VAR
   bool previous_data = false;
 
+  // DEFINING THE APP PREFERENCE VAR
+  late SharedPreferences prefs;
+
   // DEFINING PREVIOUS DATA VARS
   bool game_type = true;
   List<Players> players_list = [];
@@ -70,18 +73,28 @@ class _PlayMainPageState extends State<PlayMainPage> {
   void initState()  {
     super.initState();
 
-    // CHECKING IF THERE ARE PREVIOUS MATCH DATA
-    check_previous_data_presence();
+    // AFTER THE FIRST FRAME HAS BEEN DRAW
+    WidgetsBinding.instance.addPostFrameCallback((_) {
 
-    // CHECKING IF IS NECESSARY TO SHOW THE SPLASH SCREEN
-    WidgetsBinding.instance.addPostFrameCallback((_){check_splash_screen();});
+      Future.microtask(() async {
 
-    // CHECKING IF IS NECESSARY TO SHOW THE DONATION REMINDER
-    WidgetsBinding.instance.addPostFrameCallback((_){check_donation_reminder();});
+        // LOADING THE APP PREFERENCE
+        prefs = await SharedPreferences.getInstance();
 
-    // CHECKING IF IS NECESSARY TO SHOW THE REVIEW REMINDER
-    WidgetsBinding.instance.addPostFrameCallback((_){check_review_reminder();});
+        // CHECKING IF THERE ARE PREVIOUS MATCH DATA
+        check_previous_data_presence();
 
+        // CHECKING IF IS NECESSARY TO SHOW THE SPLASH SCREEN
+        await check_splash_screen();
+
+        // CHECKING IF IS NECESSARY TO SHOW THE DONATION REMINDER
+        await check_donation_reminder();
+
+        // CHECKING IF IS NECESSARY TO SHOW THE REVIEW REMINDER
+        await check_review_reminder();
+
+      });
+    });
 
   }
 
@@ -93,6 +106,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
     // CHECKING IF THE FILE EXIST
     if (await file.exists()) {
+      if (!mounted) return;
       setState(() {
         previous_data = true;
       });
@@ -103,9 +117,6 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
   // CHECKING IF IS THE FIRST TIME THAT THE APP IS OPENED IN ORDER TO SHOW THE SPLASH SCREEN
   Future<void> check_splash_screen () async {
-
-    // LOADING THE APP PREFERENCES
-    SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // GETTING THE SPLASH SCREEN PREFERENCE, IF THERE ARE NOT SETTING IT TO ZERO
     bool show_splash_screen = prefs.getBool('show_splash_screen') ?? true;
@@ -284,9 +295,6 @@ class _PlayMainPageState extends State<PlayMainPage> {
   // CHECKING IF THE USER HAS PLAYED ENOUGH GAME TO SHOW A DONATION REMINDER
   Future<void> check_donation_reminder() async {
 
-    // LOADING THE APP PREFERENCES
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
     // GETTING THE PLAYED GAMES NUMBER, IF THERE ARE NOT SETTING IT TO ZERO
     int played_games = prefs.getInt('played_games') ?? 1;
 
@@ -450,9 +458,6 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
   // CHECKING IF THE USER HAS PLAYED ENOUGH GAME TO SHOW A REVIEW REMINDER
   Future<void> check_review_reminder() async {
-
-    // LOADING THE APP PREFERENCES
-    SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // GETTING THE PLAYED GAMES NUMBER, IF THERE ARE NOT SETTING IT TO ZERO
     int played_games = prefs.getInt('played_games') ?? 1;
@@ -705,6 +710,9 @@ class _PlayMainPageState extends State<PlayMainPage> {
                   // TEXT
                   AppLocalizations.of(context)!.play_main_page_title,
 
+                  // TEXT ALIGNMENT
+                  textAlign: TextAlign.center,
+
                   // TEXT STYLE
                   style: TextStyle(
 
@@ -722,6 +730,9 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
                   // TEXT
                   AppLocalizations.of(context)!.play_main_page_subtitle,
+
+                  // TEXT ALIGNMENT
+                  textAlign: TextAlign.center,
 
                   // TEXT STYLE
                   style: TextStyle(

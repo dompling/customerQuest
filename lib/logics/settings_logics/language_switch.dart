@@ -15,7 +15,7 @@ class LocaleProvider extends ChangeNotifier {
   Locale? _locale;
 
   // SUPPORTED LANGUAGES
-  final List<String> supportedLanguages = ['it', 'fr', 'de', 'es'];
+  final List<String> supportedLanguages = ['it', 'fr', 'de', 'es', 'en'];
 
   //------------------------------------------------------------------------------
 

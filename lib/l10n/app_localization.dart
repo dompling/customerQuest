@@ -5,7 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localization_de.dart';
 import 'app_localization_en.dart';
+import 'app_localization_es.dart';
+import 'app_localization_fr.dart';
 import 'app_localization_it.dart';
 
 // ignore_for_file: type=lint
@@ -91,7 +94,10 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('de'),
     Locale('en'),
+    Locale('es'),
+    Locale('fr'),
     Locale('it')
   ];
 
@@ -911,6 +917,30 @@ abstract class AppLocalizations {
   /// **'Timer'**
   String get play_page_timer_label;
 
+  /// No description provided for @play_page_quest_no_quest_label.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no more quests, please start a new game.'**
+  String get play_page_quest_no_quest_label;
+
+  /// No description provided for @play_page_end_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'You have completed all the quests!'**
+  String get play_page_end_page_title;
+
+  /// No description provided for @play_page_end_page_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for playing Loverquest, we hope you had fun'**
+  String get play_page_end_page_subtitle;
+
+  /// No description provided for @play_page_end_page_go_home_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get play_page_end_page_go_home_button_label;
+
   /// No description provided for @deck_list_main_page_title.
   ///
   /// In en, this message translates to:
@@ -1246,6 +1276,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Privacy policy'**
   String get settings_main_page_privacy_policy_label;
+
+  /// No description provided for @settings_main_page_app_info_label.
+  ///
+  /// In en, this message translates to:
+  /// **'App version :'**
+  String get settings_main_page_app_info_label;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
@@ -1257,7 +1293,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'it'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['de', 'en', 'es', 'fr', 'it'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1268,7 +1304,10 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'de': return AppLocalizationsDe();
     case 'en': return AppLocalizationsEn();
+    case 'es': return AppLocalizationsEs();
+    case 'fr': return AppLocalizationsFr();
     case 'it': return AppLocalizationsIt();
   }
 

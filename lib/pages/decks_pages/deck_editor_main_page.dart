@@ -465,7 +465,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
             onPressed: () async {
 
               // SAVING THE DECK
-              String new_duplicated_deck_file_path = await DeckSaver.save_deck(
+              await DeckSaver.save_deck(
 
                   deck_name: "${widget.selected_deck.summary.name}_2",
                   deck_description: widget.selected_deck.summary.description,
@@ -478,13 +478,12 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
               );
 
-              // INITIALIZING THE DUPLICATED DECK
-              DeckReader new_duplicated_deck = DeckReader(new_duplicated_deck_file_path);
+              // CHECKING IF THE INTERFACE IS STILL MOUNTED
+              if (!mounted) return;
 
-              // LOADING THE DUPLICATED DECK
-              await new_duplicated_deck.load_deck();
-
+              // GOING BACK TO THE PREVIOUS PAGE
               Navigator.pop(
+                // ignore: use_build_context_synchronously
                 context,
                 MaterialPageRoute(
                   builder: (context) => DeckManagementPage(load_default_decks: false),
@@ -504,7 +503,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
           // DELETE ICON BUTTON
           IconButton(
             icon: Icon(Icons.delete),
-            onPressed: () async {
+            onPressed: () {
 
               // SHOWING THE DELETE DIALOG
               show_deck_delete_dialog();

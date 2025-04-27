@@ -241,6 +241,9 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
           DeckReader new_deck = DeckReader(saved_file_path);
           await new_deck.load_deck();
 
+          // CHECKING IF THE INTERFACE IS STILL MOUNTED
+          if (!mounted) return false;
+
           // GOING TO THE MAIN EDIT PAGE WITH THE NEW DECK INFO
           Navigator.pushReplacement(
             context,
@@ -746,8 +749,12 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
         // SAVING DECK DATA
         bool success = await data_check_to_go();
 
+        // CHECKING IF THE INTERFACE IS STILL MOUNTED
+        if (!mounted) return;
+
         // GOING BACK TO THE EDITOR MAIN PAGE
         if (success) {
+          // ignore: use_build_context_synchronously
           Navigator.of(context).pop(saved_file_path);
         }
 
@@ -1395,10 +1402,13 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
                           // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
                           await data_check_to_go();
 
+                          // CHECKING IF THE INTERFACE IS STILL MOUNTED
+                          if (!mounted) return;
 
                           if (widget.selected_deck != null) {
 
                             // PAGE LINKER
+                            // ignore: use_build_context_synchronously
                             Navigator.pop(context, saved_file_path);
 
                           }

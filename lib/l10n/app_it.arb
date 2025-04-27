@@ -157,6 +157,10 @@
   "play_page_completed_button": "Completata",
   "play_page_replace_button": "Sostituisci",
   "play_page_timer_label": "Timer",
+  "play_page_quest_no_quest_label": "Hai completato tutte le quest, comincia una nuova partita",
+  "play_page_end_page_title": "Hai terminato tutte le quest !",
+  "play_page_end_page_subtitle": "Grazie per aver giocato a Loverquest, speriamo vi siate divertiti",
+  "play_page_end_page_go_home_button_label": "Esci",
 
   "deck_list_main_page_title": "Gestici i mazzi",
   "deck_list_main_page_default_decks_section_title": "Mazzi predefiniti",
@@ -218,7 +222,8 @@
   "settings_main_page_credits_label": "Sviluppato con amore da Herzen",
   "settings_main_page_other_section_label": "Altro",
   "settings_main_page_license_label": "Licenza dell'app",
-  "settings_main_page_privacy_policy_label": "Informativa sulla privacy"
+  "settings_main_page_privacy_policy_label": "Informativa sulla privacy",
+  "settings_main_page_app_info_label": "Versione dell'app :"
 
 
 }

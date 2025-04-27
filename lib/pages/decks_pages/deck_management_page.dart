@@ -338,10 +338,14 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
               // IMPORTING THE CUSTOM DECK
               bool deck_correct_imported = await import_json_file();
 
+              // CHECKING IF THE INTERFACE IS STILL MOUNTED
+              if (!mounted) return;
+
               // CHECKING IF THE CUSTOM DECK WAS CORRECTLY IMPORTED
               if (!deck_correct_imported) {
 
                 // SHOWING ERROR POPUP
+                // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
 
@@ -362,6 +366,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
                           child: Text(
                             // TEXT
+                            // ignore: use_build_context_synchronously
                             AppLocalizations.of(context)!.deck_management_page_import_error_text,
 
                             // TEXT STYLE
@@ -782,7 +787,12 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
                                    // LOADING THE DUPLICATED DECK
                                    await new_duplicated_deck.load_deck();
 
+                                   // CHECKING IF THE INTERFACE IS STILL MOUNTED
+                                   if (!mounted) return;
+
+                                   // GOING TO THE NEXT PAGE
                                    Navigator.pushReplacement(
+                                     // ignore: use_build_context_synchronously
                                      context,
                                      MaterialPageRoute(
                                        builder: (context) => DeckManagementPage(load_default_decks: false, deck_to_edit: new_duplicated_deck,),

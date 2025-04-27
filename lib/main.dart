@@ -228,6 +228,9 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         Locale('en', ''),
         Locale('it', ''),
+        Locale('es', ''),
+        Locale('fr', ''),
+        Locale('de', ''),
       ],
 
       // LOADING THE TRANSLATION
@@ -237,7 +240,6 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-
 
       // CHECKING IF THE USER LANGUAGE IS SUPPORTED, IF NO IT WILL BE REVERTED TO ENGLISH
       localeResolutionCallback: (locale, supportedLocales) {

@@ -170,3 +170,99 @@ Players switch_next_quest_list (Players player, Quest current_quest) {
 
 
 //------------------------------------------------------------------------------
+
+
+
+// CHECKING WHICH QUEST TYPE WILL BE THE END QUEST TYPE
+String getting_end_quest_type (Players player_one, Players player_two) {
+
+  if (player_one.player_end_quest_list.isNotEmpty || player_two.player_end_quest_list.isNotEmpty) {
+
+    // RETURNING THE END QUEST TYPE TO AIM
+    return "end";
+
+  } else if (player_one.player_late_quest_list.isNotEmpty || player_two.player_late_quest_list.isNotEmpty) {
+
+    // RETURNING THE END QUEST TYPE TO AIM
+    return "late";
+
+  } else if (player_one.player_mid_quest_list.isNotEmpty || player_two.player_mid_quest_list.isNotEmpty) {
+
+    // RETURNING THE END QUEST TYPE TO AIM
+    return "mid";
+
+  } else {
+
+    // RETURNING THE END QUEST TYPE TO AIM
+    return "early";
+
+  }
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+// CHECKING WHICH QUEST TYPE WILL BE THE END QUEST TYPE
+Players getting_start_quest_type (Players player_one, Players player_two, Players player_to_set) {
+
+  if (player_one.player_early_quest_list.isNotEmpty || player_two.player_early_quest_list.isNotEmpty) {
+
+    // SETTING THE CURRENT LIST AND CURRENT LIST COUNTER
+    player_to_set.player_current_quest_list = player_to_set.player_early_quest_list;
+    player_to_set.player_current_quest_list_counter = player_to_set.player_early_quest_list_counter;
+
+    // RETURNING THE START QUEST TYPE TO AIM
+    return player_to_set;
+
+  } else if (player_one.player_mid_quest_list.isNotEmpty || player_two.player_mid_quest_list.isNotEmpty) {
+
+    // SETTING THE CURRENT LIST AND CURRENT LIST COUNTER
+    player_to_set.player_current_quest_list = player_to_set.player_mid_quest_list;
+    player_to_set.player_current_quest_list_counter = player_to_set.player_mid_quest_list_counter;
+
+    // RETURNING THE START QUEST TYPE TO AIM
+    return player_to_set;
+
+  } else if (player_one.player_late_quest_list.isNotEmpty || player_two.player_late_quest_list.isNotEmpty) {
+
+    // SETTING THE CURRENT LIST AND CURRENT LIST COUNTER
+    player_to_set.player_current_quest_list = player_to_set.player_late_quest_list;
+    player_to_set.player_current_quest_list_counter = player_to_set.player_late_quest_list_counter;
+
+    // RETURNING THE START QUEST TYPE TO AIM
+    return player_to_set;
+
+  }
+
+  // SETTING THE CURRENT LIST AND CURRENT LIST COUNTER
+  player_to_set.player_current_quest_list = player_to_set.player_end_quest_list;
+  player_to_set.player_current_quest_list_counter = player_to_set.player_end_quest_list_counter;
+
+  // RETURNING THE START QUEST TYPE TO AIM
+  return player_to_set;
+
+}
+
+
+
+//------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------

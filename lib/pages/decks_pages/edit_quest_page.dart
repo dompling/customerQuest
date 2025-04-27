@@ -159,7 +159,11 @@ class _QuestEditPageState extends State<QuestEditPage> {
                       selected_deck: widget.selected_deck,
                     );
 
+                    // CHECKING IF THE INTERFACE IS STILL MOUNTED
+                    if (!mounted) return;
+
                     // CLOSING THE DIALOG
+                    // ignore: use_build_context_synchronously
                     Navigator.of(context).pop();
 
                   },
@@ -1822,8 +1826,12 @@ class _QuestEditPageState extends State<QuestEditPage> {
       // SAVING DECK DATA
       bool success = await check_and_save_quest();
 
+      // CHECKING IF THE INTERFACE IS STILL MOUNTED
+      if (!mounted) return;
+
       // GOING BACK TO THE EDITOR MAIN PAGE
       if (success) {
+        // ignore: use_build_context_synchronously
         Navigator.of(context).pop();
       }
 

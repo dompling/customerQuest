@@ -423,6 +423,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get play_page_timer_label => 'Timer';
 
   @override
+  String get play_page_quest_no_quest_label => 'Hai completato tutte le quest, comincia una nuova partita';
+
+  @override
+  String get play_page_end_page_title => 'Hai terminato tutte le quest !';
+
+  @override
+  String get play_page_end_page_subtitle => 'Grazie per aver giocato a Loverquest, speriamo vi siate divertiti';
+
+  @override
+  String get play_page_end_page_go_home_button_label => 'Esci';
+
+  @override
   String get deck_list_main_page_title => 'Gestici i mazzi';
 
   @override
@@ -589,4 +601,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get settings_main_page_privacy_policy_label => 'Informativa sulla privacy';
+
+  @override
+  String get settings_main_page_app_info_label => 'Versione dell\'app :';
 }
