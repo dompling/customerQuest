@@ -67,3 +67,7 @@ Le soutien de la communauté est crucial pour nous, et les meilleures façons de
 
 ## Quelle est la feuille de route du projet ?
 Vous pouvez consulter la feuille de route du projet sur la page dédiée [ici](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
+
+## Quelle est la politique de confidentialité de l'application ?
+Vous pouvez trouver [ici](https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md) toutes les informations nécessaires concernant la politique de confidentialité de l'application.
+

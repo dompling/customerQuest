@@ -67,3 +67,7 @@ De steun van de community is essentieel voor ons, en de beste manieren om bij te
 
 ## Wat is de project-roadmap?
 Je kunt de project-roadmap bekijken op de speciale [pagina](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
+
+## Wat is het privacybeleid van de app?
+Je kunt [hier](https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md) alle informatie vinden over het privacybeleid van de app.
+

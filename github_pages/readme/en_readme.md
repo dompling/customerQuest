@@ -68,3 +68,6 @@ Community support is crucial for us, and the best ways to contribute are [helpin
 
 ## What is the project roadmap?
 You can check the project roadmap on the dedicated [page](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
+
+## What is the app privacy policy ?
+You can find [here](https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md) all the information you need about the app privacy policy.

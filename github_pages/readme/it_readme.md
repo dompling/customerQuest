@@ -67,3 +67,7 @@ Il supporto della community è fondamentale per noi, e i modi migliori per contr
 
 ## Qual è la roadmap del progetto?
 Puoi consultare la roadmap del progetto sulla pagina dedicata [qui](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
+
+## Qual è l'informativa sulla privacy dell'app?
+Puoi trovare [qui](https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md) tutte le informazioni di cui hai bisogno sull'informativa sulla privacy dell'app.
+
