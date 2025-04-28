@@ -35,7 +35,7 @@ Future<List<String>> get_default_deck_paths(BuildContext context, {bool? is_pres
   String lang = get_system_language(context);
 
   // CHECKING IF THE LANGUAGE IS ACTUALLY SUPPORTED
-  if (lang != "en" && lang != "it" && lang != "es" && lang != "fr" && lang != "de") { lang = "en"; }
+  if (lang != "en" && lang != "it" && lang != "es" && lang != "fr" && lang != "de" && lang != "nl") { lang = "en"; }
 
   // INITIALIZING THE PRESENCE/DISTANCE FOLDERS SEARCHING LIST
   List<String> folders;

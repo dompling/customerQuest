@@ -53,11 +53,13 @@
 
   "select_deck_page_title": "Wähle ein Deck zum Spielen",
 
-  "deck_language_en": "Englisch",
   "deck_language_it": "Italienisch",
+  "deck_language_en": "Englisch",
   "deck_language_es": "Spanisch",
-  "deck_language_de": "Deutsch",
   "deck_language_fr": "Französisch",
+  "deck_language_de": "Deutsch",
+  "deck_language_nl": "Niederländisch",
+
 
   "deck_couple_type_tag_label_hetero": "Hetero",
   "deck_couple_type_tag_label_lesbian": "Lesbisch",

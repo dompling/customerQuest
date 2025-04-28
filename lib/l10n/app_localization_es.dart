@@ -151,6 +151,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get deck_language_fr => 'Francés';
 
   @override
+  String get deck_language_nl => 'Neerlandés';
+
+  @override
   String get deck_couple_type_tag_label_hetero => 'Heterosexual';
 
   @override

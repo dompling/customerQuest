@@ -128,6 +128,9 @@ flutter:
     - assets/default_decks/presence/de/hetero/
     - assets/default_decks/presence/de/lesbian/
     - assets/default_decks/presence/de/gay/
+    - assets/default_decks/presence/nl/hetero/
+    - assets/default_decks/presence/nl/lesbian/
+    - assets/default_decks/presence/nl/gay/
     - assets/default_decks/distance/en/hetero/
     - assets/default_decks/distance/en/lesbian/
     - assets/default_decks/distance/en/gay/
@@ -143,6 +146,9 @@ flutter:
     - assets/default_decks/distance/de/hetero/
     - assets/default_decks/distance/de/lesbian/
     - assets/default_decks/distance/de/gay/
+    - assets/default_decks/distance/nl/hetero/
+    - assets/default_decks/distance/nl/lesbian/
+    - assets/default_decks/distance/nl/gay/
     - assets/audio/timer_alarm.mp3
  
 

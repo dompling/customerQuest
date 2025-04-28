@@ -231,6 +231,7 @@ class MyApp extends StatelessWidget {
         Locale('es', ''),
         Locale('fr', ''),
         Locale('de', ''),
+        Locale('nl', ''),
       ],
 
       // LOADING THE TRANSLATION

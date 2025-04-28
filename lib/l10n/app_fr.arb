@@ -53,11 +53,13 @@
 
   "select_deck_page_title": "Choisissez le paquet à utiliser",
 
-  "deck_language_en": "Anglais",
   "deck_language_it": "Italien",
+  "deck_language_en": "Anglais",
   "deck_language_es": "Espagnol",
-  "deck_language_de": "Allemand",
   "deck_language_fr": "Français",
+  "deck_language_de": "Allemand",
+  "deck_language_nl": "Néerlandais",
+
 
   "deck_couple_type_tag_label_hetero": "Hétéro",
   "deck_couple_type_tag_label_lesbian": "Lesbien",

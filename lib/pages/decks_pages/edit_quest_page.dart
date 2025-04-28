@@ -273,7 +273,11 @@ class _QuestEditPageState extends State<QuestEditPage> {
     String quest_content = _quest_content_controller.text.trim();
 
     // CHECKING THAT ALL MANDATORY FIELDS HAS BEEN COMPILED
-    if (quest_content == "") {
+    if (quest_content == "" && quest_timer == 0 && selected_option_quest_moment == "early" && selected_option_player_type == "both") {
+
+      return true;
+
+    } else if (quest_content == "") {
 
       // SHOWING ERROR POPUP
       ScaffoldMessenger.of(context).showSnackBar(
@@ -2433,10 +2437,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                         onPressed: () async {
 
                           // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
-                          check_and_save_quest();
+                          bool success = await check_and_save_quest();
 
-                          // GOING BACK TO THE MAIN EDIT PAGE
-                          Navigator.pop(context);
+                          if (success) {
+
+                            // GOING BACK TO THE MAIN EDIT PAGE
+                            // ignore: use_build_context_synchronously
+                            Navigator.pop(context);
+
+                          }
 
                         },
 

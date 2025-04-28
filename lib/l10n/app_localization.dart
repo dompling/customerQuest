@@ -10,6 +10,7 @@ import 'app_localization_en.dart';
 import 'app_localization_es.dart';
 import 'app_localization_fr.dart';
 import 'app_localization_it.dart';
+import 'app_localization_nl.dart';
 
 // ignore_for_file: type=lint
 
@@ -98,7 +99,8 @@ abstract class AppLocalizations {
     Locale('en'),
     Locale('es'),
     Locale('fr'),
-    Locale('it')
+    Locale('it'),
+    Locale('nl')
   ];
 
   /// No description provided for @app_splash_screen_title.
@@ -376,6 +378,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'French'**
   String get deck_language_fr;
+
+  /// No description provided for @deck_language_nl.
+  ///
+  /// In en, this message translates to:
+  /// **'Dutch'**
+  String get deck_language_nl;
 
   /// No description provided for @deck_couple_type_tag_label_hetero.
   ///
@@ -1293,7 +1301,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['de', 'en', 'es', 'fr', 'it'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['de', 'en', 'es', 'fr', 'it', 'nl'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1309,6 +1317,7 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
     case 'es': return AppLocalizationsEs();
     case 'fr': return AppLocalizationsFr();
     case 'it': return AppLocalizationsIt();
+    case 'nl': return AppLocalizationsNl();
   }
 
   throw FlutterError(

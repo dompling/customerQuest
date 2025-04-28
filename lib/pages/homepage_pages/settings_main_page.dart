@@ -163,6 +163,26 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
                 //------------------------------------------------------------------------------
 
+                // DUTCH OPTION
+                ListTile(
+
+                  // LANGUAGE LABEL
+                  title: Text(AppLocalizations.of(context)!.deck_language_nl, textAlign: TextAlign.center,),
+
+                  // ON TAP FUNCTION CALL
+                  onTap: () {
+
+                    // SETTING THE UI LANGUAGE
+                    Provider.of<LocaleProvider>(context, listen: false).setLocale(Locale('nl', ''));
+
+                    // CLOSING THE DIALOG
+                    Navigator.pop(context);
+
+                  },
+                ),
+
+                //------------------------------------------------------------------------------
+
               ],
 
             ),

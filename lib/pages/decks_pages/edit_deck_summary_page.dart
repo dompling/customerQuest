@@ -159,7 +159,11 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
     String deck_description_field = _deck_description_controller.text.trim();
 
     // CHECKING IF ALL THE FIELD HAVE BEEN COMPILED
-    if ((deck_name_field == "") || (deck_description_field == "")) {
+    if ((deck_name_field == "") && (deck_description_field == "")) {
+
+      return true;
+
+    } else if (((deck_name_field == "") || (deck_description_field == ""))) {
 
       // SHOWING ERROR POPUP
       ScaffoldMessenger.of(context).showSnackBar(
@@ -338,6 +342,106 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
                         // SETTING THE LANGUAGE LABEL
                         language_object = get_language_info(context, "it");
+                        _deck_language_controller = TextEditingController(text: language_object.label);
+
+                      });
+
+                      Navigator.pop(context);
+
+                    },
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // FRENCH OPTION
+                  ListTile(
+
+                    // LANGUAGE LABEL
+                    title: Text(AppLocalizations.of(context)!.deck_language_fr, textAlign: TextAlign.center,),
+
+                    // ON TAP FUNCTION CALL
+                    onTap: () {
+
+                      setState(() {
+
+                        // SETTING THE LANGUAGE LABEL
+                        language_object = get_language_info(context, "fr");
+                        _deck_language_controller = TextEditingController(text: language_object.label);
+
+                      });
+
+                      Navigator.pop(context);
+
+                    },
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // SPANISH OPTION
+                  ListTile(
+
+                    // LANGUAGE LABEL
+                    title: Text(AppLocalizations.of(context)!.deck_language_es, textAlign: TextAlign.center,),
+
+                    // ON TAP FUNCTION CALL
+                    onTap: () {
+
+                      setState(() {
+
+                        // SETTING THE LANGUAGE LABEL
+                        language_object = get_language_info(context, "es");
+                        _deck_language_controller = TextEditingController(text: language_object.label);
+
+                      });
+
+                      Navigator.pop(context);
+
+                    },
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // GERMAN OPTION
+                  ListTile(
+
+                    // LANGUAGE LABEL
+                    title: Text(AppLocalizations.of(context)!.deck_language_de, textAlign: TextAlign.center,),
+
+                    // ON TAP FUNCTION CALL
+                    onTap: () {
+
+                      setState(() {
+
+                        // SETTING THE LANGUAGE LABEL
+                        language_object = get_language_info(context, "de");
+                        _deck_language_controller = TextEditingController(text: language_object.label);
+
+                      });
+
+                      Navigator.pop(context);
+
+                    },
+
+                  ),
+
+                  //------------------------------------------------------------------------------
+
+                  // DUTCH OPTION
+                  ListTile(
+
+                    // LANGUAGE LABEL
+                    title: Text(AppLocalizations.of(context)!.deck_language_nl, textAlign: TextAlign.center,),
+
+                    // ON TAP FUNCTION CALL
+                    onTap: () {
+
+                      setState(() {
+
+                        // SETTING THE LANGUAGE LABEL
+                        language_object = get_language_info(context, "nl");
                         _deck_language_controller = TextEditingController(text: language_object.label);
 
                       });
@@ -761,6 +865,8 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
       },
 
       child: Scaffold(
+
+        appBar: AppBar(),
 
         // SCAFFOLD CONTENT
         body: SafeArea(
@@ -1400,12 +1506,12 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
                         onPressed: () async {
 
                           // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
-                          await data_check_to_go();
+                          bool success = await data_check_to_go();
 
                           // CHECKING IF THE INTERFACE IS STILL MOUNTED
                           if (!mounted) return;
 
-                          if (widget.selected_deck != null) {
+                          if (success) {
 
                             // PAGE LINKER
                             // ignore: use_build_context_synchronously

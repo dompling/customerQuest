@@ -54,11 +54,15 @@
   "select_start_player_random_player": "Casuale",
 
   "select_deck_page_title": "Seleziona il mazzo da giocare",
-  "deck_language_en": "Inglese",
+
   "deck_language_it": "Italiano",
+  "deck_language_en": "Inglese",
   "deck_language_es": "Spagnolo",
-  "deck_language_de": "Tedesco",
   "deck_language_fr": "Francese",
+  "deck_language_de": "Tedesco",
+  "deck_language_nl": "Olandese",
+
+
   "deck_couple_type_tag_label_hetero": "Etero",
   "deck_couple_type_tag_label_lesbian": "Lesbo",
   "deck_couple_type_tag_label_gay": "Gay",

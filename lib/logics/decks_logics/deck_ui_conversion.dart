@@ -34,6 +34,8 @@ LanguageInfo get_language_info(BuildContext context, String deck_lang) {
       return LanguageInfo(AppLocalizations.of(context)!.deck_language_de, Color(0xffa26b58), Color(0xffa26b58), "de");
     case "fr":
       return LanguageInfo(AppLocalizations.of(context)!.deck_language_fr, Color(0xffa26b58), Color(0xffa26b58), "fr");
+    case "nl":
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_nl, Color(0xffa26b58), Color(0xffa26b58), "nl");
     default:
       return LanguageInfo(AppLocalizations.of(context)!.deck_language_en, Color(0xffa26b58), Color(0xffa26b58), "en");
   }
