@@ -560,7 +560,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
                   ),
 
                   // FUNCTION
-                  onPressed: () => open_link("https://github.com/H3rz3n/loverquest/tree/main?tab=readme-ov-file#how-can-i-contribute-to-the-project-"),
+                  onPressed: () => open_link("https://play.google.com/store/apps/details?id=com.herzen.loverquest.app&reviewId=0"),
 
                   // BUTTON CONTENT
                   child: Text(
