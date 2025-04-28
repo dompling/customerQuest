@@ -58,7 +58,7 @@ Loverquest est actuellement disponible dans les langues suivantes :
 - **Néerlandais**
 
 ## Comment puis-je télécharger l'application ?
-Vous pouvez télécharger l'application directement depuis le [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) ou, alternativement, télécharger le fichier [`.apk`]().
+Vous pouvez télécharger l'application directement depuis le [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) ou, alternativement, télécharger le fichier [`.apk`](https://github.com/H3rz3n/loverquest/releases/latest).
 
 ## Comment puis-je soutenir le projet ?
 Le soutien de la communauté est crucial pour nous, et les meilleures façons de contribuer sont [en nous aidant avec les traductions](), en développant de nouvelles fonctionnalités ou en faisant un don pour nous permettre de continuer à développer et à maintenir l'application.
