@@ -64,6 +64,7 @@ Puoi scaricare l'app direttamente dal [Google Play Store](https://play.google.co
 Il supporto della community è fondamentale per noi, e i modi migliori per contribuire sono [aiutarci con le traduzioni](), sviluppare nuove funzionalità o fare una donazione per permetterci di continuare a sviluppare e mantenere l'app.
 - [Dona su PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
 - [Dona su BuyMeACoffee](https://buymeacoffee.com/herzen)
+Inoltre, puoi supportare il progetto lasciando una stella su GitHub e condividendolo con i tuoi amici.
 
 ## Qual è la roadmap del progetto?
 Puoi consultare la roadmap del progetto sulla pagina dedicata [qui](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).

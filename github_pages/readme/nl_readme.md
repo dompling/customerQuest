@@ -64,6 +64,7 @@ Je kunt de app rechtstreeks downloaden vanuit de [Google Play Store](https://pla
 De steun van de community is essentieel voor ons, en de beste manieren om bij te dragen zijn [door te helpen met vertalingen](), het ontwikkelen van nieuwe functies of een donatie te doen zodat we de app kunnen blijven ontwikkelen en onderhouden.
 - [Doneer via PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
 - [Doneer via BuyMeACoffee](https://buymeacoffee.com/herzen)
+Je kunt het project ook steunen door een ster achter te laten op GitHub en het met je vrienden te delen.
 
 ## Wat is de project-roadmap?
 Je kunt de project-roadmap bekijken op de speciale [pagina](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).

@@ -65,6 +65,7 @@ You can download the app directly from the [Google Play Store](https://play.goog
 Community support is crucial for us, and the best ways to contribute are [helping us with translations](), developing new features, or making a donation to allow us to continue developing and maintaining the app.
 - [Donate on PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
 - [Donate on BuyMeACoffee](https://buymeacoffee.com/herzen)
+You can also support the project by leaving a star on GitHub and sharing it with your friends.
 
 ## What is the project roadmap?
 You can check the project roadmap on the dedicated [page](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
