@@ -67,7 +67,7 @@ El apoyo de la comunidad es crucial para nosotros, y las mejores formas de contr
 También puedes apoyar el proyecto dejando una estrella en GitHub y compartiéndolo con tus amigos.
 
 ## ¿Cuál es la hoja de ruta del proyecto?
-Puedes consultar la hoja de ruta del proyecto en la página dedicada [aquí](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap).
+Puedes consultar la hoja de ruta del proyecto en la página dedicada [aquí](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap).
 
 ## ¿Cuál es la política de privacidad de la aplicación?
 Puedes encontrar [aquí](https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md) toda la información que necesitas sobre la política de privacidad de la aplicación.

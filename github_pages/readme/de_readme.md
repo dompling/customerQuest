@@ -67,7 +67,7 @@ Die Unterstützung der Community ist für uns entscheidend, und die besten Mögl
 Du kannst das Projekt außerdem unterstützen, indem du auf GitHub einen Stern hinterlässt und es mit deinen Freunden teilst.
 
 ## Was ist die Projekt-Roadmap?
-Du kannst die Projekt-Roadmap auf der speziellen [Seite](https://github.com/H3rz3n/davinci-helper/wiki/Project-roadmap) einsehen.
+Du kannst die Projekt-Roadmap auf der speziellen [Seite](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap) einsehen.
 
 ## Was ist die Datenschutzrichtlinie der App?
 Alle Informationen zur Datenschutzrichtlinie der App findest du [hier](https://github.com/H3rz3n/loverquest/blob/main/github_pages/privacy_policy/access_to_privacy_policy.md).
