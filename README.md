@@ -62,8 +62,8 @@ Loverquest is currently localized in the following languages:
 You can download the app directly from the [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) or alternatively, download the [`.apk`]() file.
 
 ## How can I support the project?
-Community support is crucial for us, and the best ways to contribute are [helping us with translations](), developing new features, or making a donation to allow us to continue developing and maintaining the app.
-- [Donate on PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
+Community support is crucial for us, and the best ways to contribute are [helping us with translations](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/en_how_translate.md), developing new features, or making a donation to allow us to continue developing and maintaining the app.
+- [Donate on PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)v
 - [Donate on BuyMeACoffee](https://buymeacoffee.com/herzen)
 You can also support the project by leaving a star on GitHub and sharing it with your friends.
 
