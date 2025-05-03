@@ -66,6 +66,9 @@ De steun van de community is essentieel voor ons, en de beste manieren om bij te
 - [Doneer via BuyMeACoffee](https://buymeacoffee.com/herzen)
 Je kunt het project ook steunen door een ster achter te laten op GitHub en het met je vrienden te delen.
 
+## Hoe kan ik mijn feedback en suggesties met jullie delen?
+We horen graag wat je van onze app vindt — elke feedback en suggestie helpt ons om LoverQuest te verbeteren. Je kunt je mening met ons delen door [dit korte formulier in te vullen](https://forms.gle/gtrdsRQZbasDecUN6).
+
 ## Wat is de project-roadmap?
 Je kunt de project-roadmap bekijken op de speciale [pagina](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap).
 

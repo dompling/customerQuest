@@ -66,6 +66,9 @@ El apoyo de la comunidad es crucial para nosotros, y las mejores formas de contr
 - [Donar en BuyMeACoffee](https://buymeacoffee.com/herzen)
 También puedes apoyar el proyecto dejando una estrella en GitHub y compartiéndolo con tus amigos.
 
+## ¿Cómo puedo compartir mis comentarios y sugerencias con ustedes?
+Nos importa mucho saber lo que piensas de nuestra app: cada comentario y cada sugerencia nos ayuda a mejorar LoverQuest. Puedes compartir tus ideas con nosotros [rellenando este breve formulario](https://forms.gle/gtrdsRQZbasDecUN6).
+
 ## ¿Cuál es la hoja de ruta del proyecto?
 Puedes consultar la hoja de ruta del proyecto en la página dedicada [aquí](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap).
 
