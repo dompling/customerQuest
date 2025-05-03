@@ -254,6 +254,9 @@ class _PlayPageState extends State<PlayPage> {
 
     } else {
 
+      // GETTING THE END QUEST TYPE
+      end_quest_type = getting_end_quest_type(player_one, player_two);
+
       // SETTING THE INITIAL QUEST
       current_quest = widget.passed_current_quest;
 
