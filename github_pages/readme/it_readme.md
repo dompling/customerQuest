@@ -58,13 +58,19 @@ Loverquest è attualmente disponibile nelle seguenti lingue:
 - **Olandese**
 
 ## Come posso scaricare l'app?
-Puoi scaricare l'app direttamente dal [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) oppure, in alternativa, scaricare il file [`.apk`]().
+Se utilizzi uno smartphone Android, puoi scaricare l'app direttamente dal [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) oppure installarla manualmente tramite il file [`.apk`](https://github.com/H3rz3n/loverquest/releases/latest).  
+Se usi un iPhone, un iPad o un computer, puoi giocare direttamente tramite la web-app a [questo link](https://game.loverquest.app).
 
 ## Come posso supportare il progetto?
 Il supporto della community è fondamentale per noi, e i modi migliori per contribuire sono [aiutarci con le traduzioni](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/it_how_translate_app.md), sviluppare nuove funzionalità o fare una donazione per permetterci di continuare a sviluppare e mantenere l'app.
 - [Dona su PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
 - [Dona su BuyMeACoffee](https://buymeacoffee.com/herzen)
 Inoltre, puoi supportare il progetto lasciando una stella su GitHub e condividendolo con i tuoi amici.
+
+## Come posso lasciare un feedback?
+La tua opinione è importante! Se hai giocato a Loverquest e desideri condividere suggerimenti, segnalare problemi o semplicemente dirci cosa ne pensi, ti invitiamo a compilare questo breve modulo:  
+[→ Compila il modulo di feedback](https://forms.gle/U3mfUaN1wzBxLJz26)
+
 
 ## Qual è la roadmap del progetto?
 Puoi consultare la roadmap del progetto sulla pagina dedicata [qui](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap).
