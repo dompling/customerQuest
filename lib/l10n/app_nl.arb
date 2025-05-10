@@ -8,7 +8,7 @@
   "donation_reminder_dialog_donate_button_label": "Doneren",
 
   "review_reminder_dialog_title": "Help ons!",
-  "review_reminder_dialog_content": "Als je van Loverquest genoten hebt en het wilt ondersteunen, overweeg dan om een recensie achter te laten op Google Play.",
+  "review_reminder_dialog_content": "Als je genoten hebt van Loverquest en het wilt steunen, overweeg dan om een recensie achter te laten.",
   "review_reminder_dialog_review_button_label": "Steun ons",
 
   "online_play_disclaimer_dialog_title": "Waarschuwing!",
@@ -72,6 +72,8 @@
   "deck_anal_sex_tag_label": "Anale seks",
   "deck_bondage_tag_label": "Bondage",
   "deck_bdsm_tag_label": "BDSM",
+  "deck_chat_tag_label": "Chat",
+  "deck_video_chat_tag_label": "Videogesprek",
 
   "deck_difficulty_not_specified": "Niet gespecificeerd",
   "no_tools_label": "Geen hulpmiddelen",
@@ -110,6 +112,8 @@
   "tags_list_vaginal_sex_tag": "vaginale seks",
   "tags_list_bondage_tag": "bondage",
   "tags_list_bdsm_tag": "BDSM",
+  "tags_list_chat_tag": "chat",
+  "tags_list_video_chat_tag": "videogesprek",
 
   "deck_info_deck_unplayable_error": "Je kunt geen deck spelen zonder opdrachten! Voeg opdrachten toe of kies een ander deck om verder te gaan.",
 
@@ -183,6 +187,9 @@
   "deck_management_delete_dialog_no_button_label": "Nee",
   "deck_management_page_no_decks_text": "Sorry, hier is niets",
   "deck_management_page_not_done_yet": "Sorry, probeer hier te komen na de volgende update",
+  "deck_management_page_warning_dialog_title": "Opgelet",
+  "deck_management_page_warning_dialog_content": "Aangepaste deckgegevens worden opgeslagen in de cache van je browser. We raden aan om je aangepaste decks altijd te downloaden om verlies te voorkomen.",
+  "deck_management_page_warning_dialog_ok_button": "Begrepen",
 
   "deck_summary_editor_title": "Deckoverzicht informatie",
   "deck_summary_editor_insert_text_hint": "Voer hier tekst in...",
@@ -214,6 +221,8 @@
   "settings_main_page_title": "Instellingen",
   "settings_main_page_language_section_label": "Taal",
   "settings_main_page_language_button_label": "Kies taal",
+  "settings_main_page_webapp_section_label": "Webapp",
+  "settings_main_page_webapp_button_label": "Open de webapp-site",
   "settings_main_page_support_section_label": "Ondersteuning",
   "settings_main_page_feedback_section_label": "Feedback",
   "settings_main_page_donate_on_paypal_label": "Steun ons op Paypal",

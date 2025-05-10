@@ -30,7 +30,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get review_reminder_dialog_title => 'Aidez-nous !';
 
   @override
-  String get review_reminder_dialog_content => 'Si vous avez aimé Loverquest et souhaitez nous soutenir, pensez à laisser un avis sur Google Play.';
+  String get review_reminder_dialog_content => 'Si tu as aimé Loverquest et souhaites le soutenir, pense à laisser un avis.';
 
   @override
   String get review_reminder_dialog_review_button_label => 'Nous soutenir';
@@ -187,6 +187,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get deck_bdsm_tag_label => 'BDSM';
 
   @override
+  String get deck_chat_tag_label => 'Chat';
+
+  @override
+  String get deck_video_chat_tag_label => 'Appel vidéo';
+
+  @override
   String get deck_difficulty_not_specified => 'Non spécifié';
 
   @override
@@ -289,6 +295,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get tags_list_bdsm_tag => 'BDSM';
+
+  @override
+  String get tags_list_chat_tag => 'chat';
+
+  @override
+  String get tags_list_video_chat_tag => 'appel vidéo';
 
   @override
   String get deck_info_deck_unplayable_error => 'Vous ne pouvez pas jouer un paquet sans quêtes ! Veuillez ajouter des quêtes à ce paquet ou en choisir un autre pour continuer.';
@@ -492,6 +504,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get deck_management_page_not_done_yet => 'Désolé, revenez après la prochaine mise à jour';
 
   @override
+  String get deck_management_page_warning_dialog_title => 'Attention!';
+
+  @override
+  String get deck_management_page_warning_dialog_content => 'Les données des decks personnalisés seront enregistrées dans le cache du navigateur. Nous te conseillons de toujours télécharger tes decks personnalisés afin d’éviter toute perte accidentelle.';
+
+  @override
+  String get deck_management_page_warning_dialog_ok_button => 'Compris';
+
+  @override
   String get deck_summary_editor_title => 'Résumé du paquet';
 
   @override
@@ -571,6 +592,12 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get settings_main_page_language_button_label => 'Choisir la langue';
+
+  @override
+  String get settings_main_page_webapp_section_label => 'Application web';
+
+  @override
+  String get settings_main_page_webapp_button_label => 'Ouvrir le site de l\'application web';
 
   @override
   String get settings_main_page_support_section_label => 'Support';

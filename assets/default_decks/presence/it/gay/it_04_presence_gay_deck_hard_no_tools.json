@@ -1,18 +1,19 @@
 {
+
   "summary": {
     "name": "Affiatati",
     "description": "La vostra intesa è forte e siete pronti a esplorare piaceri più profondi insieme. Queste sfide intensificheranno la vostra sintonia e vi porteranno a un livello di intimità tutto nuovo.",
     "couple_type": "gay",
     "play_presence": true,
     "language": "it",
-    "total_quests": 58,
+    "total_quests": 38,
     "required_tools": [],
     "tags": ["anal_sex", "oral_sex"]
   },
 
-
-
   "quests": [
+
+
 
     {
       "moment": "early",
@@ -25,36 +26,8 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Chiudi gli occhi mentre il tuo partner ti sussurra qualcosa di eccitante e ti accarezza il corpo per 2 minuti."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Scrivete su un bigliettino una cosa che vi eccita e scambiateveli alla fine del prossimo turno."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 1,
-      "content": "Il tuo partner ti bacia su tutto il corpo per 1 minuto."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Il tuo partner scrive una parola eccitante sul tuo corpo con la punta delle dita, e devi indovinarla."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Accarezzatevi a vicenda con gli occhi chiusi per 2 minuti."
+      "content": "Il tuo partner ti lascia in intimo e poi ti bacia su tutto il corpo per 1 minuto."
     },
     {
       "moment": "early",
@@ -67,22 +40,8 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 0,
-      "content": "Comunica al tuo partner una tua fantasia usando solo il linguaggio del corpo."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Avvicinate i vostri visi guardandovi negli occhi, ma senza baciarvi, per 2 minuti."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Siediti sulla schiena del tuo partner e fagli un massaggio per 2 minuti."
+      "timer": 1,
+      "content": "Avvicinate i vostri visi guardandovi negli occhi, ma senza baciarvi, per 1 minuto."
     },
     {
       "moment": "early",
@@ -102,19 +61,17 @@
 
 
 
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Raffreddati le mani con acqua fredda e accarezza il corpo del tuo partner per 1 minuto."
-    },
+
+
+
+
+
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Sussurrate a turno tre fantasie che vorreste realizzare."
+      "content": "Sussurrate a turno una fantasia che vorreste realizzare."
     },
     {
       "moment": "mid",
@@ -127,8 +84,15 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Siediti dietro l'altro giocatore e masturbalo per 3 minuti mentre gli baci il collo e gli sussurri cose eccitanti."
+      "timer": 0,
+      "content": "Impegnati a non reprimere alcun suono o parola durante gli atti sessuali fino alla fine del gioco."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Siediti dietro l'altro giocatore e masturbalo per 2 minuti mentre gli baci il collo e gli sussurri cose eccitanti."
     },
     {
       "moment": "mid",
@@ -148,13 +112,6 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Sedetevi l'uno di fianco all'altro e masturbatevi a vicenda per 2 minuti."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 1,
       "content": "Fai un balletto sexy di 1 minuto per l'altro giocatore."
     },
@@ -162,84 +119,29 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 0,
-      "content": "Impegnati a non reprimere alcun suono o parola durante gli atti sessuali fino alla fine del gioco."
-    },
-
-
-
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbatevi a vicenda per 3 minuti tenendo i visi vicini ma senza baciarvi."
+      "timer": 2,
+      "content": "Masturbatevi a vicenda per 2 minuti tenendo i visi vicini ma senza baciarvi."
     },
     {
-      "moment": "late",
+      "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
       "content": "Il tuo partner ti masturba finché non sei vicino al climax, poi si ferma (edging)."
     },
     {
-      "moment": "late",
+      "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
       "content": "Togliete ogni fonte di luce e pomiciate accarezzandovi i corpi nudi per 2 minuti."
     },
     {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturba l'altro giocatore mentre ti masturbi per 3 minuti."
-    },
-
-
-
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Termina il gioco nel modo che preferisci."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Concludi il gioco con un rapporto penetrativo in una posizione a piacere."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Masturba l'altro giocatore fino a fargli raggiungere l'orgasmo."
-    },
-
-
-
-
-
-
-
-    {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Fate un gioco di ruolo scegliendo un'ambientazione eccitante."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Il tuo partner avvicina il viso alle tue parti intime per 1 minuto senza toccarti."
+      "content": "Scegliete un contesto eccitante e giocate di ruolo fino alla fine del gioco."
     },
     {
       "moment": "mid",
@@ -252,36 +154,8 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 1,
-      "content": "Il tuo partner accarezza e respira sulle tue zone erogene senza fare nulla per 1 minuto."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Il tuo partner fa uno spogliarello sexy per te."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 0,
       "content": "Togli l'intimo all'altro giocatore senza usare le mani."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Lecca dolcemente per intero le parti intime dell'altro giocatore per 1 minuto."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Mettiti sotto un tavolo e fai sesso orale all'altro giocatore per 2 minuti."
     },
     {
       "moment": "mid",
@@ -290,82 +164,6 @@
       "timer": 3,
       "content": "Mettiti dietro l'altro giocatore mentre siete davanti uno specchio e masturbalo per 3 minuti."
     },
-
-
-
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Inginocchiati di fronte al tuo partner e fagli sesso orale per 3 minuti."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Il tuo partner ti fa sesso orale finché non sei vicino al climax, poi si ferma (edging)."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Bacia le parti intime del tuo partner per 1 minuto."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Fai un sessantanove con il tuo partner per 3 minuti."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Fai sesso orale all'altro giocatore mentre ti masturbi per 2 minuti."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Fai sesso orale all'altro giocatore mentre ti masturbi per 3 minuti mentre sei nella posizione doggy style."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "L'altro giocatore si mette nella posizione doggy style mentre gli fai sesso orale per 2 minuti."
-    },
-
-
-
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 5,
-      "content": "Fai un sessantanove con il tuo partner per 5 minuti."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Inginocchiati davanti al tuo partner e praticagli sesso orale finchè non raggiunge l'orgasmo."
-    },
-
-
-
-
-
-
-
     {
       "moment": "mid",
       "required_tools": [],
@@ -390,12 +188,25 @@
 
 
 
+
+
+
+
+
+
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 0,
-      "content": "Il tuo partner ti da una vigorosa sculacciata sulle natiche."
+      "timer": 1,
+      "content": "Lecca dolcemente per intero le parti intime dell'altro giocatore per 1 minuto."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Mettiti sotto un tavolo e fai sesso orale all'altro giocatore per 2 minuti."
     },
     {
       "moment": "late",
@@ -415,15 +226,29 @@
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Fai sesso orale all'altro giocatore mentre ti masturbi per 3 minuti mentre siete davanti uno specchio."
+      "timer": 2,
+      "content": "Fai sesso orale all'altro giocatore mentre ti masturbi per 2 minuti."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Inginocchiati di fronte al tuo partner e fagli sesso orale per 2 minuti."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "L'altro giocatore ti mette in bocca le sue parti intime e si masturba per 1 minuto ma non fare nulla."
+      "content": "Il tuo partner ti fa sesso orale finché non sei vicino al climax, poi si ferma (edging)."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Fai un sessantanove con il tuo partner per 2 minuti."
     },
 
 
@@ -432,6 +257,29 @@
 
 
 
+
+
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Fai un sessantanove con il tuo partner finchè non raggiungete l'orgasmo."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Inginocchiati davanti al tuo partner e praticagli sesso orale finchè non raggiunge l'orgasmo."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "male",
+      "timer": 0,
+      "content": "Il tuo partner si siede sul tuo viso, praticagli sesso orale fino a farle raggiungere l'orgasmo."
+    },
     {
       "moment": "end",
       "required_tools": [],
@@ -458,12 +306,11 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Concludi il gioco con un rapporto penetrativo nella posizione reverse cowgirl."
+      "content": "Concludi il gioco con un rapporto penetrativo in una posizione mai provata."
     }
 
 
 
   ]
-
 
 }

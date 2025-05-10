@@ -1,0 +1,147 @@
+{
+  "summary": {
+    "name": "Initiatie op Afstand",
+    "description": "Een deck ontworpen voor koppels die hun intimiteit op afstand op een zachte maar prikkelende manier willen verkennen. Geen druk, alleen verlangen dat groeit, bericht na bericht.",
+    "couple_type": "gay",
+    "play_presence": false,
+    "language": "nl",
+    "total_quests": 19,
+    "required_tools": [],
+    "tags": ["chat"]
+  },
+  "quests": [
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Begin de chat met een bericht waarin je sensueel beschrijft wat je op dit moment draagt."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Stuur een suggestieve foto (niet naakt) die iets laat raden maar niets toont. Je partner mag alleen reageren met een emoji."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Stuur een spraakbericht waarin je fluistert wat jij een erotische zin vindt, zonder uitleg."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Beschrijf een erotische droom die je had... maar stop vóór het spannendste moment."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Schrijf drie woorden die beschrijven hoe je je partner laat voelen. Eén moet erotisch zijn, de andere twee teder."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Beschrijf waar en hoe je hem/haar nu zou willen kussen als jullie samen waren."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Maak een foto van je lippen en schrijf erbij wat je ermee zou willen doen bij je partner."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Schrijf een erotische zin, maar gebruik alleen elegante woorden. Geen vulgaire taal."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Stuur een video van maximaal 5 seconden waarin je langzaam op je lip bijt of zachtjes over je hals strijkt."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Schrijf een bericht dat je partner doet blozen... zonder emoji's te gebruiken."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Maak deze zin af via de chat: 'Als ik nu in jouw bed lag, zou ik beginnen bij...'"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Schrijf een kort erotisch verhaaltje met jullie twee als hoofdpersonages. Maximaal 5 regels."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Neem een audio op waarin je zucht of zijn/haar naam sensueel en langzaam uitspreekt."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Maak een pikante quiz: laat je partner raden wat jouw fantasie is uit drie opties (twee zijn vals, één is echt)."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Beschrijf het exacte moment waarop je laatst opgewonden raakte door aan je partner te denken."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Chat met elkaar zonder elkaars naam te gebruiken, alleen sensuele bijnamen."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Schrijf naar je partner waar je met hem/haar de liefde zou willen bedrijven zodra jullie elkaar weer zien."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Sluit het spel af met een erotische belofte die je de volgende keer dat jullie elkaar zien zult nakomen."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Stuur een foto van je meest uitdagende blik en eindig met: 'De rest ontdek je live.'"
+    }
+  ]
+}

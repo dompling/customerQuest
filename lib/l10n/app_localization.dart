@@ -148,7 +148,7 @@ abstract class AppLocalizations {
   /// No description provided for @review_reminder_dialog_content.
   ///
   /// In en, this message translates to:
-  /// **'If you enjoyed Loverquest and want to support it, consider leaving a review on Google Play.'**
+  /// **'If you enjoyed Loverquest and want to support it, consider leaving a review.'**
   String get review_reminder_dialog_content;
 
   /// No description provided for @review_reminder_dialog_review_button_label.
@@ -451,6 +451,18 @@ abstract class AppLocalizations {
   /// **'BDSM'**
   String get deck_bdsm_tag_label;
 
+  /// No description provided for @deck_chat_tag_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get deck_chat_tag_label;
+
+  /// No description provided for @deck_video_chat_tag_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Video call'**
+  String get deck_video_chat_tag_label;
+
   /// No description provided for @deck_difficulty_not_specified.
   ///
   /// In en, this message translates to:
@@ -654,6 +666,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'BDSM'**
   String get tags_list_bdsm_tag;
+
+  /// No description provided for @tags_list_chat_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'chat'**
+  String get tags_list_chat_tag;
+
+  /// No description provided for @tags_list_video_chat_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'video call'**
+  String get tags_list_video_chat_tag;
 
   /// No description provided for @deck_info_deck_unplayable_error.
   ///
@@ -1057,6 +1081,24 @@ abstract class AppLocalizations {
   /// **'Sorry, try to come here after the next update'**
   String get deck_management_page_not_done_yet;
 
+  /// No description provided for @deck_management_page_warning_dialog_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning!'**
+  String get deck_management_page_warning_dialog_title;
+
+  /// No description provided for @deck_management_page_warning_dialog_content.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom deck data will be saved in your browser’s cache. We recommend always downloading your custom decks to avoid losing them by accident.'**
+  String get deck_management_page_warning_dialog_content;
+
+  /// No description provided for @deck_management_page_warning_dialog_ok_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get deck_management_page_warning_dialog_ok_button;
+
   /// No description provided for @deck_summary_editor_title.
   ///
   /// In en, this message translates to:
@@ -1218,6 +1260,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose language'**
   String get settings_main_page_language_button_label;
+
+  /// No description provided for @settings_main_page_webapp_section_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Web app'**
+  String get settings_main_page_webapp_section_label;
+
+  /// No description provided for @settings_main_page_webapp_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the web app site'**
+  String get settings_main_page_webapp_button_label;
 
   /// No description provided for @settings_main_page_support_section_label.
   ///

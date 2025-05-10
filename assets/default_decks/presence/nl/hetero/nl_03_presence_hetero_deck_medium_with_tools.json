@@ -1,288 +1,210 @@
 {
   "summary": {
-    "name": "Avonturiers",
-    "description": "Het is tijd om een beetje gedurfder te zijn! Deze uitdagingen helpen jullie om nieuwe verlangens te ontdekken, jullie grenzen te verleggen en de passie aan te wakkeren, altijd met respect en verbondenheid.",
+    "name": "Experimenteerders",
+    "description": "Het is tijd om iets gewaagder te zijn! Deze uitdagingen helpen jullie nieuwe verlangens te verkennen, grenzen te verleggen en de passie aan te wakkeren — steeds met wederzijds respect en verbondenheid.",
     "couple_type": "hetero",
     "play_presence": true,
     "language": "nl",
-    "total_quests": 54,
+    "total_quests": 39,
     "required_tools": ["blindfold", "handcuffs"],
     "tags": ["vaginal_sex", "oral_sex", "bondage"]
   },
   "quests": [
-
     {
       "moment": "early",
-      "required_tools": [],
+      "required_tools": ["blindfold"],
       "player_type": "both",
       "timer": 2,
-      "content": "Streel en kus elkaar staand gedurende 2 minuten."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Sluit je ogen terwijl je partner iets opwindends in je oor fluistert en je lichaam streelt gedurende 2 minuten."
+      "content": "Streel en kus elkaar staand terwijl je geblinddoekt bent gedurende 2 minuten."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Schrijf op een briefje iets dat je opwindt en wissel het uit aan het einde van de volgende beurt."
+      "content": "Schrijf iets wat je opwindt op een briefje en wissel het uit aan het einde van de volgende beurt."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Je partner kust je hele lichaam gedurende 1 minuut."
+      "content": "Je partner laat je in je ondergoed en kust vervolgens je hele lichaam gedurende 1 minuut."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Je partner schrijft een spannend woord op je lichaam met zijn/haar vingertoppen en jij moet het raden."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Streel elkaar met gesloten ogen gedurende 2 minuten."
+      "content": "Je partner schrijft een opwindend woord op je lichaam met zijn vingertoppen en jij moet het raden."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Ga achter je partner zitten en streel hem/haar terwijl je zijn/haar nek kust gedurende 1 minuut."
+      "content": "Ga achter je partner zitten, streel hem en kus zijn nek gedurende 1 minuut."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Communiceer een fantasie met je partner door alleen lichaamstaal te gebruiken."
+      "content": "Breng een fantasie over aan je partner met alleen je lichaamstaal."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 1,
+      "content": "Breng jullie gezichten dicht bij elkaar en kijk elkaar 1 minuut diep in de ogen zonder te kussen."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Breng jullie gezichten dicht bij elkaar, kijk elkaar in de ogen maar kus niet, gedurende 2 minuten."
+      "content": "Ga op de rug van je partner zitten en geef hem een massage gedurende 2 minuten."
     },
     {
       "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Zoek samen online een nieuwe positie uit om te proberen."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Kleed je partner zachtjes uit tot hij/zij alleen ondergoed aan heeft."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Fluister om de beurt een fantasie die je graag zou beleven."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Je partner kiest jouw outfit voor de rest van het spel."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Laat jezelf volledig gaan: onderdruk geen geluiden of woorden tijdens seksuele handelingen tot het einde van het spel."
+    },
+    {
+      "moment": "mid",
+      "required_tools": ["blindfold"],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Ga achter je partner zitten, blinddoek hem/haar en masturbeer hem/haar gedurende 2 minuten terwijl je de nek kust en opwindende dingen fluistert."
+    },
+    {
+      "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Ga op de rug van je partner zitten en geef hem/haar een massage gedurende 2 minuten."
+      "content": "Luister naar het hartritme van je partner en masturbeer hem/haar in dat ritme gedurende 2 minuten."
     },
     {
-      "moment": "early",
+      "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 0,
-      "content": "Zoek samen online een nieuwe positie om uit te proberen."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Kleed de andere speler voorzichtig uit tot hij/zij alleen nog ondergoed draagt."
+      "timer": 2,
+      "content": "Ga naast elkaar liggen en masturbeer elkaar gedurende 2 minuten."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Koel je handen af met koud water en streel het lichaam van je partner gedurende 1 minuut."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Fluister om de beurt drie fantasieën die jullie graag zouden willen beleven."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Je partner kiest je outfit voor de rest van het spel."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Ga achter de andere speler zitten en masturbeer hem/haar gedurende 3 minuten terwijl je zijn/haar nek kust en opwindende dingen fluistert."
+      "content": "Doe een sexy dansje van 1 minuut voor je partner."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Probeer het hartritme van je partner te voelen en masturbeer hem/haar in hetzelfde ritme gedurende 2 minuten."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Stuur elkaar spannende berichtjes via jullie favoriete berichtapp gedurende 3 minuten."
+      "content": "Masturbeer elkaar gedurende 2 minuten met jullie gezichten dicht bij elkaar, zonder te kussen."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Ga naast elkaar zitten en masturbeer elkaar gedurende 2 minuten."
+      "content": "Doe alle lichten uit en vrij met elkaar terwijl jullie elkaars lichamen strelen gedurende 2 minuten."
     },
     {
       "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Doe een sexy dans van 1 minuut voor de andere speler."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Probeer geen enkel geluid of woord te onderdrukken tijdens seksuele handelingen tot het einde van het spel."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbeer elkaar gedurende 3 minuten terwijl jullie gezichten dicht bij elkaar zijn zonder te kussen."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Je partner masturbeert je totdat je bijna klaarkomt en stopt dan (edging)."
-    },
-    {
-      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Schakel alle lichtbronnen uit en streel elkaar naakt gedurende 2 minuten."
+      "content": "Masturbeer je partner terwijl je jezelf masturbeert gedurende 2 minuten."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Kies samen een opwindend scenario en speel een rollenspel tot het einde van het spel."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Trek het ondergoed van je partner uit zonder je handen te gebruiken."
     },
     {
       "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbeer de andere speler terwijl je jezelf ook masturbeert gedurende 3 minuten."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
+      "required_tools": ["blindfold"],
       "player_type": "both",
       "timer": 0,
-      "content": "Eindig het spel op de manier die jullie het leukst vinden."
+      "content": "Je partner blinddoekt je en masturbeert je tot vlak voor je klaarkomt, dan stopt hij/zij (edging)."
     },
     {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Sluit het spel af met een penetratieve vrijpartij in een positie naar keuze."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Masturbeer de andere speler tot hij/zij klaarkomt."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Speel een rollenspel door een opwindende setting te kiezen."
-    },
-    {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
       "content": "Je partner brengt zijn/haar gezicht dicht bij je intieme delen gedurende 1 minuut zonder je aan te raken."
     },
     {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Je partner begeleidt je hand om zichzelf te masturberen gedurende 2 minuten."
-    },
-    {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Je partner streelt en ademt op je erogene zones zonder verdere actie gedurende 1 minuut."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Je partner doet een sexy striptease voor jou."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Trek het ondergoed van de andere speler uit zonder je handen te gebruiken."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Lik zachtjes de intieme delen van de andere speler gedurende 1 minuut."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Ga onder een tafel zitten en geef de andere speler orale seks gedurende 2 minuten."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Ga achter de andere speler staan voor een spiegel en masturbeer hem/haar gedurende 3 minuten."
+      "content": "Je partner streelt en ademt op je erogene zones zonder verder iets te doen gedurende 1 minuut."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Kniel voor je partner en geef hem/haar orale seks gedurende 3 minuten."
+      "timer": 1,
+      "content": "Lik voorzichtig de intieme delen van je partner volledig gedurende 1 minuut."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
+      "timer": 2,
+      "content": "Geef orale seks aan je partner gedurende 2 minuten."
+    },
+    {
+      "moment": "late",
+      "required_tools": ["blindfold"],
+      "player_type": "both",
       "timer": 0,
-      "content": "Je partner geeft je orale seks tot je bijna klaarkomt en stopt dan (edging)."
+      "content": "Je partner blinddoekt je en geeft je orale seks tot je bijna klaarkomt, dan stopt hij/zij (edging)."
     },
     {
       "moment": "late",
@@ -295,99 +217,71 @@
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Doe een negenenzestig met je partner gedurende 3 minuten."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Geef de andere speler orale seks terwijl je jezelf masturbeert gedurende 2 minuten."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Geef de andere speler orale seks terwijl je jezelf masturbeert gedurende 3 minuten in doggy style positie."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "De andere speler gaat in doggy style positie zitten terwijl jij hem/haar orale seks geeft gedurende 2 minuten."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 5,
-      "content": "Doe een negenenzestig met je partner gedurende 5 minuten."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 0,
-      "content": "Kniel voor je partner en geef hem/haar orale seks totdat hij/zij klaarkomt."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "male",
-      "timer": 0,
-      "content": "Je partner gaat op je gezicht zitten; geef haar orale seks tot ze klaarkomt."
+      "content": "Je partner geeft je een stevige klap op je billen."
     },
     {
       "moment": "late",
       "required_tools": ["blindfold"],
       "player_type": "both",
-      "timer": 2,
-      "content": "Verbind de ogen van je partner en geef hem/haar orale seks gedurende 2 minuten."
+      "timer": 3,
+      "content": "Blinddoek elkaar en masturbeer elkaar gedurende 3 minuten."
     },
     {
       "moment": "late",
       "required_tools": ["handcuffs"],
       "player_type": "both",
       "timer": 2,
-      "content": "Booi de handen van je partner en geef hem/haar orale seks gedurende 2 minuten."
+      "content": "Boei de handen van je partner en geef hem/haar 2 minuten orale seks."
     },
     {
       "moment": "late",
       "required_tools": ["blindfold"],
       "player_type": "both",
-      "timer": 3,
-      "content": "Blinddoek jezelf en je partner en masturbeer elkaar gedurende 3 minuten."
+      "timer": 2,
+      "content": "Geef orale seks aan je partner terwijl je geblinddoekt bent gedurende 2 minuten."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Sluit het spel af met een penetratieve vrijpartij in de missionarispositie."
+      "content": "Doe een negenenzestig met je partner tot jullie klaarkomen."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Sluit het spel af met een penetratieve vrijpartij in cowgirl-positie."
+      "content": "Kniel voor je partner en geef hem/haar orale seks tot hij/zij klaarkomt."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "male",
+      "timer": 0,
+      "content": "Je partner gaat op je gezicht zitten — geef haar orale seks tot ze klaarkomt."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Sluit het spel af met een penetratieve vrijpartij in doggy style-positie."
+      "content": "Sluit het spel af met penetratie in missionarispositie."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Sluit het spel af met een penetratieve vrijpartij in reverse cowgirl-positie."
+      "content": "Sluit het spel af met penetratie in cowgirl-positie."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Sluit het spel af met penetratie in een positie die jullie nog nooit eerder hebben geprobeerd."
     }
   ]
 }

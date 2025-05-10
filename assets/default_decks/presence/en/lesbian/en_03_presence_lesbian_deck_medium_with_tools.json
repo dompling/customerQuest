@@ -1,30 +1,22 @@
 {
   "summary": {
     "name": "Experimenters",
-    "description": "It's time to dare a little more! These challenges will help you explore new desires, push your boundaries, and ignite passion, always with respect and complicity.",
+    "description": "It’s time to dare a little more! These challenges will help you explore new desires, push your boundaries, and ignite passion—always with respect and intimacy.",
     "couple_type": "lesbian",
     "play_presence": true,
     "language": "en",
-    "total_quests": 49,
+    "total_quests": 36,
     "required_tools": ["blindfold", "handcuffs"],
     "tags": ["vaginal_sex", "oral_sex", "bondage"]
   },
 
   "quests": [
-
     {
       "moment": "early",
-      "required_tools": [],
+      "required_tools": ["blindfold"],
       "player_type": "both",
       "timer": 2,
-      "content": "Caress and kiss each other while standing for 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Close your eyes while your partner whispers something arousing and caresses your body for 2 minutes."
+      "content": "Caress and kiss each other while blindfolded for 2 minutes."
     },
     {
       "moment": "early",
@@ -38,42 +30,35 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Your partner kisses your entire body for 1 minute."
+      "content": "Your partner leaves you in your underwear and kisses your whole body for 1 minute."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Your partner writes an arousing word on your body with her fingertips, and you have to guess it."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Caress each other with your eyes closed for 2 minutes."
+      "content": "Your partner writes a sexy word on your body with her fingertips, and you have to guess it."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Sit behind your partner and caress her while kissing her neck for 1 minute."
+      "content": "Sit behind your partner, caress her, and kiss her neck for 1 minute."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Communicate one of your fantasies to your partner using only body language."
+      "content": "Communicate a fantasy to your partner using only body language."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Move your faces close and look into each other's eyes without kissing for 2 minutes."
+      "timer": 1,
+      "content": "Bring your faces close together and look into each other's eyes without kissing for 1 minute."
     },
     {
       "moment": "early",
@@ -94,22 +79,14 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Gently undress the other player down to her underwear."
-    },
-
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Cool your hands with cold water and caress your partner’s body for 1 minute."
+      "content": "Gently undress the other player until she’s in her underwear."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Take turns whispering three fantasies you'd like to fulfill."
+      "content": "Take turns whispering a fantasy you’d like to try."
     },
     {
       "moment": "mid",
@@ -122,166 +99,113 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Sit behind the other player and masturbate her for 3 minutes while kissing her neck and whispering sexy things."
+      "timer": 0,
+      "content": "Commit to not holding back any sounds or words during sexual acts until the end of the game."
+    },
+    {
+      "moment": "mid",
+      "required_tools": ["blindfold"],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Sit behind the other player, blindfold her, and masturbate her for 2 minutes while kissing her neck and whispering sexy things."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Try to listen to your partner’s heartbeat and masturbate her following the rhythm for 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Sext each other on your favorite messaging app for 3 minutes."
+      "content": "Try to feel your partner’s heartbeat and masturbate her in sync with it for 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Sit side by side and masturbate each other for 2 minutes."
+      "content": "Lie down next to each other and masturbate one another for 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Do a sexy dance for the other player for 1 minute."
+      "content": "Perform a sexy dance for the other player for 1 minute."
     },
     {
       "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Commit to not holding back any sounds or words during sexual acts until the end of the game."
-    },
-
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbate each other for 3 minutes with your faces close but without kissing."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Your partner masturbates you until you're close to climax, then stops (edging)."
-    },
-    {
-      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Turn off all lights and make out while caressing each other's naked bodies for 2 minutes."
+      "content": "Masturbate each other for 2 minutes with your faces close but without kissing."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Turn off all lights and make out while caressing each other’s naked bodies for 2 minutes."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Masturbate the other player while masturbating yourself for 2 minutes."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Choose an arousing scenario and roleplay until the end of the game."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Remove the other player’s underwear without using your hands."
     },
     {
       "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbate the other player while masturbating yourself for 3 minutes."
-    },
-
-    {
-      "moment": "end",
-      "required_tools": [],
+      "required_tools": ["blindfold"],
       "player_type": "both",
       "timer": 0,
-      "content": "End the game however you prefer."
+      "content": "Your partner blindfolds you and masturbates you until you're close to climax, then stops (edging)."
     },
     {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Masturbate the other player until she reaches orgasm."
-    },
-
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Play a roleplay game by choosing an exciting setting."
-    },
-    {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
       "content": "Your partner brings her face close to your intimate parts for 1 minute without touching you."
     },
     {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Your partner guides your hand to masturbate herself for 2 minutes."
-    },
-    {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
       "content": "Your partner caresses and breathes on your erogenous zones without doing anything else for 1 minute."
     },
     {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Your partner does a sexy striptease for you."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Remove the other player's underwear without using your hands."
-    },
-    {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Gently lick the other player's intimate parts entirely for 1 minute."
+      "content": "Gently lick the other player’s intimate parts completely for 1 minute."
     },
     {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Get under a table and perform oral sex on the other player for 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Stand behind the other player in front of a mirror and masturbate her for 3 minutes."
-    },
-
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Kneel in front of your partner and perform oral sex on her for 3 minutes."
+      "content": "Perform oral sex on the other player for 2 minutes."
     },
     {
       "moment": "late",
-      "required_tools": [],
+      "required_tools": ["blindfold"],
       "player_type": "both",
       "timer": 0,
-      "content": "Your partner gives you oral sex until you are close to climax, then stops (edging)."
+      "content": "Your partner blindfolds you and gives you oral sex until you're close to climax, then stops (edging)."
     },
     {
       "moment": "late",
@@ -294,77 +218,50 @@
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Do a sixty-nine with your partner for 3 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Perform oral sex on the other player while masturbating for 2 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Perform oral sex on the other player while masturbating in doggy style position for 3 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "The other player gets into doggy style position while you perform oral sex on her for 2 minutes."
-    },
-
-
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 5,
-      "content": "Do a sixty-nine with your partner for 5 minutes."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 0,
-      "content": "Kneel in front of your partner and perform oral sex on her until she reaches orgasm."
+      "content": "Your partner gives you a firm spanking on the buttocks."
     },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Your partner sits on your face, perform oral sex until she reaches orgasm."
-    },
-
-
-
     {
       "moment": "late",
       "required_tools": ["blindfold"],
       "player_type": "both",
-      "timer": 2,
-      "content": "Blindfold your partner and perform oral sex on her for 2 minutes."
+      "timer": 3,
+      "content": "Both blindfolded, masturbate each other for 3 minutes."
     },
     {
       "moment": "late",
       "required_tools": ["handcuffs"],
       "player_type": "both",
       "timer": 2,
-      "content": "Cuff your partner's hands and perform oral sex on her for 2 minutes."
+      "content": "Tie your partner’s hands and perform oral sex on her for 2 minutes."
     },
     {
       "moment": "late",
       "required_tools": ["blindfold"],
       "player_type": "both",
-      "timer": 3,
-      "content": "Both of you blindfold yourselves and masturbate each other for 3 minutes."
+      "timer": 2,
+      "content": "Perform oral sex on your partner while blindfolded for 2 minutes."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Perform sixty-nine with your partner until you both reach orgasm."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Kneel in front of your partner and give her oral sex until she reaches orgasm."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Your partner sits on your face—give her oral sex until she reaches orgasm."
     }
-
   ]
 }

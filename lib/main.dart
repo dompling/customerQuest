@@ -1,18 +1,25 @@
-                     //------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+import 'package:loverquest/logics/play_logics/02_players_class.dart';
 import 'package:provider/provider.dart';
 import 'package:loverquest/l10n/app_localization.dart';
-import 'package:loverquest/logics/settings_logics/language_switch.dart';
+import 'package:loverquest/logics/settings_logics/01_language_switch.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/pages/homepage_pages/play_main_page.dart';
-import 'package:loverquest/pages/homepage_pages/deck_list_main_page.dart';
-import 'package:loverquest/pages/homepage_pages/settings_main_page.dart';
+import 'package:loverquest/pages/homepage_pages/01_play_main_page.dart';
+import 'package:loverquest/pages/homepage_pages/02_decks_main_page.dart';
+import 'package:loverquest/pages/homepage_pages/03_settings_main_page.dart';
 
+// HIVE
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:loverquest/logics/decks_logics/02_deck_summary_class.dart';
+import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 
 //------------------------------------------------------------------------------
 
@@ -31,10 +38,17 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
+  // HIVE LOADING
+  await Hive.initFlutter();
+  Hive.registerAdapter(DeckSummaryAdapter());
+  Hive.registerAdapter(QuestAdapter());
+  Hive.registerAdapter(PlayersAdapter());
+  Hive.registerAdapter(MatchDataAdapter());
+  Hive.registerAdapter(DeckReaderAdapter());
+
   // PREPARING THE LOCALE FUNCTION
   final localeProvider = LocaleProvider();
   await localeProvider.loadLocale();
-
 
   // APP START
   runApp(
@@ -50,7 +64,17 @@ void main() async {
 
 //------------------------------------------------------------------------------
 
+// SETTING THE WEB VERSION TITLE
+void setWebTitle(String title) {
+  SystemChrome.setApplicationSwitcherDescription(
+    ApplicationSwitcherDescription(
+      label: "Loverquest",
+      primaryColor: 0xFF000000,
+    ),
+  );
+}
 
+//------------------------------------------------------------------------------
 
 // APP WRAPPER - GLOBAL UI MANAGEMENT
 class AppWrapper extends StatefulWidget {
@@ -168,11 +192,17 @@ class MyApp extends StatelessWidget {
     // APP MAIN SETTINGS
     return MaterialApp(
 
+      // APP TITLE
+      title: 'Loverquest',
+
       // HIDING DEBUG LABEL
       debugShowCheckedModeBanner: false,
 
       // DEFINING APP THEME
       theme : ThemeData(
+
+        // APP FONT
+        fontFamily: 'Roboto',
 
         // APP GENERAL THEME
         colorScheme: const ColorScheme(
@@ -242,28 +272,6 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
 
-      // CHECKING IF THE USER LANGUAGE IS SUPPORTED, IF NO IT WILL BE REVERTED TO ENGLISH
-      localeResolutionCallback: (locale, supportedLocales) {
-
-        // SCROLLING EVERY SUPPORTED LANGUAGE FROM THE SUPPORTED LANG LIST
-        for (var supportedLocale in supportedLocales) {
-
-          // CHECKING IF THE USER LANGUAGE IS SUPPORTED
-          if (supportedLocale.languageCode == locale?.languageCode) {
-
-            // RETURNING THE USER VALUE
-            return supportedLocale;
-
-          }
-
-        }
-
-        // RETURNING THE DEFAULT VALUE
-        return supportedLocales.first;
-
-      },
-
-
       // DEFINING THE MAIN SCREEN
       home: const MainScreen(),
 
@@ -310,6 +318,16 @@ class _MainScreenState extends State<MainScreen> {
     const DeckSelectionPage(),
     const SettingsMainPage(),
   ];
+
+  // INITIAL PAGE STATE
+  @override
+  void initState() {
+    super.initState();
+
+    // SETTING THE WEB TITLE
+    setWebTitle("none");
+
+  }
 
   @override
   Widget build(BuildContext context) {

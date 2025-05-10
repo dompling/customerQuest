@@ -1,16 +1,14 @@
 {
   "summary": {
-    "name": "Novice",
-    "description": "You're taking your first steps into a world of playful intimacy. Light, fun, and easy challenges await—perfect for breaking the ice and sparking new sensations!",
+    "name": "Explorers",
+    "description": "You’re taking your first steps into a world of playful intimacy. Fun, light, and simple challenges await you—perfect to break the ice together and spark new sensations!",
     "couple_type": "hetero",
     "play_presence": true,
     "language": "en",
-    "total_quests": 30,
+    "total_quests": 21,
     "required_tools": [],
     "tags": ["vaginal_sex"]
   },
-
-
 
   "quests": [
 
@@ -25,57 +23,36 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Close your eyes while your partner whispers something exciting to you and caresses your body for 2 minutes."
+      "timer": 0,
+      "content": "Write something that turns you on on a note and exchange them at the end of the next turn."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Write down something that arouses you on a note and exchange them at the end of the next turn."
+      "content": "Your partner writes a sexy word on your body with their fingertips, and you have to guess it."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Caress each other with your eyes closed for 2 minutes."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Communicate one of your fantasies to your partner using only body language."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Your partner kisses your entire body for 1 minute."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Your partner writes an exciting word on your body with their fingertips, and you must guess it."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Caress each other with closed eyes for 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Sit behind your partner and caress them while kissing their neck for 1 minute."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Communicate a fantasy of yours to your partner using only body language."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Bring your faces close while looking into each other’s eyes, but without kissing, for 2 minutes."
+      "content": "Bring your faces close together and gaze into each other’s eyes without kissing for 1 minute."
     },
     {
       "moment": "early",
@@ -89,31 +66,22 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Look online for a new position to try together."
+      "content": "Gently undress the other player until they’re down to their underwear."
     },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Gently undress the other player until they are left in their underwear."
-    },
-
-
 
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Cool your hands with cold water and caress your partner’s body for 1 minute."
+      "content": "Your partner leaves you in your underwear and kisses your whole body for 1 minute."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Take turns whispering three fantasies you’d like to make come true."
+      "content": "Take turns whispering a fantasy you’d like to try."
     },
     {
       "moment": "mid",
@@ -126,91 +94,66 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Sit behind the other player and masturbate them for 3 minutes while kissing their neck and whispering exciting things to them."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Try listening to your partner’s heartbeat and masturbate them according to the rhythm for 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Have sexting on your favorite messaging app for 3 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Sit side by side and masturbate each other for 2 minutes."
+      "timer": 0,
+      "content": "Commit to not holding back any moans or words during sexual acts for the rest of the game."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Perform a sexy dance for 1 minute for the other player."
+      "content": "Cool your hands with cold water and caress your partner’s body (in underwear) for 1 minute."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 0,
-      "content": "Commit to not holding back any sounds or words during sexual acts until the end of the game."
+      "timer": 2,
+      "content": "Turn off all lights and make out while caressing each other’s naked bodies for 2 minutes."
     },
-
-
 
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Masturbate each other for 3 minutes with your faces close but without kissing."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Your partner masturbates you until you’re close to climax, then stops (edging)."
+      "timer": 2,
+      "content": "Try to listen to your partner’s heartbeat and masturbate them in sync with the rhythm for 2 minutes."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Turn off every light source and make out while caressing each other’s naked bodies for 2 minutes."
+      "content": "Lie side by side and masturbate each other for 2 minutes."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Masturbate the other player while masturbating yourself for 3 minutes."
+      "timer": 1,
+      "content": "Masturbate each other for 1 minute while keeping your faces close but without kissing."
     },
-
-
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Masturbate your partner while also masturbating yourself for 2 minutes."
+    },
 
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "End the game in whatever way you prefer."
+      "content": "End the game in any way you prefer."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "End the game with penetrative sex in a position of your choice."
+      "content": "Conclude the game with penetrative sex in any position you like."
     },
     {
       "moment": "end",
@@ -218,33 +161,6 @@
       "player_type": "both",
       "timer": 0,
       "content": "Masturbate the other player until they reach orgasm."
-    },
-
-
-
-
-
-
-
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "End the game with penetrative sex in the missionary position."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "End the game with penetrative sex in the cowgirl position."
     }
-
-
-
-
-
   ]
-
 }

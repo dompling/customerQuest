@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/translate_tools.dart';
-import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
-import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
-import 'package:loverquest/logics/play_logics/player_class.dart';
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+
+import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
+import 'package:loverquest/logics/ui_logics/03_translate_tools_labels.dart';
+import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
+
 import 'package:loverquest/pages/play_pages/07_select_game_speed.dart';
 
 //------------------------------------------------------------------------------
@@ -18,55 +20,10 @@ import 'package:loverquest/pages/play_pages/07_select_game_speed.dart';
 class DeckInfoPage extends StatefulWidget {
 
   // CLASS ATTRIBUTES
-  final bool game_type;
-  final Players player_1_object;
-  final Players player_2_object;
-  final Players first_player;
-  final DeckReader selected_deck;
-  final bool can_edit;
+  final MatchData match_data;
 
   // CLASS CONSTRUCTOR
-  DeckInfoPage({
-    Players? player_1_object,
-    Players? player_2_object,
-    Players? first_player,
-    required this.selected_deck,
-    required this.can_edit,
-    required this.game_type,
-    super.key,
-
-    // PLAYER 1 PLACEHOLDER
-  })  :player_1_object = player_1_object ?? Players(
-    player_icon_path: "assets/default_avatar.png",
-    player_alias: "Guest 1",
-    player_sex: false,
-    player_early_quest_list: [],
-    player_mid_quest_list: [],
-    player_late_quest_list: [],
-    player_end_quest_list: [],
-  ),
-
-    // PLAYER 2 PLACEHOLDER
-    player_2_object = player_2_object ?? Players(
-      player_icon_path: "assets/default_avatar.png",
-      player_alias: "Guest 2",
-      player_sex: true,
-      player_early_quest_list: [],
-      player_mid_quest_list: [],
-      player_late_quest_list: [],
-      player_end_quest_list: [],
-    ),
-
-    // FIRST PLAYER PLACEHOLDER
-    first_player = first_player ?? Players(
-      player_icon_path: "assets/default_avatar.png",
-      player_alias: "First Player",
-      player_sex: false,
-      player_early_quest_list: [],
-      player_mid_quest_list: [],
-      player_late_quest_list: [],
-      player_end_quest_list: [],
-    );
+  const DeckInfoPage({required this.match_data, super.key});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -91,12 +48,6 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
   List<Quest> late_quests_list = [];
   List<Quest> end_quests_list = [];
   List<Quest> all_quests_list = [];
-
-  // INITIALIZING QUEST SCORES
-  int early_quests_total_score = 0;
-  int mid_quests_total_score = 0;
-  int late_quests_total_score = 0;
-  int end_quests_total_score = 0;
 
   // INITIALIZING GAME TYPE TAG
   String deck_game_type = "";
@@ -210,39 +161,27 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     //------------------------------------------------------------------------------
 
     // ACQUIRING THE CORRECT QUESTS FOR EVERY LIST
-    for (Quest element in widget.selected_deck.quests) {
+    for (Quest element in widget.match_data.selected_deck.quests) {
 
       if (element.moment == "early") {
 
         // ADDING THE ELEMENT TO THE LIST
         early_quests_list.add(element);
 
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        early_quests_total_score = early_quests_total_score + 10;
-
       } else if (element.moment == "mid") {
 
         // ADDING THE ELEMENT TO THE LIST
         mid_quests_list.add(element);
-
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        mid_quests_total_score = mid_quests_total_score + 10;
 
       } else if (element.moment == "late") {
 
         // ADDING THE ELEMENT TO THE LIST
         late_quests_list.add(element);
 
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        late_quests_total_score = late_quests_total_score + 10;
-
       } else {
 
         // ADDING THE ELEMENT TO THE LIST
         end_quests_list.add(element);
-
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        end_quests_total_score = end_quests_total_score + 10;
 
       }
 
@@ -265,18 +204,18 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     super.didChangeDependencies();
     
     // TRANSLATING THE SUMMARY TOOLS
-    deck_translated_tools = translate_tools(context, widget.selected_deck.summary.required_tools);
+    deck_translated_tools = translate_tools(context, widget.match_data.selected_deck.summary.required_tools);
 
     // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
     deck_translated_tools[0] = deck_translated_tools[0][0].toUpperCase() + deck_translated_tools[0].substring(1);
 
     // GETTING THE CORRECT LABEL FOR THE COUPLE TYPE LABEL
-    if (widget.selected_deck.summary.couple_type == "hetero") {
+    if (widget.match_data.selected_deck.summary.couple_type == "hetero") {
 
     // SETTING THE COUPLE TYPE LABEL
     deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_hetero;
 
-    } else if (widget.selected_deck.summary.couple_type == "lesbian") {
+    } else if (widget.match_data.selected_deck.summary.couple_type == "lesbian") {
 
     // SETTING THE COUPLE TYPE LABEL
     deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_lesbian;
@@ -291,10 +230,10 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     setState(() {
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (widget.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
+      if (widget.match_data.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
 
       // GETTING THE LANGUAGE INFO
-      deck_language_label = get_language_info(context, widget.selected_deck.summary.language);
+      deck_language_label = get_language_info(context, widget.match_data.selected_deck.summary.language);
 
     });
   }
@@ -479,7 +418,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                                     TextSpan (
 
-                                      text : widget.selected_deck.summary.name,
+                                      text : widget.match_data.selected_deck.summary.name,
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                     ),
@@ -601,7 +540,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                     TextSpan (
 
                                       // TEXT
-                                      text : '${widget.selected_deck.summary.total_quests}',
+                                      text : '${widget.match_data.selected_deck.summary.total_quests}',
 
                                       // TEXT STYLE
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
@@ -659,7 +598,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                                     TextSpan (
 
-                                      text : widget.selected_deck.summary.description,
+                                      text : widget.match_data.selected_deck.summary.description,
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                     ),
@@ -677,7 +616,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                             //------------------------------------------------------------------------------
 
                             // BUTTON ALIGNMENT CONTAINER
-                            ! widget.can_edit ?Container(
+                            Container(
 
                               // SIZE
                               width: double.infinity,
@@ -724,6 +663,12 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                     // CHECKING IF THE DECK IS PLAYABLE
                                     await check_deck_quest_number();
 
+                                    // SETTING THE DECKS INSIDE MATCH DATA
+                                    widget.match_data.deck_early_quest_list = early_quests_list;
+                                    widget.match_data.deck_mid_quest_list = mid_quests_list;
+                                    widget.match_data.deck_late_quest_list = late_quests_list;
+                                    widget.match_data.deck_end_quest_list = end_quests_list;
+
                                     // CHECKING IF THE INTERFACE IS STILL MOUNTED
                                     if (!mounted) return;
 
@@ -734,18 +679,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                       Navigator.push(
                                         // ignore: use_build_context_synchronously
                                         context,
-                                        MaterialPageRoute(builder: (context) => SelectGameSpeed(
-
-                                          game_type: widget.game_type,
-                                          player_1_object: widget.player_1_object,
-                                          player_2_object: widget.player_2_object,
-                                          first_player_object: widget.first_player,
-                                          early_quests_list: early_quests_list,
-                                          mid_quests_list: mid_quests_list,
-                                          late_quests_list: late_quests_list,
-                                          end_quests_list: end_quests_list,
-
-                                        )
+                                        MaterialPageRoute(builder: (context) => SelectGameSpeed(match_data: widget.match_data)
 
                                         ),
 
@@ -778,7 +712,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                               ),
 
-                            ): SizedBox.shrink(),
+                            ),
 
                             //------------------------------------------------------------------------------
 

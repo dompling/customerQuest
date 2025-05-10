@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/deck_list_reader.dart';
-import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
-import 'package:loverquest/logics/decks_logics/deck_ui_conversion.dart';
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+
+import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
+import 'package:loverquest/logics/decks_logics/06_reed_deck_list_getter.dart';
+import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
 import 'package:loverquest/logics/decks_logics/deck_filters.dart';
-import 'package:loverquest/logics/play_logics/player_class.dart';
+
 import 'package:loverquest/pages/play_pages/06_deck_info_page.dart';
 
 //------------------------------------------------------------------------------
@@ -19,21 +21,10 @@ import 'package:loverquest/pages/play_pages/06_deck_info_page.dart';
 class DeckSelectionPage extends StatefulWidget {
 
   // CLASS ATTRIBUTES
-  final String couple_type;
-  final bool game_type;
-  final Players player_1_object;
-  final Players player_2_object;
-  final Players first_player;
+  final MatchData match_data;
 
   // CLASS CONSTRUCTOR
-  const DeckSelectionPage({
-    required this.couple_type,
-    required this.game_type,
-    required this.player_1_object,
-    required this.player_2_object,
-    required this.first_player,
-    super.key,
-  });
+  const DeckSelectionPage({required this.match_data, super.key,});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -77,45 +68,26 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
   }
 
+  //------------------------------------------------------------------------------
+
   // INITIAL STATE FUNCTION TO LOAD ALL DEFAULTS DECKS
   Future<void> load_all_decks() async {
 
     //------------------------------------------------------------------------------
 
-    // GETTING THE LIST OF ALL THE DEFAULT DECKS PATH CALLING THE
-    List<String> default_decks_path_list = await get_default_deck_paths(context, is_presence: widget.game_type);
+    // GETTING THE DEFAULT REED DECK LIST
+    List<DeckReader> default_reed_deck_list = await get_default_reed_decks(context, is_presence: widget.match_data.play_local);
 
     //------------------------------------------------------------------------------
 
-    // GETTING THE LIST OF ALL THE DEFAULT DECKS PATH CALLING THE
-    List<String> custom_decks_path_list = await get_custom_deck_paths();
+    // GETTING THE CUSTOM HIVE REED DECK LIST
+    List<DeckReader> custom_reed_deck_list = await get_custom_hive_reed_decks();
 
     //------------------------------------------------------------------------------
-
-    // CREATING THE LIST WITH ALL DECKS PATH
-    List<String> all_decks_path_list = custom_decks_path_list + default_decks_path_list;
-
-    //------------------------------------------------------------------------------
-
-    // CREATING A TEMP LIST OF REED DECKS
-    List<DeckReader> tempList = [];
-
-    // FOR EVERY FILE PATH IN THE LIST WILL BE CREATED AN ELEMENT INSIDE A TEMP LIST WHERE LOAD THE DECK ELEMENTS
-    for (String deck_path in all_decks_path_list) {
-
-      // CREATING DECK READER OBJECT
-      DeckReader deckManager = DeckReader(deck_path);
-
-      // LOADING DECK DATA ASYNCHRONOUSLY
-      await deckManager.load_deck();
-
-      // ADDING THE LOADED DECK TO THE TMP LIST
-      tempList.add(deckManager);
-    }
 
     // UPDATING THE WIDGET STATUS WITH THE LOADED DATA
     setState(() {
-      loaded_decks_list = tempList;
+      loaded_decks_list = custom_reed_deck_list + default_reed_deck_list;
       is_loading = false;
     });
   }
@@ -161,7 +133,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
     //------------------------------------------------------------------------------
 
     // FILTERING THE LOADED DECK LIST USING THE COUPLE TYPE
-    List<DeckReader> filtered_deck_managers = filter_decks_for_couple_type_and_game_type(loaded_decks_list, widget.couple_type, widget.game_type);
+    List<DeckReader> filtered_deck_managers = filter_decks_for_couple_type_and_game_type(loaded_decks_list, widget.match_data.couple_type, widget.match_data.play_local);
 
     //------------------------------------------------------------------------------
 
@@ -195,7 +167,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
               child: Text(
 
-                widget.game_type ? AppLocalizations.of(context)!.deck_management_page_no_decks_text: AppLocalizations.of(context)!.deck_management_page_not_done_yet,
+                widget.match_data.play_local ? AppLocalizations.of(context)!.deck_management_page_no_decks_text: AppLocalizations.of(context)!.deck_management_page_not_done_yet,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
 
@@ -294,11 +266,15 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                       // GETTING DECK DIFFICULTY INFO
                       LanguageInfo language_info_object = get_language_info(context, filtered_deck_managers[index].summary.language);
                       ToolsInfo tools_info_object = get_tools_info(context, deck_tools);
+
                       OralSexTagInfo oral_sex_tag_object = get_oral_tag_info(context, filtered_deck_managers[index].summary.tags);
                       AnalSexTagInfo anal_sex_tag_object = get_anal_tag_info(context, filtered_deck_managers[index].summary.tags);
                       VaginalSexTagInfo vaginal_sex_tag_object = get_vaginal_tag_info(context, filtered_deck_managers[index].summary.tags);
                       BondageTagInfo bondage_tag_object = get_bondage_tag_info(context, filtered_deck_managers[index].summary.tags);
                       BdsmTagInfo bdsm_tag_object = get_bdsm_tag_info(context, filtered_deck_managers[index].summary.tags);
+
+                      ChatTagInfo chat_tag_object = get_chat_tag_info(context, filtered_deck_managers[index].summary.tags);
+                      VideoCallTagInfo video_call_tag_object = get_video_call_tag_info(context, filtered_deck_managers[index].summary.tags);
 
                       // DYNAMIC LIST CONTENT
                       return Align(
@@ -349,21 +325,16 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                               // ON PRESSED CALL
                               onPressed: () {
 
+                                // SETTING THE SELECTED DECK IN THE MATCH DATA
+                                widget.match_data.selected_deck = filtered_deck_managers[index];
+
                                 // PAGE LINKER
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
 
                                     // OPEN NEW PAGE
-                                    builder: (context) => DeckInfoPage(
-                                      player_1_object: widget.player_1_object,
-                                      player_2_object: widget.player_2_object,
-                                      first_player: widget.first_player,
-                                      selected_deck: filtered_deck_managers[index],
-                                      can_edit: false,
-                                      game_type: widget.game_type,
-
-                                    ),
+                                    builder: (context) => DeckInfoPage(match_data: widget.match_data),
 
                                   ),
 
@@ -747,6 +718,88 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                                               ),
 
                                             ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // CHAT SEX TAG
+                                            if (chat_tag_object.show_tag)
+                                              Container(
+
+                                                // PADDING
+                                                padding: EdgeInsets.all(7),
+
+                                                //CONTAINER STYLE
+                                                decoration: BoxDecoration(
+
+                                                  // BACKGROUND COLOR
+                                                  color: chat_tag_object.background_color,
+
+                                                  // BORDER RADIUS
+                                                  borderRadius: BorderRadius.circular(16),
+
+                                                  // BORDER STYLE
+                                                  border: Border.all(
+                                                    color: chat_tag_object.background_color,
+                                                    width: 1,
+                                                  ),
+
+                                                ),
+
+                                                // CONTAINER CONTENT
+                                                child: Text(
+
+                                                  // TEXT
+                                                  chat_tag_object.label,
+
+                                                  // TEXT STYLE
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                  ),
+
+                                                ),
+
+                                              ),
+
+                                            //------------------------------------------------------------------------------
+
+                                            // VIDEO SEX TAG
+                                            if (video_call_tag_object.show_tag)
+                                              Container(
+
+                                                // PADDING
+                                                padding: EdgeInsets.all(7),
+
+                                                //CONTAINER STYLE
+                                                decoration: BoxDecoration(
+
+                                                  // BACKGROUND COLOR
+                                                  color: video_call_tag_object.background_color,
+
+                                                  // BORDER RADIUS
+                                                  borderRadius: BorderRadius.circular(16),
+
+                                                  // BORDER STYLE
+                                                  border: Border.all(
+                                                    color: video_call_tag_object.background_color,
+                                                    width: 1,
+                                                  ),
+
+                                                ),
+
+                                                // CONTAINER CONTENT
+                                                child: Text(
+
+                                                  // TEXT
+                                                  video_call_tag_object.label,
+
+                                                  // TEXT STYLE
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                  ),
+
+                                                ),
+
+                                              ),
 
                                             //------------------------------------------------------------------------------
 

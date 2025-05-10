@@ -1,396 +1,268 @@
 {
   "summary": {
-    "name": "Experimentierer",
-    "description": "Es ist Zeit, ein wenig mehr zu wagen! Diese Herausforderungen helfen euch, neue Wünsche zu entdecken, eure Grenzen zu überschreiten und die Leidenschaft zu entfachen, immer mit Respekt und Komplizenschaft.",
+    "name": "Grenzgängerinnen",
+    "description": "Jetzt ist es Zeit, ein bisschen mutiger zu werden! Diese Herausforderungen helfen euch, neue Wünsche zu erkunden, Grenzen zu überwinden und die Leidenschaft zu entfachen – immer mit Respekt und Verbundenheit.",
     "couple_type": "lesbian",
     "play_presence": true,
     "language": "de",
-    "total_quests": 49,
+    "total_quests": 36,
     "required_tools": ["blindfold", "handcuffs"],
     "tags": ["vaginal_sex", "oral_sex", "bondage"]
   },
 
-
-
   "quests": [
-
     {
       "moment": "early",
-      "required_tools": [],
+      "required_tools": ["blindfold"],
       "player_type": "both",
       "timer": 2,
-      "content": "Streichelt und küsst euch im Stehen für 2 Minuten."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Schließe die Augen, während deine Partnerin dir etwas Erregendes ins Ohr flüstert und dich 2 Minuten lang streichelt."
+      "content": "Streichelt und küsst euch im Stehen, während ihr beide verbunden seid – 2 Minuten lang."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Schreibt auf einen Zettel, was euch erregt, und tauscht ihn am Ende der nächsten Runde aus."
+      "content": "Schreibt auf einen Zettel etwas, das euch erregt, und tauscht ihn nach der nächsten Runde aus."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Deine Partnerin küsst deinen ganzen Körper für 1 Minute."
+      "content": "Deine Partnerin lässt dich in Unterwäsche und küsst deinen ganzen Körper 1 Minute lang."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Deine Partnerin schreibt mit den Fingerspitzen ein erregendes Wort auf deinen Körper und du musst es erraten."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Streichelt euch gegenseitig mit geschlossenen Augen für 2 Minuten."
+      "content": "Deine Partnerin schreibt mit der Fingerspitze ein erregendes Wort auf deinen Körper – errate es!"
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Setze dich hinter deine Partnerin und streichle sie, während du ihren Nacken für 1 Minute küsst."
+      "content": "Setze dich hinter deine Partnerin, streichle sie und küsse ihren Nacken für 1 Minute."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Teile deiner Partnerin eine Fantasie nur mit Körpersprache mit."
+      "content": "Teile deiner Partnerin eine Fantasie mit – nur mit Körpersprache."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 1,
+      "content": "Nähert eure Gesichter und schaut euch 1 Minute lang in die Augen – ohne euch zu küssen."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Nähert eure Gesichter einander an, schaut euch in die Augen, aber küsst euch nicht, für 2 Minuten."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Setze dich auf den Rücken deiner Partnerin und massiere sie für 2 Minuten."
+      "content": "Setze dich auf den Rücken deiner Partnerin und massiere sie 2 Minuten lang."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Sucht online eine neue Position, die ihr zusammen ausprobieren möchtet."
+      "content": "Sucht gemeinsam online eine neue Stellung aus, die ihr ausprobieren möchtet."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Ziehe die andere Spielerin sanft aus, bis sie nur noch Unterwäsche trägt."
-    },
-
-
-
-
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Kühle deine Hände mit kaltem Wasser und streichle den Körper deiner Partnerin für 1 Minute."
+      "content": "Ziehe deiner Partnerin sanft die Kleidung aus, bis sie nur noch Unterwäsche trägt."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Flüstert euch abwechselnd drei Fantasien ins Ohr, die ihr verwirklichen möchtet."
+      "content": "Flüstert euch abwechselnd eine Fantasie zu, die ihr gerne ausleben möchtet."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Deine Partnerin wählt dein Outfit bis zum Ende des Spiels."
+      "content": "Deine Partnerin wählt dein Outfit für den Rest des Spiels."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Setze dich hinter die andere Spielerin und masturbiere sie für 3 Minuten, während du ihren Nacken küsst und ihr Erregendes ins Ohr flüsterst."
+      "timer": 0,
+      "content": "Versprecht, bis zum Ende des Spiels keine Laute oder Worte bei sexuellen Handlungen zu unterdrücken."
+    },
+    {
+      "moment": "mid",
+      "required_tools": ["blindfold"],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Setze dich hinter deine Partnerin, verbinde ihr die Augen und masturbiere sie 2 Minuten lang, während du ihren Nacken küsst und ihr erregende Dinge zuflüsterst."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Versuche, den Herzschlag deiner Partnerin zu hören, und masturbiere sie im Rhythmus für 2 Minuten."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Schickt euch gegenseitig Sexting-Nachrichten auf eurer Lieblings-Messaging-App für 3 Minuten."
+      "content": "Höre auf den Herzschlag deiner Partnerin und masturbiere sie im Takt – 2 Minuten lang."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Setzt euch nebeneinander und masturbiert euch gegenseitig für 2 Minuten."
+      "content": "Legt euch nebeneinander und masturbiert euch gegenseitig für 2 Minuten."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Mache für die andere Spielerin einen sexy Tanz für 1 Minute."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Bemüht euch, während sexueller Handlungen bis zum Ende des Spiels kein Geräusch oder Wort zu unterdrücken."
-    },
-
-
-
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbiert euch gegenseitig für 3 Minuten, wobei ihr eure Gesichter nahe beieinander haltet, aber euch nicht küsst."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Deine Partnerin masturbiert dich, bis du kurz vor dem Orgasmus bist, und hört dann auf (Edging)."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Schaltet alle Lichtquellen aus und kuschelt nackt miteinander für 2 Minuten."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbiere die andere Spielerin, während du dich selbst für 3 Minuten masturbierst."
-    },
-
-
-
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Beende das Spiel auf die Weise, die dir am meisten gefällt."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Masturbiere die andere Spielerin bis zum Orgasmus."
-    },
-
-
-
-
-
-
-
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Spielt ein Rollenspiel, indem ihr ein aufregendes Setting wählt."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Deine Partnerin nähert ihr Gesicht deinen intimen Stellen für 1 Minute, ohne dich zu berühren."
+      "content": "Führe einen sexy Tanz für deine Partnerin auf – 1 Minute lang."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Deine Partnerin führt deine Hand, um sich 2 Minuten lang selbst zu masturbieren."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Deine Partnerin streichelt und haucht auf deine erogenen Zonen, ohne mehr zu tun, für 1 Minute."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Deine Partnerin macht für dich einen sexy Striptease."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Ziehe der anderen Spielerin die Unterwäsche aus, ohne deine Hände zu benutzen."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Lecke sanft die intimen Stellen der anderen Spielerin vollständig für 1 Minute."
+      "content": "Masturbiert euch gegenseitig für 2 Minuten – eure Gesichter bleiben dabei ganz nah beieinander, ohne zu küssen."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Setze dich unter einen Tisch und praktiziere Oralverkehr bei der anderen Spielerin für 2 Minuten."
+      "content": "Schaltet alle Lichter aus und kuschelt euch nackt für 2 Minuten."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Setze dich hinter die andere Spielerin, während ihr euch vor einem Spiegel befindet, und masturbiere sie für 3 Minuten."
-    },
-
-
-
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Knie dich vor deine Partnerin und praktiziere Oralverkehr für 3 Minuten."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Deine Partnerin führt bei dir Oralverkehr durch, bis du kurz vor dem Orgasmus bist, und stoppt dann (Edging)."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Küsse die intimen Stellen deiner Partnerin für 1 Minute."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Praktiziere mit deiner Partnerin die 69-Position für 3 Minuten."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 2,
-      "content": "Praktiziere Oralverkehr bei der anderen Spielerin, während du dich selbst für 2 Minuten masturbierst."
+      "content": "Masturbiere deine Partnerin, während du dich selbst befriedigst – 2 Minuten lang."
     },
     {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Praktiziere Oralverkehr bei der anderen Spielerin, während du dich in der Doggy-Style-Position für 3 Minuten masturbierst."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Die andere Spielerin geht in die Doggy-Style-Position, während du ihr 2 Minuten lang Oralverkehr gibst."
-    },
-
-
-
-
-
-
-
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 5,
-      "content": "Praktiziere mit deiner Partnerin die 69-Position für 5 Minuten."
-    },
-    {
-      "moment": "end",
+      "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Knie dich vor deine Partnerin und praktiziere Oralverkehr, bis sie zum Orgasmus kommt."
+      "content": "Wählt ein erotisches Rollenspiel und spielt es bis zum Ende des Spiels."
     },
     {
-      "moment": "end",
+      "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Deine Partnerin setzt sich auf dein Gesicht, praktiziere Oralverkehr, bis sie zum Orgasmus kommt."
+      "content": "Ziehe deiner Partnerin die Unterwäsche aus, ohne deine Hände zu benutzen."
     },
-
-
-
-
-
-
-
     {
       "moment": "late",
       "required_tools": ["blindfold"],
       "player_type": "both",
+      "timer": 0,
+      "content": "Deine Partnerin verbindet dir die Augen und masturbiert dich, bis du kurz vor dem Höhepunkt bist – dann hört sie auf (Edging)."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 1,
+      "content": "Deine Partnerin nähert ihr Gesicht deinen Intimzonen für 1 Minute – ohne dich zu berühren."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 1,
+      "content": "Deine Partnerin streichelt deine erogenen Zonen und haucht über sie – ohne mehr zu tun – für 1 Minute."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 1,
+      "content": "Lecke sanft die gesamte Intimzone deiner Partnerin für 1 Minute."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
       "timer": 2,
-      "content": "Bende deine Partnerin und praktiziere Oralverkehr für 2 Minuten."
+      "content": "Verwöhne deine Partnerin 2 Minuten lang oral."
+    },
+    {
+      "moment": "late",
+      "required_tools": ["blindfold"],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Deine Partnerin verbindet dir die Augen und verwöhnt dich oral, bis du fast kommst – dann hört sie auf (Edging)."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 1,
+      "content": "Küsse die Intimzone deiner Partnerin für 1 Minute."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Deine Partnerin gibt dir eine kräftige Ohrfeige auf den Po."
+    },
+    {
+      "moment": "late",
+      "required_tools": ["blindfold"],
+      "player_type": "both",
+      "timer": 3,
+      "content": "Verbindet euch beide die Augen und masturbiert euch gegenseitig für 3 Minuten."
     },
     {
       "moment": "late",
       "required_tools": ["handcuffs"],
       "player_type": "both",
       "timer": 2,
-      "content": "Fessele die Hände deiner Partnerin und praktiziere Oralverkehr für 2 Minuten"
+      "content": "Fessele die Hände deiner Partnerin und verwöhne sie 2 Minuten lang oral."
     },
     {
       "moment": "late",
       "required_tools": ["blindfold"],
       "player_type": "both",
-      "timer": 3,
-      "content": "Bendet euch beide und masturbiert euch gegenseitig für 3 Minuten."
+      "timer": 2,
+      "content": "Verwöhne deine Partnerin oral, während du selbst verbunden bist – 2 Minuten lang."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Habt 69er-Sex, bis ihr beide zum Orgasmus kommt."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Knie dich vor deine Partnerin und verwöhne sie oral, bis sie zum Orgasmus kommt."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Deine Partnerin setzt sich auf dein Gesicht – verwöhne sie oral, bis sie kommt."
     }
-
   ]
+
 }

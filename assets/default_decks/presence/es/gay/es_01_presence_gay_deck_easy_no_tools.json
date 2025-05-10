@@ -1,16 +1,17 @@
 {
   "summary": {
     "name": "Exploradores",
-    "description": "Están dando sus primeros pasos en un mundo de intimidad lúdica. ¡Les esperan desafíos ligeros, divertidos y sencillos, perfectos para romper el hielo y encender nuevas sensaciones!",
+    "description": "Están dando sus primeros pasos en un mundo de intimidad lúdica. ¡Les esperan desafíos ligeros, divertidos y sencillos, perfectos para romper el hielo juntos y despertar nuevas sensaciones!",
     "couple_type": "gay",
     "play_presence": true,
     "language": "es",
-    "total_quests": 27,
+    "total_quests": 21,
     "required_tools": [],
-    "tags": []
+    "tags": ["anal_sex"]
   },
 
   "quests": [
+
     {
       "moment": "early",
       "required_tools": [],
@@ -22,29 +23,15 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Cierren los ojos mientras su pareja les susurra algo excitante y acaricia su cuerpo durante 2 minutos."
+      "timer": 0,
+      "content": "Escriban en un papel una cosa que les excite y cámbienla al final del próximo turno."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Escriban en una nota algo que les excite e intercámbienlo al final del próximo turno."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Su pareja besa todo su cuerpo durante 1 minuto."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Su pareja escribe una palabra excitante en su cuerpo con las yemas de los dedos, y deben adivinarla."
+      "content": "Tu pareja escribe una palabra excitante sobre tu cuerpo con la punta de los dedos, y tú debes adivinarla."
     },
     {
       "moment": "early",
@@ -57,135 +44,103 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
+      "timer": 0,
+      "content": "Comunícale a tu pareja una fantasía usando solo el lenguaje corporal."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
       "timer": 1,
-      "content": "Siéntense detrás de su pareja y acarícienla mientras le besan el cuello durante 1 minuto."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Comuníquenle una de sus fantasías a su pareja utilizando solo lenguaje corporal."
+      "content": "Acerquen sus rostros mirándose a los ojos, pero sin besarse, durante 1 minuto."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Acerquen sus rostros, mirándose a los ojos sin besarse, durante 2 minutos."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Siéntense sobre la espalda de su pareja y denle un masaje durante 2 minutos."
+      "content": "Siéntate sobre la espalda de tu pareja y dale un masaje durante 2 minutos."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Busquen en internet una nueva posición para probar juntos."
+      "content": "Desviste suavemente al otro jugador hasta dejarlo en ropa interior."
     },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Desvistan al otro jugador suavemente hasta dejarlo en ropa interior."
-    },
+
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Enfríen sus manos con agua fría y acaricien el cuerpo de su pareja durante 1 minuto."
+      "content": "Tu pareja te deja en ropa interior y luego te besa por todo el cuerpo durante 1 minuto."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Tómense turnos para susurrar tres fantasías que les gustaría cumplir."
+      "content": "Susúrrense por turnos una fantasía que les gustaría cumplir."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Su pareja elige su vestimenta hasta el final del juego."
+      "content": "Tu pareja elige tu atuendo hasta el final del juego."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Siéntense detrás del otro jugador y mastúrbense durante 3 minutos mientras le besan el cuello y le susurran cosas excitantes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Traten de escuchar el latido del corazón de su pareja y mastúrbenlo siguiendo su ritmo durante 2 minutos."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Háganse sexting en su app de mensajería favorita durante 3 minutos."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Siéntense uno al lado del otro y mastúrbense mutuamente durante 2 minutos."
+      "timer": 0,
+      "content": "Comprométete a no reprimir ningún sonido o palabra durante los actos sexuales hasta el final del juego."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Bailen sensualmente para el otro jugador durante 1 minuto."
+      "content": "Enfría tus manos con agua fría y acaricia el cuerpo en ropa interior de tu pareja durante 1 minuto."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 0,
-      "content": "Comprométanse a no reprimir ningún sonido o palabra durante los actos sexuales hasta el final del juego."
+      "timer": 2,
+      "content": "Apaguen todas las luces y háganse caricias en los cuerpos desnudos mientras se besan apasionadamente durante 2 minutos."
     },
+
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Mastúrbense mutuamente durante 3 minutos, manteniendo sus rostros cerca pero sin besarse."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Su pareja los masturba hasta llevarlos cerca del clímax, y luego se detiene (edging)."
+      "timer": 2,
+      "content": "Intenta escuchar el latido del corazón de tu pareja y mastúrbalo siguiendo el ritmo durante 2 minutos."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Apaguen todas las luces y besen apasionadamente, acariciándose los cuerpos desnudos durante 2 minutos."
+      "content": "Acuéstense uno al lado del otro y másturbense mutuamente durante 2 minutos."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Mastúrben al otro jugador mientras se masturban ustedes mismos durante 3 minutos."
+      "timer": 1,
+      "content": "Másturbense mutuamente durante 1 minuto con los rostros cerca pero sin besarse."
     },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Masturba al otro jugador mientras te masturbas durante 2 minutos."
+    },
+
     {
       "moment": "end",
       "required_tools": [],
@@ -198,7 +153,15 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Mastúrben al otro jugador hasta que alcance el orgasmo."
+      "content": "Concluyan el juego con una relación penetrativa en la posición que deseen."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Masturba al otro jugador hasta que alcance el orgasmo."
     }
+
   ]
 }
