@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/play_logics/player_class.dart';
-import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+
 import 'package:loverquest/pages/play_pages/08_play_page.dart';
 
 //------------------------------------------------------------------------------
@@ -17,29 +17,10 @@ import 'package:loverquest/pages/play_pages/08_play_page.dart';
 class SelectGameSpeed extends StatelessWidget {
 
   // DEFINING PREVIOUS PAGE INFO
-  final bool game_type;
-  final Players player_1_object;
-  final Players player_2_object;
-  final Players first_player_object;
-  final List<Quest> early_quests_list;
-  final List<Quest> mid_quests_list;
-  final List<Quest> late_quests_list;
-  final List<Quest> end_quests_list;
+  final MatchData match_data;
 
   // CLASS CONSTRUCTOR
-  const SelectGameSpeed({
-
-    required this. game_type,
-    required this.player_1_object,
-    required this.player_2_object,
-    required this.first_player_object,
-    required this.early_quests_list,
-    required this.mid_quests_list,
-    required this.late_quests_list,
-    required this.end_quests_list,
-    super.key
-
-  });
+  const SelectGameSpeed({required this. match_data, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -172,24 +153,14 @@ class SelectGameSpeed extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
+                        match_data.game_pace_multiplier = 1;
+
                         // PAGE LINKER
                         Navigator.pushAndRemoveUntil(
                           // ignore: use_build_context_synchronously
                           context,
-                          MaterialPageRoute(builder: (context) => PlayPage(
-
-                            game_type: game_type,
-                            player_1_object: player_1_object,
-                            player_2_object: player_2_object,
-                            first_player: first_player_object,
-                            early_quests_list: early_quests_list,
-                            mid_quests_list: mid_quests_list,
-                            late_quests_list: late_quests_list,
-                            end_quests_list: end_quests_list,
-                            passed_current_quest: Quest.empty(),
-                            quest_switch_multiplier: 1,
-
-                          )
+                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data)
 
                           ),
 
@@ -354,24 +325,14 @@ class SelectGameSpeed extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
+                        match_data.game_pace_multiplier = 2;
+
                         // PAGE LINKER
                         Navigator.pushAndRemoveUntil(
                           // ignore: use_build_context_synchronously
                           context,
-                          MaterialPageRoute(builder: (context) => PlayPage(
-
-                            game_type: game_type,
-                            player_1_object: player_1_object,
-                            player_2_object: player_2_object,
-                            first_player: first_player_object,
-                            early_quests_list: early_quests_list,
-                            mid_quests_list: mid_quests_list,
-                            late_quests_list: late_quests_list,
-                            end_quests_list: end_quests_list,
-                            passed_current_quest: Quest.empty(),
-                            quest_switch_multiplier: 2,
-
-                          )
+                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data,)
 
                           ),
 
@@ -537,24 +498,14 @@ class SelectGameSpeed extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
+                        match_data.game_pace_multiplier = 3;
+
                         // PAGE LINKER
                         Navigator.pushAndRemoveUntil(
                           // ignore: use_build_context_synchronously
                           context,
-                          MaterialPageRoute(builder: (context) => PlayPage(
-
-                            game_type: game_type,
-                            player_1_object: player_1_object,
-                            player_2_object: player_2_object,
-                            first_player: first_player_object,
-                            early_quests_list: early_quests_list,
-                            mid_quests_list: mid_quests_list,
-                            late_quests_list: late_quests_list,
-                            end_quests_list: end_quests_list,
-                            passed_current_quest: Quest.empty(),
-                            quest_switch_multiplier: 3,
-
-                          )
+                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data,)
 
                           ),
 
@@ -720,24 +671,14 @@ class SelectGameSpeed extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
+                        match_data.game_pace_multiplier = 4;
+
                         // PAGE LINKER
                         Navigator.pushAndRemoveUntil(
                           // ignore: use_build_context_synchronously
                           context,
-                          MaterialPageRoute(builder: (context) => PlayPage(
-
-                            game_type: game_type,
-                            player_1_object: player_1_object,
-                            player_2_object: player_2_object,
-                            first_player: first_player_object,
-                            early_quests_list: early_quests_list,
-                            mid_quests_list: mid_quests_list,
-                            late_quests_list: late_quests_list,
-                            end_quests_list: end_quests_list,
-                            passed_current_quest: Quest.empty(),
-                            quest_switch_multiplier: 4,
-
-                          )
+                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data,)
 
                           ),
 

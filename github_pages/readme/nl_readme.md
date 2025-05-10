@@ -58,7 +58,8 @@ Loverquest is momenteel beschikbaar in de volgende talen:
 - **Nederlands**
 
 ## Hoe kan ik de app downloaden?
-Je kunt de app rechtstreeks downloaden vanuit de [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) of eventueel het bestand [`.apk`]() downloaden.
+Als je een Android-smartphone gebruikt, kun je de app downloaden via de [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) of handmatig installeren met het [`.apk`](https://github.com/H3rz3n/loverquest/releases/latest) bestand.  
+Als je een iPhone, iPad of computer gebruikt, kun je rechtstreeks spelen via de web-app op [deze link](https://game.loverquest.app).
 
 ## Hoe kan ik het project steunen?
 De steun van de community is essentieel voor ons, en de beste manieren om bij te dragen zijn [door te helpen met vertalingen](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/nl_how_translate_app.md), het ontwikkelen van nieuwe functies of een donatie te doen zodat we de app kunnen blijven ontwikkelen en onderhouden.
@@ -66,8 +67,9 @@ De steun van de community is essentieel voor ons, en de beste manieren om bij te
 - [Doneer via BuyMeACoffee](https://buymeacoffee.com/herzen)
 Je kunt het project ook steunen door een ster achter te laten op GitHub en het met je vrienden te delen.
 
-## Hoe kan ik mijn feedback en suggesties met jullie delen?
-We horen graag wat je van onze app vindt — elke feedback en suggestie helpt ons om LoverQuest te verbeteren. Je kunt je mening met ons delen door [dit korte formulier in te vullen](https://forms.gle/gtrdsRQZbasDecUN6).
+## Hoe kan ik feedback geven?
+Jouw mening is waardevol! Als je Loverquest hebt gespeeld en ideeën, problemen of ervaringen wilt delen, vul dan even ons korte formulier in:  
+[→ Vul het feedbackformulier in](https://forms.gle/U3mfUaN1wzBxLJz26)
 
 ## Wat is de project-roadmap?
 Je kunt de project-roadmap bekijken op de speciale [pagina](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap).

@@ -1,0 +1,147 @@
+{
+  "summary": {
+    "name": "Remote Initiation",
+    "description": "A deck designed for couples who want to explore intimacy from a distance in a gentle yet teasing way. No pressure, just desire growing message after message.",
+    "couple_type": "hetero",
+    "play_presence": false,
+    "language": "en",
+    "total_quests": 19,
+    "required_tools": [],
+    "tags": ["chat"]
+  },
+  "quests": [
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Start the chat with a message describing in a sensual way what you're wearing right now."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Send a suggestive (not nude) photo that hints but doesn’t reveal. Your partner may only reply with an emoji."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Send a voice message whispering a phrase you find erotic, no explanations."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Describe an erotic dream you had… but stop before the climax."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Write three words that describe how your partner makes you feel. One must be erotic, the other two sweet."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Describe where and how you’d like to kiss them if you were together right now."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Take a picture of your lips and write what you'd like to do with them to your partner."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Write an erotic sentence using only elegant words. No vulgar language."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Send a video of no more than 5 seconds where you slowly bite your lip or caress your neck."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Write a message that makes your partner blush… without using emojis."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Complete this sentence in chat: 'If I were in your bed now, I’d start with…'"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Write a short erotic story starring the two of you. Max 5 lines."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Record an audio where you sigh or slowly say their name in a sensual tone."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Play a hot quiz: ask your partner to guess one of your fantasies among three options (two false, one true)."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Describe the exact moment you last got turned on thinking about your partner."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Chat with each other using only sensual nicknames, never your real names."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Tell your partner where you’d like to make love the next time you see them."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "End the game by writing an erotic promise to keep the next time you meet."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Send a photo of your most provocative look and finish with: 'The rest you'll discover in person.'"
+    }
+  ]
+}

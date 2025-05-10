@@ -1,15 +1,15 @@
 {
+
   "summary": {
     "name": "Esploratori",
     "description": "State muovendo i primi passi in un mondo di intimità giocosa. Vi aspettano sfide leggere, divertenti e semplici, perfette per rompere il ghiaccio insieme e accendere nuove sensazioni!",
     "couple_type": "gay",
     "play_presence": true,
     "language": "it",
-    "total_quests": 27,
+    "total_quests": 21,
     "required_tools": [],
-    "tags": []
+    "tags": ["anal_sex"]
   },
-
 
 
   "quests": [
@@ -25,22 +25,8 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Chiudi gli occhi mentre il tuo partner ti sussurra qualcosa di eccitante e ti accarezza il corpo per 2 minuti."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 0,
       "content": "Scrivete su un bigliettino una cosa che vi eccita e scambiateveli alla fine del prossimo turno."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Il tuo partner ti bacia su tutto il corpo per 1 minuto."
     },
     {
       "moment": "early",
@@ -60,13 +46,6 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 1,
-      "content": "Siediti dietro il tuo partner e accarezzalo mentre gli baci il collo per 1 minuto."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
       "timer": 0,
       "content": "Comunica al tuo partner una tua fantasia usando solo il linguaggio del corpo."
     },
@@ -74,8 +53,8 @@
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Avvicinate i vostri visi guardandovi negli occhi, ma senza baciarvi, per 2 minuti."
+      "timer": 1,
+      "content": "Avvicinate i vostri visi guardandovi negli occhi, ma senza baciarvi, per 1 minuto."
     },
     {
       "moment": "early",
@@ -89,15 +68,13 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Cercate online una nuova posizione da provare assieme."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
       "content": "Spoglia dolcemente l'altro giocatore fino a farlo restare in intimo."
     },
+
+
+
+
+
 
 
 
@@ -107,14 +84,14 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Raffreddati le mani con acqua fredda e accarezza il corpo del tuo partner per 1 minuto."
+      "content": "Il tuo partner ti lascia in intimo e poi ti bacia su tutto il corpo per 1 minuto."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Sussurrate a turno tre fantasie che vorreste realizzare."
+      "content": "Sussurrate a turno una fantasia che vorreste realizzare."
     },
     {
       "moment": "mid",
@@ -127,44 +104,30 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Siediti dietro l'altro giocatore e masturbalo per 3 minuti mentre gli baci il collo e gli sussurri cose eccitanti."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Prova ad ascoltare il battito cardiaco del tuo partner e masturbalo seguendo il ritmo per 2 minuti."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Fate sexting sulla vostra app di messaggistica preferita per 3 minuti."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Sedetevi l'uno di fianco all'altro e masturbatevi a vicenda per 2 minuti."
+      "timer": 0,
+      "content": "Impegnati a non reprimere alcun suono o parola durante gli atti sessuali fino alla fine del gioco."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Fai un balletto sexy di 1 minuto per l'altro giocatore."
+      "content": "Raffreddati le mani con acqua fredda e accarezza il corpo in intimo del tuo partner per 1 minuto."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 0,
-      "content": "Impegnati a non reprimere alcun suono o parola durante gli atti sessuali fino alla fine del gioco."
+      "timer": 2,
+      "content": "Togliete ogni fonte di luce e pomiciate accarezzandovi i corpi nudi per 2 minuti."
     },
+
+
+
+
+
+
+
 
 
 
@@ -172,30 +135,36 @@
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Masturbatevi a vicenda per 3 minuti tenendo i visi vicini ma senza baciarvi."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Il tuo partner ti masturba finché non sei vicino al climax, poi si ferma (edging)."
+      "timer": 2,
+      "content": "Prova ad ascoltare il battito cardiaco del tuo partner e masturbalo seguendo il ritmo per 2 minuti."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Togliete ogni fonte di luce e pomiciate accarezzandovi i corpi nudi per 2 minuti."
+      "content": "Sdraiatevi l'uno di fianco all'altro e masturbatevi a vicenda per 2 minuti."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Masturba l'altro giocatore mentre ti masturbi per 3 minuti."
+      "timer": 1,
+      "content": "Masturbatevi a vicenda per 1 minuti tenendo i visi vicini ma senza baciarvi."
     },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Masturba l'altro giocatore mentre ti masturbi per 2 minuti."
+    },
+
+
+
+
+
+
 
 
 
@@ -205,6 +174,13 @@
       "player_type": "both",
       "timer": 0,
       "content": "Termina il gioco nel modo che preferisci."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Concludi il gioco con un rapporto penetrativo in una posizione a piacere."
     },
     {
       "moment": "end",

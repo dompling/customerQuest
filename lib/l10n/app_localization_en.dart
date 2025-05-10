@@ -30,7 +30,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get review_reminder_dialog_title => 'Help us !';
 
   @override
-  String get review_reminder_dialog_content => 'If you enjoyed Loverquest and want to support it, consider leaving a review on Google Play.';
+  String get review_reminder_dialog_content => 'If you enjoyed Loverquest and want to support it, consider leaving a review.';
 
   @override
   String get review_reminder_dialog_review_button_label => 'Support us';
@@ -187,6 +187,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deck_bdsm_tag_label => 'BDSM';
 
   @override
+  String get deck_chat_tag_label => 'Chat';
+
+  @override
+  String get deck_video_chat_tag_label => 'Video call';
+
+  @override
   String get deck_difficulty_not_specified => 'Not specified';
 
   @override
@@ -289,6 +295,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tags_list_bdsm_tag => 'BDSM';
+
+  @override
+  String get tags_list_chat_tag => 'chat';
+
+  @override
+  String get tags_list_video_chat_tag => 'video call';
 
   @override
   String get deck_info_deck_unplayable_error => 'You can\'t play a deck without quests ! Please add some quests to this deck or select another deck to continue.';
@@ -492,6 +504,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get deck_management_page_not_done_yet => 'Sorry, try to come here after the next update';
 
   @override
+  String get deck_management_page_warning_dialog_title => 'Warning!';
+
+  @override
+  String get deck_management_page_warning_dialog_content => 'Custom deck data will be saved in your browser’s cache. We recommend always downloading your custom decks to avoid losing them by accident.';
+
+  @override
+  String get deck_management_page_warning_dialog_ok_button => 'Got it';
+
+  @override
   String get deck_summary_editor_title => 'Deck summary info';
 
   @override
@@ -571,6 +592,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settings_main_page_language_button_label => 'Choose language';
+
+  @override
+  String get settings_main_page_webapp_section_label => 'Web app';
+
+  @override
+  String get settings_main_page_webapp_button_label => 'Open the web app site';
 
   @override
   String get settings_main_page_support_section_label => 'Support';

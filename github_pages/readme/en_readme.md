@@ -59,7 +59,8 @@ Loverquest is currently localized in the following languages:
 - **Dutch**
 
 ## How can I download the app?
-You can download the app directly from the [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) or alternatively, download the [`.apk`]() file.
+If you're using an Android smartphone, you can download the app from the [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) or alternatively install it via the [`.apk`](https://github.com/H3rz3n/loverquest/releases/latest) file.  
+If you're using an iPhone, iPad, or a computer, you can play directly via the web app at [this link](https://game.loverquest.app).
 
 ## How can I support the project?
 Community support is crucial for us, and the best ways to contribute are [helping us with translations](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/en_how_translate_app.md), developing new features, or making a donation to allow us to continue developing and maintaining the app.
@@ -67,8 +68,9 @@ Community support is crucial for us, and the best ways to contribute are [helpin
 - [Donate on BuyMeACoffee](https://buymeacoffee.com/herzen)
 You can also support the project by leaving a star on GitHub and sharing it with your friends.
 
-## How can I share my feedback and suggestions with you?
-We truly care about what you think of our app — every piece of feedback and every suggestion helps us improve LoverQuest. You can share your thoughts with us by [filling out this short form](https://forms.gle/gtrdsRQZbasDecUN6).
+## How can I give feedback?
+Your opinion matters! If you've played Loverquest and have suggestions, encountered issues, or simply want to tell us what you think, please take a moment to fill out our short feedback form:  
+[→ Fill out the feedback form](https://forms.gle/U3mfUaN1wzBxLJz26)
 
 ## What is the project roadmap?
 You can check the project roadmap on the dedicated [page](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap).

@@ -58,7 +58,8 @@ Loverquest ist derzeit in den folgenden Sprachen verfügbar:
 - **Niederländisch**
 
 ## Wie kann ich die App herunterladen?
-Du kannst die App direkt im [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) herunterladen oder alternativ die Datei [.apk]() herunterladen.
+Wenn du ein Android-Smartphone verwendest, kannst du die App über den [Google Play Store](https://play.google.com/store/apps/details?id=com.herzen.loverquest) herunterladen oder alternativ die [`.apk`](https://github.com/H3rz3n/loverquest/releases/latest) Datei installieren.  
+Wenn du ein iPhone, iPad oder einen Computer benutzt, kannst du direkt über die Web-App unter [diesem Link](https://game.loverquest.app) spielen.
 
 ## Wie kann ich das Projekt unterstützen?
 Die Unterstützung der Community ist für uns entscheidend, und die besten Möglichkeiten, zu helfen, sind [uns bei Übersetzungen zu unterstützen](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/de_how_translate_app.md), neue Funktionen zu entwickeln oder eine Spende zu machen, damit wir die App weiterentwickeln und pflegen können.
@@ -66,8 +67,9 @@ Die Unterstützung der Community ist für uns entscheidend, und die besten Mögl
 - [Spenden über BuyMeACoffee](https://buymeacoffee.com/herzen)
 Du kannst das Projekt außerdem unterstützen, indem du auf GitHub einen Stern hinterlässt und es mit deinen Freunden teilst.
 
-## Wie kann ich euch mein Feedback und meine Vorschläge mitteilen?
-Es ist uns wirklich wichtig zu wissen, was du über unsere App denkst – jedes Feedback und jeder Vorschlag hilft uns, LoverQuest zu verbessern. Du kannst uns deine Meinung mitteilen, indem du [dieses kurze Formular ausfüllst](https://forms.gle/gtrdsRQZbasDecUN6).
+## Wie kann ich Feedback geben?
+Deine Meinung ist uns wichtig! Wenn du Loverquest gespielt hast und Vorschläge, Probleme oder Eindrücke teilen möchtest, nimm dir bitte einen Moment Zeit, um unser kurzes Formular auszufüllen:  
+[→ Feedback-Formular ausfüllen](https://forms.gle/U3mfUaN1wzBxLJz26)
 
 ## Was ist die Projekt-Roadmap?
 Du kannst die Projekt-Roadmap auf der speziellen [Seite](https://github.com/H3rz3n/loverquest/wiki/Project-Roadmap) einsehen.

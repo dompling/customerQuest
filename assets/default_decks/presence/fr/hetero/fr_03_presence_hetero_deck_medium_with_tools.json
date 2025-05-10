@@ -1,79 +1,72 @@
 {
   "summary": {
     "name": "Expérimentateurs",
-    "description": "Il est temps d'oser un peu plus ! Ces défis vous aideront à explorer de nouveaux désirs, repousser vos limites et allumer la passion, toujours dans le respect et la complicité.",
+    "description": "Il est temps d’oser un peu plus ! Ces défis vous aideront à explorer de nouveaux désirs, repousser vos limites et raviver la passion, toujours dans le respect et la complicité.",
     "couple_type": "hetero",
     "play_presence": true,
     "language": "fr",
-    "total_quests": 54,
-    "required_tools": ["blindfold", "handcuffs"],
-    "tags": ["vaginal_sex", "oral_sex", "bondage"]
+    "total_quests": 39,
+    "required_tools": [
+      "blindfold",
+      "handcuffs"
+    ],
+    "tags": [
+      "vaginal_sex",
+      "oral_sex",
+      "bondage"
+    ]
   },
-
   "quests": [
-
     {
       "moment": "early",
-      "required_tools": [],
+      "required_tools": [
+        "blindfold"
+      ],
       "player_type": "both",
       "timer": 2,
-      "content": "Caressez-vous et embrassez-vous debout pendant 2 minutes."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Ferme les yeux pendant que ton partenaire te murmure quelque chose d'excitant et te caresse le corps pendant 2 minutes."
+      "content": "Caressez-vous et embrassez-vous debout les yeux bandés pendant 2 minutes."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Écrivez sur un petit papier une chose qui vous excite et échangez-les à la fin du prochain tour."
+      "content": "Écrivez sur un papier quelque chose qui vous excite et échangez-les à la fin du prochain tour."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Ton partenaire t'embrasse sur tout le corps pendant 1 minute."
+      "content": "Ton partenaire te laisse en sous-vêtements puis t’embrasse sur tout le corps pendant 1 minute."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Ton partenaire écrit un mot excitant sur ton corps avec le bout de ses doigts, et tu dois le deviner."
-    },
-    {
-      "moment": "early",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Caressez-vous mutuellement les yeux fermés pendant 2 minutes."
+      "content": "Ton partenaire trace un mot excitant sur ton corps avec ses doigts. À toi de le deviner."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Assieds-toi derrière ton partenaire et caresse-le en lui embrassant le cou pendant 1 minute."
+      "content": "Assieds-toi derrière ton partenaire, caresse-le et embrasse-lui le cou pendant 1 minute."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Exprime une de tes fantasmes à ton partenaire uniquement avec le langage du corps."
+      "content": "Exprime une de tes fantasmes à ton partenaire uniquement avec ton langage corporel."
     },
     {
       "moment": "early",
       "required_tools": [],
       "player_type": "both",
-      "timer": 2,
-      "content": "Approchez vos visages en vous regardant dans les yeux, sans vous embrasser, pendant 2 minutes."
+      "timer": 1,
+      "content": "Approchez vos visages et regardez-vous dans les yeux sans vous embrasser pendant 1 minute."
     },
     {
       "moment": "early",
@@ -87,7 +80,7 @@
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Cherchez en ligne une nouvelle position à essayer ensemble."
+      "content": "Cherchez ensemble une nouvelle position à essayer."
     },
     {
       "moment": "early",
@@ -100,190 +93,133 @@
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
-      "timer": 1,
-      "content": "Refroidis tes mains avec de l'eau froide et caresse le corps de ton partenaire pendant 1 minute."
+      "timer": 0,
+      "content": "Chuchotez chacun à votre tour un fantasme que vous aimeriez réaliser."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Chuchotez à tour de rôle trois fantasmes que vous aimeriez réaliser."
+      "content": "Ton partenaire choisit ta tenue jusqu’à la fin du jeu."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Ton partenaire choisit ta tenue jusqu'à la fin du jeu."
+      "content": "Engagez-vous à ne réprimer aucun son ou mot pendant les actes sexuels jusqu’à la fin du jeu."
     },
     {
       "moment": "mid",
-      "required_tools": [],
+      "required_tools": [
+        "blindfold"
+      ],
       "player_type": "both",
-      "timer": 3,
-      "content": "Assieds-toi derrière l'autre joueur et masturbe-le pendant 3 minutes tout en lui embrassant le cou et en lui murmurant des choses excitantes."
+      "timer": 2,
+      "content": "Assieds-toi derrière l'autre joueur, bande-lui les yeux et masturbe-le pendant 2 minutes en lui embrassant le cou et en lui murmurant des choses excitantes."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Essaie d'écouter les battements du cœur de ton partenaire et masturbe-le en suivant le rythme pendant 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Faites du sexting sur votre application de messagerie préférée pendant 3 minutes."
+      "content": "Essaie d’écouter les battements du cœur de ton partenaire et masturbe-le en suivant le rythme pendant 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Asseyez-vous l'un à côté de l'autre et masturbez-vous mutuellement pendant 2 minutes."
+      "content": "Allongez-vous l’un à côté de l’autre et masturbez-vous mutuellement pendant 2 minutes."
     },
     {
       "moment": "mid",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Fais une danse sexy de 1 minute pour l'autre joueur."
+      "content": "Fais une danse sexy d’1 minute pour l’autre joueur."
     },
     {
       "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Efforcez-vous de ne réprimer aucun son ni mot pendant les actes sexuels jusqu'à la fin du jeu."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbez-vous mutuellement pendant 3 minutes en gardant vos visages proches mais sans vous embrasser."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Ton partenaire te masturbe jusqu'à ce que tu sois proche de l'orgasme, puis s'arrête (edging)."
-    },
-    {
-      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 2,
-      "content": "Éteignez toute source de lumière et caressez vos corps nus pendant 2 minutes."
+      "content": "Masturbez-vous mutuellement pendant 2 minutes en gardant vos visages proches mais sans vous embrasser."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Éteignez toutes les lumières et caressez vos corps nus en vous embrassant pendant 2 minutes."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 2,
+      "content": "Masturbe l’autre joueur pendant que tu te masturbes pendant 2 minutes."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Choisissez un scénario excitant et faites un jeu de rôle jusqu’à la fin du jeu."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Enlève les sous-vêtements de l’autre joueur sans utiliser les mains."
     },
     {
       "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Masturbe l'autre joueur tout en te masturbant pendant 3 minutes."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
+      "required_tools": [
+        "blindfold"
+      ],
       "player_type": "both",
       "timer": 0,
-      "content": "Terminez le jeu de la manière que vous préférez."
+      "content": "Ton partenaire te bande les yeux et te masturbe jusqu’à ce que tu sois près de l’orgasme, puis s’arrête (edging)."
     },
     {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Terminez le jeu par un rapport sexuel dans la position de votre choix."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Masturbe l'autre joueur jusqu'à lui faire atteindre l'orgasme."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Faites un jeu de rôle en choisissant un décor excitant."
-    },
-    {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
       "content": "Ton partenaire approche son visage de tes parties intimes pendant 1 minute sans te toucher."
     },
     {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Ton partenaire guide ta main pour se masturber pendant 2 minutes."
-    },
-    {
-      "moment": "mid",
+      "moment": "late",
       "required_tools": [],
       "player_type": "both",
       "timer": 1,
-      "content": "Ton partenaire caresse et souffle sur tes zones érogènes sans aller plus loin pendant 1 minute."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Ton partenaire fait un strip-tease sexy pour toi."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Enlève les sous-vêtements de l'autre joueur sans utiliser les mains."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 1,
-      "content": "Lèche doucement entièrement les parties intimes de l'autre joueur pendant 1 minute."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Mets-toi sous une table et fais une fellation à l'autre joueur pendant 2 minutes."
-    },
-    {
-      "moment": "mid",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Place-toi derrière l'autre joueur devant un miroir et masturbe-le pendant 3 minutes."
+      "content": "Ton partenaire caresse et souffle sur tes zones érogènes sans rien faire d’autre pendant 1 minute."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Mets-toi à genoux devant ton partenaire et fais-lui une fellation pendant 3 minutes."
+      "timer": 1,
+      "content": "Lèche doucement les parties intimes de l’autre joueur pendant 1 minute."
     },
     {
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
+      "timer": 2,
+      "content": "Fais un cunnilingus ou une fellation à l’autre joueur pendant 2 minutes."
+    },
+    {
+      "moment": "late",
+      "required_tools": [
+        "blindfold"
+      ],
+      "player_type": "both",
       "timer": 0,
-      "content": "Ton partenaire te fait une fellation jusqu'à ce que tu sois proche de l'orgasme, puis s'arrête (edging)."
+      "content": "Ton partenaire te bande les yeux et te fait du sexe oral jusqu’à ce que tu sois près de l’orgasme, puis s’arrête (edging)."
     },
     {
       "moment": "late",
@@ -296,99 +232,77 @@
       "moment": "late",
       "required_tools": [],
       "player_type": "both",
-      "timer": 3,
-      "content": "Faites un soixante-neuf avec votre partenaire pendant 3 minutes."
+      "timer": 0,
+      "content": "Ton partenaire te donne une fessée vigoureuse sur les fesses."
     },
     {
       "moment": "late",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Fais une fellation à ton partenaire tout en te masturbant pendant 2 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": [],
+      "required_tools": [
+        "blindfold"
+      ],
       "player_type": "both",
       "timer": 3,
-      "content": "Fais une fellation à ton partenaire tout en te masturbant pendant 3 minutes en position levrette."
+      "content": "Bandez-vous tous les deux et masturbez-vous mutuellement pendant 3 minutes."
     },
     {
       "moment": "late",
-      "required_tools": [],
+      "required_tools": [
+        "handcuffs"
+      ],
       "player_type": "both",
       "timer": 2,
-      "content": "Ton partenaire se met en position levrette pendant que tu lui fais une fellation pendant 2 minutes."
+      "content": "Attache les mains de ton partenaire et fais-lui du sexe oral pendant 2 minutes."
     },
     {
-      "moment": "end",
-      "required_tools": [],
+      "moment": "late",
+      "required_tools": [
+        "blindfold"
+      ],
       "player_type": "both",
-      "timer": 5,
-      "content": "Faites un soixante-neuf avec votre partenaire pendant 5 minutes."
+      "timer": 2,
+      "content": "Fais du sexe oral à ton partenaire les yeux bandés pendant 2 minutes."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Mets-toi à genoux devant ton partenaire et fais-lui une fellation jusqu'à l'orgasme."
+      "content": "Faites un soixante-neuf jusqu’à l’orgasme."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Mets-toi à genoux devant ton partenaire et fais-lui du sexe oral jusqu’à l’orgasme."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "male",
       "timer": 0,
-      "content": "Ta partenaire s'assoit sur ton visage : fais-lui un cunnilingus jusqu'à lui faire atteindre l'orgasme."
-    },
-    {
-      "moment": "late",
-      "required_tools": ["blindfold"],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Bande les yeux de ton partenaire et fais-lui une fellation pendant 2 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": ["handcuffs"],
-      "player_type": "both",
-      "timer": 2,
-      "content": "Attache les mains de ton partenaire et fais-lui une fellation pendant 2 minutes."
-    },
-    {
-      "moment": "late",
-      "required_tools": ["blindfold"],
-      "player_type": "both",
-      "timer": 3,
-      "content": "Bandez-vous tous les deux les yeux et masturbez-vous mutuellement pendant 3 minutes."
+      "content": "Ta partenaire s’assoit sur ton visage : fais-lui du sexe oral jusqu’à l’orgasme."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Terminez le jeu par une pénétration en position missionnaire."
+      "content": "Terminez le jeu avec une pénétration en position du missionnaire."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Terminez le jeu par une pénétration en position cowgirl."
+      "content": "Terminez le jeu avec une pénétration en position cowgirl."
     },
     {
       "moment": "end",
       "required_tools": [],
       "player_type": "both",
       "timer": 0,
-      "content": "Terminez le jeu par une pénétration en position levrette."
-    },
-    {
-      "moment": "end",
-      "required_tools": [],
-      "player_type": "both",
-      "timer": 0,
-      "content": "Terminez le jeu par une pénétration en position reverse cowgirl."
+      "content": "Terminez le jeu avec une pénétration dans une position jamais essayée auparavant."
     }
   ]
 }

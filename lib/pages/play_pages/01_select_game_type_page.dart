@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+
 import 'package:loverquest/pages/play_pages/02_select_players_type_page.dart';
 
 //------------------------------------------------------------------------------
@@ -17,6 +19,9 @@ class SelectGameTypePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // CREATION OF THE MATCH DATA OBJECT
+    MatchData match_data = MatchData();
 
     // PAGE CONTENT
     return Scaffold(
@@ -147,13 +152,16 @@ class SelectGameTypePage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE MATCH DATA GAME TYPE
+                        match_data.play_local = true;
+
                         // PAGE LINKER
                         Navigator.push(
                           context,
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => SelectPlayersTypePage(game_type: true,),
+                            builder: (context) => SelectPlayersTypePage(match_data: match_data),
 
                           ),
 
@@ -309,13 +317,16 @@ class SelectGameTypePage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE MATCH DATA GAME TYPE
+                        match_data.play_local = false;
+
                         // PAGE LINKER
                         Navigator.push(
                           context,
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                            builder: (context) => SelectPlayersTypePage(game_type: false,),
+                            builder: (context) => SelectPlayersTypePage(match_data: match_data),
 
                           ),
 

@@ -1,32 +1,99 @@
 {
-    "name": "loverquest",
-    "short_name": "loverquest",
-    "start_url": ".",
+    "name": "Loverquest",
+    "short_name": "Loverquest",
+    "start_url": "/",
+    "scope": "/",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "description": "The best board game for couples !",
+    "orientation": "any",
+    "lang": "en-US",
+    "dir": "ltr",
+    "categories": [
+        "games",
+        "entertainment",
+        "lifestyle"
+    ],
     "prefer_related_applications": false,
+    "screenshots": [
+        {
+            "src": "screenshots/02_en_choose_game_type.png",
+            "sizes": "1198x2531",
+            "type": "image/png"
+        },
+        {
+            "src": "screenshots/03_en_choose_players_sex.png",
+            "sizes": "1198x2531",
+            "type": "image/png"
+        },
+        {
+            "src": "screenshots/06_en_play_deck_choice.png",
+            "sizes": "1198x2531",
+            "type": "image/png"
+        },
+        {
+            "src": "screenshots/08_en_choose_game_pace.png",
+            "sizes": "1198x2531",
+            "type": "image/png"
+        },
+        {
+            "src": "screenshots/09_en_play_page.png",
+            "sizes": "1198x2531",
+            "type": "image/png"
+        },
+
+
+        {
+            "src": "screenshots/02_tablet_en_choose_game_type.png",
+            "sizes": "2798x1837",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "screenshots/03_tablet_en_choose_players_sex.png",
+            "sizes": "2798x1837",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "screenshots/06_tablet_en_play_deck_choice.png",
+            "sizes": "2798x1837",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "screenshots/08_tablet_en_choose_game_pace.png",
+            "sizes": "2798x1837",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "screenshots/09_tablet_en_play_page.png",
+            "sizes": "2798x1837",
+            "type": "image/png",
+            "form_factor": "wide"
+        }
+    ],
     "icons": [
         {
-            "src": "icons/Icon-192.png",
+            "src": "pwa_icons/Icon-192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-512.png",
+            "src": "pwa_icons/Icon-512.png",
             "sizes": "512x512",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-maskable-192.png",
+            "src": "pwa_icons/Icon-maskable-192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "icons/Icon-maskable-512.png",
+            "src": "pwa_icons/Icon-maskable-512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"

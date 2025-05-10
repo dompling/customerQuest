@@ -30,7 +30,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get review_reminder_dialog_title => '¡Ayúdanos!';
 
   @override
-  String get review_reminder_dialog_content => 'Si disfrutaste de Loverquest y quieres apoyarlo, considera dejar una reseña en Google Play.';
+  String get review_reminder_dialog_content => 'Si te ha gustado Loverquest y quieres apoyarlo, considera dejar una reseña.';
 
   @override
   String get review_reminder_dialog_review_button_label => 'Apóyanos';
@@ -187,6 +187,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get deck_bdsm_tag_label => 'BDSM';
 
   @override
+  String get deck_chat_tag_label => 'Chat';
+
+  @override
+  String get deck_video_chat_tag_label => 'Videollamada';
+
+  @override
   String get deck_difficulty_not_specified => 'No especificado';
 
   @override
@@ -289,6 +295,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tags_list_bdsm_tag => 'BDSM';
+
+  @override
+  String get tags_list_chat_tag => 'chat';
+
+  @override
+  String get tags_list_video_chat_tag => 'videollamada';
 
   @override
   String get deck_info_deck_unplayable_error => '¡No puedes jugar con un mazo sin misiones! Añade algunas misiones a este mazo o selecciona otro para continuar.';
@@ -492,6 +504,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get deck_management_page_not_done_yet => 'Lo siento, vuelve después de la próxima actualización';
 
   @override
+  String get deck_management_page_warning_dialog_title => '¡Atención!';
+
+  @override
+  String get deck_management_page_warning_dialog_content => 'Los datos de los mazos personalizados se guardarán en la caché del navegador. Te recomendamos descargar siempre tus mazos personalizados para no correr el riesgo de perderlos accidentalmente.';
+
+  @override
+  String get deck_management_page_warning_dialog_ok_button => 'Entendido';
+
+  @override
   String get deck_summary_editor_title => 'Resumen del mazo';
 
   @override
@@ -571,6 +592,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get settings_main_page_language_button_label => 'Elegir idioma';
+
+  @override
+  String get settings_main_page_webapp_section_label => 'Aplicación web';
+
+  @override
+  String get settings_main_page_webapp_button_label => 'Abrir el sitio de la aplicación web';
 
   @override
   String get settings_main_page_support_section_label => 'Soporte';

@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+import 'package:loverquest/logics/play_logics/02_players_class.dart';
+import 'package:loverquest/logics/play_logics/03_select_random_player.dart';
+
 import 'package:loverquest/pages/play_pages/05_select_deck_to_play_page.dart';
-import 'package:loverquest/logics/play_logics/select_random_player.dart';
-import 'package:loverquest/logics/play_logics/player_class.dart';
 
 //------------------------------------------------------------------------------
 
@@ -16,14 +18,11 @@ import 'package:loverquest/logics/play_logics/player_class.dart';
 // PLAY PAGE DEFINITION
 class SelectStartPlayerPage extends StatelessWidget {
 
-  // DEFINING PREVIOUS PAGE INFO
-  final String couple_type;
-  final bool game_type;
-  final Players player_1_object;
-  final Players player_2_object;
+  // DEFINING PREVIOUS PAGE IMPORTED INFO
+  final MatchData match_data;
 
   // CLASS CONSTRUCTOR
-  const SelectStartPlayerPage({required this.couple_type, required this. game_type, required this.player_1_object, required this.player_2_object, super.key});
+  const SelectStartPlayerPage({required this.match_data, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -156,13 +155,16 @@ class SelectStartPlayerPage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE WHO IS THE FIRST PLAYER
+                        match_data.current_player_alias = match_data.player_one.player_alias;
+
                         // PAGE LINKER
                         Navigator.push(
                           context,
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: couple_type, game_type: game_type, player_1_object: player_1_object, player_2_object: player_2_object, first_player: player_1_object)),
+                              builder: (context) => DeckSelectionPage(match_data: match_data)),
 
                         );
 
@@ -180,7 +182,7 @@ class SelectStartPlayerPage extends StatelessWidget {
 
                           // CARD ICON
                           Image.asset(
-                            player_1_object.player_icon_path,
+                            match_data.player_one.player_icon_path,
                             width: 40,
                             height: 40,
                             fit: BoxFit.contain,
@@ -207,7 +209,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  AppLocalizations.of(context)!.select_start_player_player_one_name(player_1_object.player_alias),
+                                  AppLocalizations.of(context)!.select_start_player_player_one_name(match_data.player_one.player_alias),
 
                                   // TEXT STYLE
                                   style: TextStyle(
@@ -310,13 +312,16 @@ class SelectStartPlayerPage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // SETTING THE WHO IS THE FIRST PLAYER
+                        match_data.current_player_alias = match_data.player_two.player_alias;
+
                         // PAGE LINKER
                         Navigator.push(
                           context,
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: couple_type, game_type: game_type, player_1_object: player_1_object, player_2_object: player_2_object, first_player: player_2_object)),
+                              builder: (context) => DeckSelectionPage(match_data: match_data)),
 
                         );
 
@@ -334,7 +339,7 @@ class SelectStartPlayerPage extends StatelessWidget {
 
                           // CARD ICON
                           Image.asset(
-                            player_2_object.player_icon_path,
+                            match_data.player_two.player_icon_path,
                             width: 40,
                             height: 40,
                             fit: BoxFit.contain,
@@ -362,7 +367,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                                 // CARD TEXT
                                 Text(
                                   // TEXT
-                                  AppLocalizations.of(context)!.select_start_player_player_one_name(player_2_object.player_alias),
+                                  AppLocalizations.of(context)!.select_start_player_player_one_name(match_data.player_two.player_alias),
 
                                   // TEXT STYLE
                                   style: TextStyle(
@@ -464,7 +469,8 @@ class SelectStartPlayerPage extends StatelessWidget {
                       onPressed: () {
 
                         // SELECTING PLAYER RANDOMLY
-                        Players first_player = select_random_player(player_1_object, player_2_object);
+                        Players first_player = select_random_player(match_data.player_one, match_data.player_two);
+                        match_data.current_player_alias = first_player.player_alias;
 
                         // PAGE LINKER
                         Navigator.push(
@@ -472,7 +478,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                           MaterialPageRoute(
 
                             // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(couple_type: couple_type, game_type: game_type, player_1_object: player_1_object, player_2_object: player_2_object, first_player: first_player)),
+                              builder: (context) => DeckSelectionPage(match_data: match_data)),
 
                         );
 
