@@ -9,7 +9,7 @@
   "donation_reminder_dialog_donate_button_label": "Donate",
 
   "review_reminder_dialog_title": "Help us !",
-  "review_reminder_dialog_content": "If you enjoyed Loverquest and want to support it, consider leaving a review on Google Play.",
+  "review_reminder_dialog_content": "If you enjoyed Loverquest and want to support it, consider leaving a review.",
   "review_reminder_dialog_review_button_label": "Support us",
 
   "online_play_disclaimer_dialog_title": "Warning !",
@@ -74,6 +74,8 @@
   "deck_anal_sex_tag_label": "Anal sex",
   "deck_bondage_tag_label": "Bondage",
   "deck_bdsm_tag_label": "BDSM",
+  "deck_chat_tag_label": "Chat",
+  "deck_video_chat_tag_label": "Video call",
 
   "deck_difficulty_not_specified": "Not specified",
   "no_tools_label": "No tools",
@@ -112,6 +114,8 @@
   "tags_list_vaginal_sex_tag": "vaginal sex",
   "tags_list_bondage_tag": "bondage",
   "tags_list_bdsm_tag": "BDSM",
+  "tags_list_chat_tag": "chat",
+  "tags_list_video_chat_tag": "video call",
 
   "deck_info_deck_unplayable_error": "You can't play a deck without quests ! Please add some quests to this deck or select another deck to continue.",
 
@@ -186,6 +190,9 @@
   "deck_management_delete_dialog_no_button_label": "No",
   "deck_management_page_no_decks_text": "Sorry, there is nothing here",
   "deck_management_page_not_done_yet": "Sorry, try to come here after the next update",
+  "deck_management_page_warning_dialog_title": "Warning!",
+  "deck_management_page_warning_dialog_content": "Custom deck data will be saved in your browser’s cache. We recommend always downloading your custom decks to avoid losing them by accident.",
+  "deck_management_page_warning_dialog_ok_button": "Got it",
 
   "deck_summary_editor_title": "Deck summary info",
   "deck_summary_editor_insert_text_hint": "Insert text here...",
@@ -218,6 +225,8 @@
   "settings_main_page_title": "Settings",
   "settings_main_page_language_section_label": "Language",
   "settings_main_page_language_button_label": "Choose language",
+  "settings_main_page_webapp_section_label": "Web app",
+  "settings_main_page_webapp_button_label": "Open the web app site",
   "settings_main_page_support_section_label": "Support",
   "settings_main_page_feedback_section_label": "Feedback",
   "settings_main_page_donate_on_paypal_label": "Support us on Paypal",

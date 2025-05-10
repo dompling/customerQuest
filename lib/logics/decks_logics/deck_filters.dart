@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/deck_and_quests_reader.dart';
+import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 
 bool containsAny(List<String> list1, List<String> list2) {
   return list2.any((element) => list1.contains(element));

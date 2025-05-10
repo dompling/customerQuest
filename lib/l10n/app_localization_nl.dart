@@ -30,7 +30,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get review_reminder_dialog_title => 'Help ons!';
 
   @override
-  String get review_reminder_dialog_content => 'Als je van Loverquest genoten hebt en het wilt ondersteunen, overweeg dan om een recensie achter te laten op Google Play.';
+  String get review_reminder_dialog_content => 'Als je genoten hebt van Loverquest en het wilt steunen, overweeg dan om een recensie achter te laten.';
 
   @override
   String get review_reminder_dialog_review_button_label => 'Steun ons';
@@ -187,6 +187,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deck_bdsm_tag_label => 'BDSM';
 
   @override
+  String get deck_chat_tag_label => 'Chat';
+
+  @override
+  String get deck_video_chat_tag_label => 'Videogesprek';
+
+  @override
   String get deck_difficulty_not_specified => 'Niet gespecificeerd';
 
   @override
@@ -289,6 +295,12 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get tags_list_bdsm_tag => 'BDSM';
+
+  @override
+  String get tags_list_chat_tag => 'chat';
+
+  @override
+  String get tags_list_video_chat_tag => 'videogesprek';
 
   @override
   String get deck_info_deck_unplayable_error => 'Je kunt geen deck spelen zonder opdrachten! Voeg opdrachten toe of kies een ander deck om verder te gaan.';
@@ -492,6 +504,15 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deck_management_page_not_done_yet => 'Sorry, probeer hier te komen na de volgende update';
 
   @override
+  String get deck_management_page_warning_dialog_title => 'Opgelet';
+
+  @override
+  String get deck_management_page_warning_dialog_content => 'Aangepaste deckgegevens worden opgeslagen in de cache van je browser. We raden aan om je aangepaste decks altijd te downloaden om verlies te voorkomen.';
+
+  @override
+  String get deck_management_page_warning_dialog_ok_button => 'Begrepen';
+
+  @override
   String get deck_summary_editor_title => 'Deckoverzicht informatie';
 
   @override
@@ -571,6 +592,12 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get settings_main_page_language_button_label => 'Kies taal';
+
+  @override
+  String get settings_main_page_webapp_section_label => 'Webapp';
+
+  @override
+  String get settings_main_page_webapp_button_label => 'Open de webapp-site';
 
   @override
   String get settings_main_page_support_section_label => 'Ondersteuning';

@@ -8,7 +8,7 @@
   "donation_reminder_dialog_donate_button_label": "Donar",
 
   "review_reminder_dialog_title": "¡Ayúdanos!",
-  "review_reminder_dialog_content": "Si disfrutaste de Loverquest y quieres apoyarlo, considera dejar una reseña en Google Play.",
+  "review_reminder_dialog_content": "Si te ha gustado Loverquest y quieres apoyarlo, considera dejar una reseña.",
   "review_reminder_dialog_review_button_label": "Apóyanos",
 
   "online_play_disclaimer_dialog_title": "¡Advertencia!",
@@ -72,6 +72,8 @@
   "deck_anal_sex_tag_label": "Sexo anal",
   "deck_bondage_tag_label": "Bondage",
   "deck_bdsm_tag_label": "BDSM",
+  "deck_chat_tag_label": "Chat",
+  "deck_video_chat_tag_label": "Videollamada",
 
   "deck_difficulty_not_specified": "No especificado",
   "no_tools_label": "Sin herramientas",
@@ -110,6 +112,8 @@
   "tags_list_vaginal_sex_tag": "sexo vaginal",
   "tags_list_bondage_tag": "bondage",
   "tags_list_bdsm_tag": "BDSM",
+  "tags_list_chat_tag": "chat",
+  "tags_list_video_chat_tag": "videollamada",
 
   "deck_info_deck_unplayable_error": "¡No puedes jugar con un mazo sin misiones! Añade algunas misiones a este mazo o selecciona otro para continuar.",
 
@@ -184,6 +188,9 @@
   "deck_management_delete_dialog_no_button_label": "No",
   "deck_management_page_no_decks_text": "Lo siento, aquí no hay nada",
   "deck_management_page_not_done_yet": "Lo siento, vuelve después de la próxima actualización",
+  "deck_management_page_warning_dialog_title": "¡Atención!",
+  "deck_management_page_warning_dialog_content": "Los datos de los mazos personalizados se guardarán en la caché del navegador. Te recomendamos descargar siempre tus mazos personalizados para no correr el riesgo de perderlos accidentalmente.",
+  "deck_management_page_warning_dialog_ok_button": "Entendido",
 
   "deck_summary_editor_title": "Resumen del mazo",
   "deck_summary_editor_insert_text_hint": "Inserta el texto aquí...",
@@ -215,6 +222,8 @@
   "settings_main_page_title": "Configuración",
   "settings_main_page_language_section_label": "Idioma",
   "settings_main_page_language_button_label": "Elegir idioma",
+  "settings_main_page_webapp_section_label": "Aplicación web",
+  "settings_main_page_webapp_button_label": "Abrir el sitio de la aplicación web",
   "settings_main_page_support_section_label": "Soporte",
   "settings_main_page_feedback_section_label": "Comentarios",
   "settings_main_page_donate_on_paypal_label": "Apóyanos en Paypal",

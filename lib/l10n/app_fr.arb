@@ -8,7 +8,7 @@
   "donation_reminder_dialog_donate_button_label": "Faire un don",
 
   "review_reminder_dialog_title": "Aidez-nous !",
-  "review_reminder_dialog_content": "Si vous avez aimé Loverquest et souhaitez nous soutenir, pensez à laisser un avis sur Google Play.",
+  "review_reminder_dialog_content": "Si tu as aimé Loverquest et souhaites le soutenir, pense à laisser un avis.",
   "review_reminder_dialog_review_button_label": "Nous soutenir",
 
   "online_play_disclaimer_dialog_title": "Attention !",
@@ -72,6 +72,8 @@
   "deck_anal_sex_tag_label": "Sexe anal",
   "deck_bondage_tag_label": "Bondage",
   "deck_bdsm_tag_label": "BDSM",
+  "deck_chat_tag_label": "Chat",
+  "deck_video_chat_tag_label": "Appel vidéo",
 
   "deck_difficulty_not_specified": "Non spécifié",
   "no_tools_label": "Pas d'outils",
@@ -110,6 +112,8 @@
   "tags_list_vaginal_sex_tag": "sexe vaginal",
   "tags_list_bondage_tag": "bondage",
   "tags_list_bdsm_tag": "BDSM",
+  "tags_list_chat_tag": "chat",
+  "tags_list_video_chat_tag": "appel vidéo",
 
   "deck_info_deck_unplayable_error": "Vous ne pouvez pas jouer un paquet sans quêtes ! Veuillez ajouter des quêtes à ce paquet ou en choisir un autre pour continuer.",
 
@@ -184,6 +188,9 @@
   "deck_management_delete_dialog_no_button_label": "Non",
   "deck_management_page_no_decks_text": "Désolé, il n'y a rien ici",
   "deck_management_page_not_done_yet": "Désolé, revenez après la prochaine mise à jour",
+  "deck_management_page_warning_dialog_title": "Attention!",
+  "deck_management_page_warning_dialog_content": "Les données des decks personnalisés seront enregistrées dans le cache du navigateur. Nous te conseillons de toujours télécharger tes decks personnalisés afin d’éviter toute perte accidentelle.",
+  "deck_management_page_warning_dialog_ok_button": "Compris",
 
   "deck_summary_editor_title": "Résumé du paquet",
   "deck_summary_editor_insert_text_hint": "Entrez du texte ici...",
@@ -215,6 +222,8 @@
   "settings_main_page_title": "Paramètres",
   "settings_main_page_language_section_label": "Langue",
   "settings_main_page_language_button_label": "Choisir la langue",
+  "settings_main_page_webapp_section_label": "Application web",
+  "settings_main_page_webapp_button_label": "Ouvrir le site de l'application web",
   "settings_main_page_support_section_label": "Support",
   "settings_main_page_feedback_section_label": "Commentaires",
   "settings_main_page_donate_on_paypal_label": "Nous soutenir sur Paypal",

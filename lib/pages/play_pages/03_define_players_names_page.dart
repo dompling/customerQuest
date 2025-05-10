@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+import 'package:loverquest/logics/play_logics/02_players_class.dart';
+
 import 'package:loverquest/pages/play_pages/04_select_start_player_page.dart';
-import 'package:loverquest/logics/play_logics/player_class.dart';
+
 
 //------------------------------------------------------------------------------
 
@@ -15,12 +18,11 @@ import 'package:loverquest/logics/play_logics/player_class.dart';
 // PLAY PAGE DEFINITION
 class DefinePlayersNamesPage extends StatefulWidget {
 
-  // DEFINING PREVIOUS PAGE INFO
-  final String couple_type;
-  final bool game_type;
+  // DEFINING PREVIOUS PAGE IMPORTED INFO
+  final MatchData match_data;
 
   // CLASS CONSTRUCTOR
-  const DefinePlayersNamesPage({required this.couple_type, required this.game_type, super.key});
+  const DefinePlayersNamesPage({required this.match_data, super.key});
 
   @override
   State<DefinePlayersNamesPage> createState() => _DefinePlayersNamesPageState();
@@ -121,15 +123,19 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
     } else {
 
       // CREATING PLAYER 1 OBJECT
-      Players player_1 = Players(player_icon_path: player_1_image_path, player_alias: player_1_alias, player_sex: player_1_sex, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
+      Players player_1 = Players(player_icon_path: player_1_image_path, player_alias: player_1_alias, player_sex: player_1_sex);
 
       // CREATING PLAYER 2 OBJECT
-      Players player_2 = Players(player_icon_path: player_2_image_path, player_alias: player_2_alias, player_sex: player_2_sex, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
+      Players player_2 = Players(player_icon_path: player_2_image_path, player_alias: player_2_alias, player_sex: player_2_sex);
+
+      // SETTING THE PLAYERS IN THE MATCH DATA
+      widget.match_data.player_one = player_1;
+      widget.match_data.player_two = player_2;
 
       // GOING TO NEXT PAGE
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SelectStartPlayerPage(couple_type: couple_type, game_type: game_type, player_1_object: player_1, player_2_object: player_2,)),
+        MaterialPageRoute(builder: (context) => SelectStartPlayerPage(match_data: widget.match_data)),
       );
 
     }
@@ -150,7 +156,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
     bool player_1_sex;
     bool player_2_sex;
 
-    if (widget.couple_type == "hetero") {
+    if (widget.match_data.couple_type == "hetero") {
 
       // CHANGING IMAGE PATH
       player_1_image_path = "assets/images/female_player_icon.png";
@@ -160,7 +166,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
       player_1_sex = true;
       player_2_sex = false;
 
-    } else if (widget.couple_type == "lesbian") {
+    } else if (widget.match_data.couple_type == "lesbian") {
 
       // CHANGING IMAGE PATH
       player_1_image_path = "assets/images/female_player_icon.png";
@@ -578,7 +584,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                       onPressed: () {
 
                         // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
-                        alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, widget.couple_type, widget.game_type);
+                        alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, widget.match_data.couple_type, widget.match_data.play_local);
 
                       },
 

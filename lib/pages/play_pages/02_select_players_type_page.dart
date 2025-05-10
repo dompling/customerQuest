@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
+import 'package:loverquest/logics/play_logics/02_players_class.dart';
+
 import 'package:loverquest/pages/play_pages/03_define_players_names_page.dart';
-import 'package:loverquest/logics/play_logics/player_class.dart';
 import 'package:loverquest/pages/play_pages/05_select_deck_to_play_page.dart';
 
 //------------------------------------------------------------------------------
@@ -16,11 +18,11 @@ import 'package:loverquest/pages/play_pages/05_select_deck_to_play_page.dart';
 // SELECT PLAYER PAGE DEFINITION
 class SelectPlayersTypePage extends StatefulWidget {
 
-  // DEFINING THE PREVIOUS PAGE INFO
-  final bool game_type;
+  // DEFINING THE PREVIOUS PAGE IMPORTED INFO
+  final MatchData match_data;
 
   // CLASS CONSTRUCTOR
-  const SelectPlayersTypePage ({required this.game_type, super.key});
+  const SelectPlayersTypePage ({required this.match_data, super.key});
 
   @override
   State<SelectPlayersTypePage> createState() => _SelectPlayersTypePageState();
@@ -152,7 +154,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
     super.initState();
 
     // IF THE GAME TYPE IS ONLINE, SHOW AN INFORMATIVE DIALOG
-    if (!widget.game_type) {
+    if (!widget.match_data.play_local) {
 
       // CHECKING IF IS NECESSARY TO SHOW THE WARNING
       WidgetsBinding.instance.addPostFrameCallback((_){show_disclaimer_dialog(context);});
@@ -293,7 +295,10 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.game_type == true) {
+                          if (widget.match_data.play_local == true) {
+
+                            // SETTING THE MATCH DATA COUPLE TYPE
+                            widget.match_data.couple_type = "hetero";
 
                             // PAGE LINKER
                             Navigator.push(
@@ -301,7 +306,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DefinePlayersNamesPage(couple_type: "hetero", game_type: widget.game_type,),
+                                builder: (context) => DefinePlayersNamesPage(match_data: widget.match_data),
 
                               ),
 
@@ -310,8 +315,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
 
-                            // CREATING TMP DATA
-                            Players player_tmp_object = Players(player_icon_path: "assets/images/coin_flip_icon.png", player_alias: "player_alias:_1", player_sex: true, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
+                            // SETTING THE MATCH DATA COUPLE TYPE
+                            widget.match_data.couple_type = "hetero";
+                            widget.match_data.player_one = Players.empty();
+                            widget.match_data.player_two = Players.empty();
+                            widget.match_data.current_player_alias = "";
 
                             // PAGE LINKER
                             Navigator.push(
@@ -319,7 +327,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(couple_type: "hetero", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object),
+                                builder: (context) => DeckSelectionPage(match_data: widget.match_data),
 
                               ),
 
@@ -484,7 +492,10 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.game_type == true) {
+                          if (widget.match_data.play_local == true) {
+
+                            // SETTING THE MATCH DATA COUPLE TYPE
+                            widget.match_data.couple_type = "lesbian";
 
                             // PAGE LINKER
                             Navigator.push(
@@ -492,7 +503,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DefinePlayersNamesPage(couple_type: "lesbian", game_type: widget.game_type,),
+                                builder: (context) => DefinePlayersNamesPage(match_data: widget.match_data),
 
                               ),
 
@@ -501,9 +512,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
 
-                            // CREATING TMP DATA
-                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
-
+                            // SETTING THE MATCH DATA COUPLE TYPE
+                            widget.match_data.couple_type = "lesbian";
+                            widget.match_data.player_one = Players.empty();
+                            widget.match_data.player_two = Players.empty();
+                            widget.match_data.current_player_alias = "user";
 
                             // PAGE LINKER
                             Navigator.push(
@@ -511,7 +524,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(couple_type: "lesbian", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object,),
+                                builder: (context) => DeckSelectionPage(match_data: widget.match_data),
 
                               ),
 
@@ -668,7 +681,10 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.game_type == true) {
+                          if (widget.match_data.play_local == true) {
+
+                            // SETTING THE MATCH DATA COUPLE TYPE
+                            widget.match_data.couple_type = "gay";
 
                             // PAGE LINKER
                             Navigator.push(
@@ -676,7 +692,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DefinePlayersNamesPage(couple_type: "gay", game_type: widget.game_type,),
+                                builder: (context) => DefinePlayersNamesPage(match_data: widget.match_data),
 
                               ),
 
@@ -685,9 +701,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
 
-                            // CREATING TMP DATA
-                            Players player_tmp_object = Players(player_icon_path: "player_icon_path", player_alias: "player_alias", player_sex: true, player_early_quest_list: [], player_mid_quest_list: [], player_late_quest_list: [], player_end_quest_list: []);
-
+                            // SETTING THE MATCH DATA COUPLE TYPE
+                            widget.match_data.couple_type = "gay";
+                            widget.match_data.player_one = Players.empty();
+                            widget.match_data.player_two = Players.empty();
+                            widget.match_data.current_player_alias = "";
 
                             // PAGE LINKER
                             Navigator.push(
@@ -695,7 +713,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                               MaterialPageRoute(
 
                                 // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(couple_type: "gay", game_type: widget.game_type, player_1_object: player_tmp_object, player_2_object: player_tmp_object, first_player: player_tmp_object),
+                                builder: (context) => DeckSelectionPage(match_data: widget.match_data),
 
                               ),
 
