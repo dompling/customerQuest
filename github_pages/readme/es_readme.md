@@ -63,6 +63,7 @@ Si usas un iPhone, un iPad o una computadora, puedes jugar directamente desde la
 
 ## ¿Cómo puedo apoyar el proyecto?
 El apoyo de la comunidad es crucial para nosotros, y las mejores formas de contribuir son [ayudándonos con las traducciones](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/es_how_translate_app.md), desarrollando nuevas funciones o haciendo una donación para permitirnos continuar desarrollando y manteniendo la aplicación.
+- [Donar en GitHub](https://github.com/sponsors/H3rz3n)
 - [Donar en PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
 - [Donar en BuyMeACoffee](https://buymeacoffee.com/herzen)
 También puedes apoyar el proyecto dejando una estrella en GitHub y compartiéndolo con tus amigos.
