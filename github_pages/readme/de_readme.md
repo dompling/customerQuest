@@ -63,6 +63,7 @@ Wenn du ein iPhone, iPad oder einen Computer benutzt, kannst du direkt über die
 
 ## Wie kann ich das Projekt unterstützen?
 Die Unterstützung der Community ist für uns entscheidend, und die besten Möglichkeiten, zu helfen, sind [uns bei Übersetzungen zu unterstützen](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/de_how_translate_app.md), neue Funktionen zu entwickeln oder eine Spende zu machen, damit wir die App weiterentwickeln und pflegen können.
+- [Spenden über GitHub](https://github.com/sponsors/H3rz3n)
 - [Spenden über PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
 - [Spenden über BuyMeACoffee](https://buymeacoffee.com/herzen)
 Du kannst das Projekt außerdem unterstützen, indem du auf GitHub einen Stern hinterlässt und es mit deinen Freunden teilst.

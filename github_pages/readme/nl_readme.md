@@ -63,6 +63,7 @@ Als je een iPhone, iPad of computer gebruikt, kun je rechtstreeks spelen via de 
 
 ## Hoe kan ik het project steunen?
 De steun van de community is essentieel voor ons, en de beste manieren om bij te dragen zijn [door te helpen met vertalingen](https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/nl_how_translate_app.md), het ontwikkelen van nieuwe functies of een donatie te doen zodat we de app kunnen blijven ontwikkelen en onderhouden.
+- [Doneer via PayPal](https://github.com/sponsors/H3rz3n)
 - [Doneer via PayPal](https://www.paypal.com/donate/?hosted_button_id=2BL8CVV4HTK3C)
 - [Doneer via BuyMeACoffee](https://buymeacoffee.com/herzen)
 Je kunt het project ook steunen door een ster achter te laten op GitHub en het met je vrienden te delen.
