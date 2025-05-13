@@ -1285,6 +1285,12 @@ abstract class AppLocalizations {
   /// **'Feedback'**
   String get settings_main_page_feedback_section_label;
 
+  /// No description provided for @settings_main_page_donate_on_github_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Support us on GitHub Sponsor'**
+  String get settings_main_page_donate_on_github_label;
+
   /// No description provided for @settings_main_page_donate_on_paypal_label.
   ///
   /// In en, this message translates to:
