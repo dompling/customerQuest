@@ -606,6 +606,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings_main_page_feedback_section_label => 'Feedback';
 
   @override
+  String get settings_main_page_donate_on_github_label => 'Support us on GitHub Sponsor';
+
+  @override
   String get settings_main_page_donate_on_paypal_label => 'Support us on Paypal';
 
   @override

@@ -606,10 +606,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settings_main_page_feedback_section_label => 'Commentaires';
 
   @override
-  String get settings_main_page_donate_on_paypal_label => 'Nous soutenir sur Paypal';
+  String get settings_main_page_donate_on_github_label => 'Soutenez-nous sur GitHub Sponsor';
 
   @override
-  String get settings_main_page_donate_on_buy_me_coffee_label => 'Nous soutenir sur BuyMeACoffee';
+  String get settings_main_page_donate_on_paypal_label => 'Soutenez-nous sur Paypal';
+
+  @override
+  String get settings_main_page_donate_on_buy_me_coffee_label => 'Soutenez-nous sur BuyMeACoffee';
 
   @override
   String get settings_main_page_bug_report_label => 'Signaler un bug';

@@ -450,6 +450,20 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
                     ),
 
+                    // DONATE ON GITHUB BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_donate_on_github_label),
+
+                      // BUTTON ICON
+                      leading: const Icon(Icons.code),
+
+                      // ON TAP FUNCTION CALL
+                      onTap: () => open_link("https://github.com/sponsors/H3rz3n"),
+
+                    ),
+
                     // DONATE ON PAYPAL BUTTON
                     ListTile(
 

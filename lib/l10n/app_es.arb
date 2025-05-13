@@ -226,6 +226,7 @@
   "settings_main_page_webapp_button_label": "Abrir el sitio de la aplicación web",
   "settings_main_page_support_section_label": "Soporte",
   "settings_main_page_feedback_section_label": "Comentarios",
+  "settings_main_page_donate_on_github_label": "Apóyanos en GitHub Sponsor",
   "settings_main_page_donate_on_paypal_label": "Apóyanos en Paypal",
   "settings_main_page_donate_on_buy_me_coffee_label": "Apóyanos en BuyMeACoffee",
   "settings_main_page_bug_report_label": "Reportar un error",
