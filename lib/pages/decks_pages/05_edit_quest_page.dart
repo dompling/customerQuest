@@ -4,14 +4,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
+
 import 'package:loverquest/logics/ui_logics/03_translate_tools_labels.dart';
 
 import 'package:loverquest/logics/settings_logics/02_utility.dart';
+
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 //------------------------------------------------------------------------------
 
@@ -20,19 +24,8 @@ import 'package:loverquest/logics/settings_logics/02_utility.dart';
 // DECK SELECTION PAGE DEFINITION
 class QuestEditPage extends StatefulWidget {
 
-  // CLASS ATTRIBUTES
-  final DeckReader selected_deck;
-  final Quest? selected_quest;
-  final bool show_delete_button;
-
-
   // CLASS CONSTRUCTOR
-  const QuestEditPage({
-    required this.selected_deck,
-    this.selected_quest,
-    this.show_delete_button = true,
-    super.key,
-  });
+  const QuestEditPage({super.key});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -42,23 +35,18 @@ class QuestEditPage extends StatefulWidget {
 
 }
 
-
-
-//------------------------------------------------------------------------------
-
-
-
 // CLASS STATE / WIDGET CONTENT
 class _QuestEditPageState extends State<QuestEditPage> {
 
   //------------------------------------------------------------------------------
 
+  // INITIALIZING THE DECK WRAPPER OBJECT VAR
+  DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper();
+
   // DEFINING PLAYERS NAMES TEXT FIELD TEXT CONTROLLER
   TextEditingController _quest_tool_controller = TextEditingController();
   TextEditingController _quest_timer_controller = TextEditingController();
   TextEditingController _quest_content_controller = TextEditingController();
-
-  //------------------------------------------------------------------------------
 
   // DEFINING THE TOOL LIST VAR
   List<String> tools_list = [];
@@ -66,22 +54,14 @@ class _QuestEditPageState extends State<QuestEditPage> {
   // DEFINING THE TRANSLATED TOOL LIST VAR
   List<String> translated_tools_list = [];
 
-  //------------------------------------------------------------------------------
-
   // DEFINING THE QUEST TIMER VAR
   int quest_timer = 0;
-
-  //------------------------------------------------------------------------------
 
   // SETTING THE COUPLE TYPE AND GAME TYPE INITIAL VALUE
   String selected_option_quest_moment = 'early';
 
-  //------------------------------------------------------------------------------
-
   // SETTING THE PLAYER TYPE INITIAL VALUE
   String selected_option_player_type = 'both';
-
-  //------------------------------------------------------------------------------
 
   // INITIALIZING THE GLOBAL SWITCHES VARIABLES
   bool item_1 = false; bool item_2 = false; bool item_3 = false; bool item_4 = false;
@@ -148,17 +128,17 @@ class _QuestEditPageState extends State<QuestEditPage> {
                   onPressed: () async {
 
                     // REMOVING THE QUEST FROM THE LIST
-                    widget.selected_deck.quests.remove(widget.selected_quest);
+                    deck_wrapper_object.selected_deck!.quests.remove(deck_wrapper_object.selected_quest);
 
                     // SAVING THE MODIFIED DECK FILE
                     await DeckManagement.save_deck(
-                      deck_name: widget.selected_deck.summary.name,
-                      deck_description: widget.selected_deck.summary.description,
-                      deck_language: widget.selected_deck.summary.language,
-                      couple_type: widget.selected_deck.summary.couple_type,
-                      play_presence: widget.selected_deck.summary.play_presence,
-                      deck_tags: widget.selected_deck.summary.tags,
-                      selected_deck: widget.selected_deck,
+                      deck_name: deck_wrapper_object.selected_deck!.summary.name,
+                      deck_description: deck_wrapper_object.selected_deck!.summary.description,
+                      deck_language: deck_wrapper_object.selected_deck!.summary.language,
+                      couple_type: deck_wrapper_object.selected_deck!.summary.couple_type,
+                      play_presence: deck_wrapper_object.selected_deck!.summary.play_presence,
+                      deck_tags: deck_wrapper_object.selected_deck!.summary.tags,
+                      selected_deck: deck_wrapper_object.selected_deck,
                     );
 
                     // CHECKING IF THE INTERFACE IS STILL MOUNTED
@@ -233,9 +213,12 @@ class _QuestEditPageState extends State<QuestEditPage> {
   void initState() {
     super.initState();
 
+    // GETTING THE DATA FROM THE PROVIDER
+    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+
     // IMPORTING PREVIOUS DATA IF PRESENT
-    tools_list = widget.selected_quest?.required_tools ?? [];
-    selected_option_quest_moment = widget.selected_quest?.moment ?? 'early';
+    tools_list = deck_wrapper_object.selected_quest?.required_tools ?? [];
+    selected_option_quest_moment = deck_wrapper_object.selected_quest?.moment ?? 'early';
 
   }
 
@@ -251,8 +234,8 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
     // SET-UPPING THE TEXT FIELD CONTROLLERS
     _quest_tool_controller = TextEditingController(text: translated_tools_list.join(", "));
-    _quest_timer_controller = TextEditingController(text: widget.selected_quest?.timer.toString() ?? "0");
-    _quest_content_controller = TextEditingController(text: widget.selected_quest?.content ?? "");
+    _quest_timer_controller = TextEditingController(text: deck_wrapper_object.selected_quest?.timer.toString() ?? "0");
+    _quest_content_controller = TextEditingController(text: deck_wrapper_object.selected_quest?.content ?? "");
 
   }
 
@@ -344,10 +327,10 @@ class _QuestEditPageState extends State<QuestEditPage> {
       try {
         
         // CHECKING IF THE QUEST IS AN EDITED ONE
-        if (widget.selected_quest != null) {
+        if (deck_wrapper_object.selected_quest != null) {
           
           // DELETING THE QUEST FROM THE LIST
-          widget.selected_deck.quests.remove(widget.selected_quest);
+          deck_wrapper_object.selected_deck!.quests.remove(deck_wrapper_object.selected_quest);
           
         }
 
@@ -362,7 +345,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
         // SAVING THE QUEST AND THE DECK
         await DeckManagement.save_quest(
-          selected_deck: widget.selected_deck,
+          selected_deck: deck_wrapper_object.selected_deck!,
           new_quest: new_quest,
         );
 
@@ -1837,8 +1820,18 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
       // GOING BACK TO THE EDITOR MAIN PAGE
       if (success) {
-        // ignore: use_build_context_synchronously
-        Navigator.of(context).pop();
+
+        // EDITING THE WRAPPER WITH THE CORRECT VALUES
+        deck_wrapper_object.show_delete_button = null;
+        deck_wrapper_object.load_default_decks_flag = false;
+        deck_wrapper_object.selected_quest = null;
+
+        // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+        Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+        // PAGE LINKER
+        context.pushReplacement("/decks/editor_main");
+
       }
 
     },
@@ -1852,7 +1845,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
           actions: [
 
             // DELETE ICON BUTTON
-            widget.show_delete_button ? IconButton(
+            deck_wrapper_object.show_delete_button! ? IconButton(
               icon: Icon(Icons.delete),
               onPressed: () async {
 
@@ -1862,8 +1855,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
                 // CHECKING IF THE CONTEXT IS STILL VALID
                 if (!context.mounted) {return;}
 
-                // GOING BACK TO THE PREVIOUS PAGE
-                Navigator.of(context).pop();
+                // EDITING THE WRAPPER WITH THE CORRECT VALUES
+                deck_wrapper_object.show_delete_button = null;
+                deck_wrapper_object.selected_quest = null;
+
+                // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+                Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+                // PAGE LINKER
+                context.pushReplacement("/decks/editor_main");
 
               },
 
@@ -2443,9 +2443,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
                           if (success) {
 
-                            // GOING BACK TO THE MAIN EDIT PAGE
-                            // ignore: use_build_context_synchronously
-                            Navigator.pop(context);
+                            // EDITING THE WRAPPER WITH THE CORRECT VALUES
+                            deck_wrapper_object.show_delete_button = null;
+                            deck_wrapper_object.selected_quest = null;
+
+                            // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+                            // PAGE LINKER
+                            context.pushReplacement("/decks/editor_main");
 
                           }
 

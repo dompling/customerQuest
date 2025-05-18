@@ -3,13 +3,16 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
+
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/play_logics/02_players_class.dart';
 
-import 'package:loverquest/pages/play_pages/03_define_players_names_page.dart';
-import 'package:loverquest/pages/play_pages/05_select_deck_to_play_page.dart';
+
 
 //------------------------------------------------------------------------------
 
@@ -300,17 +303,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             // SETTING THE MATCH DATA COUPLE TYPE
                             widget.match_data.couple_type = "hetero";
 
+                            // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                             // PAGE LINKER
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-
-                                // OPEN NEW PAGE
-                                builder: (context) => DefinePlayersNamesPage(match_data: widget.match_data),
-
-                              ),
-
-                            );
+                            context.push('/play/players_alias', extra: widget.match_data);
 
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
@@ -321,17 +318,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             widget.match_data.player_two = Players.empty();
                             widget.match_data.current_player_alias = "";
 
+                            // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                             // PAGE LINKER
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-
-                                // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(match_data: widget.match_data),
-
-                              ),
-
-                            );
+                            context.push('/play/players_alias', extra: widget.match_data);
 
                           }
 
@@ -497,17 +488,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             // SETTING THE MATCH DATA COUPLE TYPE
                             widget.match_data.couple_type = "lesbian";
 
+                            // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                             // PAGE LINKER
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-
-                                // OPEN NEW PAGE
-                                builder: (context) => DefinePlayersNamesPage(match_data: widget.match_data),
-
-                              ),
-
-                            );
+                            context.push('/play/players_alias', extra: widget.match_data);
 
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
@@ -518,17 +503,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             widget.match_data.player_two = Players.empty();
                             widget.match_data.current_player_alias = "user";
 
+                            // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                             // PAGE LINKER
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-
-                                // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(match_data: widget.match_data),
-
-                              ),
-
-                            );
+                            context.push('/play/players_alias', extra: widget.match_data);
 
                           }
 
@@ -686,17 +665,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             // SETTING THE MATCH DATA COUPLE TYPE
                             widget.match_data.couple_type = "gay";
 
+                            // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                             // PAGE LINKER
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-
-                                // OPEN NEW PAGE
-                                builder: (context) => DefinePlayersNamesPage(match_data: widget.match_data),
-
-                              ),
-
-                            );
+                            context.push('/play/players_alias', extra: widget.match_data);
 
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
@@ -707,17 +680,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                             widget.match_data.player_two = Players.empty();
                             widget.match_data.current_player_alias = "";
 
+                            // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                             // PAGE LINKER
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-
-                                // OPEN NEW PAGE
-                                builder: (context) => DeckSelectionPage(match_data: widget.match_data),
-
-                              ),
-
-                            );
+                            context.push('/play/players_alias', extra: widget.match_data);
 
                           }
 

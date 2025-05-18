@@ -9,17 +9,20 @@ import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/play_logics/02_players_class.dart';
 import 'package:provider/provider.dart';
 import 'package:loverquest/l10n/app_localization.dart';
-import 'package:loverquest/logics/settings_logics/01_language_switch.dart';
+import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/pages/homepage_pages/01_play_main_page.dart';
-import 'package:loverquest/pages/homepage_pages/02_decks_main_page.dart';
-import 'package:loverquest/pages/homepage_pages/03_settings_main_page.dart';
+
+import 'package:loverquest/logics/settings_logics/01_language_switch.dart';
+import 'package:loverquest/logics/general/app_router.dart';
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 // HIVE
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:loverquest/logics/decks_logics/02_deck_summary_class.dart';
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
+
+
 
 //------------------------------------------------------------------------------
 
@@ -27,6 +30,9 @@ import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 
 // APP ENTRY POINT
 void main() async {
+
+  // SETTING GO ROUTER TO UPDATE THE URL EVERYTIME
+  GoRouter.optionURLReflectsImperativeAPIs = true;
 
   // FORCING STATUS BAR LIGHT THEME AND NAVBAR DARK THEME
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -52,8 +58,18 @@ void main() async {
 
   // APP START
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => localeProvider,
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LocaleProvider>(
+          create: (context) => localeProvider,
+        ),
+        ChangeNotifierProvider<MatchDataProvider>(
+          create: (context) => MatchDataProvider(),
+        ),
+        ChangeNotifierProvider<DeckWrapperProvider>(
+          create: (context) => DeckWrapperProvider(),
+        ),
+      ],
       child: MyApp(),
     ),
   );
@@ -190,7 +206,7 @@ class MyApp extends StatelessWidget {
     final localeProvider = Provider.of<LocaleProvider>(context);
 
     // APP MAIN SETTINGS
-    return MaterialApp(
+    return MaterialApp.router(
 
       // APP TITLE
       title: 'Loverquest',
@@ -272,8 +288,8 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
 
-      // DEFINING THE MAIN SCREEN
-      home: const MainScreen(),
+      // DEFINING THE ROUTER
+      routerConfig: app_router,
 
     );
 
@@ -288,49 +304,31 @@ class MyApp extends StatelessWidget {
 
 
 // MAIN SCREEN DEFINITION
-class MainScreen extends StatefulWidget {
+class AppSkeleton extends StatelessWidget {
+
+  // CLASS ATTRIBUTES
+  final Widget child;
 
   // CLASS CONSTRUCTOR
-  const MainScreen({super.key});
-
-  @override
-
-  // DEFINING PAGE LINKED STATE
-  State<MainScreen> createState() => _MainScreenState();
-
-}
-
-
-
-//------------------------------------------------------------------------------
-
-
-
-// MAIN SCREEN CONTENT - MAIN SCREEN STATE
-class _MainScreenState extends State<MainScreen> {
-
-  // DEFINING NAVBAR PAGES INDEX
-  int currentPageIndex = 0;
-
-  // LIST OF NAVBAR MAIN SCREEN PAGES
-  final List<Widget> _screens = [
-    const PlayMainPage(),
-    const DeckSelectionPage(),
-    const SettingsMainPage(),
-  ];
-
-  // INITIAL PAGE STATE
-  @override
-  void initState() {
-    super.initState();
-
-    // SETTING THE WEB TITLE
-    setWebTitle("none");
-
-  }
+  const AppSkeleton({required this.child, super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    // DEFINING NAVBAR PAGES INDEX (BASED ON CURRENT LOCATION)
+    final String location = GoRouterState.of(context).uri.toString();
+
+    int currentPageIndex = 0;
+    if (location.startsWith('/play')) {
+      currentPageIndex = 0;
+    } else if (location.startsWith('/decks')) {
+      currentPageIndex = 1;
+    } else if (location.startsWith('/settings')) {
+      currentPageIndex = 2;
+    }
+
+    // SHOW NAVBAR ONLY ON MAIN PAGES
+    final bool showNavbar = location == '/play' || location == '/decks' || location == '/settings';
 
     // SCAFFOLD ENTRY POINT
     return Scaffold(
@@ -338,13 +336,22 @@ class _MainScreenState extends State<MainScreen> {
       //------------------------------------------------------------------------------
 
       // DEFINING NAVBAR
-      bottomNavigationBar: NavigationBar(
+      bottomNavigationBar: showNavbar
+          ? NavigationBar(
 
         // NAVBAR PAGES SWITCH
         onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
+          switch (index) {
+            case 0:
+              context.go('/play');
+              break;
+            case 1:
+              context.go('/decks');
+              break;
+            case 2:
+              context.go('/settings');
+              break;
+          }
         },
 
         // DEFINING NAVBAR THEME
@@ -379,12 +386,13 @@ class _MainScreenState extends State<MainScreen> {
 
         ],
 
-      ),
+      )
+          : null,
 
       //------------------------------------------------------------------------------
 
       // DEFINING BODY CONTENT
-      body: SafeArea(child: _screens[currentPageIndex],),
+      body: SafeArea(child: child),
 
       //------------------------------------------------------------------------------
 
@@ -393,6 +401,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
 }
+
 
 
 

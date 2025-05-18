@@ -3,6 +3,8 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
@@ -10,9 +12,7 @@ import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/06_reed_deck_list_getter.dart';
 import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
-import 'package:loverquest/logics/decks_logics/deck_filters.dart';
-
-import 'package:loverquest/pages/play_pages/06_deck_info_page.dart';
+import 'package:loverquest/logics/decks_logics/07_deck_filters.dart';
 
 //------------------------------------------------------------------------------
 
@@ -328,17 +328,11 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                                 // SETTING THE SELECTED DECK IN THE MATCH DATA
                                 widget.match_data.selected_deck = filtered_deck_managers[index];
 
+                                // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                                Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                                 // PAGE LINKER
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-
-                                    // OPEN NEW PAGE
-                                    builder: (context) => DeckInfoPage(match_data: widget.match_data),
-
-                                  ),
-
-                                );
+                                context.push('/play/play_deck_info', extra: widget.match_data);
 
                               },
 

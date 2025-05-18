@@ -2,16 +2,18 @@
 
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
 import 'package:loverquest/logics/ui_logics/02_translate_tags_labels.dart';
-import 'package:loverquest/pages/decks_pages/03_deck_editor_main_page.dart';
 import 'package:loverquest/logics/settings_logics/02_utility.dart';
 
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 //------------------------------------------------------------------------------
 
@@ -20,14 +22,8 @@ import 'package:loverquest/logics/settings_logics/02_utility.dart';
 // DECK SELECTION PAGE DEFINITION
 class DeckSummaryEditPage extends StatefulWidget {
 
-  // CLASS ATTRIBUTES
-  final DeckReader? selected_deck;
-
   // CLASS CONSTRUCTOR
-  const DeckSummaryEditPage({
-    this.selected_deck,
-    super.key,
-  });
+  const DeckSummaryEditPage({super.key});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -48,13 +44,14 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
   //------------------------------------------------------------------------------
 
+  // INITIALIZING THE DECK WRAPPER OBJECT VAR
+  DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper();
+
   // INITIALIZING THE DECK KEY
   String saved_deck_key = "";
   
   // INITIALIZING THE ORIGINAL DECK KEY
   String original_deck_key = "";
-
-  //------------------------------------------------------------------------------
 
   // DEFINING PLAYERS NAMES TEXT FIELD TEXT CONTROLLER
   late TextEditingController _deck_name_controller;
@@ -62,26 +59,18 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   late TextEditingController _deck_description_controller;
   late TextEditingController _deck_tag_controller;
 
-  //------------------------------------------------------------------------------
-
   // DEFINING THE LANGUAGE LABEL VAR
   late LanguageInfo language_object = get_language_info(context, "en");
-
-  //------------------------------------------------------------------------------
 
   // SETTING THE COUPLE TYPE AND GAME TYPE INITIAL VALUE
   String selected_option_couple_type = 'hetero';
   bool selected_option_game_type = true;
-
-  //------------------------------------------------------------------------------
 
   // DEFINING THE TAGS LIST VAR
   List<String> tag_list = [];
 
   // DEFINING THE TRANSLATED TAGS LIST VAR
   List<String> translated_tags_list = [];
-  
-  //------------------------------------------------------------------------------
 
   // INITIALIZING THE GLOBAL SWITCHES VARIABLES
   bool item_1 = false; bool item_2 = false; bool item_3 = false; bool item_4 = false;
@@ -100,6 +89,9 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   void initState() {
     super.initState();
 
+    // GETTING THE DATA FROM THE PROVIDER
+    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+
     // SET-UPPING THE TEXT FIELD CONTROLLERS
     _deck_name_controller = TextEditingController();
     _deck_language_controller = TextEditingController();
@@ -107,8 +99,8 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
     _deck_tag_controller = TextEditingController();
     
     // SETTING THE ORIGINAL DECK KEY
-    if (widget.selected_deck != null) {
-      original_deck_key = widget.selected_deck!.summary.name;
+    if (deck_wrapper_object.selected_deck != null) {
+      original_deck_key = deck_wrapper_object.selected_deck!.summary.name;
     } else {
       original_deck_key = "";
     }
@@ -131,18 +123,18 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    if (widget.selected_deck != null) {
+    if ((deck_wrapper_object.selected_deck?.summary.name ?? "Unknown title") != "Unknown title") {
 
       // GETTING THE CORRECT LANGUAGE LABEL
-      language_object = get_language_info(context, widget.selected_deck?.summary.language ?? "");
+      language_object = get_language_info(context, deck_wrapper_object.selected_deck?.summary.language ?? "");
 
       // SET-UPPING THE TEXT FIELD CONTROLLERS
-      _deck_name_controller.text = widget.selected_deck?.summary.name ?? "";
+      _deck_name_controller.text = deck_wrapper_object.selected_deck?.summary.name ?? "";
       _deck_language_controller.text = language_object.label;
-      _deck_description_controller.text =  widget.selected_deck?.summary.description ?? "";
+      _deck_description_controller.text =  deck_wrapper_object.selected_deck?.summary.description ?? "";
 
       // GETTING THE TAGS INFO
-      tag_list = widget.selected_deck?.summary.tags ?? [];
+      tag_list = deck_wrapper_object.selected_deck?.summary.tags ?? [];
 
     }
 
@@ -244,12 +236,12 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
           couple_type: selected_option_couple_type,
           play_presence: selected_option_game_type,
           deck_tags: tag_list,
-          selected_deck: widget.selected_deck,
+          selected_deck: deck_wrapper_object.selected_deck,
           original_deck_key: original_deck_key,
         );
 
         // CHECKING IF THERE IS A PREVIOUS PASSED DECK
-        if (widget.selected_deck == null) {
+        if (deck_wrapper_object.selected_deck == null) {
 
           // LOADING THE NEW DECK INFO
           DeckReader new_deck = DeckReader(saved_deck_key);
@@ -258,11 +250,17 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
           // CHECKING IF THE INTERFACE IS STILL MOUNTED
           if (!mounted) return false;
 
-          // GOING TO THE MAIN EDIT PAGE WITH THE NEW DECK INFO
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => DeckEditMainPage(selected_deck: new_deck)),
-          );
+          // EDITING THE WRAPPER WITH THE CORRECT VALUES
+          deck_wrapper_object.load_default_decks_flag = false ;
+          deck_wrapper_object.selected_deck = new_deck;
+          deck_wrapper_object.show_delete_button = null;
+          deck_wrapper_object.selected_quest = null;
+
+          // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+          Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+          // PAGE LINKER
+          context.pushReplacement('/decks/editor_main');
 
           return false;
 
@@ -950,8 +948,18 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
         // GOING BACK TO THE EDITOR MAIN PAGE
         if (success) {
-          // ignore: use_build_context_synchronously
-          Navigator.of(context).pop(saved_deck_key);
+          
+          // EDITING THE WRAPPER WITH THE CORRECT VALUES
+          deck_wrapper_object.show_delete_button = null;
+          deck_wrapper_object.load_default_decks_flag = false;
+          deck_wrapper_object.selected_quest = null;
+
+          // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+          Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+          // PAGE LINKER
+          context.pushReplacement('/decks/editor_main');
+
         }
 
       },
@@ -1604,10 +1612,17 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
                           if (!mounted) return;
 
                           if (success) {
+                            
+                            // EDITING THE WRAPPER WITH THE CORRECT VALUES
+                            deck_wrapper_object.show_delete_button = null;
+                            deck_wrapper_object.load_default_decks_flag = false;
+                            deck_wrapper_object.selected_quest = null;
+
+                            // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+                            Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                             // PAGE LINKER
-                            // ignore: use_build_context_synchronously
-                            Navigator.pop(context, saved_deck_key);
+                            context.pushReplacement('/decks/editor_main');
 
                           }
 

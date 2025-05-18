@@ -3,13 +3,15 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/play_logics/02_players_class.dart';
 import 'package:loverquest/logics/play_logics/03_select_random_player.dart';
 
-import 'package:loverquest/pages/play_pages/05_select_deck_to_play_page.dart';
+
 
 //------------------------------------------------------------------------------
 
@@ -158,15 +160,11 @@ class SelectStartPlayerPage extends StatelessWidget {
                         // SETTING THE WHO IS THE FIRST PLAYER
                         match_data.current_player_alias = match_data.player_one.player_alias;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-
-                            // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(match_data: match_data)),
-
-                        );
+                        context.push('/play/play_deck_choice', extra: match_data);
 
                       },
 
@@ -315,15 +313,11 @@ class SelectStartPlayerPage extends StatelessWidget {
                         // SETTING THE WHO IS THE FIRST PLAYER
                         match_data.current_player_alias = match_data.player_two.player_alias;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-
-                            // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(match_data: match_data)),
-
-                        );
+                        context.push('/play/play_deck_choice', extra: match_data);
 
                       },
 
@@ -472,15 +466,11 @@ class SelectStartPlayerPage extends StatelessWidget {
                         Players first_player = select_random_player(match_data.player_one, match_data.player_two);
                         match_data.current_player_alias = first_player.player_alias;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-
-                            // OPEN NEW PAGE
-                              builder: (context) => DeckSelectionPage(match_data: match_data)),
-
-                        );
+                        context.push('/play/play_deck_choice', extra: match_data);
 
                       },
 

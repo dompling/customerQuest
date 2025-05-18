@@ -1,21 +1,19 @@
 //------------------------------------------------------------------------------
 
 // STANDARD LIBRARIES
-import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
-
-import 'package:loverquest/pages/play_pages/01_select_game_type_page.dart';
-import 'package:loverquest/pages/play_pages/08_play_page.dart';
 
 // HIVE
 import 'package:hive_flutter/hive_flutter.dart';
@@ -111,7 +109,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
         await check_review_reminder();
 
         // CONVERTING LEGACY DECKS ON ANDROID IF THEY EXISTS
-        if (Platform.isAndroid) {
+        if (!kIsWeb) {
 
           await DeckManagement.convert_legacy_custom_decks_to_hive();
 
@@ -789,17 +787,11 @@ class _PlayMainPageState extends State<PlayMainPage> {
                       // INCREASING THE PLAYED GAME COUNTER
                       increasing_played_game_counter();
 
+                      // RESETTING THE MATCH DATA INSIDE THE PROVIDER
+                      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(null);
+
                       // PAGE LINKER
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-
-                          // OPEN NEW PAGE
-                          builder: (context) => SelectGameTypePage(),
-
-                        ),
-
-                      );
+                      context.push('/play/game_type');
 
                     },
 
@@ -888,16 +880,11 @@ class _PlayMainPageState extends State<PlayMainPage> {
                       // LOADING FROM FILE FILE MATCH DATA
                       match_data = matchBox.get('match') ?? MatchData();
 
+                      // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                       // PAGE LINKER
-                      Navigator.pushAndRemoveUntil(
-                        // ignore: use_build_context_synchronously
-                        context,
-                        MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data, loaded_current_quest: match_data.current_quest)
-
-                        ),
-
-                            (Route<dynamic> route) => false,
-                      );
+                      context.go('/play/game', extra: match_data);
 
                     },
 

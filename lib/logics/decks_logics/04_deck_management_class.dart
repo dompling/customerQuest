@@ -343,7 +343,7 @@ class DeckManagement {
   }
 
   // METHOD TO DELETE A SELECTED LEGACY CUSTOM DECK FROM THE APP DOCUMENTS DIRECTORY
-  Future<void> delete_legacy_custom_deck_file(String file_path) async {
+  static Future<void> delete_legacy_custom_deck_file(String file_path) async {
 
     try {
 
@@ -380,10 +380,10 @@ class DeckManagement {
       await deck_object.load_legacy_deck();
 
       // SAVING THE DECK INSIDE THE HIVE DATABASE
-      save_deck(deck_name: deck_object.summary.name, deck_description: deck_object.summary.description, deck_language: deck_object.summary.language, couple_type: deck_object.summary.couple_type, play_presence: deck_object.summary.play_presence, deck_tags: deck_object.summary.tags, legacy_selected_deck: deck_object);
+      await save_deck(deck_name: deck_object.summary.name, deck_description: deck_object.summary.description, deck_language: deck_object.summary.language, couple_type: deck_object.summary.couple_type, play_presence: deck_object.summary.play_presence, deck_tags: deck_object.summary.tags, legacy_selected_deck: deck_object);
 
       // DELETING THE LEGACY DECK
-      delete_custom_deck(deck_object.deck_file_path);
+      await delete_legacy_custom_deck_file(deck_object.deck_file_path);
 
     }
 

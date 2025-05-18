@@ -3,13 +3,13 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/play_logics/02_players_class.dart';
-
-import 'package:loverquest/pages/play_pages/04_select_start_player_page.dart';
-
 
 //------------------------------------------------------------------------------
 
@@ -132,11 +132,11 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
       widget.match_data.player_one = player_1;
       widget.match_data.player_two = player_2;
 
-      // GOING TO NEXT PAGE
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SelectStartPlayerPage(match_data: widget.match_data)),
-      );
+      // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
+      // PAGE LINKER
+      context.push('/play/start_player', extra: widget.match_data);
 
     }
 

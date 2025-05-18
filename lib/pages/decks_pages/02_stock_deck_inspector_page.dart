@@ -1,56 +1,44 @@
 //------------------------------------------------------------------------------
 
 // STANDARD LIBRARIES
+
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
+import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
 
 import 'package:loverquest/logics/ui_logics/03_translate_tools_labels.dart';
 import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
-import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
 import 'package:loverquest/logics/ui_logics/02_translate_tags_labels.dart';
 
-import 'package:loverquest/pages/decks_pages/01_deck_list_page.dart';
-
-
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 //------------------------------------------------------------------------------
 
-
 // DECK SELECTION PAGE DEFINITION
-class DeckInfoPage extends StatefulWidget {
-
-  // CLASS ATTRIBUTES
-  final DeckReader selected_deck;
+class StockDeckInfoPage extends StatefulWidget {
 
   // CLASS CONSTRUCTOR
-  const DeckInfoPage({
-
-    required this.selected_deck,
-    super.key,
-
-
-  });
+  const StockDeckInfoPage({super.key});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
-  State<DeckInfoPage> createState() => _DeckInfoPageState();
+  State<StockDeckInfoPage> createState() => _StockDeckInfoPageState();
 
 }
 
-
-
-//------------------------------------------------------------------------------
-
-
-
 // CLASS STATE / WIDGET CONTENT
-class _DeckInfoPageState extends State<DeckInfoPage> {
+class _StockDeckInfoPageState extends State<StockDeckInfoPage> {
 
   //------------------------------------------------------------------------------
+
+  // INITIALIZING THE DECK WRAPPER OBJECT VAR
+  DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper();
 
   // INITIALIZING QUEST LISTS
   List<Quest> early_quests_list = [];
@@ -86,6 +74,9 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
   @override
   void initState() {
     super.initState();
+    
+    // GETTING THE DATA FROM THE PROVIDER
+    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
 
     // LAUNCH THE FUNCTION TO LOAD ALL DEFAULT DECKS
     load_all_quest();
@@ -98,7 +89,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     //------------------------------------------------------------------------------
 
     // ACQUIRING THE CORRECT QUESTS FOR EVERY LIST
-    for (Quest element in widget.selected_deck.quests) {
+    for (Quest element in deck_wrapper_object.selected_deck?.quests ?? []) {
 
       if (element.moment == "early") {
 
@@ -141,26 +132,26 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    
+
     // TRANSLATING THE SUMMARY TOOLS
-    deck_translated_tools = translate_tools(context, widget.selected_deck.summary.required_tools);
+    deck_translated_tools = translate_tools(context, deck_wrapper_object.selected_deck?.summary.required_tools ?? []);
 
     // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
     deck_translated_tools[0] = deck_translated_tools[0][0].toUpperCase() + deck_translated_tools[0].substring(1);
 
     // TRANSLATING THE SUMMARY TAGS
-    deck_translated_tags = translate_tags(context, widget.selected_deck.summary.tags);
+    deck_translated_tags = translate_tags(context, deck_wrapper_object.selected_deck?.summary.tags ?? []);
 
     // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
     deck_translated_tags[0] = deck_translated_tags[0][0].toUpperCase() + deck_translated_tags[0].substring(1);
 
     // GETTING THE CORRECT LABEL FOR THE COUPLE TYPE LABEL
-    if (widget.selected_deck.summary.couple_type == "hetero") {
+    if ((deck_wrapper_object.selected_deck?.summary.couple_type ?? "") == "hetero") {
 
     // SETTING THE COUPLE TYPE LABEL
     deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_hetero;
 
-    } else if (widget.selected_deck.summary.couple_type == "lesbian") {
+    } else if ((deck_wrapper_object.selected_deck?.summary.couple_type ?? "") == "lesbian") {
 
     // SETTING THE COUPLE TYPE LABEL
     deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_lesbian;
@@ -175,10 +166,10 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     setState(() {
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (widget.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
+      if (deck_wrapper_object.selected_deck?.summary.play_presence ?? true) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
 
       // GETTING THE LANGUAGE INFO
-      deck_language_label = get_language_info(context, widget.selected_deck.summary.language);
+      deck_language_label = get_language_info(context, deck_wrapper_object.selected_deck?.summary.language ?? "en");
 
     });
   }
@@ -224,7 +215,31 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
     //------------------------------------------------------------------------------
 
     // PAGE CONTENT
-    return Scaffold(
+    return PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) async {
+
+      // IF THE PAGE IS ALREADY CLOSE, DO NOTHING
+      if (didPop) return;
+
+      // CHECKING IF THE INTERFACE IS STILL MOUNTED
+      if (!mounted) return;
+
+      // EDITING THE WRAPPER WITH THE CORRECT VALUES
+      deck_wrapper_object.load_default_decks_flag = true;
+      deck_wrapper_object.show_delete_button = null;
+      deck_wrapper_object.selected_quest = null;
+      deck_wrapper_object.selected_deck = null;
+
+      // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+      Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+      // PAGE LINKER
+      context.go('/decks/list');
+
+    },
+
+      child: Scaffold(
 
       // APP BAR
       appBar: AppBar(
@@ -238,13 +253,13 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
             onPressed: () async {
 
               // EXPORTING THE DECK
-              await DeckManagement.export_json_file(widget.selected_deck.deck_file_path, widget.selected_deck.summary.name, isAsset: true);
+              await DeckManagement.export_json_file(deck_wrapper_object.selected_deck?.deck_file_path ?? "", deck_wrapper_object.selected_deck?.summary.name ?? "", isAsset: true);
 
             },
 
           ),
 
-          // EDIT DECK ICON BUTTON
+          // EDIT STOCK DECK ICON BUTTON
           IconButton(
             icon: Icon(Icons.edit),
             onPressed: () async {
@@ -252,13 +267,13 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
               // SAVING THE DECK
               String new_duplicated_deck_file_path = await DeckManagement.save_deck(
 
-                  deck_name: "${widget.selected_deck.summary.name}_2",
-                  deck_description: widget.selected_deck.summary.description,
-                  deck_language: widget.selected_deck.summary.language,
-                  couple_type: widget.selected_deck.summary.couple_type,
-                  play_presence: widget.selected_deck.summary.play_presence,
-                  deck_tags: widget.selected_deck.summary.tags,
-                  selected_deck: widget.selected_deck,
+                  deck_name: "${deck_wrapper_object.selected_deck?.summary.name ?? "error"}_2",
+                  deck_description: deck_wrapper_object.selected_deck?.summary.description ?? "error",
+                  deck_language: deck_wrapper_object.selected_deck?.summary.language ?? "en",
+                  couple_type: deck_wrapper_object.selected_deck?.summary.couple_type ?? "hetero",
+                  play_presence: deck_wrapper_object.selected_deck?.summary.play_presence ?? true,
+                  deck_tags: deck_wrapper_object.selected_deck?.summary.tags ?? [],
+                  selected_deck: deck_wrapper_object.selected_deck,
 
               );
 
@@ -271,14 +286,17 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
               // CHECKING IF THE INTERFACE IS STILL MOUNTED
               if (!mounted) return;
 
-              // GOING TO THE NEXT PAGE
-              Navigator.pushReplacement(
-                // ignore: use_build_context_synchronously
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DeckManagementPage(load_default_decks: false, deck_to_edit: new_duplicated_deck,),
-                ),
-              );
+              // EDITING THE WRAPPER WITH THE CORRECT VALUES
+              deck_wrapper_object.load_default_decks_flag = false ;
+              deck_wrapper_object.selected_deck = new_duplicated_deck;
+              deck_wrapper_object.show_delete_button = null;
+              deck_wrapper_object.selected_quest = null;
+
+              // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+              Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+              // PAGE LINKER
+              context.pushReplacement('/decks/editor_main');
 
             },
 
@@ -422,7 +440,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                                     TextSpan (
 
-                                      text : widget.selected_deck.summary.name,
+                                      text : deck_wrapper_object.selected_deck?.summary.name ?? "error",
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                     ),
@@ -544,7 +562,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                     TextSpan (
 
                                       // TEXT
-                                      text : '${widget.selected_deck.summary.total_quests}',
+                                      text : '${deck_wrapper_object.selected_deck?.summary.total_quests ?? "999999"}',
 
                                       // TEXT STYLE
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
@@ -636,7 +654,7 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
 
                                     TextSpan (
 
-                                      text : widget.selected_deck.summary.description,
+                                      text : deck_wrapper_object.selected_deck?.summary.description ?? "error",
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                     ),
@@ -1010,6 +1028,8 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
         ),
 
       ),
+
+    ),
 
     );
 

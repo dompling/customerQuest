@@ -95,6 +95,9 @@ dependencies:
   # NECESSARY FOR TIMER SOUND IN WEB APP
   audioplayers: any
 
+  # NECESSARY FOR CORRECT PAGE ROUTING
+  go_router: any
+
 
 dev_dependencies:
   flutter_test:

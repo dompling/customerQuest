@@ -10,6 +10,7 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:flutter_debouncer/flutter_debouncer.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
+import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
@@ -19,8 +20,6 @@ import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/play_logics/04_quest_management.dart';
 import 'package:loverquest/logics/play_logics/06_game_storage_class.dart';
 
-import 'package:loverquest/main.dart';
-
 //------------------------------------------------------------
 
 
@@ -29,12 +28,10 @@ class PlayPage extends StatefulWidget {
 
   // CLASS ATTRIBUTES
   final MatchData initial_match_data;
-  final Quest? loaded_current_quest;
 
   // CLASS CONSTRUCTOR
   const PlayPage({
     required this.initial_match_data,
-    this.loaded_current_quest,
     super.key,
   });
 
@@ -236,7 +233,7 @@ class _PlayPageState extends State<PlayPage> {
     //------------------------------------------------------------------------------
 
     // GETTING THE FIRST QUEST
-    if (widget.loaded_current_quest == null) {
+    if (widget.initial_match_data.current_quest.moment == "none") {
 
       // LOADING THE PLAYERS QUEST LISTS
       match_data = load_players_quest_lists(match_data);
@@ -258,7 +255,7 @@ class _PlayPageState extends State<PlayPage> {
       end_quest_type = getting_end_quest_type(match_data);
 
       // SETTING THE INITIAL QUEST
-      match_data.current_quest = widget.loaded_current_quest!;
+      match_data.current_quest = widget.initial_match_data.current_quest;
 
     }
 
@@ -796,11 +793,7 @@ class _PlayPageState extends State<PlayPage> {
                           onPressed: () {
 
                             // PAGE LINKER
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => const MainScreen()),
-                                  (Route<dynamic> route) => false,
-                            );
+                            context.go('/play');
 
                           },
 

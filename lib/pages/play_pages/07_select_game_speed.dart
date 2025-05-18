@@ -3,11 +3,11 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
-
-import 'package:loverquest/pages/play_pages/08_play_page.dart';
 
 //------------------------------------------------------------------------------
 
@@ -156,16 +156,11 @@ class SelectGameSpeed extends StatelessWidget {
                         // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
                         match_data.game_pace_multiplier = 1;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.pushAndRemoveUntil(
-                          // ignore: use_build_context_synchronously
-                          context,
-                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data)
-
-                          ),
-
-                              (Route<dynamic> route) => false,
-                        );
+                        context.go('/play/game', extra: match_data);
 
                       },
 
@@ -328,16 +323,11 @@ class SelectGameSpeed extends StatelessWidget {
                         // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
                         match_data.game_pace_multiplier = 2;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.pushAndRemoveUntil(
-                          // ignore: use_build_context_synchronously
-                          context,
-                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data,)
-
-                          ),
-
-                              (Route<dynamic> route) => false,
-                        );
+                        context.go('/play/game', extra: match_data);
 
                       },
 
@@ -501,16 +491,11 @@ class SelectGameSpeed extends StatelessWidget {
                         // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
                         match_data.game_pace_multiplier = 3;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.pushAndRemoveUntil(
-                          // ignore: use_build_context_synchronously
-                          context,
-                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data,)
-
-                          ),
-
-                              (Route<dynamic> route) => false,
-                        );
+                        context.go('/play/game', extra: match_data);
 
                       },
 
@@ -674,16 +659,11 @@ class SelectGameSpeed extends StatelessWidget {
                         // SETTING THE GAME PACE MULTIPLIER IN MATCH DATA
                         match_data.game_pace_multiplier = 4;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.pushAndRemoveUntil(
-                          // ignore: use_build_context_synchronously
-                          context,
-                          MaterialPageRoute(builder: (context) => PlayPage(initial_match_data: match_data,)
-
-                          ),
-
-                              (Route<dynamic> route) => false,
-                        );
+                        context.go('/play/game', extra: match_data);
 
                       },
 

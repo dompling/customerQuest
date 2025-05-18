@@ -3,6 +3,8 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
@@ -11,23 +13,21 @@ import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/ui_logics/03_translate_tools_labels.dart';
 import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
 
-import 'package:loverquest/pages/play_pages/07_select_game_speed.dart';
-
 //------------------------------------------------------------------------------
 
 
 // DECK SELECTION PAGE DEFINITION
-class DeckInfoPage extends StatefulWidget {
+class PlayDeckInfoPage extends StatefulWidget {
 
   // CLASS ATTRIBUTES
   final MatchData match_data;
 
   // CLASS CONSTRUCTOR
-  const DeckInfoPage({required this.match_data, super.key});
+  const PlayDeckInfoPage({required this.match_data, super.key});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
-  State<DeckInfoPage> createState() => _DeckInfoPageState();
+  State<PlayDeckInfoPage> createState() => _PlayDeckInfoPageState();
 
 }
 
@@ -38,7 +38,7 @@ class DeckInfoPage extends StatefulWidget {
 
 
 // CLASS STATE / WIDGET CONTENT
-class _DeckInfoPageState extends State<DeckInfoPage> {
+class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
 
   //------------------------------------------------------------------------------
 
@@ -675,15 +675,11 @@ class _DeckInfoPageState extends State<DeckInfoPage> {
                                     // CHECKING IF THE DECK IS PLAYABLE
                                     if(is_playable) {
 
+                                      // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                                      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+
                                       // PAGE LINKER
-                                      Navigator.push(
-                                        // ignore: use_build_context_synchronously
-                                        context,
-                                        MaterialPageRoute(builder: (context) => SelectGameSpeed(match_data: widget.match_data)
-
-                                        ),
-
-                                      );
+                                      context.push('/play/game_pace', extra: widget.match_data);
 
                                     }
 
