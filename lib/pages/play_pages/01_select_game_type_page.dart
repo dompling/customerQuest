@@ -20,7 +20,7 @@ class SelectGameTypePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // CREATION OF THE MATCH DATA OBJECT
+    // INITIALIZING THE MATCH DATA OBJECT
     MatchData match_data = MatchData();
 
     // PAGE CONTENT
@@ -318,7 +318,7 @@ class SelectGameTypePage extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.push('/play/players_type', extra: match_data);
+                        context.push('/play/players_type');
 
                       },
 

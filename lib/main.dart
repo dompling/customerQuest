@@ -14,13 +14,13 @@ import 'package:go_router/go_router.dart';
 // CUSTOM FILES
 
 import 'package:loverquest/logics/settings_logics/01_language_switch.dart';
+import 'package:loverquest/logics/decks_logics/02_deck_summary_class.dart';
+import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/general/app_router.dart';
 import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 // HIVE
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:loverquest/logics/decks_logics/02_deck_summary_class.dart';
-import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 
 
 
@@ -225,7 +225,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,                      // THEME TYPE
           primary: Colors.white10,                          // PRIMARY COLOR
           onPrimary: Colors.white,                          // ELEMENTS ON PRIMARY COLOR
-          secondary: Color.fromRGBO(106, 65, 117, 1.0),     // SECONDARY COLOR
+          secondary: Color(0xFF4A3760),                     // SECONDARY COLOR
           onSecondary: Colors.white,                        // ELEMENTS ON SECONDARY COLOR
           error: Colors.red,                                // ERRORS COLOR
           onError: Colors.white,                            // ELEMENTS ON ERRORS COLOR

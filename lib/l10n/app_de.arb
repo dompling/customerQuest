@@ -1,4 +1,13 @@
 {
+
+  "app_presentation_welcome_page_title": "Willkommen",
+  "app_presentation_welcome_page_section_1_title": "Erlebe eine großartige Reise",
+  "app_presentation_welcome_page_section_1_subtitle": "Macht euch bereit für unvergessliche Abenteuer mit eurem Partner.",
+  "app_presentation_welcome_page_section_2_title": "Für alle Paare geeignet",
+  "app_presentation_welcome_page_section_2_subtitle": "Ganz gleich, wie lange ihr schon zusammen seid – ihr könnt euch näherkommen und eure Intimität stärken.",
+  "app_presentation_welcome_page_section_3_title": "Einzigartig wie ihr",
+  "app_presentation_welcome_page_section_3_subtitle": "Unzählige Möglichkeiten, das Erlebnis ganz nach euren Wünschen zu gestalten.",
+
   "app_splash_screen_title": "Danke!",
   "app_splash_screen_content": "Danke, dass du _Loverquest_ heruntergeladen hast! Wir hoffen, dass dir unser Spiel gefällt.\n\nUnser Ziel ist es, dir ein unterhaltsames, diskretes, sicheres und interaktives Erlebnis zu bieten. Unsere App **erfasst keine persönlichen Daten, greift nicht auf das Internet zu und zeigt keine Werbung an**.\n\nWir glauben fest daran, dass Intimität respektiert werden muss. Deshalb setzen wir uns für **maximale Privatsphäre** ein. _Loverquest_ ist ein **Open-Source-Projekt**, sodass du jederzeit den Quellcode überprüfen und dich von der Transparenz und Integrität der App überzeugen kannst.\n\nWenn du mit einem Partner spielst, denke immer daran, **seine Grenzen zu respektieren und ihn niemals zu etwas zu zwingen, was er nicht möchte**.\n\nDie vom Spiel vorgeschlagenen Aktionen dienen ausschließlich dem Spaß und **fördern keinerlei Zwang oder sexuelle Gewalt**.\n\nWenn du oder dein Partner euch unwohl fühlt, könnt ihr **jede beliebige Aktion überspringen**.\n\nDieses Projekt wird auf freiwilliger Basis entwickelt und durch **Benutzerspenden** unterstützt. Wenn dir Loverquest gefällt und du es unterstützen möchtest, erwäge bitte eine Spende, um die Weiterentwicklung zu ermöglichen.\n\nDas _Loverquest_-Team wünscht dir viel Spaß!",
   "app_splash_screen_close_button_label": "Schließen",

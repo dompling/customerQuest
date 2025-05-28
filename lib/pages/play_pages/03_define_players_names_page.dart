@@ -18,29 +18,35 @@ import 'package:loverquest/logics/play_logics/02_players_class.dart';
 // PLAY PAGE DEFINITION
 class DefinePlayersNamesPage extends StatefulWidget {
 
-  // DEFINING PREVIOUS PAGE IMPORTED INFO
-  final MatchData match_data;
-
   // CLASS CONSTRUCTOR
-  const DefinePlayersNamesPage({required this.match_data, super.key});
+  const DefinePlayersNamesPage({super.key});
 
   @override
   State<DefinePlayersNamesPage> createState() => _DefinePlayersNamesPageState();
 }
 
-
-
-//------------------------------------------------------------------------------
-
-
-
 class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
 
   //------------------------------------------------------------------------------
 
+  // INITIALIZING THE MATCH DATA OBJECT VAR
+  MatchData match_data = MatchData();
+
   // DEFINING PLAYERS NAMES TEXT FIELD TEXT CONTROLLER
   final TextEditingController _player_1_controller = TextEditingController();
   final TextEditingController _player_2_controller = TextEditingController();
+
+  //------------------------------------------------------------------------------
+
+  // INITIAL PAGE STATE
+  @override
+  void initState()  {
+    super.initState();
+
+    // GETTING THE DATA FROM THE PROVIDER
+    match_data = Provider.of<MatchDataProvider>(context, listen: false).matchData!;
+
+  }
 
   //------------------------------------------------------------------------------
 
@@ -129,14 +135,14 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
       Players player_2 = Players(player_icon_path: player_2_image_path, player_alias: player_2_alias, player_sex: player_2_sex);
 
       // SETTING THE PLAYERS IN THE MATCH DATA
-      widget.match_data.player_one = player_1;
-      widget.match_data.player_two = player_2;
+      match_data.player_one = player_1;
+      match_data.player_two = player_2;
 
       // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
       // PAGE LINKER
-      context.push('/play/start_player', extra: widget.match_data);
+      context.push('/play/start_player');
 
     }
 
@@ -156,7 +162,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
     bool player_1_sex;
     bool player_2_sex;
 
-    if (widget.match_data.couple_type == "hetero") {
+    if (match_data.couple_type == "hetero") {
 
       // CHANGING IMAGE PATH
       player_1_image_path = "assets/images/female_player_icon.png";
@@ -166,7 +172,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
       player_1_sex = true;
       player_2_sex = false;
 
-    } else if (widget.match_data.couple_type == "lesbian") {
+    } else if (match_data.couple_type == "lesbian") {
 
       // CHANGING IMAGE PATH
       player_1_image_path = "assets/images/female_player_icon.png";
@@ -584,7 +590,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
                       onPressed: () {
 
                         // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
-                        alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, widget.match_data.couple_type, widget.match_data.play_local);
+                        alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, match_data.couple_type, match_data.play_local);
 
                       },
 

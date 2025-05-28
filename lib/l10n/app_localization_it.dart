@@ -9,6 +9,132 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get app_presentation_welcome_page_title => 'Welcome';
+
+  @override
+  String get app_presentation_welcome_page_section_1_title => 'Live an amazing journey';
+
+  @override
+  String get app_presentation_welcome_page_section_1_subtitle => 'Get ready for a series of unforgettable adventures with your partner.';
+
+  @override
+  String get app_presentation_welcome_page_section_2_title => 'Suitable for all couples';
+
+  @override
+  String get app_presentation_welcome_page_section_2_subtitle => 'No matter how long you’ve been together, you’ll have the chance to grow closer and enhance your intimacy.';
+
+  @override
+  String get app_presentation_welcome_page_section_3_title => 'A world of curated content';
+
+  @override
+  String get app_presentation_welcome_page_section_3_subtitle => 'Discover a wide selection of ready-to-use material for every need and preference';
+
+  @override
+  String get app_presentation_game_modes_page_title => 'Play your way';
+
+  @override
+  String get app_presentation_game_modes_page_section_1_title => 'Enjoy your time together';
+
+  @override
+  String get app_presentation_game_modes_page_section_1_subtitle => 'Whether you’re playing locally or online, you can always have fun with your partner.';
+
+  @override
+  String get app_presentation_game_modes_page_section_2_title => 'LGBTQ+ friendly';
+
+  @override
+  String get app_presentation_game_modes_page_section_2_subtitle => 'No matter who you are, our game is designed for everyone to enjoy.';
+
+  @override
+  String get app_presentation_game_modes_page_section_3_title => 'You decide';
+
+  @override
+  String get app_presentation_game_modes_page_section_3_subtitle => 'Set your own pace and skip any quest you like—comfort always comes first.';
+
+  @override
+  String get app_presentation_customization_page_title => 'Unique, just like you';
+
+  @override
+  String get app_presentation_customization_page_section_1_title => 'Create your own adventures';
+
+  @override
+  String get app_presentation_customization_page_section_1_subtitle => 'Surprise your partner with a personalized experience tailored to your unique tastes.';
+
+  @override
+  String get app_presentation_customization_page_section_2_title => 'Extensive toy support';
+
+  @override
+  String get app_presentation_customization_page_section_2_subtitle => 'Enjoy full support for a wide range of toys and practices.';
+
+  @override
+  String get app_presentation_customization_page_section_3_title => 'Easy-to-use editor';
+
+  @override
+  String get app_presentation_customization_page_section_3_subtitle => 'Designing your exclusive experience is easy and smooth with our intuitive editor.';
+
+  @override
+  String get app_presentation_privacy_page_title => 'Privacy comes first';
+
+  @override
+  String get app_presentation_privacy_page_section_1_title => 'No data tracking';
+
+  @override
+  String get app_presentation_privacy_page_section_1_subtitle => 'We never share or collect your personal data — not even with the developers.';
+
+  @override
+  String get app_presentation_privacy_page_section_2_title => 'No external access';
+
+  @override
+  String get app_presentation_privacy_page_section_2_subtitle => 'The app never connects to external sites, and it never will.';
+
+  @override
+  String get app_presentation_privacy_page_section_3_title => 'Open source and transparent';
+
+  @override
+  String get app_presentation_privacy_page_section_3_subtitle => 'All our source code is available on GitHub — transparency is our priority.';
+
+  @override
+  String get app_presentation_web_app_page_title => 'Discover the web app';
+
+  @override
+  String get app_presentation_web_app_page_section_1_title => 'Works on every device';
+
+  @override
+  String get app_presentation_web_app_page_section_1_subtitle => 'Access the web app version from iOS, Android, or Desktop.';
+
+  @override
+  String get app_presentation_web_app_page_section_2_title => 'Privacy even online';
+
+  @override
+  String get app_presentation_web_app_page_section_2_subtitle => 'The website never stores your personal information — all your data stays safely in your browser.';
+
+  @override
+  String get app_presentation_web_app_page_section_3_title => 'How to access';
+
+  @override
+  String get app_presentation_web_app_page_section_3_subtitle => 'Find the web app link and more info in the app settings.';
+
+  @override
+  String get app_presentation_donation_page_title => 'We need your help';
+
+  @override
+  String get app_presentation_donation_page_section_1_title => 'Free forever';
+
+  @override
+  String get app_presentation_donation_page_section_1_subtitle => 'Support us to keep the project free for everyone, forever.';
+
+  @override
+  String get app_presentation_donation_page_section_2_title => 'No ads, ever';
+
+  @override
+  String get app_presentation_donation_page_section_2_subtitle => 'You\'ll never see ads — with your help, we can keep it that way.';
+
+  @override
+  String get app_presentation_donation_page_section_3_title => 'Transparency and privacy';
+
+  @override
+  String get app_presentation_donation_page_section_3_subtitle => 'Support us if you value privacy and open-source software.';
+
+  @override
   String get app_splash_screen_title => 'Grazie !';
 
   @override

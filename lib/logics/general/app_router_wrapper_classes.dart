@@ -15,6 +15,7 @@ class DeckPagesWrapper {
 
   // CLASS ATTRIBUTES
   bool? load_default_decks_flag;
+  bool? new_deck_creation;
   DeckReader? selected_deck;
   Quest? selected_quest;
   bool? show_delete_button;
@@ -23,6 +24,7 @@ class DeckPagesWrapper {
   DeckPagesWrapper({
 
     this.load_default_decks_flag = false,
+    this.new_deck_creation = false,
     this.selected_deck,
     this.selected_quest,
     this.show_delete_button = false
@@ -34,10 +36,13 @@ class DeckPagesWrapper {
 // DECK WRAPPER DATA CLASS FOR PROVIDER SAVING
 class DeckWrapperProvider extends ChangeNotifier {
 
+  // CLASS ATTRIBUTES
   DeckPagesWrapper? _wrapperData;
 
+  // WRAPPER GETTER FUNCTION
   DeckPagesWrapper? get wrapperData => _wrapperData;
 
+  // FUNCTION TO UPDATE THE WRAPPER DATA
   void updateWrapperData(DeckPagesWrapper? newData) {
     _wrapperData = newData;
     notifyListeners();

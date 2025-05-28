@@ -1,4 +1,13 @@
 {
+
+  "app_presentation_welcome_page_title": "Bienvenue",
+  "app_presentation_welcome_page_section_1_title": "Vivez une aventure incroyable",
+  "app_presentation_welcome_page_section_1_subtitle": "Préparez-vous à vivre une série d’aventures inoubliables avec votre partenaire.",
+  "app_presentation_welcome_page_section_2_title": "Pour tous les couples",
+  "app_presentation_welcome_page_section_2_subtitle": "Peu importe depuis combien de temps vous êtes ensemble, vous aurez l’occasion de vous rapprocher et de renforcer votre complicité.",
+  "app_presentation_welcome_page_section_3_title": "Unique, comme vous",
+  "app_presentation_welcome_page_section_3_subtitle": "Des possibilités infinies pour personnaliser votre expérience, selon vos envies.",
+
   "app_splash_screen_title": "Merci !",
   "app_splash_screen_content": "Merci d’avoir téléchargé _Loverquest_ ! Nous espérons que vous apprécierez notre jeu.\n\nNotre objectif est de vous offrir une expérience ludique, discrète, sûre et interactive. Notre application **ne collecte aucune donnée personnelle, n'accède pas à Internet et n'affiche aucune publicité**.\n\nNous croyons fermement que l'intimité doit être respectée. C’est pourquoi nous nous engageons à garantir **une confidentialité maximale**. _Loverquest_ est un **projet open-source**, vous pouvez donc consulter à tout moment le code source pour vérifier la transparence et l’intégrité de l’application.\n\nLorsque vous jouez avec un partenaire, n'oubliez jamais de **respecter ses limites et de ne jamais le forcer à faire quoi que ce soit contre sa volonté**.\n\nLes actions proposées par le jeu sont conçues uniquement pour le plaisir et **n’encouragent aucune forme de contrainte ou de violence sexuelle**.\n\nSi vous ou votre partenaire ne vous sentez pas à l'aise, vous pouvez toujours **passer n'importe quelle action** qui ne vous plaît pas.\n\nCe projet est développé sur une base volontaire et est soutenu par **les dons des utilisateurs**. Si vous aimez Loverquest et souhaitez le soutenir, pensez à faire un don pour nous aider à le maintenir et à l’améliorer.\n\nToute l’équipe de _Loverquest_ vous souhaite beaucoup d’amusement !",
   "app_splash_screen_close_button_label": "Fermer",

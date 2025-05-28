@@ -8,10 +8,12 @@ import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/pages/decks_pages/dialogs/02_delete_deck_dialog.dart';
+import 'package:loverquest/pages/decks_pages/dialogs/03_delete_quest_dialog.dart';
 
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
+import 'package:loverquest/logics/decks_logics/08_quest_filters.dart';
 
 import 'package:loverquest/logics/ui_logics/03_translate_tools_labels.dart';
 import 'package:loverquest/logics/ui_logics/02_translate_tags_labels.dart';
@@ -40,22 +42,26 @@ class DeckEditMainPage extends StatefulWidget {
 class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
   //------------------------------------------------------------------------------
-
+  
   // INITIALIZING THE DECK WRAPPER OBJECT VAR
   DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper();
 
-  // INITIALIZING QUEST LISTS
-  List<Quest> early_quests_list = [];
-  List<Quest> mid_quests_list = [];
-  List<Quest> late_quests_list = [];
-  List<Quest> end_quests_list = [];
-  List<Quest> all_quests_list = [];
+  // DEFINING IS LOADING VARIABLE
+  bool is_loading = true;
 
-  // INITIALIZING QUEST SCORES
-  int early_quests_total_score = 0;
-  int mid_quests_total_score = 0;
-  int late_quests_total_score = 0;
-  int end_quests_total_score = 0;
+  // DEFINING THE DECK VAR
+  late DeckReader deck;
+
+  // DEFINING THE QUEST LIST VAR
+  late List<Quest> quest_list;
+
+  // DEFINING THE SELECTED QUEST VAR
+  late Quest selected_quest;
+  
+  // INITIALIZING THE QUEST FILTERS VARS
+  String? sorting_type;
+  String? tools_filter;
+  String? moment_filter;
 
   // INITIALIZING GAME TYPE TAG
   String deck_game_type = "";
@@ -74,34 +80,28 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
   // INITIALIZING COUPLE TYPE LABEL
   late String deck_couple_type_label;
-
-  // DEFINING IS LOADING VARIABLE
-  bool is_loading = true;
-
-  // DEFINING THE CURRENT DECK VAR
-  late DeckReader current_deck;
-
-  // DEFINING THE CURRENT QUEST VAR
-  late Quest current_quest;
-
+  
   //------------------------------------------------------------------------------
 
   // FUNCTION TO SHOW THE DELETE CONFIRMATION DIALOG
   void show_deck_delete_dialog() {
 
+    // SHOWING THE DIALOG
     showDialog(
+
       context: context,
-      builder: (context) => DeckDeleteDialog(
-        deck_file_path: current_deck.deck_file_path,
-        deck_name: current_deck.summary.name,
-      ),
-    ).then((result) {
+      builder: (context) => DeckDeleteDialog(deck_key: deck.deck_key, deck_name: deck.summary.name,),
+
+    ).then((result) async {
 
       // CHECKING IF THE WIDGET IS STILL MOUNTED
       if (!mounted) return;
 
+      // RELOADING PAGE DATA
+      await page_data_loading();
+
       // GOING TO THE PREVIOUS PAGE
-      Navigator.pop(context, true);
+      context.pop();
 
     });
 
@@ -110,242 +110,56 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
   //------------------------------------------------------------------------------
 
   // SHOWING THE CONFIRMATION OF QUEST DELETION
-  void show_confirmation_dialog(BuildContext context) {
+  void show_quest_delete_dialog(BuildContext context, Quest selected_quest) {
+
+    // SHOWING THE DIALOG
     showDialog(
+
       context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
+      builder: (context) => DeleteQuestDialog(deck: deck, selected_quest: selected_quest,),
 
-          // DIALOG TITLE
-          title: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_title, style: TextStyle(fontSize: 18.5,), textAlign: TextAlign.center,),
+    ).then((result) async {
 
-          // DIALOG CONTENT
-          content: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_subtitle, style: TextStyle(fontSize: 16,), textAlign: TextAlign.center,),
+      // CHECKING IF THE WIDGET IS STILL MOUNTED
+      if (!mounted) return;
 
-          // DIALOG BUTTONS
-          actions: [
+      // RELOADING PAGE DATA
+      await page_data_loading();
 
-            // BUTTONS ROW
-            Row(
-
-              // ALIGNMENT
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-              // ROW CONTENT
-              children: [
-
-                // YES BUTTON
-                TextButton(
-
-                  // BUTTON STYLE PARAMETERS
-                  style: ButtonStyle(
-
-                    // NORMAL TEXT COLOR
-                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                    // NORMAL BACKGROUND COLOR
-                    backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                    // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                    // BORDER RADIUS
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-
-                  ),
-
-                  // FUNCTION
-                  onPressed: () async {
-
-                    // REMOVING THE QUEST FROM THE LIST
-                    current_deck.quests.remove(current_quest);
-
-                    // SAVING THE MODIFIED DECK FILE
-                    String saved_deck_key = await DeckManagement.save_deck(
-                      deck_name: current_deck.summary.name,
-                      deck_description: current_deck.summary.description,
-                      deck_language: current_deck.summary.language,
-                      couple_type: current_deck.summary.couple_type,
-                      play_presence: current_deck.summary.play_presence,
-                      deck_tags: current_deck.summary.tags,
-                      selected_deck: current_deck,
-                    );
-
-                    // RELOADING THE PAGE AFTER THE EDITING
-                    await reload_after_editing(saved_deck_key);
-
-                    // CHECKING IF THE CONTEXT IS STILL VALID
-                    if (!context.mounted) {return;}
-
-                    // CLOSING THE DIALOG
-                    Navigator.of(context).pop();
-
-                  },
-
-                  // BUTTON TEXT
-                  child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_yes_button_label),
-
-                ),
-
-                // NO BUTTON
-                TextButton(
-
-                  // BUTTON STYLE PARAMETERS
-                  style: ButtonStyle(
-
-                    // NORMAL TEXT COLOR
-                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                    // NORMAL BACKGROUND COLOR
-                    backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                    // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                    // BORDER RADIUS
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-
-                  ),
-
-                  // FUNCTION
-                  onPressed: () {
-
-                    // CLOSING THE DIALOG
-                    Navigator.of(context).pop();
-
-                  },
-
-                  // BUTTON TEXT
-                  child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_no_button_label),
-
-                ),
-
-              ],
-
-            ),
-
-          ],
-
-        );
-
-      },
-
-    );
-
-  }
-
-  //------------------------------------------------------------------------------
-
-  // CLASS INITIAL STATE
-  @override
-  void initState() {
-    super.initState();
-
-    // GETTING THE DATA FROM THE PROVIDER
-    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
-
-    // GETTING THE CURRENT DECK
-    current_deck = deck_wrapper_object.selected_deck ?? DeckReader.empty();
-
-    // LAUNCH THE FUNCTION TO LOAD ALL DEFAULT DECKS
-    load_all_quest();
-
-  }
-
-  // INITIAL STATE FUNCTION TO LOAD ALL DEFAULTS DECKS
-  Future<void> load_all_quest() async {
-
-    //------------------------------------------------------------------------------
-
-    // INITIALIZING QUEST LISTS
-    early_quests_list = [];
-    mid_quests_list = [];
-    late_quests_list = [];
-    end_quests_list = [];
-    all_quests_list = [];
-
-    // ACQUIRING THE CORRECT QUESTS FOR EVERY LIST
-    for (Quest element in current_deck.quests) {
-
-      if (element.moment == "early") {
-
-        // ADDING THE ELEMENT TO THE LIST
-        early_quests_list.add(element);
-
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        early_quests_total_score = early_quests_total_score + 10;
-
-      } else if (element.moment == "mid") {
-
-        // ADDING THE ELEMENT TO THE LIST
-        mid_quests_list.add(element);
-
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        mid_quests_total_score = mid_quests_total_score + 10;
-
-      } else if (element.moment == "late") {
-
-        // ADDING THE ELEMENT TO THE LIST
-        late_quests_list.add(element);
-
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        late_quests_total_score = late_quests_total_score + 10;
-
-      } else {
-
-        // ADDING THE ELEMENT TO THE LIST
-        end_quests_list.add(element);
-
-        // ADDING THE ELEMENT SCORE TO THE CATEGORY TOTAL
-        end_quests_total_score = end_quests_total_score + 10;
-
-      }
-
-    }
-
-    // ADDING ALL THE LISTS INSIDE THE MAIN LIST
-    all_quests_list = early_quests_list + mid_quests_list + late_quests_list + end_quests_list;
-
-    // UPDATING THE WIDGET STATUS WITH THE LOADED DATA
-    setState(() {
-      is_loading = false;
     });
+
   }
 
   //------------------------------------------------------------------------------
 
-  // LOADING DECK DATA
-  Future<void> load_deck_data() async {
+  // LOADING DECK SUMMARY INFO
+  Future<void> deck_summary_info_loading() async {
 
     setState(() {
 
       // TRANSLATING THE SUMMARY TOOLS
-      deck_translated_tools = translate_tools(context, current_deck.summary.required_tools);
-
-      // TRANSLATING THE SUMMARY TAGS
-      deck_translated_tags = translate_tags(context, current_deck.summary.tags);
+      deck_translated_tools = translate_tools(context, deck.summary.required_tools);
 
       // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
       deck_translated_tools[0] = deck_translated_tools[0][0].toUpperCase() + deck_translated_tools[0].substring(1);
+      
+      //------------------------------------------------------------------------------
+
+      // TRANSLATING THE SUMMARY TAGS
+      deck_translated_tags = translate_tags(context, deck.summary.tags);
 
       // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
       deck_translated_tags[0] = deck_translated_tags[0][0].toUpperCase() + deck_translated_tags[0].substring(1);
+      
+      //------------------------------------------------------------------------------
 
       // GETTING THE CORRECT LABEL FOR THE COUPLE TYPE LABEL
-      if (current_deck.summary.couple_type == "hetero") {
+      if (deck.summary.couple_type == "hetero") {
 
         // SETTING THE COUPLE TYPE LABEL
         deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_hetero;
 
-      } else if (current_deck.summary.couple_type == "lesbian") {
+      } else if (deck.summary.couple_type == "lesbian") {
 
         // SETTING THE COUPLE TYPE LABEL
         deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_lesbian;
@@ -356,40 +170,48 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
         deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_gay;
 
       }
+      
+      //------------------------------------------------------------------------------
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (current_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
+      if (deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
 
+      //------------------------------------------------------------------------------
+      
       // GETTING THE LANGUAGE INFO
-      deck_language_label = get_language_info(context, current_deck.summary.language);
+      deck_language_label = get_language_info(context, deck.summary.language);
 
     });
 
   }
 
-  //------------------------------------------------------------------------------
+  // SETTING UP PAGE DATA
+  Future<void> page_data_loading() async {
 
-  // RELOAD PAGE AFTER EDITING
-  Future<void> reload_after_editing(String saved_deck_key) async {
-
-    // STARTING THE LOADING SCREEN
+    // SHOWING THE LOADER
     setState(() {
       is_loading = true;
     });
+    
+    //------------------------------------------------------------------------------
 
-    // INITIALIZING THE CURRENT DECK VAR
-    current_deck = DeckReader(saved_deck_key);
+    // GETTING THE DATA FROM THE PROVIDER
+    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
 
-    // LOADING THE CURRENT DECK OBJECT
-    await current_deck.load_deck();
+    // SETTING THE DECK TO SHOW
+    deck = deck_wrapper_object.selected_deck ?? DeckReader.empty();
+    
+    //------------------------------------------------------------------------------
 
-    // RELOADING THE DECK DATA
-    await load_deck_data();
+    // RELOADING THE DECK SUMMARY INFO
+    await deck_summary_info_loading();
 
-    // RELOADING THE DECK QUESTS
-    await load_all_quest();
+    // SETTING THE QUEST LIST
+    quest_list = await quest_filter_sorting(deck, sorting_type: sorting_type, moment_filter: moment_filter,tools_filter: tools_filter);
+    
+    //------------------------------------------------------------------------------
 
-    // RELOADING THE PAGE AND STOPPING THE LOADING SCREEN
+    // HIDING THE LOADER
     setState(() {
       is_loading = false;
     });
@@ -398,12 +220,24 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
   //------------------------------------------------------------------------------
 
+  // CLASS INITIAL STATE
+  @override
+  void initState() {
+    super.initState();
+
+    // SHOWING THE LOADER
+    setState(() {
+      is_loading = true;
+    });
+
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    // LOADING THE DECK DATA
-    load_deck_data();
+    // LOADING ALL THE PAGE DATA
+    page_data_loading();
 
   }
 
@@ -448,31 +282,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
     //------------------------------------------------------------------------------
 
     // PAGE CONTENT
-    return PopScope(
-        canPop: false,
-        onPopInvokedWithResult: (didPop, result) async {
-
-      // IF THE PAGE IS ALREADY CLOSE, DO NOTHING
-      if (didPop) return;
-
-      // CHECKING IF THE INTERFACE IS STILL MOUNTED
-      if (!mounted) return;
-
-      // EDITING THE WRAPPER WITH THE CORRECT VALUES
-      deck_wrapper_object.load_default_decks_flag = false;
-      deck_wrapper_object.show_delete_button = null;
-      deck_wrapper_object.selected_quest = null;
-      deck_wrapper_object.selected_deck = null;
-
-      // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-      Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
-
-      // PAGE LINKER
-      context.go('/decks/list');
-
-    },
-
-      child: Scaffold(
+    return Scaffold(
 
         // APP BAR
         appBar: AppBar(
@@ -488,13 +298,14 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                 // SAVING THE DECK
                 await DeckManagement.save_deck(
 
-                    deck_name: "${deck_wrapper_object.selected_deck?.summary.name ?? "Error"}_2",
-                    deck_description: deck_wrapper_object.selected_deck?.summary.description ?? "Error",
-                    deck_language: deck_wrapper_object.selected_deck?.summary.language ?? "en",
-                    couple_type: deck_wrapper_object.selected_deck?.summary.couple_type ?? "hetero",
-                    play_presence: deck_wrapper_object.selected_deck?.summary.play_presence ?? true,
-                    deck_tags: deck_wrapper_object.selected_deck?.summary.tags ?? [],
-                    selected_deck: deck_wrapper_object.selected_deck,
+                  deck_name: "${deck_wrapper_object.selected_deck?.summary.name ?? "Error"}_2",
+                  deck_description: deck_wrapper_object.selected_deck?.summary.description ?? "Error",
+                  deck_language: deck_wrapper_object.selected_deck?.summary.language ?? "en",
+                  couple_type: deck_wrapper_object.selected_deck?.summary.couple_type ?? "hetero",
+                  play_presence: deck_wrapper_object.selected_deck?.summary.play_presence ?? true,
+                  deck_tags: deck_wrapper_object.selected_deck?.summary.tags ?? [],
+                  already_existing_deck: deck_wrapper_object.selected_deck,
+                  deck_duplication: true,
 
                 );
 
@@ -506,12 +317,13 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                 deck_wrapper_object.show_delete_button = null;
                 deck_wrapper_object.selected_quest = null;
                 deck_wrapper_object.selected_deck = null;
+                deck_wrapper_object.new_deck_creation = false;
 
                 // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
                 Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                 // PAGE LINKER
-                context.pushReplacement('/decks/list');
+                context.pop();
 
               },
 
@@ -520,7 +332,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
             // EXPORT ICON BUTTON
             IconButton(
               icon: Icon(Icons.share),
-              onPressed: () async { await DeckManagement.export_json_file_from_hive(current_deck.summary.name); },
+              onPressed: () async { await DeckManagement.export_json_file_from_hive(deck.summary.name); },
             ),
 
             // DELETE ICON BUTTON
@@ -629,12 +441,22 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                   deck_wrapper_object.load_default_decks_flag = false;
                                   deck_wrapper_object.selected_quest = null;
                                   deck_wrapper_object.show_delete_button = null;
+                                  deck_wrapper_object.new_deck_creation = false;
 
                                   // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
                                   Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                                   // PAGE LINKER
-                                  context.push('/decks/editor_summary');
+                                  await context.push('/decks/user/custom_decks_list/edit/deck_main_editor/deck_summary_editor');
+
+                                  // UPDATING THE DECK WRAPPER
+                                  setState(() {
+                                    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+                                    deck = deck_wrapper_object.selected_deck!;
+                                  });
+
+                                  // RELOADING DECK DATA AFTER EDITING
+                                  await page_data_loading();
 
                                   },
 
@@ -712,7 +534,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                           TextSpan (
 
                                             // TEXT
-                                            text : current_deck.summary.name,
+                                            text : deck.summary.name,
 
                                             // TEXT STYLE
                                             style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
@@ -848,7 +670,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                           TextSpan (
 
                                             // TEXT
-                                            text : '${current_deck.summary.total_quests}',
+                                            text : '${deck.summary.total_quests}',
 
                                             // TEXT STYLE
                                             style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
@@ -950,7 +772,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                           TextSpan (
 
                                             // TEXT
-                                            text : current_deck.summary.description,
+                                            text : deck.summary.description,
 
                                             // TEXT STYLE
                                             style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
@@ -1067,15 +889,16 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                           deck_wrapper_object.load_default_decks_flag = false;
                                           deck_wrapper_object.show_delete_button = false;
                                           deck_wrapper_object.selected_quest = null;
+                                          deck_wrapper_object.new_deck_creation = false;
 
                                           // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
                                           Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                                           // PAGE LINKER
-                                          context.push('/decks/editor_quest');
+                                          await context.push('/decks/user/custom_decks_list/edit/deck_main_editor/deck_quest_editor');
 
-                                          // RELOADING THE PAGE INFO
-                                          await reload_after_editing(deck_wrapper_object.selected_deck?.deck_file_path ?? "");
+                                          // RELOADING DECK DATA AFTER EDITING
+                                          await page_data_loading();
 
                                         },
 
@@ -1134,19 +957,19 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                         //------------------------------------------------------------------------------
 
                         // GETTING THE CURRENT QUEST
-                        current_quest = all_quests_list[index];
+                        selected_quest = quest_list[index];
 
                         // TRANSLATING THE NEEDED TOOLS
-                        List<String> translated_quest_tools_list = translate_tools(context, all_quests_list[index].required_tools);
+                        List<String> translated_quest_tools_list = translate_tools(context, quest_list[index].required_tools);
 
                         // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
                         translated_quest_tools_list[0] = translated_quest_tools_list[0][0].toUpperCase() + translated_quest_tools_list[0].substring(1);
 
                         // GETTING THE CORRECT TIMER STRING
                         String quest_timer = '';
-                        if (all_quests_list[index].timer != 0) {
+                        if (quest_list[index].timer != 0) {
 
-                          quest_timer = '${all_quests_list[index].timer} ${AppLocalizations.of(context)!.deck_info_information_minute_label}';
+                          quest_timer = '${quest_list[index].timer} ${AppLocalizations.of(context)!.deck_info_information_minute_label}';
 
                         } else {
 
@@ -1158,17 +981,17 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                         String quest_type;
 
                         // CONVERTING THE QUEST TYPE TAG
-                        if (all_quests_list[index].moment.toLowerCase() == "early") {
+                        if (quest_list[index].moment.toLowerCase() == "early") {
 
                           // DEFINING QUEST TYPE TEXT
                           quest_type = AppLocalizations.of(context)!.deck_info_quest_info_early_quest_type;
 
-                        } else if (all_quests_list[index].moment.toLowerCase() == "mid") {
+                        } else if (quest_list[index].moment.toLowerCase() == "mid") {
 
                           // DEFINING QUEST TYPE TEXT
                           quest_type = AppLocalizations.of(context)!.deck_info_quest_info_mid_quest_type;
 
-                        } else if (all_quests_list[index].moment.toLowerCase() == "late") {
+                        } else if (quest_list[index].moment.toLowerCase() == "late") {
 
                           // DEFINING QUEST TYPE TEXT
                           quest_type = AppLocalizations.of(context)!.deck_info_quest_info_late_quest_type;
@@ -1182,17 +1005,17 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                         // CONVERTING THE DESIGNATED PLAYER TAG
                         String designated_player = "";
-                        if (all_quests_list[index].player_type.toLowerCase() == "both") {
+                        if (quest_list[index].player_type.toLowerCase() == "both") {
 
                           // DEFINING QUEST TYPE TEXT
                           designated_player = AppLocalizations.of(context)!.quest_editor_page_player_type_both;
 
-                        } else if (all_quests_list[index].player_type.toLowerCase() == "male") {
+                        } else if (quest_list[index].player_type.toLowerCase() == "male") {
 
                           // DEFINING QUEST TYPE TEXT
                           designated_player = AppLocalizations.of(context)!.quest_editor_page_player_type_male;
 
-                        } else if (all_quests_list[index].player_type.toLowerCase() == "female") {
+                        } else if (quest_list[index].player_type.toLowerCase() == "female") {
 
                           // DEFINING QUEST TYPE TEXT
                           designated_player = AppLocalizations.of(context)!.quest_editor_page_player_type_female;
@@ -1318,38 +1141,34 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                         if (!context.mounted) {return;}
 
                                         // SHOWING THE DELETE DIALOG
-                                        show_confirmation_dialog(context);
+                                        show_quest_delete_dialog(context, quest_list[index]);
 
                                       } else if (value == "duplicate") {
 
                                         // CREATING THE NEW DUPLICATED QUEST
-                                        Quest duplicated_quest = Quest(moment: all_quests_list[index].moment, required_tools: all_quests_list[index].required_tools, player_type: all_quests_list[index].player_type, timer: all_quests_list[index].timer, content: "${all_quests_list[index].content}_2");
+                                        Quest duplicated_quest = Quest(moment: quest_list[index].moment, required_tools: quest_list[index].required_tools, player_type: quest_list[index].player_type, timer: quest_list[index].timer, content: "${quest_list[index].content}_2");
 
                                         // ADDING THE QUEST TO THE QUEST LIST
-                                        all_quests_list.add(duplicated_quest);
+                                        deck.quests.add(duplicated_quest);
 
                                         // REPLACING INSIDE THE DECK THE OLD QUEST LIST WITH THE NEW QUEST LIST
-                                        current_deck.quests = all_quests_list;
+                                        deck.quests = deck.quests;
 
                                         // SAVING THE EDITED DECK
-                                        String saved_deck_file_path = await DeckManagement.save_deck(
+                                        await DeckManagement.save_deck(
 
-                                            deck_name: current_deck.summary.name,
-                                            deck_description: current_deck.summary.description,
-                                            deck_language: current_deck.summary.language,
-                                            couple_type: current_deck.summary.couple_type,
-                                            play_presence: current_deck.summary.play_presence,
-                                            deck_tags: current_deck.summary.tags,
-                                            selected_deck: current_deck,
+                                          deck_name: deck.summary.name,
+                                          deck_description: deck.summary.description,
+                                          deck_language: deck.summary.language,
+                                          couple_type: deck.summary.couple_type,
+                                          play_presence: deck.summary.play_presence,
+                                          deck_tags: deck.summary.tags,
+                                          already_existing_deck: deck,
 
                                         );
 
                                         // UPDATING THE PAGE LIST
-                                        await reload_after_editing(saved_deck_file_path);
-
-                                        setState(() {
-
-                                        });
+                                        await page_data_loading();
 
                                       }
 
@@ -1398,15 +1217,24 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                     onPressed: () async {
 
                                       // EDITING THE WRAPPER WITH THE CORRECT VALUES
-                                      deck_wrapper_object.selected_quest = all_quests_list[index];
+                                      deck_wrapper_object.selected_quest = quest_list[index];
                                       deck_wrapper_object.show_delete_button = true;
-                                      deck_wrapper_object.selected_quest = null;
+                                      deck_wrapper_object.new_deck_creation = false;
 
                                       // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
                                       Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                                       // PAGE LINKER
-                                      context.push('/decks/editor_quest');
+                                      await context.push('/decks/user/custom_decks_list/edit/deck_main_editor/deck_quest_editor');
+
+                                      //
+                                      setState(() {
+                                        deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+                                        deck = deck_wrapper_object.selected_deck!;
+                                      });
+
+                                      // RELOADING DECK DATA AFTER EDITING
+                                      await page_data_loading();
 
                                     },
 
@@ -1554,7 +1382,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                                                       TextSpan (
 
-                                                        text : all_quests_list[index].content,
+                                                        text : quest_list[index].content,
                                                         style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                                       ),
@@ -1614,7 +1442,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                       },
 
                       // DYNAMIC LIST ITEM NUMBER
-                      childCount: all_quests_list.length,
+                      childCount: quest_list.length,
 
                     ),
 
@@ -1636,9 +1464,7 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
         ),
 
 
-      ),
-
-    );
+      );
 
   }
 

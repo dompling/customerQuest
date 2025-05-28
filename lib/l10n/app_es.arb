@@ -1,4 +1,13 @@
 {
+
+  "app_presentation_welcome_page_title": "Bienvenido",
+  "app_presentation_welcome_page_section_1_title": "Disfruta de un viaje increíble",
+  "app_presentation_welcome_page_section_1_subtitle": "Prepárate para una serie de aventuras inolvidables con tu pareja.",
+  "app_presentation_welcome_page_section_2_title": "Perfecto para todas las parejas",
+  "app_presentation_welcome_page_section_2_subtitle": "No importa cuánto tiempo lleven juntos, tendrán la oportunidad de acercarse más y mejorar su intimidad.",
+  "app_presentation_welcome_page_section_3_title": "Único como tú",
+  "app_presentation_welcome_page_section_3_subtitle": "Miles de formas de personalizar tu experiencia, exactamente como prefieres.",
+
   "app_splash_screen_title": "¡Gracias!",
   "app_splash_screen_content": "Gracias por descargar _Loverquest_! Esperamos que disfrutes de nuestro juego.\n\nNuestro objetivo es ofrecerte una experiencia divertida, discreta, segura e interactiva. Nuestra app **no recopila datos personales, no accede a Internet y no muestra anuncios**.\n\nCreemos firmemente que la intimidad debe ser respetada. Por eso, estamos comprometidos a garantizar **la máxima privacidad**. _Loverquest_ es un **proyecto de código abierto**, por lo que puedes consultar el código fuente en cualquier momento para verificar la transparencia e integridad de la app.\n\nCuando juegues con tu pareja, recuerda siempre **respetar sus límites y nunca obligarle a hacer algo contra su voluntad**.\n\nLas acciones sugeridas por el juego están diseñadas únicamente para divertirse y **no fomentan ninguna forma de coerción o violencia sexual**.\n\nSi tú o tu pareja os sentís incómodos, siempre podéis **saltar cualquier acción** que no os guste.\n\nEste proyecto se desarrolla de forma voluntaria y se mantiene gracias a **donaciones de los usuarios**. Si disfrutas de Loverquest y quieres apoyarlo, considera hacer una donación para ayudarnos a mantenerlo y mejorarlo.\n\n¡El equipo de _Loverquest_ te desea mucha diversión!",
   "app_splash_screen_close_button_label": "Cerrar",

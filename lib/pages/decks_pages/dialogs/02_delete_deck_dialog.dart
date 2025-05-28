@@ -3,34 +3,27 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
 
 //------------------------------------------------------------------------------
 
-
-
 // FILTER DIALOG WIDGET INITIALIZATION
 class DeckDeleteDialog extends StatefulWidget {
 
   // CLASS ATTRIBUTES
-  final String deck_file_path;
+  final String deck_key;
   final String deck_name;
 
   // CLASS CONSTRUCTOR
-  const DeckDeleteDialog({required this.deck_file_path, required this.deck_name, super.key});
+  const DeckDeleteDialog({required this.deck_key, required this.deck_name, super.key});
 
   @override
   DeckDeleteDialogState createState() => DeckDeleteDialogState();
 
 }
-
-
-
-//------------------------------------------------------------------------------
-
-
 
 // FILTER DIALOG CONTENT
 class DeckDeleteDialogState extends State<DeckDeleteDialog> {
@@ -126,11 +119,11 @@ class DeckDeleteDialogState extends State<DeckDeleteDialog> {
               // BUTTON ACTION
               onPressed: () async {
 
-                // CLOSING THE DIALOG
-                Navigator.of(context).pop();
-
                 // DELETING THE DECK
-                await DeckManagement.delete_custom_deck(widget.deck_file_path);
+                await DeckManagement.delete_custom_deck(widget.deck_key);
+
+                // CLOSING THE DIALOG
+                context.pop();
 
               },
   
@@ -165,7 +158,10 @@ class DeckDeleteDialogState extends State<DeckDeleteDialog> {
 
               // BUTTON ACTION
               onPressed: () {
-                Navigator.of(context).pop();
+
+                // CLOSING THE DIALOG
+                context.pop();
+
               },
 
               // BUTTON CONTENT
@@ -184,28 +180,3 @@ class DeckDeleteDialogState extends State<DeckDeleteDialog> {
   }
 
 }
-
-
-
-//------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

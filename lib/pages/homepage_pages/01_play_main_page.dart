@@ -20,8 +20,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 //------------------------------------------------------------------------------
 
-
-
 // PLAY PAGE DEFINITION
 class PlayMainPage extends StatefulWidget {
 
@@ -33,10 +31,7 @@ class PlayMainPage extends StatefulWidget {
 
 }
 
-
 //------------------------------------------------------------------------------
-
-
 
 // PLAY PAGE CONTENT
 class _PlayMainPageState extends State<PlayMainPage> {
@@ -650,8 +645,6 @@ class _PlayMainPageState extends State<PlayMainPage> {
   @override
   Widget build(BuildContext context) {
 
-    //------------------------------------------------------------------------------
-
     // CONTENT ENTRY
     return Scaffold(
 
@@ -678,8 +671,6 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
               // COLUMN CONTENT
               children: [
-
-                //------------------------------------------------------------------------------
 
                 // SPACER
                 const SizedBox(height: 80),
@@ -931,7 +922,5 @@ class _PlayMainPageState extends State<PlayMainPage> {
     );
 
   }
-
-  //------------------------------------------------------------------------------
 
 }

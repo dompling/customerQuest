@@ -48,10 +48,13 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper();
 
   // INITIALIZING THE DECK KEY
-  String saved_deck_key = "";
+  String new_deck_key = "";
   
   // INITIALIZING THE ORIGINAL DECK KEY
   String original_deck_key = "";
+
+  // INITIALIZING THE USED SAVE BUTTON VAR
+  bool has_used_button = false;
 
   // DEFINING PLAYERS NAMES TEXT FIELD TEXT CONTROLLER
   late TextEditingController _deck_name_controller;
@@ -60,7 +63,7 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   late TextEditingController _deck_tag_controller;
 
   // DEFINING THE LANGUAGE LABEL VAR
-  late LanguageInfo language_object = get_language_info(context, "en");
+  late LanguageInfo language_object;
 
   // SETTING THE COUPLE TYPE AND GAME TYPE INITIAL VALUE
   String selected_option_couple_type = 'hetero';
@@ -89,21 +92,11 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   void initState() {
     super.initState();
 
-    // GETTING THE DATA FROM THE PROVIDER
-    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
-
     // SET-UPPING THE TEXT FIELD CONTROLLERS
     _deck_name_controller = TextEditingController();
     _deck_language_controller = TextEditingController();
     _deck_description_controller = TextEditingController();
     _deck_tag_controller = TextEditingController();
-    
-    // SETTING THE ORIGINAL DECK KEY
-    if (deck_wrapper_object.selected_deck != null) {
-      original_deck_key = deck_wrapper_object.selected_deck!.summary.name;
-    } else {
-      original_deck_key = "";
-    }
 
   }
 
@@ -123,6 +116,17 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
+    // GETTING THE DATA FROM THE PROVIDER
+    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+
+    // SETTING THE ORIGINAL DECK KEY
+    if (deck_wrapper_object.selected_deck != null) {
+      original_deck_key = deck_wrapper_object.selected_deck!.summary.name;
+    } else {
+      original_deck_key = "";
+    }
+
+    // CHECKING IF IS POSSIBLE TO IMPORT PREVIOUS DATA
     if ((deck_wrapper_object.selected_deck?.summary.name ?? "Unknown title") != "Unknown title") {
 
       // GETTING THE CORRECT LANGUAGE LABEL
@@ -137,7 +141,6 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
       tag_list = deck_wrapper_object.selected_deck?.summary.tags ?? [];
 
     }
-
 
     // TRANSLATING THE TAG LIST
     translated_tags_list = translate_tags(context, tag_list);
@@ -159,12 +162,45 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
     String deck_name_field = _deck_name_controller.text.trim();
     String deck_description_field = _deck_description_controller.text.trim();
 
-    // CHECKING IF ALL THE FIELD HAVE BEEN COMPILED
-    if ((deck_name_field == "") && (deck_description_field == "")) {
+    // CHECKING THE SAVE OR SKIP CONDITION
+    if ( (deck_description_field.isNotEmpty) && (deck_name_field.isNotEmpty) && (_deck_language_controller.text.isNotEmpty) ) {
 
-      return true;
+      try {
 
-    } else if (((deck_name_field == "") || (deck_description_field == ""))) {
+        // LOADING THE MODIFIED DECK FILE
+        new_deck_key = await DeckManagement.save_deck(
+          deck_name: deck_name_field,
+          deck_description: deck_description_field,
+          deck_language: language_object.language_code,
+          couple_type: selected_option_couple_type,
+          play_presence: selected_option_game_type,
+          deck_tags: tag_list,
+          already_existing_deck: deck_wrapper_object.selected_deck,
+        );
+
+        // LOADING THE NEW DECK INFO
+        DeckReader new_deck = DeckReader(new_deck_key);
+        await new_deck.load_deck();
+
+        // CHECKING IF THE INTERFACE IS STILL MOUNTED
+        if (!mounted) return false;
+
+        // EDITING THE WRAPPER WITH THE CORRECT VALUES
+        deck_wrapper_object.load_default_decks_flag = false;
+        deck_wrapper_object.selected_deck = new_deck;
+        deck_wrapper_object.show_delete_button = null;
+        deck_wrapper_object.selected_quest = null;
+
+        // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+        Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
+        return true;
+
+      } catch (e) {
+        return false;
+      }
+
+    } else if ( (deck_description_field.isNotEmpty || deck_name_field.isNotEmpty || _deck_language_controller.text.isNotEmpty) && has_used_button == true ) {
 
       // SHOWING ERROR POPUP
       ScaffoldMessenger.of(context).showSnackBar(
@@ -222,56 +258,23 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
         ),
       );
 
+      // RESETTING THE BUTTON FLAG
+      has_used_button = false;
+
       return false;
 
     } else {
-      
-      try {
 
-        // LOADING THE MODIFIED DECK FILE
-        saved_deck_key = await DeckManagement .save_deck(
-          deck_name: deck_name_field,
-          deck_description: deck_description_field,
-          deck_language: language_object.language_code,
-          couple_type: selected_option_couple_type,
-          play_presence: selected_option_game_type,
-          deck_tags: tag_list,
-          selected_deck: deck_wrapper_object.selected_deck,
-          original_deck_key: original_deck_key,
-        );
+      // EDITING THE WRAPPER WITH THE CORRECT VALUES
+      deck_wrapper_object.load_default_decks_flag = false ;
+      deck_wrapper_object.selected_deck = null;
+      deck_wrapper_object.show_delete_button = null;
+      deck_wrapper_object.selected_quest = null;
 
-        // CHECKING IF THERE IS A PREVIOUS PASSED DECK
-        if (deck_wrapper_object.selected_deck == null) {
+      // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+      Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
-          // LOADING THE NEW DECK INFO
-          DeckReader new_deck = DeckReader(saved_deck_key);
-          await new_deck.load_deck();
-
-          // CHECKING IF THE INTERFACE IS STILL MOUNTED
-          if (!mounted) return false;
-
-          // EDITING THE WRAPPER WITH THE CORRECT VALUES
-          deck_wrapper_object.load_default_decks_flag = false ;
-          deck_wrapper_object.selected_deck = new_deck;
-          deck_wrapper_object.show_delete_button = null;
-          deck_wrapper_object.selected_quest = null;
-
-          // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-          Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
-
-          // PAGE LINKER
-          context.pushReplacement('/decks/editor_main');
-
-          return false;
-
-        }
-        return true;
-
-
-      } catch (e) {
-        // SHOWING AN ERROR
-        return false;
-      }
+      return true;
 
     }
 
@@ -941,26 +944,13 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
         if (didPop) return;
 
         // SAVING DECK DATA
-        bool success = await data_check_to_go();
+        await data_check_to_go();
 
         // CHECKING IF THE INTERFACE IS STILL MOUNTED
         if (!mounted) return;
 
-        // GOING BACK TO THE EDITOR MAIN PAGE
-        if (success) {
-          
-          // EDITING THE WRAPPER WITH THE CORRECT VALUES
-          deck_wrapper_object.show_delete_button = null;
-          deck_wrapper_object.load_default_decks_flag = false;
-          deck_wrapper_object.selected_quest = null;
-
-          // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-          Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
-
-          // PAGE LINKER
-          context.pushReplacement('/decks/editor_main');
-
-        }
+        // PAGE LINKER - POP IF NOTHING HAPPENS
+        context.pop();
 
       },
 
@@ -1605,6 +1595,9 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
                         // ON PRESSED CALL
                         onPressed: () async {
 
+                          // SETTING THE SAVE BUTTON HAS USED
+                          has_used_button = true;
+
                           // CHECKING ALIAS BEFORE GOING TO THE NEXT PAGE
                           bool success = await data_check_to_go();
 
@@ -1612,17 +1605,9 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
                           if (!mounted) return;
 
                           if (success) {
-                            
-                            // EDITING THE WRAPPER WITH THE CORRECT VALUES
-                            deck_wrapper_object.show_delete_button = null;
-                            deck_wrapper_object.load_default_decks_flag = false;
-                            deck_wrapper_object.selected_quest = null;
-
-                            // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                             // PAGE LINKER
-                            context.pushReplacement('/decks/editor_main');
+                            context.pop();
 
                           }
 

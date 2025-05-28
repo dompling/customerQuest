@@ -103,6 +103,258 @@ abstract class AppLocalizations {
     Locale('nl')
   ];
 
+  /// No description provided for @app_presentation_welcome_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get app_presentation_welcome_page_title;
+
+  /// No description provided for @app_presentation_welcome_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Live an amazing journey'**
+  String get app_presentation_welcome_page_section_1_title;
+
+  /// No description provided for @app_presentation_welcome_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Get ready for a series of unforgettable adventures with your partner.'**
+  String get app_presentation_welcome_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_welcome_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Suitable for all couples'**
+  String get app_presentation_welcome_page_section_2_title;
+
+  /// No description provided for @app_presentation_welcome_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No matter how long you’ve been together, you’ll have the chance to grow closer and enhance your intimacy.'**
+  String get app_presentation_welcome_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_welcome_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'A world of curated content'**
+  String get app_presentation_welcome_page_section_3_title;
+
+  /// No description provided for @app_presentation_welcome_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover a wide selection of ready-to-use material for every need and preference'**
+  String get app_presentation_welcome_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_game_modes_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Play your way'**
+  String get app_presentation_game_modes_page_title;
+
+  /// No description provided for @app_presentation_game_modes_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy your time together'**
+  String get app_presentation_game_modes_page_section_1_title;
+
+  /// No description provided for @app_presentation_game_modes_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Whether you’re playing locally or online, you can always have fun with your partner.'**
+  String get app_presentation_game_modes_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_game_modes_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'LGBTQ+ friendly'**
+  String get app_presentation_game_modes_page_section_2_title;
+
+  /// No description provided for @app_presentation_game_modes_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No matter who you are, our game is designed for everyone to enjoy.'**
+  String get app_presentation_game_modes_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_game_modes_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'You decide'**
+  String get app_presentation_game_modes_page_section_3_title;
+
+  /// No description provided for @app_presentation_game_modes_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your own pace and skip any quest you like—comfort always comes first.'**
+  String get app_presentation_game_modes_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_customization_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Unique, just like you'**
+  String get app_presentation_customization_page_title;
+
+  /// No description provided for @app_presentation_customization_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your own adventures'**
+  String get app_presentation_customization_page_section_1_title;
+
+  /// No description provided for @app_presentation_customization_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Surprise your partner with a personalized experience tailored to your unique tastes.'**
+  String get app_presentation_customization_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_customization_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Extensive toy support'**
+  String get app_presentation_customization_page_section_2_title;
+
+  /// No description provided for @app_presentation_customization_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy full support for a wide range of toys and practices.'**
+  String get app_presentation_customization_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_customization_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Easy-to-use editor'**
+  String get app_presentation_customization_page_section_3_title;
+
+  /// No description provided for @app_presentation_customization_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Designing your exclusive experience is easy and smooth with our intuitive editor.'**
+  String get app_presentation_customization_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_privacy_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy comes first'**
+  String get app_presentation_privacy_page_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No data tracking'**
+  String get app_presentation_privacy_page_section_1_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We never share or collect your personal data — not even with the developers.'**
+  String get app_presentation_privacy_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_privacy_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No external access'**
+  String get app_presentation_privacy_page_section_2_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The app never connects to external sites, and it never will.'**
+  String get app_presentation_privacy_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_privacy_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Open source and transparent'**
+  String get app_presentation_privacy_page_section_3_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'All our source code is available on GitHub — transparency is our priority.'**
+  String get app_presentation_privacy_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_web_app_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover the web app'**
+  String get app_presentation_web_app_page_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Works on every device'**
+  String get app_presentation_web_app_page_section_1_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Access the web app version from iOS, Android, or Desktop.'**
+  String get app_presentation_web_app_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_web_app_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy even online'**
+  String get app_presentation_web_app_page_section_2_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The website never stores your personal information — all your data stays safely in your browser.'**
+  String get app_presentation_web_app_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_web_app_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'How to access'**
+  String get app_presentation_web_app_page_section_3_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the web app link and more info in the app settings.'**
+  String get app_presentation_web_app_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_donation_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'We need your help'**
+  String get app_presentation_donation_page_title;
+
+  /// No description provided for @app_presentation_donation_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Free forever'**
+  String get app_presentation_donation_page_section_1_title;
+
+  /// No description provided for @app_presentation_donation_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Support us to keep the project free for everyone, forever.'**
+  String get app_presentation_donation_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_donation_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No ads, ever'**
+  String get app_presentation_donation_page_section_2_title;
+
+  /// No description provided for @app_presentation_donation_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll never see ads — with your help, we can keep it that way.'**
+  String get app_presentation_donation_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_donation_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Transparency and privacy'**
+  String get app_presentation_donation_page_section_3_title;
+
+  /// No description provided for @app_presentation_donation_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Support us if you value privacy and open-source software.'**
+  String get app_presentation_donation_page_section_3_subtitle;
+
   /// No description provided for @app_splash_screen_title.
   ///
   /// In en, this message translates to:

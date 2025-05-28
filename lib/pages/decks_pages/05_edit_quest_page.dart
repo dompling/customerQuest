@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 
@@ -138,7 +139,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
                       couple_type: deck_wrapper_object.selected_deck!.summary.couple_type,
                       play_presence: deck_wrapper_object.selected_deck!.summary.play_presence,
                       deck_tags: deck_wrapper_object.selected_deck!.summary.tags,
-                      selected_deck: deck_wrapper_object.selected_deck,
+                      already_existing_deck: deck_wrapper_object.selected_deck,
                     );
 
                     // CHECKING IF THE INTERFACE IS STILL MOUNTED
@@ -213,9 +214,6 @@ class _QuestEditPageState extends State<QuestEditPage> {
   void initState() {
     super.initState();
 
-    // GETTING THE DATA FROM THE PROVIDER
-    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
-
     // IMPORTING PREVIOUS DATA IF PRESENT
     tools_list = deck_wrapper_object.selected_quest?.required_tools ?? [];
     selected_option_quest_moment = deck_wrapper_object.selected_quest?.moment ?? 'early';
@@ -225,6 +223,9 @@ class _QuestEditPageState extends State<QuestEditPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
+    // GETTING THE DATA FROM THE PROVIDER
+    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
 
     // TRANSLATING THE TOOLS LIST
     translated_tools_list = translate_tools(context, tools_list);
@@ -259,6 +260,14 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
     // CHECKING THAT ALL MANDATORY FIELDS HAS BEEN COMPILED
     if (quest_content == "" && quest_timer == 0 && selected_option_quest_moment == "early" && selected_option_player_type == "both") {
+
+      // EDITING THE WRAPPER WITH THE CORRECT VALUES
+      deck_wrapper_object.show_delete_button = null;
+      deck_wrapper_object.selected_quest = null;
+      deck_wrapper_object.new_deck_creation = false;
+
+      // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+      Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
       return true;
 
@@ -345,9 +354,22 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
         // SAVING THE QUEST AND THE DECK
         await DeckManagement.save_quest(
-          selected_deck: deck_wrapper_object.selected_deck!,
+          already_existing_deck: deck_wrapper_object.selected_deck!,
           new_quest: new_quest,
         );
+
+        // RELOADING THE DECK
+        DeckReader edited_deck = DeckReader(deck_wrapper_object.selected_deck?.deck_key ?? "");
+        await edited_deck.load_deck();
+
+        // EDITING THE WRAPPER WITH THE CORRECT VALUES
+        deck_wrapper_object.show_delete_button = null;
+        deck_wrapper_object.selected_quest = null;
+        deck_wrapper_object.new_deck_creation = false;
+        deck_wrapper_object.selected_deck = edited_deck;
+
+        // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+        Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
         return true;
 
@@ -1813,26 +1835,13 @@ class _QuestEditPageState extends State<QuestEditPage> {
       if (didPop) return;
 
       // SAVING DECK DATA
-      bool success = await check_and_save_quest();
+      await check_and_save_quest();
 
       // CHECKING IF THE INTERFACE IS STILL MOUNTED
       if (!mounted) return;
 
-      // GOING BACK TO THE EDITOR MAIN PAGE
-      if (success) {
-
-        // EDITING THE WRAPPER WITH THE CORRECT VALUES
-        deck_wrapper_object.show_delete_button = null;
-        deck_wrapper_object.load_default_decks_flag = false;
-        deck_wrapper_object.selected_quest = null;
-
-        // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-        Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
-
-        // PAGE LINKER
-        context.pushReplacement("/decks/editor_main");
-
-      }
+      // PAGE LINKER
+      context.pop();
 
     },
 
@@ -1858,12 +1867,13 @@ class _QuestEditPageState extends State<QuestEditPage> {
                 // EDITING THE WRAPPER WITH THE CORRECT VALUES
                 deck_wrapper_object.show_delete_button = null;
                 deck_wrapper_object.selected_quest = null;
+                deck_wrapper_object.new_deck_creation = false;
 
                 // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
                 Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                 // PAGE LINKER
-                context.pushReplacement("/decks/editor_main");
+                context.pop();
 
               },
 
@@ -2443,15 +2453,8 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
                           if (success) {
 
-                            // EDITING THE WRAPPER WITH THE CORRECT VALUES
-                            deck_wrapper_object.show_delete_button = null;
-                            deck_wrapper_object.selected_quest = null;
-
-                            // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
-
                             // PAGE LINKER
-                            context.pushReplacement("/decks/editor_main");
+                            context.pop();
 
                           }
 

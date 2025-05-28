@@ -20,14 +20,14 @@ import 'package:loverquest/logics/play_logics/03_select_random_player.dart';
 // PLAY PAGE DEFINITION
 class SelectStartPlayerPage extends StatelessWidget {
 
-  // DEFINING PREVIOUS PAGE IMPORTED INFO
-  final MatchData match_data;
-
   // CLASS CONSTRUCTOR
-  const SelectStartPlayerPage({required this.match_data, super.key});
+  const SelectStartPlayerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    // INITIALIZING THE MATCH DATA OBJECT
+    MatchData match_data = Provider.of<MatchDataProvider>(context, listen: false).matchData!;
 
     // PAGE CONTENT
     return Scaffold(
@@ -164,7 +164,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.push('/play/play_deck_choice', extra: match_data);
+                        context.push('/play/play_deck_choice');
 
                       },
 
@@ -317,7 +317,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.push('/play/play_deck_choice', extra: match_data);
+                        context.push('/play/play_deck_choice');
 
                       },
 
@@ -470,7 +470,7 @@ class SelectStartPlayerPage extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.push('/play/play_deck_choice', extra: match_data);
+                        context.push('/play/play_deck_choice');
 
                       },
 

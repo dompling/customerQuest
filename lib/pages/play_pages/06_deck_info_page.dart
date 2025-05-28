@@ -11,6 +11,7 @@ import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/ui_logics/03_translate_tools_labels.dart';
+import 'package:loverquest/logics/ui_logics/02_translate_tags_labels.dart';
 import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
 
 //------------------------------------------------------------------------------
@@ -19,11 +20,8 @@ import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
 // DECK SELECTION PAGE DEFINITION
 class PlayDeckInfoPage extends StatefulWidget {
 
-  // CLASS ATTRIBUTES
-  final MatchData match_data;
-
   // CLASS CONSTRUCTOR
-  const PlayDeckInfoPage({required this.match_data, super.key});
+  const PlayDeckInfoPage({super.key});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -42,6 +40,9 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
 
   //------------------------------------------------------------------------------
 
+  // INITIALIZING THE MATCH DATA OBJECT
+  MatchData match_data = MatchData();
+
   // INITIALIZING QUEST LISTS
   List<Quest> early_quests_list = [];
   List<Quest> mid_quests_list = [];
@@ -57,6 +58,9 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
 
   // INITIALIZING TOOLS TRANSLATION
   late List<String> deck_translated_tools;
+
+  // INITIALIZING TAGS LIST TRANSLATION
+  late List<String> deck_translated_tags;
 
   // INITIALIZING COUPLE TYPE LABEL
   late String deck_couple_type_label;
@@ -150,6 +154,9 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
   void initState() {
     super.initState();
 
+    // GETTING THE DATA FROM THE PROVIDER
+    match_data = Provider.of<MatchDataProvider>(context, listen: false).matchData!;
+
     // LAUNCH THE FUNCTION TO LOAD ALL DEFAULT DECKS
     load_all_quest();
 
@@ -161,7 +168,7 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
     //------------------------------------------------------------------------------
 
     // ACQUIRING THE CORRECT QUESTS FOR EVERY LIST
-    for (Quest element in widget.match_data.selected_deck.quests) {
+    for (Quest element in match_data.selected_deck.quests) {
 
       if (element.moment == "early") {
 
@@ -204,18 +211,24 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
     super.didChangeDependencies();
     
     // TRANSLATING THE SUMMARY TOOLS
-    deck_translated_tools = translate_tools(context, widget.match_data.selected_deck.summary.required_tools);
+    deck_translated_tools = translate_tools(context, match_data.selected_deck.summary.required_tools);
 
     // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
     deck_translated_tools[0] = deck_translated_tools[0][0].toUpperCase() + deck_translated_tools[0].substring(1);
 
+    // TRANSLATING THE SUMMARY TAGS
+    deck_translated_tags = translate_tags(context, match_data.selected_deck.summary.tags);
+
+    // MAKING THE FIRST LETTER OF THE FIRST WORD UPPERCASE
+    deck_translated_tags[0] = deck_translated_tags[0][0].toUpperCase() + deck_translated_tags[0].substring(1);
+
     // GETTING THE CORRECT LABEL FOR THE COUPLE TYPE LABEL
-    if (widget.match_data.selected_deck.summary.couple_type == "hetero") {
+    if (match_data.selected_deck.summary.couple_type == "hetero") {
 
     // SETTING THE COUPLE TYPE LABEL
     deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_hetero;
 
-    } else if (widget.match_data.selected_deck.summary.couple_type == "lesbian") {
+    } else if (match_data.selected_deck.summary.couple_type == "lesbian") {
 
     // SETTING THE COUPLE TYPE LABEL
     deck_couple_type_label = AppLocalizations.of(context)!.deck_info_couple_type_lesbian;
@@ -230,10 +243,10 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
     setState(() {
 
       // CONVERTING TO STRING TAG THE GAME TYPE
-      if (widget.match_data.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
+      if (match_data.selected_deck.summary.play_presence) {deck_game_type = AppLocalizations.of(context)!.deck_info_presence_label;} else {deck_game_type = AppLocalizations.of(context)!.deck_info_distance_label;}
 
       // GETTING THE LANGUAGE INFO
-      deck_language_label = get_language_info(context, widget.match_data.selected_deck.summary.language);
+      deck_language_label = get_language_info(context, match_data.selected_deck.summary.language);
 
     });
   }
@@ -418,7 +431,7 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
 
                                     TextSpan (
 
-                                      text : widget.match_data.selected_deck.summary.name,
+                                      text : match_data.selected_deck.summary.name,
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                     ),
@@ -540,7 +553,7 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
                                     TextSpan (
 
                                       // TEXT
-                                      text : '${widget.match_data.selected_deck.summary.total_quests}',
+                                      text : '${match_data.selected_deck.summary.total_quests}',
 
                                       // TEXT STYLE
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
@@ -587,6 +600,40 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
 
                             //------------------------------------------------------------------------------
 
+                            // TAGS TEXT
+                            Text.rich(
+                              TextSpan (
+
+                                // TEXT
+                                  text : AppLocalizations.of(context)!.deck_info_tags_list_label,
+
+                                  // TEXT STYLE
+                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
+
+                                  children: [
+
+                                    TextSpan (
+
+                                      // TEXT
+                                      text : deck_translated_tags.join(", "),
+
+                                      // TEXT STYLE
+                                      style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+
+                                    ),
+
+                                  ]
+
+                              ),
+                            ),
+
+                            //------------------------------------------------------------------------------
+
+                            // SPACER
+                            const SizedBox(height: 5),
+
+                            //------------------------------------------------------------------------------
+
                             // DESCRIPTION TEXT
                             Text.rich(
                               TextSpan (
@@ -598,7 +645,7 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
 
                                     TextSpan (
 
-                                      text : widget.match_data.selected_deck.summary.description,
+                                      text : match_data.selected_deck.summary.description,
                                       style: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
 
                                     ),
@@ -664,10 +711,10 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
                                     await check_deck_quest_number();
 
                                     // SETTING THE DECKS INSIDE MATCH DATA
-                                    widget.match_data.deck_early_quest_list = early_quests_list;
-                                    widget.match_data.deck_mid_quest_list = mid_quests_list;
-                                    widget.match_data.deck_late_quest_list = late_quests_list;
-                                    widget.match_data.deck_end_quest_list = end_quests_list;
+                                    match_data.deck_early_quest_list = early_quests_list;
+                                    match_data.deck_mid_quest_list = mid_quests_list;
+                                    match_data.deck_late_quest_list = late_quests_list;
+                                    match_data.deck_end_quest_list = end_quests_list;
 
                                     // CHECKING IF THE INTERFACE IS STILL MOUNTED
                                     if (!mounted) return;
@@ -676,10 +723,10 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
                                     if(is_playable) {
 
                                       // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-                                      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+                                      Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                                       // PAGE LINKER
-                                      context.push('/play/game_pace', extra: widget.match_data);
+                                      context.push('/play/game_pace');
 
                                     }
 

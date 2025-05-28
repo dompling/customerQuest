@@ -78,7 +78,7 @@ class _StockDeckInfoPageState extends State<StockDeckInfoPage> {
     // GETTING THE DATA FROM THE PROVIDER
     deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
 
-    // LAUNCH THE FUNCTION TO LOAD ALL DEFAULT DECKS
+    // LAUNCH THE FUNCTION TO LOAD ALL THE QUESTS
     load_all_quest();
 
   }
@@ -215,31 +215,7 @@ class _StockDeckInfoPageState extends State<StockDeckInfoPage> {
     //------------------------------------------------------------------------------
 
     // PAGE CONTENT
-    return PopScope(
-        canPop: false,
-        onPopInvokedWithResult: (didPop, result) async {
-
-      // IF THE PAGE IS ALREADY CLOSE, DO NOTHING
-      if (didPop) return;
-
-      // CHECKING IF THE INTERFACE IS STILL MOUNTED
-      if (!mounted) return;
-
-      // EDITING THE WRAPPER WITH THE CORRECT VALUES
-      deck_wrapper_object.load_default_decks_flag = true;
-      deck_wrapper_object.show_delete_button = null;
-      deck_wrapper_object.selected_quest = null;
-      deck_wrapper_object.selected_deck = null;
-
-      // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-      Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
-
-      // PAGE LINKER
-      context.go('/decks/list');
-
-    },
-
-      child: Scaffold(
+    return Scaffold(
 
       // APP BAR
       appBar: AppBar(
@@ -253,7 +229,7 @@ class _StockDeckInfoPageState extends State<StockDeckInfoPage> {
             onPressed: () async {
 
               // EXPORTING THE DECK
-              await DeckManagement.export_json_file(deck_wrapper_object.selected_deck?.deck_file_path ?? "", deck_wrapper_object.selected_deck?.summary.name ?? "", isAsset: true);
+              await DeckManagement.export_json_file(deck_wrapper_object.selected_deck?.deck_key ?? "", deck_wrapper_object.selected_deck?.summary.name ?? "", isAsset: true);
 
             },
 
@@ -265,20 +241,21 @@ class _StockDeckInfoPageState extends State<StockDeckInfoPage> {
             onPressed: () async {
 
               // SAVING THE DECK
-              String new_duplicated_deck_file_path = await DeckManagement.save_deck(
+              String duplicated_deck_key = await DeckManagement.save_deck(
 
-                  deck_name: "${deck_wrapper_object.selected_deck?.summary.name ?? "error"}_2",
-                  deck_description: deck_wrapper_object.selected_deck?.summary.description ?? "error",
-                  deck_language: deck_wrapper_object.selected_deck?.summary.language ?? "en",
-                  couple_type: deck_wrapper_object.selected_deck?.summary.couple_type ?? "hetero",
-                  play_presence: deck_wrapper_object.selected_deck?.summary.play_presence ?? true,
-                  deck_tags: deck_wrapper_object.selected_deck?.summary.tags ?? [],
-                  selected_deck: deck_wrapper_object.selected_deck,
+                deck_name: "${deck_wrapper_object.selected_deck?.summary.name ?? "error"}_2",
+                deck_description: deck_wrapper_object.selected_deck?.summary.description ?? "error",
+                deck_language: deck_wrapper_object.selected_deck?.summary.language ?? "en",
+                couple_type: deck_wrapper_object.selected_deck?.summary.couple_type ?? "hetero",
+                play_presence: deck_wrapper_object.selected_deck?.summary.play_presence ?? true,
+                deck_tags: deck_wrapper_object.selected_deck?.summary.tags ?? [],
+                already_existing_deck: deck_wrapper_object.selected_deck,
+                deck_duplication: true,
 
               );
 
               // INITIALIZING THE DUPLICATED DECK
-              DeckReader new_duplicated_deck = DeckReader(new_duplicated_deck_file_path);
+              DeckReader new_duplicated_deck = DeckReader(duplicated_deck_key);
 
               // LOADING THE DUPLICATED DECK
               await new_duplicated_deck.load_deck();
@@ -296,7 +273,7 @@ class _StockDeckInfoPageState extends State<StockDeckInfoPage> {
               Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
               // PAGE LINKER
-              context.pushReplacement('/decks/editor_main');
+              context.pop(true);
 
             },
 
@@ -1028,8 +1005,6 @@ class _StockDeckInfoPageState extends State<StockDeckInfoPage> {
         ),
 
       ),
-
-    ),
 
     );
 

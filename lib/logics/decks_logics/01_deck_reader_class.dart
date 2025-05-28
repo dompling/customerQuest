@@ -32,10 +32,10 @@ class DeckReader {
   List<Quest> quests;
 
   @HiveField(2)
-  final String deck_file_path;
+  final String deck_key;
 
   // DEFAULT CLASS CONSTRUCTOR
-  DeckReader(this.deck_file_path)
+  DeckReader(this.deck_key)
       : summary = DeckSummary(
     name: "Unknown title",
     description: "No description, sorry",
@@ -61,7 +61,7 @@ class DeckReader {
     tags: [],
   ),
         quests = [],
-        deck_file_path = "unknown_path";
+        deck_key = "unknown_path";
 
   //------------------------------------------------------------------------------
 
@@ -74,12 +74,12 @@ class DeckReader {
       String json_string;
 
       // CHECKING IF THE FILE IS FROM THE CUSTOM FOLDER OR FROM THE ASSETS
-      if (deck_file_path.contains('assets/')) {
+      if (deck_key.contains('assets/')) {
 
         // THE FILE IS FROM THE ASSETS
 
         // LOADING JSON AS STRING WITH ROOT BUNDLE
-        json_string = await rootBundle.loadString(deck_file_path);
+        json_string = await rootBundle.loadString(deck_key);
 
         // DECODING JSON FILE
         final Map<String, dynamic> jsonData = json.decode(json_string);
@@ -96,7 +96,7 @@ class DeckReader {
 
         // OPENING THE HIVE BOX
         var box = await Hive.openBox('customDecks');
-        Map? data = box.get(deck_file_path);
+        Map? data = box.get(deck_key);
 
         // CHECKING THAT THE DATA EXIST
         if (data != null) {
@@ -141,7 +141,7 @@ class DeckReader {
     return {
       'summary': summary.toJson(),
       'quests': quests.map((q) => q.toJson()).toList(),
-      'deck_file_path': deck_file_path,
+      'deck_key': deck_key,
     };
   }
 
@@ -150,7 +150,7 @@ class DeckReader {
   // FROM JSON TO OBJECT CONVERSION
   factory DeckReader.fromJson(Map<String, dynamic> json) {
 
-    DeckReader deck = DeckReader(json['deck_file_path'] ?? 'unknown_path');
+    DeckReader deck = DeckReader(json['deck_key'] ?? 'unknown_path');
     deck.summary = DeckSummary.fromJson(json['summary']);
     deck.quests = (json['quests'] as List).map((q) => Quest.fromJson(q)).toList();
 

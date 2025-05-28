@@ -31,117 +31,193 @@ class DeckManagement {
   //------------------------------------------------------------------------------
 
   // METHOD FOR SAVING ENTIRE DECK
-  static Future<String> save_deck({required String deck_name, required String deck_description, required String deck_language, required String couple_type, required bool play_presence, required List<String> deck_tags, DeckReader? selected_deck, LegacyDeckReader? legacy_selected_deck, String? original_deck_key,}) async {
+  static Future<String> save_deck({required String deck_name, required String deck_description, required String deck_language, required String couple_type, required bool play_presence, required List<String> deck_tags, DeckReader? already_existing_deck, LegacyDeckReader? legacy_already_existing_deck, bool deck_duplication = false}) async {
     try {
 
       // INITIALISING THE QUEST NUMBER VAR
       int deck_quest_number = 0;
 
-      if (selected_deck != null) {
-
-        deck_quest_number = selected_deck.quests.length;
-
-      } else if (legacy_selected_deck != null) {
-
-        deck_quest_number = legacy_selected_deck.quests.length;
-
-      }
-
-      List<String> deck_quest_tools = [];
-      if (selected_deck != null && selected_deck.quests.isNotEmpty) {
-        for (Quest current_quest in selected_deck.quests) {
-          for (String tool in current_quest.required_tools) {
-            if (!deck_quest_tools.contains(tool)) {
-              deck_quest_tools.add(tool);
-            }
-          }
-        }
-      }
-
-      DeckSummary new_summary = DeckSummary(
-        name: deck_name,
-        description: deck_description,
-        couple_type: couple_type,
-        play_presence: play_presence,
-        language: deck_language,
-        total_quests: deck_quest_number,
-        required_tools: deck_quest_tools,
-        tags: deck_tags,
-      );
-
-      Map<String, dynamic> deck_data = {
-        "summary": new_summary,
-        "quests": selected_deck?.quests ?? [],
-      };
+      // INITIALIZING THE DECK TOOLS LIST
+      List<String> deck_tools_list = [];
 
       // DEFINING THE HIVE BOX VAR
       Box box;
 
+      // INITIALIZING THE NEW DECK KEY VAR
+      String deck_key;
+      
+      //------------------------------------------------------------------------------
+
       // CHECKING IF THE BOX WAS PREVIOUSLY OPENED
       if (Hive.isBoxOpen(hive_box_name)) {
 
-      // LOADING THE PREVIOUSLY OPENED INSTANCE
+        // LOADING THE PREVIOUSLY OPENED INSTANCE
         box = Hive.box(hive_box_name);
 
       } else {
 
-      // OPENING A NEW INSTANCE
+        // OPENING A NEW INSTANCE
         box = await Hive.openBox(hive_box_name);
 
       }
 
-      // CHECKING IF THERE IS AN OLD VERSION OF THE DECK TO DELETE
-      if (original_deck_key != null) {
+      //------------------------------------------------------------------------------
 
-        // DELETING THE OLD VERSION OF THE EDITED DECK
-        await delete_custom_deck(original_deck_key);
+      // CHECKING IF WE ARE SAVING A PREVIOUSLY EXISTING DECK
+      if (already_existing_deck != null && deck_duplication == false) {
+        
+        // ACQUIRING THE DECK QUEST NUMBER
+        deck_quest_number = already_existing_deck.quests.length;
+
+        // SETTING THE DECK KEY TO USE FOR SAVING
+        deck_key = already_existing_deck.deck_key;
+
+      } else if (legacy_already_existing_deck != null && deck_duplication == false) {
+
+        // ACQUIRING THE DECK QUEST NUMBER
+        deck_quest_number = legacy_already_existing_deck.quests.length;
+
+        // SETTING THE DECK KEY TO USE FOR SAVING
+        deck_key = legacy_already_existing_deck.deck_file_path;
+
+      } else {
+
+        // SETTING THE DECK KEY TO USE FOR SAVING
+        deck_key = deck_name;
 
       }
 
-      // GETTING THE SAVED DECK KEY
-      String saved_deck_key = deck_name;
+      //------------------------------------------------------------------------------
+      
+      // CHECKING IF IS POSSIBLE TO GET DECK TOOLS DYNAMICALLY FROM THE QUESTS
+      if (already_existing_deck != null && already_existing_deck.quests.isNotEmpty) {
 
-      // INITIALIZING THE COUNTER
-      int counter = 1;
+        // ITERATING THE QUEST LIST
+        for (Quest current_quest in already_existing_deck.quests) {
 
-      // COPYING THE DECK KEY IN TMP VAR
-      String tmp_key = saved_deck_key;
+          // ITERATING THE QUEST TOOLS LIST
+          for (String tool in current_quest.required_tools) {
 
-      // CHECKING IF ALREADY EXIST A KEY WITH THE SAME NAME OF THE LOADED DECKS ONE
-      while (box.containsKey(saved_deck_key)) {
+            // CHECKING IF WE ALREADY ADDED THE TOOL TO THE DECK TOOLS LIST
+            if (!deck_tools_list.contains(tool)) {
 
-        // UPDATING THE KEY NAME IN ORDER TO AVOID OVERWRITING
-        saved_deck_key = '${counter}_$tmp_key';
-        counter++;
+              // ADDING THE TOOL TO THE DECK TOOLS LIST
+              deck_tools_list.add(tool);
+
+            }
+
+          }
+
+        }
 
       }
 
-      // SAVING THE NEW DECK
-      await box.put(saved_deck_key, deck_data);
+      //------------------------------------------------------------------------------
 
-      // RETURNING THE DECK KEY
-      return saved_deck_key;
+      // CREATION OF THE NEW DECK SUMMARY
+      DeckSummary new_deck_summary = DeckSummary(
+
+        name: deck_name,                          // PASSED DATA
+        description: deck_description,            // PASSED DATA
+        couple_type: couple_type,                 // PASSED DATA
+        play_presence: play_presence,             // PASSED DATA
+        language: deck_language,                  // PASSED DATA
+        total_quests: deck_quest_number,          // GOT IN SAVE FUNCTION
+        required_tools: deck_tools_list,          // GOT IN SAVE FUNCTION
+        tags: deck_tags,                          // PASSED DATA
+      );
+
+      //------------------------------------------------------------------------------
+
+      // CREATION OF THE DECK DATA STRUCTURE
+      Map<String, dynamic> new_deck_data = {
+        "summary": new_deck_summary,                                            // GOT IN SAVE FUNCTION - USING PASSED DATA
+        "quests": already_existing_deck?.quests ?? [],                          // PASSED DATA - IF ABSENT GOT IN SAVE FUNCTION
+        "deck_key": already_existing_deck?.deck_key ?? deck_key,                // PASSED DATA -  IF ABSENT GOT IN SAVE FUNCTION
+      };
+
+      //------------------------------------------------------------------------------
+
+      // SAVING AN EDITED DECK
+      if (already_existing_deck != null && deck_duplication == false) {
+
+        // SAVING THE NEW DECK
+        await box.put(deck_key, new_deck_data);
+
+        // RETURNING THE DECK KEY
+        return deck_key;
+
+      }
+
+      //------------------------------------------------------------------------------
+
+      // SAVING A DUPLICATED DECK
+      if (already_existing_deck != null && deck_duplication == true) {
+
+        // INITIALIZING THE COUNTER
+        int counter = 1;
+
+        // COPYING THE DECK KEY IN TMP VAR
+        String tmp_key = deck_key;
+
+        // CHECKING IF ALREADY EXIST A KEY WITH THE SAME NAME OF THE LOADED DECKS ONE
+        while (box.containsKey(deck_key)) {
+
+          // UPDATING THE KEY NAME IN ORDER TO AVOID OVERWRITING
+          deck_key = '${counter}_$tmp_key';
+          counter++;
+
+        }
+
+        // SAVING THE NEW DECK
+        await box.put(deck_key, new_deck_data);
+
+        // RETURNING THE DECK KEY
+        return deck_key;
+
+      }
+
+      //------------------------------------------------------------------------------
+
+      // SAVING A NEW DECK
+      if (already_existing_deck == null && deck_duplication == false && deck_key == deck_name) {
+
+        // SAVING THE NEW DECK
+        await box.put(deck_key, new_deck_data);
+
+        // RETURNING THE DECK KEY
+        return deck_key;
+
+      }
+
+      //------------------------------------------------------------------------------
+
+      // ERROR
+      throw Exception("ERROR | There was an error saving the deck");
 
     } catch (e) {
-      throw Exception("ERROR] - There was an error saving the deck: $e");
+
+      // ERROR
+      throw Exception("ERROR | There was an error saving the deck: $e");
+
     }
   }
 
   //------------------------------------------------------------------------------
 
   // METHOD FOR SAVING A SINGLE QUEST
-  static Future<void> save_quest({required DeckReader selected_deck, required Quest new_quest,}) async {
+  static Future<void> save_quest({required DeckReader already_existing_deck, required Quest new_quest,}) async {
     try {
-      selected_deck.quests.add(new_quest);
+      already_existing_deck.quests.add(new_quest);
 
       await save_deck(
-        deck_name: selected_deck.summary.name,
-        deck_description: selected_deck.summary.description,
-        deck_language: selected_deck.summary.language,
-        couple_type: selected_deck.summary.couple_type,
-        play_presence: selected_deck.summary.play_presence,
-        deck_tags: selected_deck.summary.tags,
-        selected_deck: selected_deck,
+        deck_name: already_existing_deck.summary.name,
+        deck_description: already_existing_deck.summary.description,
+        deck_language: already_existing_deck.summary.language,
+        couple_type: already_existing_deck.summary.couple_type,
+        play_presence: already_existing_deck.summary.play_presence,
+        deck_tags: already_existing_deck.summary.tags,
+        already_existing_deck: already_existing_deck,
       );
     } catch (e) {
       throw Exception("[ERROR] - There was an error saving the quest: $e");
@@ -189,7 +265,7 @@ class DeckManagement {
       final quests = (jsonData['quests'] as List).map((q) => Quest.fromJson(q)).toList();
 
       // DEFINING THE DECK HIVE KEY AS THE DECK NAME
-      String deckKey = summary.name;
+      String deck_key = summary.name;
 
       // OPENING THE HIVE CONTAINER
       final box = await Hive.openBox('customDecks');
@@ -198,21 +274,22 @@ class DeckManagement {
       int counter = 1;
 
       // COPYING THE DECK KEY IN TMP VAR
-      String tmp_key = deckKey;
+      String tmp_key = deck_key;
 
       // CHECKING IF ALREADY EXIST A KEY WITH THE SAME NAME OF THE LOADED DECKS ONE
-      while (box.containsKey(deckKey)) {
+      while (box.containsKey(deck_key)) {
 
         // UPDATING THE KEY NAME IN ORDER TO AVOID OVERWRITING
-        deckKey = '${counter}_$tmp_key';
+        deck_key = '${counter}_$tmp_key';
         counter++;
 
       }
 
       // SAVING THE LOADED DECK IN THE HIVE APP DATABASE
-      await box.put(deckKey, {
+      await box.put(deck_key, {
         'summary': summary,
         'quests': quests,
+        'deck_key': deck_key,
       });
 
       // RETURNING TRUE FOR GOOD STATUS
@@ -380,7 +457,7 @@ class DeckManagement {
       await deck_object.load_legacy_deck();
 
       // SAVING THE DECK INSIDE THE HIVE DATABASE
-      await save_deck(deck_name: deck_object.summary.name, deck_description: deck_object.summary.description, deck_language: deck_object.summary.language, couple_type: deck_object.summary.couple_type, play_presence: deck_object.summary.play_presence, deck_tags: deck_object.summary.tags, legacy_selected_deck: deck_object);
+      await save_deck(deck_name: deck_object.summary.name, deck_description: deck_object.summary.description, deck_language: deck_object.summary.language, couple_type: deck_object.summary.couple_type, play_presence: deck_object.summary.play_presence, deck_tags: deck_object.summary.tags, legacy_already_existing_deck: deck_object);
 
       // DELETING THE LEGACY DECK
       await delete_legacy_custom_deck_file(deck_object.deck_file_path);

@@ -16,14 +16,14 @@ import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 // PLAY PAGE DEFINITION
 class SelectGameSpeed extends StatelessWidget {
 
-  // DEFINING PREVIOUS PAGE INFO
-  final MatchData match_data;
-
   // CLASS CONSTRUCTOR
-  const SelectGameSpeed({required this. match_data, super.key});
+  const SelectGameSpeed({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    // INITIALIZING THE MATCH DATA OBJECT
+    MatchData match_data = Provider.of<MatchDataProvider>(context, listen: false).matchData!;
 
     // PAGE CONTENT
     return Scaffold(
@@ -160,7 +160,7 @@ class SelectGameSpeed extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.go('/play/game', extra: match_data);
+                        context.go('/play/game');
 
                       },
 
@@ -327,7 +327,7 @@ class SelectGameSpeed extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.go('/play/game', extra: match_data);
+                        context.go('/play/game');
 
                       },
 
@@ -495,7 +495,7 @@ class SelectGameSpeed extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.go('/play/game', extra: match_data);
+                        context.go('/play/game');
 
                       },
 
@@ -663,7 +663,7 @@ class SelectGameSpeed extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.go('/play/game', extra: match_data);
+                        context.go('/play/game');
 
                       },
 

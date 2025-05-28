@@ -4,9 +4,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/widgets.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/main.dart';
+
+import 'package:loverquest/pages/first_start_pages/01_welcome_presentation_page.dart';
+import 'package:loverquest/pages/first_start_pages/02_play_modes_presentation_page.dart';
+import 'package:loverquest/pages/first_start_pages/03_custom_decks_presentation_page.dart';
+import 'package:loverquest/pages/first_start_pages/04_security_presentation_page.dart';
+import 'package:loverquest/pages/first_start_pages/05_web_app_presentation_page.dart';
+import 'package:loverquest/pages/first_start_pages/06_donation_presentation_page.dart';
+import 'package:loverquest/pages/first_start_pages/07_end_presentation_page.dart';
 
 import 'package:loverquest/pages/homepage_pages/01_play_main_page.dart';
 import 'package:loverquest/pages/homepage_pages/02_decks_main_page.dart';
@@ -36,456 +45,1102 @@ import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 //------------------------------------------------------------------------------
 
+// DEFINING THE ROUTE OBSERVER
+final RouteObserver<ModalRoute<void>> routeObserver = RouteObserver<ModalRoute<void>>();
+
 // APP PAGE ROUTING SYSTEM
 final GoRouter app_router = GoRouter(
 
-  // SETTING THE HOME PAGE
-  initialLocation: '/play',
+    // SETTING THE HOME PAGE
+    initialLocation: '/presentation',
 
-  routes: [
+    // SETTING THE OBSERVER
+    observers: [routeObserver],
 
-    //------------------------------------------------------------------------------
+    // DISABLING BROWSER HISTORY NAVIGATION
+    routerNeglect: true,
 
-    // PLAY MAIN PAGE
-    GoRoute(
+    routes: [
 
-      // PAGE PATH
-      path: '/play',
+      // FIRST START PAGE
+      GoRoute(
 
-      // PAGE NAME
-      name: 'play',
-
-      // PAGE CONTENT
-      builder: (context, state) => const AppSkeleton(
-        child: PlayMainPage(),
-      ),
-
-      // SUBROUTES
-      routes: [
-
-        // 01 SELECT GAME TYPE PAGE - game_type
-        GoRoute(
-
-          // PAGE PATH
-          path: 'game_type',
+        // PAGE PATH
+          path: '/presentation',
 
           // PAGE NAME
-          name: 'game_type',
+          name: 'presentation',
 
           // PAGE CONTENT
-          builder: (context, state) => const AppSkeleton(
-            child: SelectGameTypePage(),
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+
+              // PAGE KEY - AUTOMATICALLY GENERATED
+              key: state.pageKey,
+
+              // PAGE TO OPEN
+              child: PresentationWelcomePage(),
+
+              // TRANSITION
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                return FadeTransition(opacity: animation, child: child,);
+
+              },
+
+            );
+
+          },
+
+          // SUBROUTES
+          routes: [
+
+            // 02 GAME MODE PRESENTATION - game_modes
+            GoRoute(
+
+              // PAGE PATH
+              path: 'game_modes',
+
+              // PAGE NAME
+              name: 'game_modes',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PresentationGameModesPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 03 CUSTOM DECK PRESENTATION - custom_decks_presentation
+            GoRoute(
+
+              // PAGE PATH
+              path: 'customization_presentation',
+
+              // PAGE NAME
+              name: 'customization_presentation',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PresentationCustomizationPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 04 OTHER FEATURES PRESENTATION - features_presentation
+            GoRoute(
+
+              // PAGE PATH
+              path: 'safety_presentation',
+
+              // PAGE NAME
+              name: 'safety_presentation',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PresentationPrivacyPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 05 WEB APP PRESENTATION - web_app_presentation
+            GoRoute(
+
+              // PAGE PATH
+              path: 'web_app_presentation',
+
+              // PAGE NAME
+              name: 'web_app_presentation',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PresentationWebAppPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 06 DONATION PRESENTATION - donation_presentation
+            GoRoute(
+
+              // PAGE PATH
+              path: 'donation_presentation',
+
+              // PAGE NAME
+              name: 'donation_presentation',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PresentationDonationPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 07 PRESENTATION END - end_presentation
+            GoRoute(
+
+              // PAGE PATH
+              path: 'end_presentation',
+
+              // PAGE NAME
+              name: 'end_presentation',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PresentationGameModesPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+          ]
+
+      ),
+
+      //------------------------------------------------------------------------------
+
+      // PLAY MAIN PAGE
+      GoRoute(
+
+          // PAGE PATH
+          path: '/play',
+
+          // PAGE NAME
+          name: 'play',
+
+          // PAGE CONTENT
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+
+              // PAGE KEY - AUTOMATICALLY GENERATED
+              key: state.pageKey,
+
+              // PAGE TO OPEN
+              child: AppSkeleton(child: PlayMainPage()),
+
+              // TRANSITION
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                return FadeTransition(opacity: animation, child: child,);
+
+              },
+
+            );
+
+          },
+
+          // SUBROUTES
+          routes: [
+
+            // 01 SELECT GAME TYPE PAGE - game_type
+            GoRoute(
+
+              // PAGE PATH
+              path: 'game_type',
+
+              // PAGE NAME
+              name: 'game_type',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: SelectGameTypePage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 02 SELECT PLAYERS TYPE PAGE - players_type
+            GoRoute(
+
+              // PAGE PATH
+              path: 'players_type',
+
+              // PAGE NAME
+              name: 'players_type',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: SelectPlayersTypePage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 03 DEFINE PLAYERS ALIAS PAGE - players_alias
+            GoRoute(
+
+              // PAGE PATH
+              path: 'players_alias',
+
+              // PAGE NAME
+              name: 'players_alias',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: DefinePlayersNamesPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 04 SELECT START PLAYER PAGE - start_player
+            GoRoute(
+
+              // PAGE PATH
+              path: 'start_player',
+
+              // PAGE NAME
+              name: 'start_player',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: SelectStartPlayerPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 05 SELECT DECK TO PLAY PAGE - play_deck_choice
+            GoRoute(
+
+              // PAGE PATH
+              path: 'play_deck_choice',
+
+              // PAGE NAME
+              name: 'play_deck_choice',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: DeckSelectionPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 06 DECK INFO PAGE - play_deck_info
+            GoRoute(
+
+              // PAGE PATH
+              path: 'play_deck_info',
+
+              // PAGE NAME
+              name: 'play_deck_info',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PlayDeckInfoPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 07 SELECT GAME PACE PAGE - game_pace
+            GoRoute(
+
+              // PAGE PATH
+              path: 'game_pace',
+
+              // PAGE NAME
+              name: 'game_pace',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: SelectGameSpeed(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 08 PLAY PAGE - play_game
+            GoRoute(
+
+              // PAGE PATH
+              path: 'game',
+
+              // PAGE NAME
+              name: 'game',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: PlayPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+          ]
+
+      ),
+
+      //------------------------------------------------------------------------------
+
+      // DECK MAIN PAGE
+      GoRoute(
+
+        // PAGE PATH
+        path: '/decks',
+
+        // PAGE NAME
+        name: 'decks',
+
+        // PAGE CONTENT
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+
+            // PAGE KEY - AUTOMATICALLY GENERATED
+            key: state.pageKey,
+
+            // PAGE TO OPEN
+            child: AppSkeleton(child: DeckSelectionMainPage()),
+
+            // TRANSITION
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+              return FadeTransition(opacity: animation, child: child,);
+
+            },
+
+          );
+
+        },
+
+        // SUBROUTES
+        routes: [
+
+          // STOCK DECK ROUTE - DECK LIST PAGE - stock/default_decks_list
+          GoRoute(
+
+              // PAGE PATH
+              path: 'stock/default_decks_list',
+
+              // PAGE NAME
+              name: 'default_decks_list',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DECK WRAPPER
+                final deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag != true) {
+                  return '/decks';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: DeckManagementPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return FadeTransition(opacity: animation, child: child,);
+
+                  },
+
+                );
+
+              },
+
+              routes: [
+
+                // STOCK DECK INSPECTOR PAGE - deck_inspector
+                GoRoute(
+
+                  // PAGE PATH
+                  path: 'deck_inspector',
+
+                  // PAGE NAME
+                  name: 'deck_inspector',
+
+                  // PAGE REDIRECT CONDITIONS
+                  redirect: (context, state) {
+
+                    // GETTING THE DECK WRAPPER
+                    final deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
+
+                    // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                    if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag != true || deck_pages_wrapper_object.selected_deck == null) {
+                      return '/decks';
+                    }
+
+                    return null;
+
+                  },
+
+                  // PAGE CONTENT
+                  pageBuilder: (context, state) {
+                    return CustomTransitionPage(
+
+                      // PAGE KEY - AUTOMATICALLY GENERATED
+                      key: state.pageKey,
+
+                      // PAGE TO OPEN
+                      child: StockDeckInfoPage(),
+
+                      // TRANSITION
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                        return FadeTransition(opacity: animation, child: child,);
+
+                      },
+
+                    );
+
+                  },
+
+                ),
+
+              ]
+
           ),
 
-        ),
+          // CUSTOM DECK ROUTE - DECK LIST -/user/custom_decks_list
+          GoRoute(
 
-        // 02 SELECT PLAYERS TYPE PAGE - players_type
-        GoRoute(
+              // PAGE PATH
+              path: 'user/custom_decks_list',
 
-          // PAGE PATH
-          path: 'players_type',
+              // PAGE NAME
+              name: 'custom_decks_list',
 
-          // PAGE NAME
-          name: 'players_type',
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
 
-          // PAGE CONTENT
-          builder: (context, state) {
+                // GETTING THE DECK WRAPPER
+                final deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
 
-            // ACQUIRING THE MATCH DATA OBJECT VAR
-            final match_data_object = Provider.of<MatchDataProvider>(context).matchData;
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag != false) {
+                  return '/decks';
+                }
 
-            if (match_data_object == null) {
-              Future.microtask(() => context.go('/play'));
-              return const SizedBox.shrink();
-            }
+                return null;
 
-            return SelectPlayersTypePage(match_data: match_data_object);
+              },
 
-          },
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
 
-        ),
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
 
-        // 03 DEFINE PLAYERS ALIAS PAGE - players_alias
-        GoRoute(
+                  // PAGE TO OPEN
+                  child: DeckManagementPage(),
 
-          // PAGE PATH
-          path: 'players_alias',
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-          // PAGE NAME
-          name: 'players_alias',
+                    return FadeTransition(opacity: animation, child: child,);
 
-          // PAGE CONTENT
-          builder: (context, state) {
+                  },
 
-            // ACQUIRING THE MATCH DATA OBJECT VAR
-            final match_data_object = Provider.of<MatchDataProvider>(context).matchData;
+                );
 
-            if (match_data_object == null) {
-              Future.microtask(() => context.go('/play'));
-              return const SizedBox.shrink();
-            }
+              },
 
-            return DefinePlayersNamesPage(match_data: match_data_object);
+              routes: [
 
-          },
+                // CREATE NEW DECK SUBROUTE - NEW DECK SUMMARY EDITOR - create/new_deck_editor
+                GoRoute(
 
-        ),
+                  // PAGE PATH
+                  path: 'create/new_deck_editor',
 
-        // 04 SELECT START PLAYER PAGE - start_player
-        GoRoute(
+                  // PAGE NAME
+                  name: 'new_deck_editor',
 
-          // PAGE PATH
-          path: 'start_player',
+                  // PAGE REDIRECT CONDITIONS
+                  redirect: (context, state) {
 
-          // PAGE NAME
-          name: 'start_player',
+                    // GETTING THE DECK WRAPPER
+                    final deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
 
-          // PAGE CONTENT
-          builder: (context, state) {
+                    // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                    if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag != false || deck_pages_wrapper_object.new_deck_creation != true) {
+                      return '/decks';
+                    }
 
-            // ACQUIRING THE MATCH DATA OBJECT VAR
-            final match_data_object = Provider.of<MatchDataProvider>(context).matchData;
+                    return null;
 
-            if (match_data_object == null) {
-              Future.microtask(() => context.go('/play'));
-              return const SizedBox.shrink();
-            }
+                  },
 
-            return SelectStartPlayerPage(match_data: match_data_object);
+                  // PAGE CONTENT
+                  pageBuilder: (context, state) {
+                    return CustomTransitionPage(
 
-          },
+                      // PAGE KEY - AUTOMATICALLY GENERATED
+                      key: state.pageKey,
 
-        ),
+                      // PAGE TO OPEN
+                      child: DeckSummaryEditPage(),
 
-        // 05 SELECT DECK TO PLAY PAGE - play_deck_choice
-        GoRoute(
+                      // TRANSITION
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-          // PAGE PATH
-          path: 'play_deck_choice',
+                        return FadeTransition(opacity: animation, child: child,);
 
-          // PAGE NAME
-          name: 'play_deck_choice',
+                      },
 
-          // PAGE CONTENT
-          builder: (context, state) {
+                    );
 
-            // ACQUIRING THE MATCH DATA OBJECT VAR
-            final match_data_object = Provider.of<MatchDataProvider>(context).matchData;
+                  },
 
-            if (match_data_object == null) {
-              Future.microtask(() => context.go('/play'));
-              return const SizedBox.shrink();
-            }
+                ),
 
-            return DeckSelectionPage(match_data: match_data_object);
+                // DECK EDIT SUBROUTE - DECK EDITOR MAIN PAGE - edit/deck_main_editor
+                GoRoute(
 
-          },
+                    // PAGE PATH
+                    path: 'edit/deck_main_editor',
 
-        ),
+                    // PAGE NAME
+                    name: 'deck_main_editor',
 
-        // 06 DECK INFO PAGE - play_deck_info
-        GoRoute(
+                    // PAGE REDIRECT CONDITIONS
+                    redirect: (context, state) {
 
-          // PAGE PATH
-          path: 'play_deck_info',
+                      // GETTING THE DECK WRAPPER
+                      final deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
 
-          // PAGE NAME
-          name: 'play_deck_info',
+                      // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                      if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag != false || deck_pages_wrapper_object.selected_deck == null) {
+                        return '/decks';
+                      }
 
-          // PAGE CONTENT
-          builder: (context, state) {
+                      return null;
 
-            // ACQUIRING THE MATCH DATA OBJECT VAR
-            final match_data_object = Provider.of<MatchDataProvider>(context).matchData;
+                    },
 
-            if (match_data_object == null) {
-              Future.microtask(() => context.go('/play'));
-              return const SizedBox.shrink();
-            }
+                    // PAGE CONTENT
+                    pageBuilder: (context, state) {
+                      return CustomTransitionPage(
 
-            return PlayDeckInfoPage(match_data: match_data_object);
+                        // PAGE KEY - AUTOMATICALLY GENERATED
+                        key: state.pageKey,
 
-          },
+                        // PAGE TO OPEN
+                        child: DeckEditMainPage(),
 
-        ),
+                        // TRANSITION
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-        // 07 SELECT GAME PACE PAGE - game_pace
-        GoRoute(
+                          return FadeTransition(opacity: animation, child: child,);
 
-          // PAGE PATH
-          path: 'game_pace',
+                        },
 
-          // PAGE NAME
-          name: 'game_pace',
+                      );
 
-          // PAGE CONTENT
-          builder: (context, state) {
+                    },
 
-            // ACQUIRING THE MATCH DATA OBJECT VAR
-            final match_data_object = Provider.of<MatchDataProvider>(context).matchData;
+                    routes: [
 
-            if (match_data_object == null) {
-              Future.microtask(() => context.go('/play'));
-              return const SizedBox.shrink();
-            }
+                      // DECK SUMMARY EDITOR - deck_summary_editor
+                      GoRoute(
 
-            return SelectGameSpeed(match_data: match_data_object);
+                        // PAGE PATH
+                        path: 'deck_summary_editor',
 
-          },
+                        // PAGE NAME
+                        name: 'deck_summary_editor',
 
-        ),
+                        // PAGE REDIRECT CONDITIONS
+                        redirect: (context, state) {
 
-        // 08 PLAY PAGE - play_game
-        GoRoute(
+                          // GETTING THE DECK WRAPPER
+                          final deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
 
-          // PAGE PATH
-          path: 'game',
+                          // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                          if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag != false || deck_pages_wrapper_object.new_deck_creation != false || deck_pages_wrapper_object.selected_deck == null) {
+                            return '/decks';
+                          }
 
-          // PAGE NAME
-          name: 'game',
+                          return null;
 
-          // PAGE CONTENT
-          builder: (context, state) {
+                        },
 
-            // ACQUIRING THE MATCH DATA OBJECT VAR
-            final match_data_object = Provider.of<MatchDataProvider>(context).matchData;
+                        // PAGE CONTENT
+                        pageBuilder: (context, state) {
+                          return CustomTransitionPage(
 
-            if (match_data_object == null) {
-              Future.microtask(() => context.go('/play'));
-              return const SizedBox.shrink();
-            }
+                            // PAGE KEY - AUTOMATICALLY GENERATED
+                            key: state.pageKey,
 
-            return PlayPage(initial_match_data: match_data_object,);
+                            // PAGE TO OPEN
+                            child: DeckSummaryEditPage(),
 
-          },
+                            // TRANSITION
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-        ),
+                              return FadeTransition(opacity: animation, child: child,);
 
-      ]
+                            },
 
-    ),
+                          );
 
-    //------------------------------------------------------------------------------
+                        },
 
-    // DECK MAIN PAGE
-    GoRoute(
+                      ),
 
-      // PAGE PATH
-      path: '/decks',
+                      // EDIT/CREATE QUEST PAGE - deck_quest_editor
+                      GoRoute(
 
-      // PAGE NAME
-      name: 'decks',
+                        // PAGE PATH
+                        path: 'deck_quest_editor',
 
-      // PAGE CONTENT
-      builder: (context, state) => AppSkeleton(
-        child: DeckSelectionMainPage(),
+                        // PAGE NAME
+                        name: 'deck_quest_editor',
+
+                        // PAGE REDIRECT CONDITIONS
+                        redirect: (context, state) {
+
+                          // GETTING THE DECK WRAPPER
+                          final deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
+
+                          // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                          if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag != false || deck_pages_wrapper_object.selected_deck == null) {
+                            return '/decks';
+                          }
+                          return null;
+                        },
+
+                        // PAGE CONTENT
+                        pageBuilder: (context, state) {
+                          return CustomTransitionPage(
+
+                            // PAGE KEY - AUTOMATICALLY GENERATED
+                            key: state.pageKey,
+
+                            // PAGE TO OPEN
+                            child: QuestEditPage(),
+
+                            // TRANSITION
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                              return FadeTransition(opacity: animation, child: child,);
+
+                            },
+
+                          );
+
+                        },
+
+                      ),
+
+                    ]
+
+                ),
+
+              ]
+
+          ),
+
+        ],
+
       ),
 
-      // SUBROUTES
-      routes: [
+      //------------------------------------------------------------------------------
 
-        // 01 DECK LIST PAGE - deck_list
-        GoRoute(
+      // SETTING MAIN PAGE
+      GoRoute(
 
-          // PAGE PATH
-          path: 'list',
+        // PAGE PATH
+        path: '/settings',
 
-          // PAGE NAME
-          name: 'list',
+        // PAGE NAME
+        name: 'settings',
 
-          // PAGE CONTENT
-          builder: (context, state) {
+        // PAGE CONTENT
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
 
-            // GETTING THE DECK WRAPPER
-            DeckPagesWrapper? deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context).wrapperData;
+            // PAGE KEY - AUTOMATICALLY GENERATED
+            key: state.pageKey,
 
-            // CHECKING IF IS POSSIBLE TO OPEN THE PAGE
-            if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag == null) {
+            // PAGE TO OPEN
+            child: AppSkeleton(child: SettingsMainPage()),
 
-              // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-              Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(null);
+            // TRANSITION
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-              Future.microtask(() => context.go('/decks'));
-              return const SizedBox.shrink();
-            }
+              return FadeTransition(opacity: animation, child: child,);
 
-            return DeckManagementPage();
+            },
 
-          }
+          );
 
-        ),
+        },
 
-        // 02 STOCK DECK INSPECTOR PAGE - deck_list
-        GoRoute(
-
-          // PAGE PATH
-          path: 'stock_inspector',
-
-          // PAGE NAME
-          name: 'stock_inspector',
-
-          // PAGE CONTENT
-          builder: (context, state) {
-
-            // GETTING THE DECK WRAPPER
-            DeckPagesWrapper? deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context).wrapperData;
-
-            // CHECKING IF IS POSSIBLE TO OPEN THE PAGE
-            if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag == null || deck_pages_wrapper_object.selected_deck == null) {
-
-              // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-              Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(null);
-
-              Future.microtask(() => context.go('/decks'));
-              return const SizedBox.shrink();
-            }
-
-            return StockDeckInfoPage();
-
-          }
-
-        ),
-
-        // 03 DECK EDITOR MAIN PAGE - deck_list
-        GoRoute(
-
-          // PAGE PATH
-          path: 'editor_main',
-
-          // PAGE NAME
-          name: 'editor_main',
-
-          // PAGE CONTENT
-          builder: (context, state) {
-
-            // GETTING THE DECK WRAPPER
-            DeckPagesWrapper? deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context).wrapperData;
-
-            // CHECKING IF IS POSSIBLE TO OPEN THE PAGE
-            if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag == null || deck_pages_wrapper_object.selected_deck == null) {
-
-              // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-              Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(null);
-
-              Future.microtask(() => context.go('/decks'));
-              return const SizedBox.shrink();
-            }
-
-            return DeckEditMainPage();
-
-          }
-
-        ),
-
-        // 04 EDIT DECK SUMMARY PAGE - deck_list
-        GoRoute(
-
-          // PAGE PATH
-          path: 'editor_summary',
-
-          // PAGE NAME
-          name: 'editor_summary',
-
-          // PAGE CONTENT
-          builder: (context, state) {
-
-            // GETTING THE DECK WRAPPER
-            DeckPagesWrapper? deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context).wrapperData;
-
-            // CHECKING IF IS POSSIBLE TO OPEN THE PAGE
-            if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag == null ||deck_pages_wrapper_object.selected_deck == null) {
-
-              // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-              Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(null);
-
-              Future.microtask(() => context.go('/decks'));
-              return const SizedBox.shrink();
-            }
-
-            return DeckSummaryEditPage();
-
-          }
-
-        ),
-
-        // 05 EDIT QUEST PAGE - deck_list
-        GoRoute(
-
-          // PAGE PATH
-          path: 'editor_quest',
-
-          // PAGE NAME
-          name: 'editor_quest',
-
-          // PAGE CONTENT
-          builder: (context, state) {
-
-            // GETTING THE DECK WRAPPER
-            DeckPagesWrapper? deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context).wrapperData;
-
-            // CHECKING IF IS POSSIBLE TO OPEN THE PAGE
-            if (deck_pages_wrapper_object == null || deck_pages_wrapper_object.load_default_decks_flag == null || deck_pages_wrapper_object.show_delete_button == null || deck_pages_wrapper_object.selected_deck == null) {
-
-              // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-              Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(null);
-
-              Future.microtask(() => context.go('/decks'));
-              return const SizedBox.shrink();
-            }
-
-            return QuestEditPage();
-
-          }
-
-        ),
-
-      ],
-      /*
-      // REDIRECT CHECK TO AVOID ERRORS
-      redirect: (context, state) {
-
-        // ACQUIRING THE DECK WRAPPER OBJECT VAR
-        DeckPagesWrapper? deck_pages_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData;
-
-        print("DEBUG - IS CORRECT: ${deck_pages_wrapper_object?.is_correct ?? "Null"}");
-
-        if (!(deck_pages_wrapper_object?.is_correct ?? true)) {
-
-          // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-          Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(null);
-
-          // REDIRECTING TO A SAFE PAGE
-          return '/decks';
-
-        }
-
-        // CONTINUING WITHOUT ISSUES
-        return null;
-
-      }
-      */
-    ),
-
-    //------------------------------------------------------------------------------
-
-    // SETTING MAIN PAGE
-    GoRoute(
-
-      // PAGE PATH
-      path: '/settings',
-
-      // PAGE NAME
-      name: 'settings',
-
-      // PAGE CONTENT
-      builder: (context, state) => const AppSkeleton(
-        child: SettingsMainPage(),
       ),
 
-    ),
 
-    //------------------------------------------------------------------------------
-
-  ],
+    ],
 
 );
+

@@ -1,5 +1,56 @@
 {
 
+  "app_presentation_welcome_page_title": "Welcome",
+  "app_presentation_welcome_page_section_1_title": "Live an amazing journey",
+  "app_presentation_welcome_page_section_1_subtitle": "Get ready for a series of unforgettable adventures with your partner.",
+  "app_presentation_welcome_page_section_2_title": "Suitable for all couples",
+  "app_presentation_welcome_page_section_2_subtitle": "No matter how long you’ve been together, you’ll have the chance to grow closer and enhance your intimacy.",
+  "app_presentation_welcome_page_section_3_title": "A world of curated content",
+  "app_presentation_welcome_page_section_3_subtitle": "Discover a wide selection of ready-to-use material for every need and preference",
+
+  "app_presentation_game_modes_page_title": "Play your way",
+  "app_presentation_game_modes_page_section_1_title": "Enjoy your time together",
+  "app_presentation_game_modes_page_section_1_subtitle": "Whether you’re playing locally or online, you can always have fun with your partner.",
+  "app_presentation_game_modes_page_section_2_title": "LGBTQ+ friendly",
+  "app_presentation_game_modes_page_section_2_subtitle": "No matter who you are, our game is designed for everyone to enjoy.",
+  "app_presentation_game_modes_page_section_3_title": "You decide",
+  "app_presentation_game_modes_page_section_3_subtitle": "Set your own pace and skip any quest you like—comfort always comes first.",
+
+  "app_presentation_customization_page_title": "Unique, just like you",
+  "app_presentation_customization_page_section_1_title": "Create your own adventures",
+  "app_presentation_customization_page_section_1_subtitle": "Surprise your partner with a personalized experience tailored to your unique tastes.",
+  "app_presentation_customization_page_section_2_title": "Extensive toy support",
+  "app_presentation_customization_page_section_2_subtitle": "Enjoy full support for a wide range of toys and practices.",
+  "app_presentation_customization_page_section_3_title": "Easy-to-use editor",
+  "app_presentation_customization_page_section_3_subtitle": "Designing your exclusive experience is easy and smooth with our intuitive editor.",
+
+  "app_presentation_privacy_page_title": "Privacy comes first",
+  "app_presentation_privacy_page_section_1_title": "No data tracking",
+  "app_presentation_privacy_page_section_1_subtitle": "We never share or collect your personal data — not even with the developers.",
+  "app_presentation_privacy_page_section_2_title": "No external access",
+  "app_presentation_privacy_page_section_2_subtitle": "The app never connects to external sites, and it never will.",
+  "app_presentation_privacy_page_section_3_title": "Open source and transparent",
+  "app_presentation_privacy_page_section_3_subtitle": "All our source code is available on GitHub — transparency is our priority.",
+
+  "app_presentation_web_app_page_title": "Discover the web app",
+  "app_presentation_web_app_page_section_1_title": "Works on every device",
+  "app_presentation_web_app_page_section_1_subtitle": "Access the web app version from iOS, Android, or Desktop.",
+  "app_presentation_web_app_page_section_2_title": "Privacy even online",
+  "app_presentation_web_app_page_section_2_subtitle": "The website never stores your personal information — all your data stays safely in your browser.",
+  "app_presentation_web_app_page_section_3_title": "How to access",
+  "app_presentation_web_app_page_section_3_subtitle": "Find the web app link and more info in the app settings.",
+
+  "app_presentation_donation_page_title": "We need your help",
+  "app_presentation_donation_page_section_1_title": "Free forever",
+  "app_presentation_donation_page_section_1_subtitle": "Support us to keep the project free for everyone, forever.",
+  "app_presentation_donation_page_section_2_title": "No ads, ever",
+  "app_presentation_donation_page_section_2_subtitle": "You'll never see ads — with your help, we can keep it that way.",
+  "app_presentation_donation_page_section_3_title": "Transparency and privacy",
+  "app_presentation_donation_page_section_3_subtitle": "Support us if you value privacy and open-source software.",
+
+
+
+
   "app_splash_screen_title": "Thank you !",
   "app_splash_screen_content": "Thank you for downloading _Loverquest_! We hope you enjoy our game.\n\nOur goal is to provide you with a fun, discreet, safe, and interactive experience. Our app **does not collect any personal data, does not access the Internet, and does not display ads**.\n\nWe firmly believe that intimacy should be respected. That’s why we are committed to ensuring **maximum privacy**. _Loverquest_ is an **open-source project**, so you can check the source code at any time to verify the app’s transparency and integrity for yourself.\n\nWhen playing with a partner, always remember to **respect their boundaries and never force them to do anything against their will**.\n\nThe actions suggested by the game are designed purely for fun and **do not encourage any form of coercion or sexual violence**.\n\nIf you or your partner feel uncomfortable, you can always **skip any action** you don’t like.\n\nThis project is developed on a voluntary basis and is supported by **user donations**. If you enjoy Loverquest and want to support it, consider making a donation to help us keep it running and improve it.\n\nThe _Loverquest_ team wishes you lots of fun!",
   "app_splash_screen_close_button_label": "Close",

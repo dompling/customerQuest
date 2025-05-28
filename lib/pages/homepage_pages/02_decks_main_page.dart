@@ -20,8 +20,6 @@ class DeckSelectionMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
-
     // PAGE CONTENT
     return Scaffold(
 
@@ -160,7 +158,7 @@ class DeckSelectionMainPage extends StatelessWidget {
                         Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                         // PAGE LINKER
-                        context.push('/decks/list');
+                        context.push('/decks/stock/default_decks_list');
 
                       },
 
@@ -319,7 +317,7 @@ class DeckSelectionMainPage extends StatelessWidget {
                         Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                         // PAGE LINKER
-                        context.push('/decks/list');
+                        context.push('/decks/user/custom_decks_list');
 
                       },
 

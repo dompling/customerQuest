@@ -6,39 +6,29 @@ import 'package:loverquest/l10n/app_localization.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-
-
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/play_logics/02_players_class.dart';
 
-
-
 //------------------------------------------------------------------------------
-
-
 
 // SELECT PLAYER PAGE DEFINITION
 class SelectPlayersTypePage extends StatefulWidget {
 
-  // DEFINING THE PREVIOUS PAGE IMPORTED INFO
-  final MatchData match_data;
-
   // CLASS CONSTRUCTOR
-  const SelectPlayersTypePage ({required this.match_data, super.key});
+  const SelectPlayersTypePage ({super.key});
 
   @override
   State<SelectPlayersTypePage> createState() => _SelectPlayersTypePageState();
 }
 
-
-
-//------------------------------------------------------------------------------
-
-
-
 // PAGE CONTENT / STATE
 class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
+
+  //------------------------------------------------------------------------------
+  
+  // INITIALIZING THE MATCH DATA OBJECT VAR
+  MatchData match_data = MatchData();
 
   //------------------------------------------------------------------------------
 
@@ -156,8 +146,11 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
   void initState()  {
     super.initState();
 
+    // GETTING THE DATA FROM THE PROVIDER
+    match_data = Provider.of<MatchDataProvider>(context, listen: false).matchData!;
+
     // IF THE GAME TYPE IS ONLINE, SHOW AN INFORMATIVE DIALOG
-    if (!widget.match_data.play_local) {
+    if (!match_data.play_local) {
 
       // CHECKING IF IS NECESSARY TO SHOW THE WARNING
       WidgetsBinding.instance.addPostFrameCallback((_){show_disclaimer_dialog(context);});
@@ -298,31 +291,31 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.match_data.play_local == true) {
+                          if (match_data.play_local == true) {
 
                             // SETTING THE MATCH DATA COUPLE TYPE
-                            widget.match_data.couple_type = "hetero";
+                            match_data.couple_type = "hetero";
 
                             // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                             // PAGE LINKER
-                            context.push('/play/players_alias', extra: widget.match_data);
+                            context.push('/play/players_alias', extra: match_data);
 
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
 
                             // SETTING THE MATCH DATA COUPLE TYPE
-                            widget.match_data.couple_type = "hetero";
-                            widget.match_data.player_one = Players.empty();
-                            widget.match_data.player_two = Players.empty();
-                            widget.match_data.current_player_alias = "";
+                            match_data.couple_type = "hetero";
+                            match_data.player_one = Players.empty();
+                            match_data.player_two = Players.empty();
+                            match_data.current_player_alias = "";
 
                             // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                             // PAGE LINKER
-                            context.push('/play/players_alias', extra: widget.match_data);
+                            context.push('/play/players_alias', extra: match_data);
 
                           }
 
@@ -483,31 +476,31 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.match_data.play_local == true) {
+                          if (match_data.play_local == true) {
 
                             // SETTING THE MATCH DATA COUPLE TYPE
-                            widget.match_data.couple_type = "lesbian";
+                            match_data.couple_type = "lesbian";
 
                             // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                             // PAGE LINKER
-                            context.push('/play/players_alias', extra: widget.match_data);
+                            context.push('/play/players_alias', extra: match_data);
 
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
 
                             // SETTING THE MATCH DATA COUPLE TYPE
-                            widget.match_data.couple_type = "lesbian";
-                            widget.match_data.player_one = Players.empty();
-                            widget.match_data.player_two = Players.empty();
-                            widget.match_data.current_player_alias = "user";
+                            match_data.couple_type = "lesbian";
+                            match_data.player_one = Players.empty();
+                            match_data.player_two = Players.empty();
+                            match_data.current_player_alias = "user";
 
                             // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                             // PAGE LINKER
-                            context.push('/play/players_alias', extra: widget.match_data);
+                            context.push('/play/players_alias', extra: match_data);
 
                           }
 
@@ -660,31 +653,31 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                         onPressed: () {
 
                           // CHECKING IF THE GAME IS IN PRESENCE
-                          if (widget.match_data.play_local == true) {
+                          if (match_data.play_local == true) {
 
                             // SETTING THE MATCH DATA COUPLE TYPE
-                            widget.match_data.couple_type = "gay";
+                            match_data.couple_type = "gay";
 
                             // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                             // PAGE LINKER
-                            context.push('/play/players_alias', extra: widget.match_data);
+                            context.push('/play/players_alias', extra: match_data);
 
                             // GOING DIRECTLY TO DECK SELECTION IF PLAYING AT DISTANCE
                           } else {
 
                             // SETTING THE MATCH DATA COUPLE TYPE
-                            widget.match_data.couple_type = "gay";
-                            widget.match_data.player_one = Players.empty();
-                            widget.match_data.player_two = Players.empty();
-                            widget.match_data.current_player_alias = "";
+                            match_data.couple_type = "gay";
+                            match_data.player_one = Players.empty();
+                            match_data.player_two = Players.empty();
+                            match_data.current_player_alias = "";
 
                             // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
-                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(widget.match_data);
+                            Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                             // PAGE LINKER
-                            context.push('/play/players_alias', extra: widget.match_data);
+                            context.push('/play/players_alias', extra: match_data);
 
                           }
 
