@@ -1,75 +1,74 @@
 {
 
   "app_presentation_welcome_page_title": "Welcome",
-  "app_presentation_welcome_page_section_1_title": "Live an amazing journey",
-  "app_presentation_welcome_page_section_1_subtitle": "Get ready for a series of unforgettable adventures with your partner.",
-  "app_presentation_welcome_page_section_2_title": "Suitable for all couples",
-  "app_presentation_welcome_page_section_2_subtitle": "No matter how long you’ve been together, you’ll have the chance to grow closer and enhance your intimacy.",
+  "app_presentation_welcome_page_section_1_title": "Embark on an unforgettable journey",
+  "app_presentation_welcome_page_section_1_subtitle": "Experience a series of unique adventures designed for you and your partner.",
+  "app_presentation_welcome_page_section_2_title": "Perfect for every couple",
+  "app_presentation_welcome_page_section_2_subtitle": "No matter how long you've been together, deepen your connection and discover new forms of intimacy.",
   "app_presentation_welcome_page_section_3_title": "A world of curated content",
-  "app_presentation_welcome_page_section_3_subtitle": "Discover a wide selection of ready-to-use material for every need and preference",
+  "app_presentation_welcome_page_section_3_subtitle": "Explore a rich library of ready-to-use material for all needs and preferences.",
 
   "app_presentation_game_modes_page_title": "Play your way",
-  "app_presentation_game_modes_page_section_1_title": "Enjoy your time together",
-  "app_presentation_game_modes_page_section_1_subtitle": "Whether you’re playing locally or online, you can always have fun with your partner.",
-  "app_presentation_game_modes_page_section_2_title": "LGBTQ+ friendly",
-  "app_presentation_game_modes_page_section_2_subtitle": "No matter who you are, our game is designed for everyone to enjoy.",
-  "app_presentation_game_modes_page_section_3_title": "You decide",
-  "app_presentation_game_modes_page_section_3_subtitle": "Set your own pace and skip any quest you like—comfort always comes first.",
+  "app_presentation_game_modes_page_section_1_title": "Enjoy quality time together",
+  "app_presentation_game_modes_page_section_1_subtitle": "Whether locally or online, there's always fun to share with your partner.",
+  "app_presentation_game_modes_page_section_2_title": "Inclusive for everyone",
+  "app_presentation_game_modes_page_section_2_subtitle": "Whoever you are, our game is crafted for universal enjoyment.",
+  "app_presentation_game_modes_page_section_3_title": "You're in control",
+  "app_presentation_game_modes_page_section_3_subtitle": "Set your pace and skip any quest you wish—comfort and consent always come first.",
 
   "app_presentation_customization_page_title": "Unique, just like you",
-  "app_presentation_customization_page_section_1_title": "Create your own adventures",
-  "app_presentation_customization_page_section_1_subtitle": "Surprise your partner with a personalized experience tailored to your unique tastes.",
-  "app_presentation_customization_page_section_2_title": "Extensive toy support",
-  "app_presentation_customization_page_section_2_subtitle": "Enjoy full support for a wide range of toys and practices.",
-  "app_presentation_customization_page_section_3_title": "Easy-to-use editor",
-  "app_presentation_customization_page_section_3_subtitle": "Designing your exclusive experience is easy and smooth with our intuitive editor.",
+  "app_presentation_customization_page_section_1_title": "Create your adventures",
+  "app_presentation_customization_page_section_1_subtitle": "Delight your partner with a tailor-made experience that reflects your personalities.",
+  "app_presentation_customization_page_section_2_title": "Broad toy compatibility",
+  "app_presentation_customization_page_section_2_subtitle": "Enjoy seamless support for a broad range of toys and activities.",
+  "app_presentation_customization_page_section_3_title": "User-friendly editor",
+  "app_presentation_customization_page_section_3_subtitle": "Designing your exclusive experience is smooth and intuitive with our editor.",
 
   "app_presentation_privacy_page_title": "Privacy comes first",
-  "app_presentation_privacy_page_section_1_title": "No data tracking",
-  "app_presentation_privacy_page_section_1_subtitle": "We never share or collect your personal data — not even with the developers.",
-  "app_presentation_privacy_page_section_2_title": "No external access",
-  "app_presentation_privacy_page_section_2_subtitle": "The app never connects to external sites, and it never will.",
-  "app_presentation_privacy_page_section_3_title": "Open source and transparent",
-  "app_presentation_privacy_page_section_3_subtitle": "All our source code is available on GitHub — transparency is our priority.",
+  "app_presentation_privacy_page_section_1_title": "No tracking, ever",
+  "app_presentation_privacy_page_section_1_subtitle": "Your personal data remains yours—never collected or shared, not even with us.",
+  "app_presentation_privacy_page_section_2_title": "No outside connections",
+  "app_presentation_privacy_page_section_2_subtitle": "The app never connects to external servers, now or in the future.",
+  "app_presentation_privacy_page_section_3_title": "Open source & transparent",
+  "app_presentation_privacy_page_section_3_subtitle": "Our source code is public on GitHub—openness and transparency above all.",
 
-  "app_presentation_web_app_page_title": "Discover the web app",
-  "app_presentation_web_app_page_section_1_title": "Works on every device",
-  "app_presentation_web_app_page_section_1_subtitle": "Access the web app version from iOS, Android, or Desktop.",
-  "app_presentation_web_app_page_section_2_title": "Privacy even online",
-  "app_presentation_web_app_page_section_2_subtitle": "The website never stores your personal information — all your data stays safely in your browser.",
+  "app_presentation_web_app_page_title": "Try the web app",
+  "app_presentation_web_app_page_section_1_title": "Accessible everywhere",
+  "app_presentation_web_app_page_section_1_subtitle": "Use the web version on iOS, Android, or Desktop—no installation needed.",
+  "app_presentation_web_app_page_section_2_title": "Privacy in the cloud",
+  "app_presentation_web_app_page_section_2_subtitle": "Your data always stays in your browser—nothing is ever uploaded or tracked.",
   "app_presentation_web_app_page_section_3_title": "How to access",
-  "app_presentation_web_app_page_section_3_subtitle": "Find the web app link and more info in the app settings.",
+  "app_presentation_web_app_page_section_3_subtitle": "Find the web app link and details in the app settings.",
 
-  "app_presentation_donation_page_title": "We need your help",
-  "app_presentation_donation_page_section_1_title": "Free forever",
-  "app_presentation_donation_page_section_1_subtitle": "Support us to keep the project free for everyone, forever.",
+  "app_presentation_donation_page_title": "Support our mission",
+  "app_presentation_donation_page_section_1_title": "Always free to use",
+  "app_presentation_donation_page_section_1_subtitle": "Your help keeps this project accessible to everyone, forever.",
   "app_presentation_donation_page_section_2_title": "No ads, ever",
-  "app_presentation_donation_page_section_2_subtitle": "You'll never see ads — with your help, we can keep it that way.",
-  "app_presentation_donation_page_section_3_title": "Transparency and privacy",
-  "app_presentation_donation_page_section_3_subtitle": "Support us if you value privacy and open-source software.",
+  "app_presentation_donation_page_section_2_subtitle": "You'll never see ads—your support lets us keep it that way.",
+  "app_presentation_donation_page_section_3_title": "Transparent and private",
+  "app_presentation_donation_page_section_3_subtitle": "Support us if you believe in privacy and open source for all.",
 
 
 
-
-  "app_splash_screen_title": "Thank you !",
-  "app_splash_screen_content": "Thank you for downloading _Loverquest_! We hope you enjoy our game.\n\nOur goal is to provide you with a fun, discreet, safe, and interactive experience. Our app **does not collect any personal data, does not access the Internet, and does not display ads**.\n\nWe firmly believe that intimacy should be respected. That’s why we are committed to ensuring **maximum privacy**. _Loverquest_ is an **open-source project**, so you can check the source code at any time to verify the app’s transparency and integrity for yourself.\n\nWhen playing with a partner, always remember to **respect their boundaries and never force them to do anything against their will**.\n\nThe actions suggested by the game are designed purely for fun and **do not encourage any form of coercion or sexual violence**.\n\nIf you or your partner feel uncomfortable, you can always **skip any action** you don’t like.\n\nThis project is developed on a voluntary basis and is supported by **user donations**. If you enjoy Loverquest and want to support it, consider making a donation to help us keep it running and improve it.\n\nThe _Loverquest_ team wishes you lots of fun!",
-  "app_splash_screen_close_button_label": "Close",
-
-  "donation_reminder_dialog_title": "Help us !",
-  "donation_reminder_dialog_content": "If you enjoyed Loverquest and want to support it, consider making a donation to help us keep it running and continue improving it.",
-  "donation_reminder_dialog_donate_button_label": "Donate",
-
-  "review_reminder_dialog_title": "Help us !",
-  "review_reminder_dialog_content": "If you enjoyed Loverquest and want to support it, consider leaving a review.",
-  "review_reminder_dialog_review_button_label": "Support us",
-
-  "online_play_disclaimer_dialog_title": "Warning !",
-  "online_play_disclaimer_dialog_content": "Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n",
 
 
   "navbar_play_button_label": "Play",
   "navbar_decks_button_label": "Decks",
   "navbar_settings_button_label": "Settings",
+
+
+  "online_play_disclaimer_dialog_title": "Warning !",
+  "online_play_disclaimer_dialog_content": "Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n",
+  "online_play_disclaimer_dialog_close_button_label": "Close",
+
+
+  "donation_reminder_dialog_donate_button_label": "Donate",
+  "donation_reminder_dialog_close_button_label": "Close",
+
+  "review_reminder_dialog_title": "Help us !",
+  "review_reminder_dialog_content": "If you enjoyed Loverquest and want to support it, consider leaving a review.",
+  "review_reminder_dialog_review_button_label": "Support us",
+  "review_reminder_dialog_close_button_label": "Close",
 
   "play_main_page_title": "Loverquest",
   "play_main_page_subtitle": "Road to pleasure",
@@ -220,7 +219,6 @@
   "play_page_end_page_title": "You have completed all the quests!",
   "play_page_end_page_subtitle": "Thank you for playing Loverquest, we hope you had fun",
   "play_page_end_page_go_home_button_label": "Exit",
-
 
   "deck_list_main_page_title": "Manage decks",
   "deck_list_main_page_default_decks_section_title": "Default decks",

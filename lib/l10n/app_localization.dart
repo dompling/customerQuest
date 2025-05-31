@@ -112,25 +112,25 @@ abstract class AppLocalizations {
   /// No description provided for @app_presentation_welcome_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Live an amazing journey'**
+  /// **'Embark on an unforgettable journey'**
   String get app_presentation_welcome_page_section_1_title;
 
   /// No description provided for @app_presentation_welcome_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Get ready for a series of unforgettable adventures with your partner.'**
+  /// **'Experience a series of unique adventures designed for you and your partner.'**
   String get app_presentation_welcome_page_section_1_subtitle;
 
   /// No description provided for @app_presentation_welcome_page_section_2_title.
   ///
   /// In en, this message translates to:
-  /// **'Suitable for all couples'**
+  /// **'Perfect for every couple'**
   String get app_presentation_welcome_page_section_2_title;
 
   /// No description provided for @app_presentation_welcome_page_section_2_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'No matter how long you’ve been together, you’ll have the chance to grow closer and enhance your intimacy.'**
+  /// **'No matter how long you\'ve been together, deepen your connection and discover new forms of intimacy.'**
   String get app_presentation_welcome_page_section_2_subtitle;
 
   /// No description provided for @app_presentation_welcome_page_section_3_title.
@@ -142,7 +142,7 @@ abstract class AppLocalizations {
   /// No description provided for @app_presentation_welcome_page_section_3_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Discover a wide selection of ready-to-use material for every need and preference'**
+  /// **'Explore a rich library of ready-to-use material for all needs and preferences.'**
   String get app_presentation_welcome_page_section_3_subtitle;
 
   /// No description provided for @app_presentation_game_modes_page_title.
@@ -154,37 +154,37 @@ abstract class AppLocalizations {
   /// No description provided for @app_presentation_game_modes_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Enjoy your time together'**
+  /// **'Enjoy quality time together'**
   String get app_presentation_game_modes_page_section_1_title;
 
   /// No description provided for @app_presentation_game_modes_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Whether you’re playing locally or online, you can always have fun with your partner.'**
+  /// **'Whether locally or online, there\'s always fun to share with your partner.'**
   String get app_presentation_game_modes_page_section_1_subtitle;
 
   /// No description provided for @app_presentation_game_modes_page_section_2_title.
   ///
   /// In en, this message translates to:
-  /// **'LGBTQ+ friendly'**
+  /// **'Inclusive for everyone'**
   String get app_presentation_game_modes_page_section_2_title;
 
   /// No description provided for @app_presentation_game_modes_page_section_2_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'No matter who you are, our game is designed for everyone to enjoy.'**
+  /// **'Whoever you are, our game is crafted for universal enjoyment.'**
   String get app_presentation_game_modes_page_section_2_subtitle;
 
   /// No description provided for @app_presentation_game_modes_page_section_3_title.
   ///
   /// In en, this message translates to:
-  /// **'You decide'**
+  /// **'You\'re in control'**
   String get app_presentation_game_modes_page_section_3_title;
 
   /// No description provided for @app_presentation_game_modes_page_section_3_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Set your own pace and skip any quest you like—comfort always comes first.'**
+  /// **'Set your pace and skip any quest you wish—comfort and consent always come first.'**
   String get app_presentation_game_modes_page_section_3_subtitle;
 
   /// No description provided for @app_presentation_customization_page_title.
@@ -196,37 +196,37 @@ abstract class AppLocalizations {
   /// No description provided for @app_presentation_customization_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Create your own adventures'**
+  /// **'Create your adventures'**
   String get app_presentation_customization_page_section_1_title;
 
   /// No description provided for @app_presentation_customization_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Surprise your partner with a personalized experience tailored to your unique tastes.'**
+  /// **'Delight your partner with a tailor-made experience that reflects your personalities.'**
   String get app_presentation_customization_page_section_1_subtitle;
 
   /// No description provided for @app_presentation_customization_page_section_2_title.
   ///
   /// In en, this message translates to:
-  /// **'Extensive toy support'**
+  /// **'Broad toy compatibility'**
   String get app_presentation_customization_page_section_2_title;
 
   /// No description provided for @app_presentation_customization_page_section_2_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Enjoy full support for a wide range of toys and practices.'**
+  /// **'Enjoy seamless support for a broad range of toys and activities.'**
   String get app_presentation_customization_page_section_2_subtitle;
 
   /// No description provided for @app_presentation_customization_page_section_3_title.
   ///
   /// In en, this message translates to:
-  /// **'Easy-to-use editor'**
+  /// **'User-friendly editor'**
   String get app_presentation_customization_page_section_3_title;
 
   /// No description provided for @app_presentation_customization_page_section_3_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Designing your exclusive experience is easy and smooth with our intuitive editor.'**
+  /// **'Designing your exclusive experience is smooth and intuitive with our editor.'**
   String get app_presentation_customization_page_section_3_subtitle;
 
   /// No description provided for @app_presentation_privacy_page_title.
@@ -238,67 +238,67 @@ abstract class AppLocalizations {
   /// No description provided for @app_presentation_privacy_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'No data tracking'**
+  /// **'No tracking, ever'**
   String get app_presentation_privacy_page_section_1_title;
 
   /// No description provided for @app_presentation_privacy_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'We never share or collect your personal data — not even with the developers.'**
+  /// **'Your personal data remains yours—never collected or shared, not even with us.'**
   String get app_presentation_privacy_page_section_1_subtitle;
 
   /// No description provided for @app_presentation_privacy_page_section_2_title.
   ///
   /// In en, this message translates to:
-  /// **'No external access'**
+  /// **'No outside connections'**
   String get app_presentation_privacy_page_section_2_title;
 
   /// No description provided for @app_presentation_privacy_page_section_2_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'The app never connects to external sites, and it never will.'**
+  /// **'The app never connects to external servers, now or in the future.'**
   String get app_presentation_privacy_page_section_2_subtitle;
 
   /// No description provided for @app_presentation_privacy_page_section_3_title.
   ///
   /// In en, this message translates to:
-  /// **'Open source and transparent'**
+  /// **'Open source & transparent'**
   String get app_presentation_privacy_page_section_3_title;
 
   /// No description provided for @app_presentation_privacy_page_section_3_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'All our source code is available on GitHub — transparency is our priority.'**
+  /// **'Our source code is public on GitHub—openness and transparency above all.'**
   String get app_presentation_privacy_page_section_3_subtitle;
 
   /// No description provided for @app_presentation_web_app_page_title.
   ///
   /// In en, this message translates to:
-  /// **'Discover the web app'**
+  /// **'Try the web app'**
   String get app_presentation_web_app_page_title;
 
   /// No description provided for @app_presentation_web_app_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Works on every device'**
+  /// **'Accessible everywhere'**
   String get app_presentation_web_app_page_section_1_title;
 
   /// No description provided for @app_presentation_web_app_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Access the web app version from iOS, Android, or Desktop.'**
+  /// **'Use the web version on iOS, Android, or Desktop—no installation needed.'**
   String get app_presentation_web_app_page_section_1_subtitle;
 
   /// No description provided for @app_presentation_web_app_page_section_2_title.
   ///
   /// In en, this message translates to:
-  /// **'Privacy even online'**
+  /// **'Privacy in the cloud'**
   String get app_presentation_web_app_page_section_2_title;
 
   /// No description provided for @app_presentation_web_app_page_section_2_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'The website never stores your personal information — all your data stays safely in your browser.'**
+  /// **'Your data always stays in your browser—nothing is ever uploaded or tracked.'**
   String get app_presentation_web_app_page_section_2_subtitle;
 
   /// No description provided for @app_presentation_web_app_page_section_3_title.
@@ -310,25 +310,25 @@ abstract class AppLocalizations {
   /// No description provided for @app_presentation_web_app_page_section_3_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Find the web app link and more info in the app settings.'**
+  /// **'Find the web app link and details in the app settings.'**
   String get app_presentation_web_app_page_section_3_subtitle;
 
   /// No description provided for @app_presentation_donation_page_title.
   ///
   /// In en, this message translates to:
-  /// **'We need your help'**
+  /// **'Support our mission'**
   String get app_presentation_donation_page_title;
 
   /// No description provided for @app_presentation_donation_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Free forever'**
+  /// **'Always free to use'**
   String get app_presentation_donation_page_section_1_title;
 
   /// No description provided for @app_presentation_donation_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Support us to keep the project free for everyone, forever.'**
+  /// **'Your help keeps this project accessible to everyone, forever.'**
   String get app_presentation_donation_page_section_1_subtitle;
 
   /// No description provided for @app_presentation_donation_page_section_2_title.
@@ -340,56 +340,68 @@ abstract class AppLocalizations {
   /// No description provided for @app_presentation_donation_page_section_2_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'You\'ll never see ads — with your help, we can keep it that way.'**
+  /// **'You\'ll never see ads—your support lets us keep it that way.'**
   String get app_presentation_donation_page_section_2_subtitle;
 
   /// No description provided for @app_presentation_donation_page_section_3_title.
   ///
   /// In en, this message translates to:
-  /// **'Transparency and privacy'**
+  /// **'Transparent and private'**
   String get app_presentation_donation_page_section_3_title;
 
   /// No description provided for @app_presentation_donation_page_section_3_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Support us if you value privacy and open-source software.'**
+  /// **'Support us if you believe in privacy and open source for all.'**
   String get app_presentation_donation_page_section_3_subtitle;
 
-  /// No description provided for @app_splash_screen_title.
+  /// No description provided for @navbar_play_button_label.
   ///
   /// In en, this message translates to:
-  /// **'Thank you !'**
-  String get app_splash_screen_title;
+  /// **'Play'**
+  String get navbar_play_button_label;
 
-  /// No description provided for @app_splash_screen_content.
+  /// No description provided for @navbar_decks_button_label.
   ///
   /// In en, this message translates to:
-  /// **'Thank you for downloading _Loverquest_! We hope you enjoy our game.\n\nOur goal is to provide you with a fun, discreet, safe, and interactive experience. Our app **does not collect any personal data, does not access the Internet, and does not display ads**.\n\nWe firmly believe that intimacy should be respected. That’s why we are committed to ensuring **maximum privacy**. _Loverquest_ is an **open-source project**, so you can check the source code at any time to verify the app’s transparency and integrity for yourself.\n\nWhen playing with a partner, always remember to **respect their boundaries and never force them to do anything against their will**.\n\nThe actions suggested by the game are designed purely for fun and **do not encourage any form of coercion or sexual violence**.\n\nIf you or your partner feel uncomfortable, you can always **skip any action** you don’t like.\n\nThis project is developed on a voluntary basis and is supported by **user donations**. If you enjoy Loverquest and want to support it, consider making a donation to help us keep it running and improve it.\n\nThe _Loverquest_ team wishes you lots of fun!'**
-  String get app_splash_screen_content;
+  /// **'Decks'**
+  String get navbar_decks_button_label;
 
-  /// No description provided for @app_splash_screen_close_button_label.
+  /// No description provided for @navbar_settings_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get navbar_settings_button_label;
+
+  /// No description provided for @online_play_disclaimer_dialog_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning !'**
+  String get online_play_disclaimer_dialog_title;
+
+  /// No description provided for @online_play_disclaimer_dialog_content.
+  ///
+  /// In en, this message translates to:
+  /// **'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n'**
+  String get online_play_disclaimer_dialog_content;
+
+  /// No description provided for @online_play_disclaimer_dialog_close_button_label.
   ///
   /// In en, this message translates to:
   /// **'Close'**
-  String get app_splash_screen_close_button_label;
-
-  /// No description provided for @donation_reminder_dialog_title.
-  ///
-  /// In en, this message translates to:
-  /// **'Help us !'**
-  String get donation_reminder_dialog_title;
-
-  /// No description provided for @donation_reminder_dialog_content.
-  ///
-  /// In en, this message translates to:
-  /// **'If you enjoyed Loverquest and want to support it, consider making a donation to help us keep it running and continue improving it.'**
-  String get donation_reminder_dialog_content;
+  String get online_play_disclaimer_dialog_close_button_label;
 
   /// No description provided for @donation_reminder_dialog_donate_button_label.
   ///
   /// In en, this message translates to:
   /// **'Donate'**
   String get donation_reminder_dialog_donate_button_label;
+
+  /// No description provided for @donation_reminder_dialog_close_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get donation_reminder_dialog_close_button_label;
 
   /// No description provided for @review_reminder_dialog_title.
   ///
@@ -409,35 +421,11 @@ abstract class AppLocalizations {
   /// **'Support us'**
   String get review_reminder_dialog_review_button_label;
 
-  /// No description provided for @online_play_disclaimer_dialog_title.
+  /// No description provided for @review_reminder_dialog_close_button_label.
   ///
   /// In en, this message translates to:
-  /// **'Warning !'**
-  String get online_play_disclaimer_dialog_title;
-
-  /// No description provided for @online_play_disclaimer_dialog_content.
-  ///
-  /// In en, this message translates to:
-  /// **'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n'**
-  String get online_play_disclaimer_dialog_content;
-
-  /// No description provided for @navbar_play_button_label.
-  ///
-  /// In en, this message translates to:
-  /// **'Play'**
-  String get navbar_play_button_label;
-
-  /// No description provided for @navbar_decks_button_label.
-  ///
-  /// In en, this message translates to:
-  /// **'Decks'**
-  String get navbar_decks_button_label;
-
-  /// No description provided for @navbar_settings_button_label.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get navbar_settings_button_label;
+  /// **'Close'**
+  String get review_reminder_dialog_close_button_label;
 
   /// No description provided for @play_main_page_title.
   ///

@@ -5,54 +5,49 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 //------------------------------------------------------------------------------
 
-// WELCOME PAGE DEFINITION
-class PresentationDonationPage extends StatefulWidget {
+// DONATION PAGE DEFINITION
+class DonationReminderPage extends StatefulWidget {
 
   // CLASS CONSTRUCTOR
-  const PresentationDonationPage({super.key});
+  const DonationReminderPage({super.key});
 
   @override
-  State<PresentationDonationPage> createState() => PresentationDonationPageState();
+  State<DonationReminderPage> createState() => DonationReminderPageState();
 
 }
 
-// WELCOME PAGE CONTENT
-class PresentationDonationPageState extends State<PresentationDonationPage> {
+// DONATION PAGE CONTENT
+class DonationReminderPageState extends State<DonationReminderPage> {
 
-
-  // INIT STATE
-  @override
-  void initState() {
-    super.initState();
-
-    // AFTER THE FIRST FRAME HAS BEEN DRAW
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-
-      Future.microtask(() async {
-
-        // LOADING THE APP PREFERENCE
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-
-        // SETTING THE APP PREFERENCE
-        await prefs.setBool('show_splash_screen', false);
-
-      });
-    });
-
-
-
+  // FUNCTION TO OPEN THE LINKS IN THE DEFAULT SYSTEM BROWSER
+  Future<void> open_link(String url) async {
+    Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw "Unable to open the link: $url";
+    }
   }
-
 
   @override
   Widget build(BuildContext context) {
 
     // PAGE CONTENT
     return Scaffold(
+
+      // APP BAR
+      appBar: AppBar(
+
+        // CLOSE ICON
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () => context.pop(),
+        ),
+      ),
 
       // PAGE BODY
       body: SafeArea(
@@ -97,11 +92,6 @@ class PresentationDonationPageState extends State<PresentationDonationPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
 
                       children: [
-
-                        // SPACER
-                        const SizedBox(height: 40),
-
-                        //------------------------------------------------------------------------------
 
                         // APP LOGO
                         Image.asset(
@@ -560,111 +550,64 @@ class PresentationDonationPageState extends State<PresentationDonationPage> {
 
                         //------------------------------------------------------------------------------
 
-                        // NAVIGATION BUTTONS ROW
-                        Row (
+                        // NEW GAME BUTTON BOX
+                        SizedBox(
 
-                          // ALIGNMENT
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // DYNAMIC SIZE
+                          width: 180,
 
-                          children: [
+                          // BOX CONTENT
+                          child: ElevatedButton(
 
-                            // GO TO PREVIOUS PAGE BUTTON BOX
-                            SizedBox(
+                            // BUTTON STYLE PARAMETERS
+                            style: ButtonStyle(
 
-                              // BOX CONTENT
-                              child: ElevatedButton(
+                              // NORMAL TEXT COLOR
+                              foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
 
-                                // BUTTON STYLE PARAMETERS
-                                style: ButtonStyle(
+                              // NORMAL BACKGROUND COLOR
+                              backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
 
-                                  // NORMAL TEXT COLOR
-                                  foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
+                              // MINIMUM SIZE
+                              minimumSize: WidgetStateProperty.all(Size(100, 60)),
 
-                                  // NORMAL BACKGROUND COLOR
-                                  backgroundColor: WidgetStateProperty.all(Color(0xFF1F172A)),
+                              // PADDING
+                              padding: WidgetStateProperty.all(EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15)),
 
-                                  // MINIMUM SIZE
-                                  minimumSize: WidgetStateProperty.all(Size(50, 50)),
-
-                                  // PADDING
-                                  padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                                  // BORDER RADIUS
-                                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(100),
-                                    ),
-                                  ),
-
+                              // BORDER RADIUS
+                              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(100),
                                 ),
+                              ),
 
-                                // ON PRESSED CALL
-                                onPressed: () {
+                            ),
 
-                                  // PAGE LINKER
-                                  context.pop();
+                            // ON PRESSED CALL
+                            onPressed: () => open_link("https://github.com/H3rz3n/loverquest/tree/main?tab=readme-ov-file#how-can-i-support-the-project"),
 
-                                },
+                            // BUTTON CONTENT
+                            child: Text(
 
-                                // BUTTON CONTENT
-                                child: Icon(Icons.arrow_back_rounded, size: 30,),
+                              // TEXT
+                              AppLocalizations.of(context)!.donation_reminder_dialog_donate_button_label,
+
+                              // TEXT ALIGNMENT
+                              textAlign: TextAlign.center,
+
+                              // TEXT STYLE
+                              style: TextStyle(
+
+                                fontSize: 17,
+                                fontWeight: FontWeight.normal,
 
                               ),
 
                             ),
 
-                            // SPACER
-                            const SizedBox(width: 20),
-
-                            // GO TO NEXT PAGE BUTTON BOX
-                            SizedBox(
-
-                              // BOX CONTENT
-                              child: ElevatedButton(
-
-                                // BUTTON STYLE PARAMETERS
-                                style: ButtonStyle(
-
-                                  // NORMAL TEXT COLOR
-                                  foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                                  // NORMAL BACKGROUND COLOR
-                                  backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                                  // MINIMUM SIZE
-                                  minimumSize: WidgetStateProperty.all(Size(50, 50)),
-
-                                  // PADDING
-                                  padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                                  // BORDER RADIUS
-                                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(100),
-                                    ),
-                                  ),
-
-                                ),
-
-                                // ON PRESSED CALL
-                                onPressed: () {
-
-                                  // PAGE LINKER
-                                  context.go('/play');
-
-                                },
-
-                                // BUTTON CONTENT
-                                child: Icon(Icons.arrow_forward_rounded, size: 30,),
-
-                              ),
-
-                            ),
-
-                          ],
+                          )
 
                         )
-
                         // ANIMATION
                             .animate()
                             .fadeIn(duration: 500.ms, delay: 1250.ms),

@@ -1,34 +1,76 @@
 {
 
   "app_presentation_welcome_page_title": "Bienvenido",
-  "app_presentation_welcome_page_section_1_title": "Disfruta de un viaje increíble",
-  "app_presentation_welcome_page_section_1_subtitle": "Prepárate para una serie de aventuras inolvidables con tu pareja.",
-  "app_presentation_welcome_page_section_2_title": "Perfecto para todas las parejas",
-  "app_presentation_welcome_page_section_2_subtitle": "No importa cuánto tiempo lleven juntos, tendrán la oportunidad de acercarse más y mejorar su intimidad.",
-  "app_presentation_welcome_page_section_3_title": "Único como tú",
-  "app_presentation_welcome_page_section_3_subtitle": "Miles de formas de personalizar tu experiencia, exactamente como prefieres.",
+  "app_presentation_welcome_page_section_1_title": "Emprende un viaje inolvidable",
+  "app_presentation_welcome_page_section_1_subtitle": "Vive una serie de aventuras únicas pensadas para ti y tu pareja.",
+  "app_presentation_welcome_page_section_2_title": "Perfecta para todas las parejas",
+  "app_presentation_welcome_page_section_2_subtitle": "No importa cuánto tiempo llevéis juntos: profundizad vuestra relación y descubrid una nueva intimidad.",
+  "app_presentation_welcome_page_section_3_title": "Un mundo de contenido seleccionado",
+  "app_presentation_welcome_page_section_3_subtitle": "Explora una amplia biblioteca de materiales listos para usar para cada necesidad y preferencia.",
 
-  "app_splash_screen_title": "¡Gracias!",
-  "app_splash_screen_content": "Gracias por descargar _Loverquest_! Esperamos que disfrutes de nuestro juego.\n\nNuestro objetivo es ofrecerte una experiencia divertida, discreta, segura e interactiva. Nuestra app **no recopila datos personales, no accede a Internet y no muestra anuncios**.\n\nCreemos firmemente que la intimidad debe ser respetada. Por eso, estamos comprometidos a garantizar **la máxima privacidad**. _Loverquest_ es un **proyecto de código abierto**, por lo que puedes consultar el código fuente en cualquier momento para verificar la transparencia e integridad de la app.\n\nCuando juegues con tu pareja, recuerda siempre **respetar sus límites y nunca obligarle a hacer algo contra su voluntad**.\n\nLas acciones sugeridas por el juego están diseñadas únicamente para divertirse y **no fomentan ninguna forma de coerción o violencia sexual**.\n\nSi tú o tu pareja os sentís incómodos, siempre podéis **saltar cualquier acción** que no os guste.\n\nEste proyecto se desarrolla de forma voluntaria y se mantiene gracias a **donaciones de los usuarios**. Si disfrutas de Loverquest y quieres apoyarlo, considera hacer una donación para ayudarnos a mantenerlo y mejorarlo.\n\n¡El equipo de _Loverquest_ te desea mucha diversión!",
-  "app_splash_screen_close_button_label": "Cerrar",
+  "app_presentation_game_modes_page_title": "Juega a tu manera",
+  "app_presentation_game_modes_page_section_1_title": "Disfruta del tiempo juntos",
+  "app_presentation_game_modes_page_section_1_subtitle": "Tanto si jugáis en persona como en línea, la diversión está siempre garantizada con tu pareja.",
+  "app_presentation_game_modes_page_section_2_title": "Inclusivo para todos",
+  "app_presentation_game_modes_page_section_2_subtitle": "Seas quien seas, nuestro juego está diseñado para el disfrute de todos.",
+  "app_presentation_game_modes_page_section_3_title": "Tú decides",
+  "app_presentation_game_modes_page_section_3_subtitle": "Marca tu ritmo y salta cualquier reto que quieras—el confort y el consentimiento son lo primero.",
+
+  "app_presentation_customization_page_title": "Única, como tú",
+  "app_presentation_customization_page_section_1_title": "Crea tus propias aventuras",
+  "app_presentation_customization_page_section_1_subtitle": "Sorprende a tu pareja con una experiencia personalizada que os represente.",
+  "app_presentation_customization_page_section_2_title": "Gran compatibilidad con juguetes",
+  "app_presentation_customization_page_section_2_subtitle": "Disfruta de total compatibilidad con una amplia gama de juguetes y prácticas.",
+  "app_presentation_customization_page_section_3_title": "Editor intuitivo",
+  "app_presentation_customization_page_section_3_subtitle": "Crear tu experiencia exclusiva es sencillo e intuitivo gracias a nuestro editor.",
+
+  "app_presentation_privacy_page_title": "La privacidad es lo primero",
+  "app_presentation_privacy_page_section_1_title": "Sin rastreo nunca",
+  "app_presentation_privacy_page_section_1_subtitle": "Tus datos personales son solo tuyos: nunca los recopilamos ni compartimos, ni siquiera con nosotros.",
+  "app_presentation_privacy_page_section_2_title": "Sin conexiones externas",
+  "app_presentation_privacy_page_section_2_subtitle": "La app nunca se conecta a servidores externos, ahora ni en el futuro.",
+  "app_presentation_privacy_page_section_3_title": "Código abierto y transparente",
+  "app_presentation_privacy_page_section_3_subtitle": "Nuestro código fuente está disponible en GitHub—transparencia ante todo.",
+
+  "app_presentation_web_app_page_title": "Prueba la web app",
+  "app_presentation_web_app_page_section_1_title": "Accesible en cualquier lugar",
+  "app_presentation_web_app_page_section_1_subtitle": "Usa la versión web en iOS, Android o en tu ordenador—sin necesidad de instalar.",
+  "app_presentation_web_app_page_section_2_title": "Privacidad también en la nube",
+  "app_presentation_web_app_page_section_2_subtitle": "Tus datos siempre permanecen en tu navegador—nunca se suben ni se rastrean.",
+  "app_presentation_web_app_page_section_3_title": "Cómo acceder",
+  "app_presentation_web_app_page_section_3_subtitle": "Encuentra el enlace y las instrucciones en la configuración de la app.",
+
+  "app_presentation_donation_page_title": "Apoya nuestro proyecto",
+  "app_presentation_donation_page_section_1_title": "Siempre gratis",
+  "app_presentation_donation_page_section_1_subtitle": "Tu apoyo mantiene la app libre y accesible para todos, para siempre.",
+  "app_presentation_donation_page_section_2_title": "Sin anuncios, nunca",
+  "app_presentation_donation_page_section_2_subtitle": "Nunca verás anuncios—tu ayuda nos permite mantenerlo así.",
+  "app_presentation_donation_page_section_3_title": "Transparencia y privacidad",
+  "app_presentation_donation_page_section_3_subtitle": "Apóyanos si crees en la privacidad y el software libre para todos.",
+
+
+
 
   "donation_reminder_dialog_title": "¡Ayúdanos!",
   "donation_reminder_dialog_content": "Si disfrutaste de Loverquest y quieres apoyarlo, considera hacer una donación para ayudarnos a mantenerlo y seguir mejorándolo.",
   "donation_reminder_dialog_donate_button_label": "Donar",
+  "donation_reminder_dialog_close_button_label": "Cerrar",
 
   "review_reminder_dialog_title": "¡Ayúdanos!",
   "review_reminder_dialog_content": "Si te ha gustado Loverquest y quieres apoyarlo, considera dejar una reseña.",
   "review_reminder_dialog_review_button_label": "Apóyanos",
+  "review_reminder_dialog_close_button_label": "Cerrar",
 
   "online_play_disclaimer_dialog_title": "¡Advertencia!",
   "online_play_disclaimer_dialog_content": "Ten cuidado al compartir material íntimo en línea\n\nLa seguridad es lo primero. Recuerda que cualquier contenido compartido en Internet podría permanecer en línea para siempre, sin forma de eliminarlo por completo. Evita incluir datos personales y asegúrate de que la persona con la que estás jugando sea de confianza antes de enviar cualquier material íntimo.\n\nLoverquest no asume ninguna responsabilidad por actividades ilegales cometidas en línea, como la distribución no consensuada de material íntimo, la difusión de contenido de explotación infantil u otras violaciones de la ley.\n",
+  "online_play_disclaimer_dialog_close_button_label": "Cerrar",
 
   "navbar_play_button_label": "Jugar",
   "navbar_decks_button_label": "Mazos",
   "navbar_settings_button_label": "Configuración",
 
   "play_main_page_title": "Loverquest",
-  "play_main_page_subtitle": "Camino al placer",
+  "play_main_page_subtitle": "Road to pleasure",
   "play_main_page_new_game_button_label": "Nuevo juego",
   "play_main_page_load_game_button_label": "Cargar juego",
 

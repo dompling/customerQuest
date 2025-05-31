@@ -12,7 +12,6 @@ import 'package:loverquest/l10n/app_localization.dart';
 import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
-
 import 'package:loverquest/logics/settings_logics/01_language_switch.dart';
 import 'package:loverquest/logics/decks_logics/02_deck_summary_class.dart';
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
@@ -21,8 +20,6 @@ import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 // HIVE
 import 'package:hive_flutter/hive_flutter.dart';
-
-
 
 //------------------------------------------------------------------------------
 
@@ -68,6 +65,9 @@ void main() async {
         ),
         ChangeNotifierProvider<DeckWrapperProvider>(
           create: (context) => DeckWrapperProvider(),
+        ),
+        ChangeNotifierProvider<PlayPagePopUpWrapperProvider>(
+          create: (context) => PlayPagePopUpWrapperProvider(),
         ),
       ],
       child: MyApp(),
@@ -204,6 +204,8 @@ class MyApp extends StatelessWidget {
 
     // INITIALIZATION OF THE LOCALE INFORMATION
     final localeProvider = Provider.of<LocaleProvider>(context);
+
+
 
     // APP MAIN SETTINGS
     return MaterialApp.router(

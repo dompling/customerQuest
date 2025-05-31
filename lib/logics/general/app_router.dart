@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/main.dart';
@@ -15,9 +16,10 @@ import 'package:loverquest/pages/first_start_pages/03_custom_decks_presentation_
 import 'package:loverquest/pages/first_start_pages/04_security_presentation_page.dart';
 import 'package:loverquest/pages/first_start_pages/05_web_app_presentation_page.dart';
 import 'package:loverquest/pages/first_start_pages/06_donation_presentation_page.dart';
-import 'package:loverquest/pages/first_start_pages/07_end_presentation_page.dart';
 
 import 'package:loverquest/pages/homepage_pages/01_play_main_page.dart';
+import 'package:loverquest/pages/homepage_pages/dialogs/01_donation_dialog.dart';
+import 'package:loverquest/pages/homepage_pages/dialogs/02_review_dialog.dart';
 import 'package:loverquest/pages/homepage_pages/02_decks_main_page.dart';
 import 'package:loverquest/pages/homepage_pages/03_settings_main_page.dart';
 
@@ -62,14 +64,34 @@ final GoRouter app_router = GoRouter(
 
     routes: [
 
-      // FIRST START PAGE
+      // WELCOME CAROUSEL PAGE
       GoRoute(
 
-        // PAGE PATH
+          // PAGE PATH
           path: '/presentation',
 
           // PAGE NAME
           name: 'presentation',
+
+          // PAGE REDIRECT CONDITIONS
+          redirect: (context, state) async {
+
+            // DEFINING THE APP PREFERENCE VAR
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+
+            // GETTING THE SPLASH SCREEN PREFERENCE, IF THERE ARE NOT SETTING IT TO ZERO
+            bool show_splash_screen = prefs.getBool('show_splash_screen') ?? true;
+
+            // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+            if (!show_splash_screen) {
+
+              return '/play';
+
+            }
+
+            return null;
+
+          },
 
           // PAGE CONTENT
           pageBuilder: (context, state) {
@@ -258,6 +280,7 @@ final GoRouter app_router = GoRouter(
 
               // PAGE CONTENT
               pageBuilder: (context, state) {
+
                 return CustomTransitionPage(
 
                   // PAGE KEY - AUTOMATICALLY GENERATED
@@ -265,44 +288,6 @@ final GoRouter app_router = GoRouter(
 
                   // PAGE TO OPEN
                   child: PresentationDonationPage(),
-
-                  // TRANSITION
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-
-                    return SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(1, 0),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    );
-
-                  },
-
-                );
-
-              },
-
-            ),
-
-            // 07 PRESENTATION END - end_presentation
-            GoRoute(
-
-              // PAGE PATH
-              path: 'end_presentation',
-
-              // PAGE NAME
-              name: 'end_presentation',
-
-              // PAGE CONTENT
-              pageBuilder: (context, state) {
-                return CustomTransitionPage(
-
-                  // PAGE KEY - AUTOMATICALLY GENERATED
-                  key: state.pageKey,
-
-                  // PAGE TO OPEN
-                  child: PresentationGameModesPage(),
 
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -338,6 +323,26 @@ final GoRouter app_router = GoRouter(
           // PAGE NAME
           name: 'play',
 
+          // PAGE REDIRECT CONDITIONS
+          redirect: (context, state) async {
+
+            // DEFINING THE APP PREFERENCE VAR
+            SharedPreferences prefs = await SharedPreferences.getInstance();
+
+            // GETTING THE SPLASH SCREEN PREFERENCE, IF THERE ARE NOT SETTING IT TO ZERO
+            bool show_splash_screen = prefs.getBool('show_splash_screen') ?? true;
+
+            // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+            if (show_splash_screen) {
+
+              return '/presentation';
+
+            }
+
+            return null;
+
+          },
+
           // PAGE CONTENT
           pageBuilder: (context, state) {
             return CustomTransitionPage(
@@ -361,6 +366,45 @@ final GoRouter app_router = GoRouter(
 
           // SUBROUTES
           routes: [
+
+            // 01 DONATION REMINDER PAGE - donation_reminder
+            GoRoute(
+
+              // PAGE PATH
+              path: 'donation_reminder_page',
+
+              // PAGE NAME
+              name: 'donation_reminder_page',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: DonationReminderPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset(0, 1), // Cambia per la direzione
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+
+                  },
+
+                );
+
+              },
+
+            ),
 
             // 01 SELECT GAME TYPE PAGE - game_type
             GoRoute(
@@ -406,7 +450,7 @@ final GoRouter app_router = GoRouter(
               // PAGE REDIRECT CONDITIONS
               redirect: (context, state) {
 
-                // GETTING THE DECK WRAPPER
+                // GETTING THE DATA WRAPPER
                 final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
 
                 // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
@@ -453,7 +497,7 @@ final GoRouter app_router = GoRouter(
               // PAGE REDIRECT CONDITIONS
               redirect: (context, state) {
 
-                // GETTING THE DECK WRAPPER
+                // GETTING THE DATA WRAPPER
                 final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
 
                 // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
@@ -500,7 +544,7 @@ final GoRouter app_router = GoRouter(
               // PAGE REDIRECT CONDITIONS
               redirect: (context, state) {
 
-                // GETTING THE DECK WRAPPER
+                // GETTING THE DATA WRAPPER
                 final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
 
                 // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
@@ -547,7 +591,7 @@ final GoRouter app_router = GoRouter(
               // PAGE REDIRECT CONDITIONS
               redirect: (context, state) {
 
-                // GETTING THE DECK WRAPPER
+                // GETTING THE DATA WRAPPER
                 final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
 
                 // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
@@ -594,7 +638,7 @@ final GoRouter app_router = GoRouter(
               // PAGE REDIRECT CONDITIONS
               redirect: (context, state) {
 
-                // GETTING THE DECK WRAPPER
+                // GETTING THE DATA WRAPPER
                 final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
 
                 // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
@@ -641,7 +685,7 @@ final GoRouter app_router = GoRouter(
               // PAGE REDIRECT CONDITIONS
               redirect: (context, state) {
 
-                // GETTING THE DECK WRAPPER
+                // GETTING THE DATA WRAPPER
                 final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
 
                 // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
@@ -688,7 +732,7 @@ final GoRouter app_router = GoRouter(
               // PAGE REDIRECT CONDITIONS
               redirect: (context, state) {
 
-                // GETTING THE DECK WRAPPER
+                // GETTING THE DATA WRAPPER
                 final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
 
                 // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE

@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 
-import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
+
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 // HIVE
 import 'package:hive_flutter/hive_flutter.dart';
@@ -49,6 +49,12 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
   // INITIALING THE REVIEW LINK
   String review_link = "";
+
+  // DEFINING THE APP STARTUP NUMBER VAR
+  late int app_startup_counter;
+
+  // INITIALIZING THE POP UP WRAPPER OBJECT
+  PlayPagePopUpWrapper? pop_up_wrapper_object;
 
 
   //------------------------------------------------------------------------------
@@ -88,29 +94,53 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
         }
 
-        // LOADING THE APP PREFERENCE
-        prefs = await SharedPreferences.getInstance();
-
         // CHECKING IF THERE ARE PREVIOUS MATCH DATA
         await check_previous_data_presence();
 
-        // CHECKING IF IS NECESSARY TO SHOW THE SPLASH SCREEN
-        await check_splash_screen();
+        // LOADING THE APP PREFERENCE
+        prefs = await SharedPreferences.getInstance();
 
-        // CHECKING IF IS NECESSARY TO SHOW THE DONATION REMINDER
-        await check_donation_reminder();
+        // LOADING THE APP STARTUP NUMBER
+        app_startup_counter = prefs.getInt('app_startup_counter') ?? 0;
 
-        // CHECKING IF IS NECESSARY TO SHOW THE REVIEW REMINDER
-        await check_review_reminder();
+        // GETTING THE DATA FROM THE PROVIDER
+        pop_up_wrapper_object = Provider.of<PlayPagePopUpWrapperProvider>(context, listen: false).wrapperData;
 
-        // CONVERTING LEGACY DECKS ON ANDROID IF THEY EXISTS
-        if (!kIsWeb) {
+        // CHECKING IF THE WRAPPER OBJECT EXIST
+        pop_up_wrapper_object ??= PlayPagePopUpWrapper(session_check: false);
 
-          await DeckManagement.convert_legacy_custom_decks_to_hive();
+        // CHECKING IF THE GAME WAS PLAYED A MINIMUM NUMBER OF TIMES AND IF WE ARE IN THE INSTANCE
+        if (app_startup_counter > 2 && pop_up_wrapper_object!.session_check == false) {
+
+          // SETTING THE SESSION CHECK
+          pop_up_wrapper_object!.session_check = true;
+
+          // SAVING THE SESSION CHECK
+          Provider.of<PlayPagePopUpWrapperProvider>(context, listen: false).updateWrapperData(pop_up_wrapper_object);
+
+          // CHECKING IF THE COUNTER IS DIVISIBLE FOR 3
+          if (app_startup_counter % 1 == 0) {
+
+            // AWAIT 0.2 SECONDS BEFORE LOADING THE PAGE
+            await Future.delayed(Duration(milliseconds: 200));
+
+            // SHOWING THE DONATION REMINDER PAGE
+            context.push('/play/donation_reminder_page');
+
+          } else if (app_startup_counter % 5 == 0) {
+
+            // AWAIT 0.2 SECONDS BEFORE LOADING THE PAGE
+            await Future.delayed(Duration(milliseconds: 200));
+
+            // SHOWING THE REVIEW REMINDER DIALOG
+            show_review_dialog(context);
+
+          }
 
         }
 
       });
+
     });
 
   }
@@ -133,201 +163,6 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
   //------------------------------------------------------------------------------
 
-  // CHECKING IF IS THE FIRST TIME THAT THE APP IS OPENED IN ORDER TO SHOW THE SPLASH SCREEN
-  Future<void> check_splash_screen () async {
-
-    // GETTING THE SPLASH SCREEN PREFERENCE, IF THERE ARE NOT SETTING IT TO ZERO
-    bool show_splash_screen = prefs.getBool('show_splash_screen') ?? true;
-
-    // CHECKING IF IS NECESSARY TO SHOW THE SPLASH SCREEN
-    if (show_splash_screen) {
-
-      // SHOWING THE SPLASH SCREEN
-      show_splash_screen_dialog(context);
-
-      // SETTING THE SPLASH SCREEN AS SHOWED
-      await prefs.setBool('show_splash_screen', false);
-
-    }
-
-  }
-
-  // APP SPLASH SCREEN DIALOG
-  void show_splash_screen_dialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-
-        //------------------------------------------------------------------------------
-
-        // DIALOG DEFINITION
-        return Dialog(
-
-          // DIALOG CONTENT
-          child: ConstrainedBox(
-
-            // SETTING MAX DIMENSIONS
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height * 0.9,
-              maxWidth: 500,
-            ),
-
-            // MAKING CONTENT SCROLLABLE IF NECESSARY
-            child: SingleChildScrollView(
-
-              // PAGE PADDING
-              child: Padding(
-                padding: EdgeInsets.all(15),
-
-                // PAGE CONTENT
-                child: Column(
-
-                  // SIZE
-                  mainAxisSize: MainAxisSize.min,
-
-                  // ALIGNMENT
-                  crossAxisAlignment: CrossAxisAlignment.center,
-
-                  // COLUMN CONTENT
-                  children: [
-
-                    //------------------------------------------------------------------------------
-
-                    // DIALOG TITLE
-                    Text(
-
-                      // TEXT
-                      AppLocalizations.of(context)!.app_splash_screen_title,
-
-                      // ALIGNMENT
-                      textAlign: TextAlign.center,
-
-                      // STYLE
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // DIALOG CONTENT
-                    Markdown(
-
-                      // LETTING THE CONTAINER TO ADAPT THE CONTENT
-                      shrinkWrap: true,
-
-                      // TEXT
-                      data: AppLocalizations.of(context)!.app_splash_screen_content,
-
-                      // DISABLING INTERNAL SCROLLING
-                      physics: NeverScrollableScrollPhysics(),
-
-                      // STYLE
-                      styleSheet: MarkdownStyleSheet(
-                        p: TextStyle(fontSize: 16, color: Colors.white),
-                        strong: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
-                        em: TextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: Colors.white70),
-                        blockquote: TextStyle(fontSize: 16, fontStyle: FontStyle.italic, color: Colors.grey),
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                    // SPACER
-                    SizedBox(height: 15),
-
-                    //------------------------------------------------------------------------------
-
-                    // EXIT BUTTON
-                    TextButton(
-
-                      // STYLE
-                      style: ButtonStyle(
-                        foregroundColor: WidgetStateProperty.all(
-                            Theme.of(context).colorScheme.onPrimary),
-                        backgroundColor: WidgetStateProperty.all(
-                            Theme.of(context).colorScheme.secondary),
-                        padding: WidgetStateProperty.all(
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5)),
-                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                        ),
-                      ),
-
-                      // FUNCTION
-                      onPressed: () => Navigator.of(context).pop(),
-
-                      // BUTTON CONTENT
-                      child: Text(
-
-                        // TEXT
-                        AppLocalizations.of(context)!.app_splash_screen_close_button_label,
-
-                      ),
-
-                    ),
-
-                    //------------------------------------------------------------------------------
-
-                  ],
-
-                ),
-
-              ),
-
-            ),
-
-          ),
-
-        );
-
-      },
-
-    );
-
-  }
-
-  //------------------------------------------------------------------------------
-
-  // INCREASING THE PLAYED GAME COUNTER IN THE PREFERENCES
-  Future<void> increasing_played_game_counter() async {
-
-    // LOADING THE APP PREFERENCES
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    // GETTING THE PLAYED GAMES NUMBER, IF THERE ARE NOT SETTING IT TO ZERO
-    int played_games = prefs.getInt('played_games') ?? 1;
-
-    // INCREASING THE COUNTER
-    played_games = played_games +1;
-
-    // SAVING THE COUNTER IN THE PREFERENCES
-    await prefs.setInt('played_games', played_games);
-
-  }
-
-  // CHECKING IF THE USER HAS PLAYED ENOUGH GAME TO SHOW A DONATION REMINDER
-  Future<void> check_donation_reminder() async {
-
-    // GETTING THE PLAYED GAMES NUMBER, IF THERE ARE NOT SETTING IT TO ZERO
-    int played_games = prefs.getInt('played_games') ?? 1;
-
-    // CHECKING IF THE USER HAS PLAYED A NUMBER OF MATCH THAT IS DIVISIBLE BY 3
-    if (played_games % 3 == 0) {
-
-      // SHOWING THE DONATION REMINDER DIALOG
-      show_donation_dialog(context);
-
-    }
-
-  }
-
   // DONATION REMINDER DIALOG
   void show_donation_dialog(BuildContext context) {
     showDialog(
@@ -341,7 +176,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
           title: Text(
 
             // TEXT
-            AppLocalizations.of(context)!.donation_reminder_dialog_title,
+            AppLocalizations.of(context)!.donation_reminder_dialog_donate_button_label,
 
             // ALIGNMENT
             textAlign: TextAlign.center,
@@ -367,7 +202,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
               child: Text(
 
                 // TEXT
-                AppLocalizations.of(context)!.donation_reminder_dialog_content,
+                AppLocalizations.of(context)!.donation_reminder_dialog_donate_button_label,
 
                 // ALIGNMENT
                 textAlign: TextAlign.center,
@@ -453,7 +288,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
                   child: Text(
 
                     // TEXT
-                    AppLocalizations.of(context)!.app_splash_screen_close_button_label,
+                    AppLocalizations.of(context)!.donation_reminder_dialog_close_button_label,
 
                   ),
 
@@ -473,22 +308,6 @@ class _PlayMainPageState extends State<PlayMainPage> {
       },
 
     );
-
-  }
-
-  // CHECKING IF THE USER HAS PLAYED ENOUGH GAME TO SHOW A REVIEW REMINDER
-  Future<void> check_review_reminder() async {
-
-    // GETTING THE PLAYED GAMES NUMBER, IF THERE ARE NOT SETTING IT TO ZERO
-    int played_games = prefs.getInt('played_games') ?? 1;
-
-    // CHECKING IF THE USER HAS PLAYED A NUMBER OF MATCH THAT IS DIVISIBLE BY 3
-    if (played_games % 5 == 0) {
-
-      // SHOWING THE DONATION REMINDER DIALOG
-      show_review_dialog(context);
-
-    }
 
   }
 
@@ -617,7 +436,7 @@ class _PlayMainPageState extends State<PlayMainPage> {
                   child: Text(
 
                     // TEXT
-                    AppLocalizations.of(context)!.app_splash_screen_close_button_label,
+                    AppLocalizations.of(context)!.review_reminder_dialog_close_button_label,
 
                   ),
 
@@ -773,10 +592,13 @@ class _PlayMainPageState extends State<PlayMainPage> {
                     ),
 
                     // ON PRESSED CALL
-                    onPressed: () {
+                    onPressed: () async {
 
-                      // INCREASING THE PLAYED GAME COUNTER
-                      increasing_played_game_counter();
+                      // UPDATING THE COUNTER
+                      app_startup_counter++;
+
+                      // SAVING THE UPDATED COUNTER IN THE PREFERENCES
+                      await prefs.setInt('app_startup_counter', app_startup_counter);
 
                       // RESETTING THE MATCH DATA INSIDE THE PROVIDER
                       Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(null);

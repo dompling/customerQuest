@@ -118,7 +118,7 @@ class _SelectPlayersTypePageState extends State<SelectPlayersTypePage> {
                   child: Text(
 
                     // TEXT
-                    AppLocalizations.of(context)!.app_splash_screen_close_button_label,
+                    AppLocalizations.of(context)!.online_play_disclaimer_dialog_close_button_label,
 
                   ),
 

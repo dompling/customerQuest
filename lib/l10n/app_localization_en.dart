@@ -12,145 +12,151 @@ class AppLocalizationsEn extends AppLocalizations {
   String get app_presentation_welcome_page_title => 'Welcome';
 
   @override
-  String get app_presentation_welcome_page_section_1_title => 'Live an amazing journey';
+  String get app_presentation_welcome_page_section_1_title => 'Embark on an unforgettable journey';
 
   @override
-  String get app_presentation_welcome_page_section_1_subtitle => 'Get ready for a series of unforgettable adventures with your partner.';
+  String get app_presentation_welcome_page_section_1_subtitle => 'Experience a series of unique adventures designed for you and your partner.';
 
   @override
-  String get app_presentation_welcome_page_section_2_title => 'Suitable for all couples';
+  String get app_presentation_welcome_page_section_2_title => 'Perfect for every couple';
 
   @override
-  String get app_presentation_welcome_page_section_2_subtitle => 'No matter how long you’ve been together, you’ll have the chance to grow closer and enhance your intimacy.';
+  String get app_presentation_welcome_page_section_2_subtitle => 'No matter how long you\'ve been together, deepen your connection and discover new forms of intimacy.';
 
   @override
   String get app_presentation_welcome_page_section_3_title => 'A world of curated content';
 
   @override
-  String get app_presentation_welcome_page_section_3_subtitle => 'Discover a wide selection of ready-to-use material for every need and preference';
+  String get app_presentation_welcome_page_section_3_subtitle => 'Explore a rich library of ready-to-use material for all needs and preferences.';
 
   @override
   String get app_presentation_game_modes_page_title => 'Play your way';
 
   @override
-  String get app_presentation_game_modes_page_section_1_title => 'Enjoy your time together';
+  String get app_presentation_game_modes_page_section_1_title => 'Enjoy quality time together';
 
   @override
-  String get app_presentation_game_modes_page_section_1_subtitle => 'Whether you’re playing locally or online, you can always have fun with your partner.';
+  String get app_presentation_game_modes_page_section_1_subtitle => 'Whether locally or online, there\'s always fun to share with your partner.';
 
   @override
-  String get app_presentation_game_modes_page_section_2_title => 'LGBTQ+ friendly';
+  String get app_presentation_game_modes_page_section_2_title => 'Inclusive for everyone';
 
   @override
-  String get app_presentation_game_modes_page_section_2_subtitle => 'No matter who you are, our game is designed for everyone to enjoy.';
+  String get app_presentation_game_modes_page_section_2_subtitle => 'Whoever you are, our game is crafted for universal enjoyment.';
 
   @override
-  String get app_presentation_game_modes_page_section_3_title => 'You decide';
+  String get app_presentation_game_modes_page_section_3_title => 'You\'re in control';
 
   @override
-  String get app_presentation_game_modes_page_section_3_subtitle => 'Set your own pace and skip any quest you like—comfort always comes first.';
+  String get app_presentation_game_modes_page_section_3_subtitle => 'Set your pace and skip any quest you wish—comfort and consent always come first.';
 
   @override
   String get app_presentation_customization_page_title => 'Unique, just like you';
 
   @override
-  String get app_presentation_customization_page_section_1_title => 'Create your own adventures';
+  String get app_presentation_customization_page_section_1_title => 'Create your adventures';
 
   @override
-  String get app_presentation_customization_page_section_1_subtitle => 'Surprise your partner with a personalized experience tailored to your unique tastes.';
+  String get app_presentation_customization_page_section_1_subtitle => 'Delight your partner with a tailor-made experience that reflects your personalities.';
 
   @override
-  String get app_presentation_customization_page_section_2_title => 'Extensive toy support';
+  String get app_presentation_customization_page_section_2_title => 'Broad toy compatibility';
 
   @override
-  String get app_presentation_customization_page_section_2_subtitle => 'Enjoy full support for a wide range of toys and practices.';
+  String get app_presentation_customization_page_section_2_subtitle => 'Enjoy seamless support for a broad range of toys and activities.';
 
   @override
-  String get app_presentation_customization_page_section_3_title => 'Easy-to-use editor';
+  String get app_presentation_customization_page_section_3_title => 'User-friendly editor';
 
   @override
-  String get app_presentation_customization_page_section_3_subtitle => 'Designing your exclusive experience is easy and smooth with our intuitive editor.';
+  String get app_presentation_customization_page_section_3_subtitle => 'Designing your exclusive experience is smooth and intuitive with our editor.';
 
   @override
   String get app_presentation_privacy_page_title => 'Privacy comes first';
 
   @override
-  String get app_presentation_privacy_page_section_1_title => 'No data tracking';
+  String get app_presentation_privacy_page_section_1_title => 'No tracking, ever';
 
   @override
-  String get app_presentation_privacy_page_section_1_subtitle => 'We never share or collect your personal data — not even with the developers.';
+  String get app_presentation_privacy_page_section_1_subtitle => 'Your personal data remains yours—never collected or shared, not even with us.';
 
   @override
-  String get app_presentation_privacy_page_section_2_title => 'No external access';
+  String get app_presentation_privacy_page_section_2_title => 'No outside connections';
 
   @override
-  String get app_presentation_privacy_page_section_2_subtitle => 'The app never connects to external sites, and it never will.';
+  String get app_presentation_privacy_page_section_2_subtitle => 'The app never connects to external servers, now or in the future.';
 
   @override
-  String get app_presentation_privacy_page_section_3_title => 'Open source and transparent';
+  String get app_presentation_privacy_page_section_3_title => 'Open source & transparent';
 
   @override
-  String get app_presentation_privacy_page_section_3_subtitle => 'All our source code is available on GitHub — transparency is our priority.';
+  String get app_presentation_privacy_page_section_3_subtitle => 'Our source code is public on GitHub—openness and transparency above all.';
 
   @override
-  String get app_presentation_web_app_page_title => 'Discover the web app';
+  String get app_presentation_web_app_page_title => 'Try the web app';
 
   @override
-  String get app_presentation_web_app_page_section_1_title => 'Works on every device';
+  String get app_presentation_web_app_page_section_1_title => 'Accessible everywhere';
 
   @override
-  String get app_presentation_web_app_page_section_1_subtitle => 'Access the web app version from iOS, Android, or Desktop.';
+  String get app_presentation_web_app_page_section_1_subtitle => 'Use the web version on iOS, Android, or Desktop—no installation needed.';
 
   @override
-  String get app_presentation_web_app_page_section_2_title => 'Privacy even online';
+  String get app_presentation_web_app_page_section_2_title => 'Privacy in the cloud';
 
   @override
-  String get app_presentation_web_app_page_section_2_subtitle => 'The website never stores your personal information — all your data stays safely in your browser.';
+  String get app_presentation_web_app_page_section_2_subtitle => 'Your data always stays in your browser—nothing is ever uploaded or tracked.';
 
   @override
   String get app_presentation_web_app_page_section_3_title => 'How to access';
 
   @override
-  String get app_presentation_web_app_page_section_3_subtitle => 'Find the web app link and more info in the app settings.';
+  String get app_presentation_web_app_page_section_3_subtitle => 'Find the web app link and details in the app settings.';
 
   @override
-  String get app_presentation_donation_page_title => 'We need your help';
+  String get app_presentation_donation_page_title => 'Support our mission';
 
   @override
-  String get app_presentation_donation_page_section_1_title => 'Free forever';
+  String get app_presentation_donation_page_section_1_title => 'Always free to use';
 
   @override
-  String get app_presentation_donation_page_section_1_subtitle => 'Support us to keep the project free for everyone, forever.';
+  String get app_presentation_donation_page_section_1_subtitle => 'Your help keeps this project accessible to everyone, forever.';
 
   @override
   String get app_presentation_donation_page_section_2_title => 'No ads, ever';
 
   @override
-  String get app_presentation_donation_page_section_2_subtitle => 'You\'ll never see ads — with your help, we can keep it that way.';
+  String get app_presentation_donation_page_section_2_subtitle => 'You\'ll never see ads—your support lets us keep it that way.';
 
   @override
-  String get app_presentation_donation_page_section_3_title => 'Transparency and privacy';
+  String get app_presentation_donation_page_section_3_title => 'Transparent and private';
 
   @override
-  String get app_presentation_donation_page_section_3_subtitle => 'Support us if you value privacy and open-source software.';
+  String get app_presentation_donation_page_section_3_subtitle => 'Support us if you believe in privacy and open source for all.';
 
   @override
-  String get app_splash_screen_title => 'Thank you !';
+  String get navbar_play_button_label => 'Play';
 
   @override
-  String get app_splash_screen_content => 'Thank you for downloading _Loverquest_! We hope you enjoy our game.\n\nOur goal is to provide you with a fun, discreet, safe, and interactive experience. Our app **does not collect any personal data, does not access the Internet, and does not display ads**.\n\nWe firmly believe that intimacy should be respected. That’s why we are committed to ensuring **maximum privacy**. _Loverquest_ is an **open-source project**, so you can check the source code at any time to verify the app’s transparency and integrity for yourself.\n\nWhen playing with a partner, always remember to **respect their boundaries and never force them to do anything against their will**.\n\nThe actions suggested by the game are designed purely for fun and **do not encourage any form of coercion or sexual violence**.\n\nIf you or your partner feel uncomfortable, you can always **skip any action** you don’t like.\n\nThis project is developed on a voluntary basis and is supported by **user donations**. If you enjoy Loverquest and want to support it, consider making a donation to help us keep it running and improve it.\n\nThe _Loverquest_ team wishes you lots of fun!';
+  String get navbar_decks_button_label => 'Decks';
 
   @override
-  String get app_splash_screen_close_button_label => 'Close';
+  String get navbar_settings_button_label => 'Settings';
 
   @override
-  String get donation_reminder_dialog_title => 'Help us !';
+  String get online_play_disclaimer_dialog_title => 'Warning !';
 
   @override
-  String get donation_reminder_dialog_content => 'If you enjoyed Loverquest and want to support it, consider making a donation to help us keep it running and continue improving it.';
+  String get online_play_disclaimer_dialog_content => 'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n';
+
+  @override
+  String get online_play_disclaimer_dialog_close_button_label => 'Close';
 
   @override
   String get donation_reminder_dialog_donate_button_label => 'Donate';
+
+  @override
+  String get donation_reminder_dialog_close_button_label => 'Close';
 
   @override
   String get review_reminder_dialog_title => 'Help us !';
@@ -162,19 +168,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get review_reminder_dialog_review_button_label => 'Support us';
 
   @override
-  String get online_play_disclaimer_dialog_title => 'Warning !';
-
-  @override
-  String get online_play_disclaimer_dialog_content => 'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n';
-
-  @override
-  String get navbar_play_button_label => 'Play';
-
-  @override
-  String get navbar_decks_button_label => 'Decks';
-
-  @override
-  String get navbar_settings_button_label => 'Settings';
+  String get review_reminder_dialog_close_button_label => 'Close';
 
   @override
   String get play_main_page_title => 'Loverquest';

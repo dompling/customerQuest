@@ -9,7 +9,6 @@ import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 
 //------------------------------------------------------------------------------
 
-
 // WRAPPER CLASS FOR OBJECT EXCHANGE INSIDE DECKS PAGES
 class DeckPagesWrapper {
 
@@ -49,10 +48,38 @@ class DeckWrapperProvider extends ChangeNotifier {
   }
 }
 
+//------------------------------------------------------------------------------
 
+// WRAPPER CLASS FOR OBJECT EXCHANGE INSIDE DECKS PAGES
+class PlayPagePopUpWrapper {
 
+  // CLASS ATTRIBUTES
+  bool session_check;
 
+  // CLASS CONSTRUCTOR
+  PlayPagePopUpWrapper({
 
+    this.session_check = false,
+
+  });
+
+}
+
+// DECK WRAPPER DATA CLASS FOR PROVIDER SAVING
+class PlayPagePopUpWrapperProvider extends ChangeNotifier {
+
+  // CLASS ATTRIBUTES
+  PlayPagePopUpWrapper? _wrapperData;
+
+  // WRAPPER GETTER FUNCTION
+  PlayPagePopUpWrapper? get wrapperData => _wrapperData;
+
+  // FUNCTION TO UPDATE THE WRAPPER DATA
+  void updateWrapperData(PlayPagePopUpWrapper? newData) {
+    _wrapperData = newData;
+    notifyListeners();
+  }
+}
 
 
 
