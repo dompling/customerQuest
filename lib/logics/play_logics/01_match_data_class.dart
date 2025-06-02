@@ -1,6 +1,7 @@
 //------------------------------------------------------------------------------
 
 // CUSTOM FILES
+import 'package:flutter/material.dart';
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 
@@ -122,10 +123,21 @@ class MatchData {
     );
   }
 
-//------------------------------------------------------------------------------
-
-
+  //------------------------------------------------------------------------------
 
 }
 
 //------------------------------------------------------------------------------
+
+// MATCH DATA CLASS FOR PROVIDER SAVING
+class MatchDataProvider extends ChangeNotifier {
+
+  MatchData? _matchData;
+
+  MatchData? get matchData => _matchData;
+
+  void updateMatchData(MatchData? newData) {
+    _matchData = newData;
+    notifyListeners();
+  }
+}

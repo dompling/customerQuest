@@ -3,11 +3,11 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
-
-import 'package:loverquest/pages/play_pages/02_select_players_type_page.dart';
 
 //------------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ class SelectGameTypePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // CREATION OF THE MATCH DATA OBJECT
+    // INITIALIZING THE MATCH DATA OBJECT
     MatchData match_data = MatchData();
 
     // PAGE CONTENT
@@ -155,17 +155,11 @@ class SelectGameTypePage extends StatelessWidget {
                         // SETTING THE MATCH DATA GAME TYPE
                         match_data.play_local = true;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-
-                            // OPEN NEW PAGE
-                            builder: (context) => SelectPlayersTypePage(match_data: match_data),
-
-                          ),
-
-                        );
+                        context.push('/play/players_type', extra: match_data);
 
                       },
 
@@ -320,17 +314,11 @@ class SelectGameTypePage extends StatelessWidget {
                         // SETTING THE MATCH DATA GAME TYPE
                         match_data.play_local = false;
 
+                        // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
+
                         // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-
-                            // OPEN NEW PAGE
-                            builder: (context) => SelectPlayersTypePage(match_data: match_data),
-
-                          ),
-
-                        );
+                        context.push('/play/online_safety_reminder');
 
                       },
 

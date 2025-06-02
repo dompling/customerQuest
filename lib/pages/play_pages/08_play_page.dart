@@ -6,10 +6,12 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:loverquest/l10n/app_localization.dart';
 import 'package:loverquest/logics/play_logics/05_timer_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:flutter_debouncer/flutter_debouncer.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
+import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
@@ -19,24 +21,14 @@ import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/play_logics/04_quest_management.dart';
 import 'package:loverquest/logics/play_logics/06_game_storage_class.dart';
 
-import 'package:loverquest/main.dart';
-
 //------------------------------------------------------------
 
 
 // DECK SELECTION PAGE DEFINITION
 class PlayPage extends StatefulWidget {
 
-  // CLASS ATTRIBUTES
-  final MatchData initial_match_data;
-  final Quest? loaded_current_quest;
-
   // CLASS CONSTRUCTOR
-  const PlayPage({
-    required this.initial_match_data,
-    this.loaded_current_quest,
-    super.key,
-  });
+  const PlayPage({super.key,});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -55,15 +47,11 @@ class _PlayPageState extends State<PlayPage> {
 
   //------------------------------------------------------------------------------
 
-  // DEFINING THE IS MATCH DATA VARIABLE
-  late MatchData match_data;
-  
-  //------------------------------------------------------------------------------
+  // INITIALIZING THE MATCH DATA OBJECT VAR
+  MatchData match_data = MatchData();
 
   // DEFINING THE IS LOADING VARIABLE
   bool is_loading = true;
-
-  //------------------------------------------------------------------------------
 
   // DEFINING THE BUTTON DISABLED FLAG
   late final Debouncer _buttonDebouncer;
@@ -71,23 +59,18 @@ class _PlayPageState extends State<PlayPage> {
   // INITIALIZING THE NO MORE QUESTS FLAG
   bool no_more_quests = false;
 
-  //------------------------------------------------------------------------------
-
   // INITIALIZING THE PLAYERS VARIABLES
   late Players current_player;
-
-  //------------------------------------------------------------------------------
 
   // DEFINING THE TIMER VARIABLES
   late bool show_timer;
   TimerController timer_controller = TimerController(totalSeconds: 0);
 
-  //------------------------------------------------------------------------------
-
   // DEFINING THE QUEST VARIABLES
   int partial_score = 0;
   late String end_quest_type;
   late String start_quest_type;
+  late Quest last_quest;
 
   //------------------------------------------------------------------------------
 
@@ -189,21 +172,15 @@ class _PlayPageState extends State<PlayPage> {
     super.initState();
 
     //------------------------------------------------------------------------------
-    
-    // INITIALIZING THE MATCH DATA VAR
-    match_data = widget.initial_match_data;
-    
-    //------------------------------------------------------------------------------
+
+    // GETTING THE DATA FROM THE PROVIDER
+    match_data = Provider.of<MatchDataProvider>(context, listen: false).matchData!;
 
     // INITIAL PAGE PREPARATION FUNCTION
     page_preparation();
 
-    //------------------------------------------------------------------------------
-
     // ENABLING THE ALWAYS ON DISPLAY
     WakelockPlus.enable();
-
-    //------------------------------------------------------------------------------
 
     // INITIALIZING THE BUTTON DOUBLE CLICK CONTROLLER
     _buttonDebouncer = Debouncer();
@@ -236,7 +213,7 @@ class _PlayPageState extends State<PlayPage> {
     //------------------------------------------------------------------------------
 
     // GETTING THE FIRST QUEST
-    if (widget.loaded_current_quest == null) {
+    if (match_data.current_quest.moment == "none") {
 
       // LOADING THE PLAYERS QUEST LISTS
       match_data = load_players_quest_lists(match_data);
@@ -251,14 +228,13 @@ class _PlayPageState extends State<PlayPage> {
 
       // SETTING THE INITIAL QUEST
       match_data.current_quest = select_random_quest(current_player.player_current_quest_list);
+      last_quest = match_data.current_quest;
 
     } else {
 
       // GETTING THE END QUEST TYPE
       end_quest_type = getting_end_quest_type(match_data);
-
-      // SETTING THE INITIAL QUEST
-      match_data.current_quest = widget.loaded_current_quest!;
+      last_quest = match_data.current_quest;
 
     }
 
@@ -327,7 +303,7 @@ class _PlayPageState extends State<PlayPage> {
     //------------------------------------------------------------------------------
 
     // DEFINING THE FUNCTION THAT WILL CHANGE THE CURRENT PLAYER
-    Future<void> switch_playing_player() async{
+    Future<void> change_quest_and_switch_playing_player() async{
 
       //------------------------------------------------------------------------------
 
@@ -407,8 +383,21 @@ class _PlayPageState extends State<PlayPage> {
           // CHECKING IF IS POSSIBLE TO GET A NEW QUEST
           if(current_player.player_current_quest_list.isNotEmpty && match_data.current_quest.moment != end_quest_type) {
 
-            // GETTING THE NEW QUEST
-            match_data.current_quest = select_random_quest(current_player.player_current_quest_list);
+            // DEFINING THE SAFETY COUNTER+
+            int safety_counter = 0;
+
+            do {
+
+              // GETTING THE NEW QUEST
+              match_data.current_quest = select_random_quest(current_player.player_current_quest_list);
+
+              // CHECKING IF IS USELESS TO CONTINUE TO TRY TO GET A DIFFERENT QUEST
+              if (current_player.player_current_quest_list.length == 1) {break;}
+
+              // UPDATING THE SAFETY COUNTER
+              safety_counter++;
+
+            } while (match_data.current_quest.content == last_quest.content && safety_counter < 5);
 
             // CHECKING IF IS NECESSARY TO SHOW THE TIMER
             check_if_show_timer(match_data.current_quest);
@@ -425,8 +414,21 @@ class _PlayPageState extends State<PlayPage> {
             // CHECKING IF THE CURRENT PLAYER HAS AT LEAST ONE QUEST TO PLAY
             if(current_player.player_current_quest_list.isNotEmpty) {
 
-              // GETTING THE NEW QUEST
-              match_data.current_quest = select_random_quest(current_player.player_current_quest_list);
+              // DEFINING THE SAFETY COUNTER+
+              int safety_counter = 0;
+
+              do {
+
+                // GETTING THE NEW QUEST
+                match_data.current_quest = select_random_quest(current_player.player_current_quest_list);
+
+                // CHECKING IF IS USELESS TO CONTINUE TO TRY TO GET A DIFFERENT QUEST
+                if (current_player.player_current_quest_list.length == 1) {break;}
+
+                // UPDATING THE SAFETY COUNTER
+                safety_counter++;
+
+              } while (match_data.current_quest.content == last_quest.content && safety_counter < 5);
 
               // CHECKING IF IS NECESSARY TO SHOW THE TIMER
               check_if_show_timer(match_data.current_quest);
@@ -796,11 +798,7 @@ class _PlayPageState extends State<PlayPage> {
                           onPressed: () {
 
                             // PAGE LINKER
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => const MainScreen()),
-                                  (Route<dynamic> route) => false,
-                            );
+                            context.go('/play');
 
                           },
 
@@ -1107,7 +1105,7 @@ class _PlayPageState extends State<PlayPage> {
                                           _buttonDebouncer.debounce(
                                             duration: Duration(milliseconds: 100),
                                             onDebounce: () async {
-                                              await switch_playing_player();
+                                              await change_quest_and_switch_playing_player();
                                             },
                                           );
                                         },

@@ -66,7 +66,8 @@ import 'app_localization_nl.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -74,7 +75,8 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -86,7 +88,8 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -103,71 +106,257 @@ abstract class AppLocalizations {
     Locale('nl')
   ];
 
-  /// No description provided for @app_splash_screen_title.
+  /// No description provided for @app_presentation_welcome_page_title.
   ///
   /// In en, this message translates to:
-  /// **'Thank you !'**
-  String get app_splash_screen_title;
+  /// **'Welcome'**
+  String get app_presentation_welcome_page_title;
 
-  /// No description provided for @app_splash_screen_content.
+  /// No description provided for @app_presentation_welcome_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Thank you for downloading _Loverquest_! We hope you enjoy our game.\n\nOur goal is to provide you with a fun, discreet, safe, and interactive experience. Our app **does not collect any personal data, does not access the Internet, and does not display ads**.\n\nWe firmly believe that intimacy should be respected. That’s why we are committed to ensuring **maximum privacy**. _Loverquest_ is an **open-source project**, so you can check the source code at any time to verify the app’s transparency and integrity for yourself.\n\nWhen playing with a partner, always remember to **respect their boundaries and never force them to do anything against their will**.\n\nThe actions suggested by the game are designed purely for fun and **do not encourage any form of coercion or sexual violence**.\n\nIf you or your partner feel uncomfortable, you can always **skip any action** you don’t like.\n\nThis project is developed on a voluntary basis and is supported by **user donations**. If you enjoy Loverquest and want to support it, consider making a donation to help us keep it running and improve it.\n\nThe _Loverquest_ team wishes you lots of fun!'**
-  String get app_splash_screen_content;
+  /// **'Embark on an unforgettable journey'**
+  String get app_presentation_welcome_page_section_1_title;
 
-  /// No description provided for @app_splash_screen_close_button_label.
+  /// No description provided for @app_presentation_welcome_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Close'**
-  String get app_splash_screen_close_button_label;
+  /// **'Experience a series of unique adventures designed for you and your partner.'**
+  String get app_presentation_welcome_page_section_1_subtitle;
 
-  /// No description provided for @donation_reminder_dialog_title.
+  /// No description provided for @app_presentation_welcome_page_section_2_title.
   ///
   /// In en, this message translates to:
-  /// **'Help us !'**
-  String get donation_reminder_dialog_title;
+  /// **'Perfect for every couple'**
+  String get app_presentation_welcome_page_section_2_title;
 
-  /// No description provided for @donation_reminder_dialog_content.
+  /// No description provided for @app_presentation_welcome_page_section_2_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'If you enjoyed Loverquest and want to support it, consider making a donation to help us keep it running and continue improving it.'**
-  String get donation_reminder_dialog_content;
+  /// **'No matter how long you\'ve been together, deepen your connection and discover new forms of intimacy.'**
+  String get app_presentation_welcome_page_section_2_subtitle;
 
-  /// No description provided for @donation_reminder_dialog_donate_button_label.
+  /// No description provided for @app_presentation_welcome_page_section_3_title.
   ///
   /// In en, this message translates to:
-  /// **'Donate'**
-  String get donation_reminder_dialog_donate_button_label;
+  /// **'A world of curated content'**
+  String get app_presentation_welcome_page_section_3_title;
 
-  /// No description provided for @review_reminder_dialog_title.
+  /// No description provided for @app_presentation_welcome_page_section_3_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Help us !'**
-  String get review_reminder_dialog_title;
+  /// **'Explore a rich library of ready-to-use material for all needs and preferences.'**
+  String get app_presentation_welcome_page_section_3_subtitle;
 
-  /// No description provided for @review_reminder_dialog_content.
+  /// No description provided for @app_presentation_game_modes_page_title.
   ///
   /// In en, this message translates to:
-  /// **'If you enjoyed Loverquest and want to support it, consider leaving a review.'**
-  String get review_reminder_dialog_content;
+  /// **'Play your way'**
+  String get app_presentation_game_modes_page_title;
 
-  /// No description provided for @review_reminder_dialog_review_button_label.
+  /// No description provided for @app_presentation_game_modes_page_section_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Support us'**
-  String get review_reminder_dialog_review_button_label;
+  /// **'Enjoy quality time together'**
+  String get app_presentation_game_modes_page_section_1_title;
 
-  /// No description provided for @online_play_disclaimer_dialog_title.
+  /// No description provided for @app_presentation_game_modes_page_section_1_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Warning !'**
-  String get online_play_disclaimer_dialog_title;
+  /// **'Whether locally or online, there\'s always fun to share with your partner.'**
+  String get app_presentation_game_modes_page_section_1_subtitle;
 
-  /// No description provided for @online_play_disclaimer_dialog_content.
+  /// No description provided for @app_presentation_game_modes_page_section_2_title.
   ///
   /// In en, this message translates to:
-  /// **'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n'**
-  String get online_play_disclaimer_dialog_content;
+  /// **'Inclusive for everyone'**
+  String get app_presentation_game_modes_page_section_2_title;
+
+  /// No description provided for @app_presentation_game_modes_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Whoever you are, our game is crafted for universal enjoyment.'**
+  String get app_presentation_game_modes_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_game_modes_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re in control'**
+  String get app_presentation_game_modes_page_section_3_title;
+
+  /// No description provided for @app_presentation_game_modes_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your pace and skip any quest you wish—comfort and consent always come first.'**
+  String get app_presentation_game_modes_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_customization_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Unique, just like you'**
+  String get app_presentation_customization_page_title;
+
+  /// No description provided for @app_presentation_customization_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your adventures'**
+  String get app_presentation_customization_page_section_1_title;
+
+  /// No description provided for @app_presentation_customization_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delight your partner with a tailor-made experience that reflects your personalities.'**
+  String get app_presentation_customization_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_customization_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Broad toy compatibility'**
+  String get app_presentation_customization_page_section_2_title;
+
+  /// No description provided for @app_presentation_customization_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoy seamless support for a broad range of toys and activities.'**
+  String get app_presentation_customization_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_customization_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'User-friendly editor'**
+  String get app_presentation_customization_page_section_3_title;
+
+  /// No description provided for @app_presentation_customization_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Designing your exclusive experience is smooth and intuitive with our editor.'**
+  String get app_presentation_customization_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_privacy_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy comes first'**
+  String get app_presentation_privacy_page_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No tracking, ever'**
+  String get app_presentation_privacy_page_section_1_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personal data remains yours—never collected or shared, not even with us.'**
+  String get app_presentation_privacy_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_privacy_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No outside connections'**
+  String get app_presentation_privacy_page_section_2_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The app never connects to external servers, now or in the future.'**
+  String get app_presentation_privacy_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_privacy_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Open source & transparent'**
+  String get app_presentation_privacy_page_section_3_title;
+
+  /// No description provided for @app_presentation_privacy_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Our source code is public on GitHub—openness and transparency above all.'**
+  String get app_presentation_privacy_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_web_app_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Try the web app'**
+  String get app_presentation_web_app_page_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Accessible everywhere'**
+  String get app_presentation_web_app_page_section_1_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the web version on iOS, Android, or Desktop—no installation needed.'**
+  String get app_presentation_web_app_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_web_app_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy in the cloud'**
+  String get app_presentation_web_app_page_section_2_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data always stays in your browser—nothing is ever uploaded or tracked.'**
+  String get app_presentation_web_app_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_web_app_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'How to access'**
+  String get app_presentation_web_app_page_section_3_title;
+
+  /// No description provided for @app_presentation_web_app_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Find the web app link and details in the app settings.'**
+  String get app_presentation_web_app_page_section_3_subtitle;
+
+  /// No description provided for @app_presentation_donation_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Support our mission'**
+  String get app_presentation_donation_page_title;
+
+  /// No description provided for @app_presentation_donation_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Always free to use'**
+  String get app_presentation_donation_page_section_1_title;
+
+  /// No description provided for @app_presentation_donation_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your help keeps this project accessible to everyone, forever.'**
+  String get app_presentation_donation_page_section_1_subtitle;
+
+  /// No description provided for @app_presentation_donation_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No ads, ever'**
+  String get app_presentation_donation_page_section_2_title;
+
+  /// No description provided for @app_presentation_donation_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll never see ads—your support lets us keep it that way.'**
+  String get app_presentation_donation_page_section_2_subtitle;
+
+  /// No description provided for @app_presentation_donation_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Transparent and private'**
+  String get app_presentation_donation_page_section_3_title;
+
+  /// No description provided for @app_presentation_donation_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Support us if you believe in privacy and open source for all.'**
+  String get app_presentation_donation_page_section_3_subtitle;
 
   /// No description provided for @navbar_play_button_label.
   ///
@@ -186,6 +375,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Settings'**
   String get navbar_settings_button_label;
+
+  /// No description provided for @online_play_disclaimer_dialog_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning!'**
+  String get online_play_disclaimer_dialog_title;
+
+  /// No description provided for @online_play_disclaimer_dialog_content.
+  ///
+  /// In en, this message translates to:
+  /// **'Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n'**
+  String get online_play_disclaimer_dialog_content;
+
+  /// No description provided for @online_play_disclaimer_dialog_close_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get online_play_disclaimer_dialog_close_button_label;
+
+  /// No description provided for @donation_reminder_page_donate_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Donate'**
+  String get donation_reminder_page_donate_button_label;
+
+  /// No description provided for @review_reminder_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Your opinion matters'**
+  String get review_reminder_page_title;
+
+  /// No description provided for @review_reminder_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your thoughts'**
+  String get review_reminder_page_section_1_title;
+
+  /// No description provided for @review_reminder_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your feedback truly matters! Tell us what features you’d like to see in future updates.'**
+  String get review_reminder_page_section_1_subtitle;
+
+  /// No description provided for @review_reminder_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Help us improve'**
+  String get review_reminder_page_section_2_title;
+
+  /// No description provided for @review_reminder_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'If you encounter any issues, let us know—we’ll fix them as quickly as possible.'**
+  String get review_reminder_page_section_2_subtitle;
+
+  /// No description provided for @review_reminder_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Show your support'**
+  String get review_reminder_page_section_3_title;
+
+  /// No description provided for @review_reminder_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Leaving a review is a wonderful way to help our project grow and reach more people.'**
+  String get review_reminder_page_section_3_subtitle;
+
+  /// No description provided for @review_reminder_donate_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave a review'**
+  String get review_reminder_donate_button_label;
+
+  /// No description provided for @download_native_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Download the native app'**
+  String get download_native_page_title;
+
+  /// No description provided for @download_native_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Better performance'**
+  String get download_native_page_section_1_title;
+
+  /// No description provided for @download_native_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The native app is smoother, faster, and more stable to use.'**
+  String get download_native_page_section_1_subtitle;
+
+  /// No description provided for @download_native_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Data safety'**
+  String get download_native_page_section_2_title;
+
+  /// No description provided for @download_native_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your valuable data more securely with the native app.'**
+  String get download_native_page_section_2_subtitle;
+
+  /// No description provided for @download_native_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline access'**
+  String get download_native_page_section_3_title;
+
+  /// No description provided for @download_native_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'With the native app, you can play even when you\'re offline.'**
+  String get download_native_page_section_3_subtitle;
+
+  /// No description provided for @download_native_donate_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get download_native_donate_button_label;
 
   /// No description provided for @play_main_page_title.
   ///
@@ -210,6 +519,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Load game'**
   String get play_main_page_load_game_button_label;
+
+  /// No description provided for @ai_translation_warning_snackbar.
+  ///
+  /// In en, this message translates to:
+  /// **'This adaptation was generated using AI translation. If you notice anything unusual, please let us know and suggest a correction.'**
+  String get ai_translation_warning_snackbar;
 
   /// No description provided for @select_game_type_page_title.
   ///
@@ -240,6 +555,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Play remotely with your partner on your favorite chat and live some magic moments together.'**
   String get select_game_type_distance_mode_subtitle;
+
+  /// No description provided for @online_safety_reminder_page_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Safety first'**
+  String get online_safety_reminder_page_title;
+
+  /// No description provided for @online_safety_reminder_page_section_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Share responsibly'**
+  String get online_safety_reminder_page_section_1_title;
+
+  /// No description provided for @online_safety_reminder_page_section_1_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Anything shared online may remain accessible forever.'**
+  String get online_safety_reminder_page_section_1_subtitle;
+
+  /// No description provided for @online_safety_reminder_page_section_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Use private apps'**
+  String get online_safety_reminder_page_section_2_title;
+
+  /// No description provided for @online_safety_reminder_page_section_2_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We recommend secure apps like Signal for privacy and separation from your daily life.'**
+  String get online_safety_reminder_page_section_2_subtitle;
+
+  /// No description provided for @online_safety_reminder_page_section_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Respect the law'**
+  String get online_safety_reminder_page_section_3_title;
+
+  /// No description provided for @online_safety_reminder_page_section_3_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Loverquest is not responsible for illegal activities or sharing prohibited content.'**
+  String get online_safety_reminder_page_section_3_subtitle;
+
+  /// No description provided for @online_safety_reminder_donate_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Understood'**
+  String get online_safety_reminder_donate_button_label;
 
   /// No description provided for @select_players_type_title.
   ///
@@ -310,7 +673,7 @@ abstract class AppLocalizations {
   /// No description provided for @define_players_name_error_label.
   ///
   /// In en, this message translates to:
-  /// **'It\'s mandatory to compile all the field'**
+  /// **'It\'s mandatory to compile all the fields'**
   String get define_players_name_error_label;
 
   /// No description provided for @define_players_name_confirm_button.
@@ -682,7 +1045,7 @@ abstract class AppLocalizations {
   /// No description provided for @deck_info_deck_unplayable_error.
   ///
   /// In en, this message translates to:
-  /// **'You can\'t play a deck without quests ! Please add some quests to this deck or select another deck to continue.'**
+  /// **'You can\'t play a deck without quests! Please add some quests to this deck or select another deck to continue.'**
   String get deck_info_deck_unplayable_error;
 
   /// No description provided for @select_game_speed_page_title.
@@ -1045,29 +1408,53 @@ abstract class AppLocalizations {
   /// **'Edit'**
   String get deck_management_press_menu_edit;
 
-  /// No description provided for @deck_management_delete_dialog_title.
+  /// No description provided for @deck_management_delete_deck_dialog_title.
   ///
   /// In en, this message translates to:
   /// **'Are you sure?'**
-  String get deck_management_delete_dialog_title;
+  String get deck_management_delete_deck_dialog_title;
 
-  /// No description provided for @deck_management_delete_dialog_subtitle.
+  /// No description provided for @deck_management_delete_deck_dialog_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Do you want to delete it?'**
-  String get deck_management_delete_dialog_subtitle;
+  /// **'This will erase permanently the following deck:'**
+  String get deck_management_delete_deck_dialog_subtitle;
 
-  /// No description provided for @deck_management_delete_dialog_yes_button_label.
+  /// No description provided for @deck_management_delete_deck_dialog_yes_button_label.
   ///
   /// In en, this message translates to:
   /// **'Yes'**
-  String get deck_management_delete_dialog_yes_button_label;
+  String get deck_management_delete_deck_dialog_yes_button_label;
 
-  /// No description provided for @deck_management_delete_dialog_no_button_label.
+  /// No description provided for @deck_management_delete_deck_dialog_no_button_label.
   ///
   /// In en, this message translates to:
   /// **'No'**
-  String get deck_management_delete_dialog_no_button_label;
+  String get deck_management_delete_deck_dialog_no_button_label;
+
+  /// No description provided for @deck_management_delete_quest_dialog_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure?'**
+  String get deck_management_delete_quest_dialog_title;
+
+  /// No description provided for @deck_management_delete_quest_dialog_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This will erase permanently the following quest:'**
+  String get deck_management_delete_quest_dialog_subtitle;
+
+  /// No description provided for @deck_management_delete_quest_dialog_yes_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get deck_management_delete_quest_dialog_yes_button_label;
+
+  /// No description provided for @deck_management_delete_quest_dialog_no_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get deck_management_delete_quest_dialog_no_button_label;
 
   /// No description provided for @deck_management_page_no_decks_text.
   ///
@@ -1234,8 +1621,98 @@ abstract class AppLocalizations {
   /// No description provided for @deck_filter_dialog_distance_tag.
   ///
   /// In en, this message translates to:
-  /// **'Online'**
+  /// **'Local'**
   String get deck_filter_dialog_distance_tag;
+
+  /// No description provided for @deck_filter_dialog_with_tools_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'With tools'**
+  String get deck_filter_dialog_with_tools_tag;
+
+  /// No description provided for @deck_filter_dialog_without_tools_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Without tools'**
+  String get deck_filter_dialog_without_tools_tag;
+
+  /// No description provided for @deck_filter_dialog_chat_only_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get deck_filter_dialog_chat_only_tag;
+
+  /// No description provided for @deck_filter_dialog_videochat_only_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Videochat'**
+  String get deck_filter_dialog_videochat_only_tag;
+
+  /// No description provided for @deck_filter_dialog_beginner_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner'**
+  String get deck_filter_dialog_beginner_tag;
+
+  /// No description provided for @deck_filter_dialog_intermediate_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Intermediate'**
+  String get deck_filter_dialog_intermediate_tag;
+
+  /// No description provided for @deck_filter_dialog_advanced_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced'**
+  String get deck_filter_dialog_advanced_tag;
+
+  /// No description provided for @deck_filter_dialog_order_ascending_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Ascending'**
+  String get deck_filter_dialog_order_ascending_tag;
+
+  /// No description provided for @deck_filter_dialog_order_descending_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Descending'**
+  String get deck_filter_dialog_order_descending_tag;
+
+  /// No description provided for @deck_filter_dialog_moment_early_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Early'**
+  String get deck_filter_dialog_moment_early_tag;
+
+  /// No description provided for @deck_filter_dialog_moment_mid_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Mid'**
+  String get deck_filter_dialog_moment_mid_tag;
+
+  /// No description provided for @deck_filter_dialog_moment_late_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Late'**
+  String get deck_filter_dialog_moment_late_tag;
+
+  /// No description provided for @deck_filter_dialog_moment_end_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'End'**
+  String get deck_filter_dialog_moment_end_tag;
+
+  /// No description provided for @deck_filter_dialog_tools_with_tools_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'With tools'**
+  String get deck_filter_dialog_tools_with_tools_tag;
+
+  /// No description provided for @deck_filter_dialog_moment_without_tools_tag.
+  ///
+  /// In en, this message translates to:
+  /// **'Without tools'**
+  String get deck_filter_dialog_moment_without_tools_tag;
 
   /// No description provided for @deck_filter_apply_filter_button.
   ///
@@ -1260,6 +1737,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose language'**
   String get settings_main_page_language_button_label;
+
+  /// No description provided for @settings_main_page_translation_help_button_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Help us with translation'**
+  String get settings_main_page_translation_help_button_label;
 
   /// No description provided for @settings_main_page_webapp_section_label.
   ///
@@ -1352,7 +1835,8 @@ abstract class AppLocalizations {
   String get settings_main_page_app_info_label;
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -1361,29 +1845,39 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['de', 'en', 'es', 'fr', 'it', 'nl'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+        'de',
+        'en',
+        'es',
+        'fr',
+        'it',
+        'nl'
+      ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'de': return AppLocalizationsDe();
-    case 'en': return AppLocalizationsEn();
-    case 'es': return AppLocalizationsEs();
-    case 'fr': return AppLocalizationsFr();
-    case 'it': return AppLocalizationsIt();
-    case 'nl': return AppLocalizationsNl();
+    case 'de':
+      return AppLocalizationsDe();
+    case 'en':
+      return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
+    case 'fr':
+      return AppLocalizationsFr();
+    case 'it':
+      return AppLocalizationsIt();
+    case 'nl':
+      return AppLocalizationsNl();
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

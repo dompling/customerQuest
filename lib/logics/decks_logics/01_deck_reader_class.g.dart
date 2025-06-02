@@ -32,7 +32,7 @@ class DeckReaderAdapter extends TypeAdapter<DeckReader> {
       ..writeByte(1)
       ..write(obj.quests)
       ..writeByte(2)
-      ..write(obj.deck_file_path);
+      ..write(obj.deck_key);
   }
 
   @override

@@ -3,6 +3,8 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
@@ -10,9 +12,7 @@ import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/06_reed_deck_list_getter.dart';
 import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
-import 'package:loverquest/logics/decks_logics/deck_filters.dart';
-
-import 'package:loverquest/pages/play_pages/06_deck_info_page.dart';
+import 'package:loverquest/logics/decks_logics/07_deck_filters.dart';
 
 //------------------------------------------------------------------------------
 
@@ -20,11 +20,8 @@ import 'package:loverquest/pages/play_pages/06_deck_info_page.dart';
 // DECK SELECTION PAGE DEFINITION
 class DeckSelectionPage extends StatefulWidget {
 
-  // CLASS ATTRIBUTES
-  final MatchData match_data;
-
   // CLASS CONSTRUCTOR
-  const DeckSelectionPage({required this.match_data, super.key,});
+  const DeckSelectionPage({super.key,});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -32,16 +29,13 @@ class DeckSelectionPage extends StatefulWidget {
 
 }
 
-
-
-//------------------------------------------------------------------------------
-
-
-
 // CLASS STATE / WIDGET CONTENT
 class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
   //------------------------------------------------------------------------------
+
+  // INITIALIZING THE MATCH DATA OBJECT
+  MatchData match_data = MatchData();
 
   // DEFINING LOADED DECKS LIST
   List<DeckReader> loaded_decks_list = [];
@@ -53,6 +47,16 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
   bool _isInitialized = false;
 
   //------------------------------------------------------------------------------
+
+  // INITIAL PAGE STATE
+  @override
+  void initState()  {
+    super.initState();
+
+    // GETTING THE DATA FROM THE PROVIDER
+    match_data = Provider.of<MatchDataProvider>(context, listen: false).matchData!;
+
+  }
 
   // CLASS INITIAL STATE
   @override
@@ -76,7 +80,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
     //------------------------------------------------------------------------------
 
     // GETTING THE DEFAULT REED DECK LIST
-    List<DeckReader> default_reed_deck_list = await get_default_reed_decks(context, is_presence: widget.match_data.play_local);
+    List<DeckReader> default_reed_deck_list = await get_default_reed_decks(context, is_presence: match_data.play_local);
 
     //------------------------------------------------------------------------------
 
@@ -133,7 +137,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
     //------------------------------------------------------------------------------
 
     // FILTERING THE LOADED DECK LIST USING THE COUPLE TYPE
-    List<DeckReader> filtered_deck_managers = filter_decks_for_couple_type_and_game_type(loaded_decks_list, widget.match_data.couple_type, widget.match_data.play_local);
+    List<DeckReader> filtered_deck_managers = filter_decks_for_couple_type_and_game_type(loaded_decks_list, match_data.couple_type, match_data.play_local);
 
     //------------------------------------------------------------------------------
 
@@ -167,7 +171,7 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
 
               child: Text(
 
-                widget.match_data.play_local ? AppLocalizations.of(context)!.deck_management_page_no_decks_text: AppLocalizations.of(context)!.deck_management_page_not_done_yet,
+                match_data.play_local ? AppLocalizations.of(context)!.deck_management_page_no_decks_text: AppLocalizations.of(context)!.deck_management_page_not_done_yet,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 textAlign: TextAlign.center,
 
@@ -326,19 +330,13 @@ class _DeckSelectionPageState extends State<DeckSelectionPage> {
                               onPressed: () {
 
                                 // SETTING THE SELECTED DECK IN THE MATCH DATA
-                                widget.match_data.selected_deck = filtered_deck_managers[index];
+                                match_data.selected_deck = filtered_deck_managers[index];
+
+                                // SAVING THE MATCH DATA CONTENT INSIDE THE PROVIDER
+                                Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                                 // PAGE LINKER
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-
-                                    // OPEN NEW PAGE
-                                    builder: (context) => DeckInfoPage(match_data: widget.match_data),
-
-                                  ),
-
-                                );
+                                context.push('/play/play_deck_info');
 
                               },
 

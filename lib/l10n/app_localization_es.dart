@@ -9,37 +9,164 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get app_splash_screen_title => '¡Gracias!';
+  String get app_presentation_welcome_page_title => 'Bienvenido';
 
   @override
-  String get app_splash_screen_content => 'Gracias por descargar _Loverquest_! Esperamos que disfrutes de nuestro juego.\n\nNuestro objetivo es ofrecerte una experiencia divertida, discreta, segura e interactiva. Nuestra app **no recopila datos personales, no accede a Internet y no muestra anuncios**.\n\nCreemos firmemente que la intimidad debe ser respetada. Por eso, estamos comprometidos a garantizar **la máxima privacidad**. _Loverquest_ es un **proyecto de código abierto**, por lo que puedes consultar el código fuente en cualquier momento para verificar la transparencia e integridad de la app.\n\nCuando juegues con tu pareja, recuerda siempre **respetar sus límites y nunca obligarle a hacer algo contra su voluntad**.\n\nLas acciones sugeridas por el juego están diseñadas únicamente para divertirse y **no fomentan ninguna forma de coerción o violencia sexual**.\n\nSi tú o tu pareja os sentís incómodos, siempre podéis **saltar cualquier acción** que no os guste.\n\nEste proyecto se desarrolla de forma voluntaria y se mantiene gracias a **donaciones de los usuarios**. Si disfrutas de Loverquest y quieres apoyarlo, considera hacer una donación para ayudarnos a mantenerlo y mejorarlo.\n\n¡El equipo de _Loverquest_ te desea mucha diversión!';
+  String get app_presentation_welcome_page_section_1_title =>
+      'Emprende un viaje inolvidable';
 
   @override
-  String get app_splash_screen_close_button_label => 'Cerrar';
+  String get app_presentation_welcome_page_section_1_subtitle =>
+      'Vive una serie de aventuras únicas pensadas para ti y tu pareja.';
 
   @override
-  String get donation_reminder_dialog_title => '¡Ayúdanos!';
+  String get app_presentation_welcome_page_section_2_title =>
+      'Perfecta para todas las parejas';
 
   @override
-  String get donation_reminder_dialog_content => 'Si disfrutaste de Loverquest y quieres apoyarlo, considera hacer una donación para ayudarnos a mantenerlo y seguir mejorándolo.';
+  String get app_presentation_welcome_page_section_2_subtitle =>
+      'No importa cuánto tiempo llevéis juntos: profundizad vuestra relación y descubrid una nueva intimidad.';
 
   @override
-  String get donation_reminder_dialog_donate_button_label => 'Donar';
+  String get app_presentation_welcome_page_section_3_title =>
+      'Un mundo de contenido seleccionado';
 
   @override
-  String get review_reminder_dialog_title => '¡Ayúdanos!';
+  String get app_presentation_welcome_page_section_3_subtitle =>
+      'Explora una amplia biblioteca de materiales listos para usar para cada necesidad y preferencia.';
 
   @override
-  String get review_reminder_dialog_content => 'Si te ha gustado Loverquest y quieres apoyarlo, considera dejar una reseña.';
+  String get app_presentation_game_modes_page_title => 'Juega a tu manera';
 
   @override
-  String get review_reminder_dialog_review_button_label => 'Apóyanos';
+  String get app_presentation_game_modes_page_section_1_title =>
+      'Disfruta del tiempo juntos';
 
   @override
-  String get online_play_disclaimer_dialog_title => '¡Advertencia!';
+  String get app_presentation_game_modes_page_section_1_subtitle =>
+      'Tanto si jugáis en persona como en línea, la diversión está siempre garantizada con tu pareja.';
 
   @override
-  String get online_play_disclaimer_dialog_content => 'Ten cuidado al compartir material íntimo en línea\n\nLa seguridad es lo primero. Recuerda que cualquier contenido compartido en Internet podría permanecer en línea para siempre, sin forma de eliminarlo por completo. Evita incluir datos personales y asegúrate de que la persona con la que estás jugando sea de confianza antes de enviar cualquier material íntimo.\n\nLoverquest no asume ninguna responsabilidad por actividades ilegales cometidas en línea, como la distribución no consensuada de material íntimo, la difusión de contenido de explotación infantil u otras violaciones de la ley.\n';
+  String get app_presentation_game_modes_page_section_2_title =>
+      'Inclusivo para todos';
+
+  @override
+  String get app_presentation_game_modes_page_section_2_subtitle =>
+      'Seas quien seas, nuestro juego está diseñado para el disfrute de todos.';
+
+  @override
+  String get app_presentation_game_modes_page_section_3_title => 'Tú decides';
+
+  @override
+  String get app_presentation_game_modes_page_section_3_subtitle =>
+      'Marca tu ritmo y salta cualquier reto que quieras—el confort y el consentimiento son lo primero.';
+
+  @override
+  String get app_presentation_customization_page_title => 'Única, como tú';
+
+  @override
+  String get app_presentation_customization_page_section_1_title =>
+      'Crea tus propias aventuras';
+
+  @override
+  String get app_presentation_customization_page_section_1_subtitle =>
+      'Sorprende a tu pareja con una experiencia personalizada que os represente.';
+
+  @override
+  String get app_presentation_customization_page_section_2_title =>
+      'Gran compatibilidad con juguetes';
+
+  @override
+  String get app_presentation_customization_page_section_2_subtitle =>
+      'Disfruta de total compatibilidad con una amplia gama de juguetes y prácticas.';
+
+  @override
+  String get app_presentation_customization_page_section_3_title =>
+      'Editor intuitivo';
+
+  @override
+  String get app_presentation_customization_page_section_3_subtitle =>
+      'Crear tu experiencia exclusiva es sencillo e intuitivo gracias a nuestro editor.';
+
+  @override
+  String get app_presentation_privacy_page_title =>
+      'La privacidad es lo primero';
+
+  @override
+  String get app_presentation_privacy_page_section_1_title =>
+      'Sin rastreo nunca';
+
+  @override
+  String get app_presentation_privacy_page_section_1_subtitle =>
+      'Tus datos personales son solo tuyos: nunca los recopilamos ni compartimos, ni siquiera con nosotros.';
+
+  @override
+  String get app_presentation_privacy_page_section_2_title =>
+      'Sin conexiones externas';
+
+  @override
+  String get app_presentation_privacy_page_section_2_subtitle =>
+      'La app nunca se conecta a servidores externos, ahora ni en el futuro.';
+
+  @override
+  String get app_presentation_privacy_page_section_3_title =>
+      'Código abierto y transparente';
+
+  @override
+  String get app_presentation_privacy_page_section_3_subtitle =>
+      'Nuestro código fuente está disponible en GitHub—transparencia ante todo.';
+
+  @override
+  String get app_presentation_web_app_page_title => 'Prueba la web app';
+
+  @override
+  String get app_presentation_web_app_page_section_1_title =>
+      'Accesible en cualquier lugar';
+
+  @override
+  String get app_presentation_web_app_page_section_1_subtitle =>
+      'Usa la versión web en iOS, Android o en tu ordenador—sin necesidad de instalar.';
+
+  @override
+  String get app_presentation_web_app_page_section_2_title =>
+      'Privacidad también en la nube';
+
+  @override
+  String get app_presentation_web_app_page_section_2_subtitle =>
+      'Tus datos siempre permanecen en tu navegador—nunca se suben ni se rastrean.';
+
+  @override
+  String get app_presentation_web_app_page_section_3_title => 'Cómo acceder';
+
+  @override
+  String get app_presentation_web_app_page_section_3_subtitle =>
+      'Encuentra el enlace y las instrucciones en la configuración de la app.';
+
+  @override
+  String get app_presentation_donation_page_title => 'Apoya nuestro proyecto';
+
+  @override
+  String get app_presentation_donation_page_section_1_title => 'Siempre gratis';
+
+  @override
+  String get app_presentation_donation_page_section_1_subtitle =>
+      'Tu apoyo mantiene la app libre y accesible para todos, para siempre.';
+
+  @override
+  String get app_presentation_donation_page_section_2_title =>
+      'Sin anuncios, nunca';
+
+  @override
+  String get app_presentation_donation_page_section_2_subtitle =>
+      'Nunca verás anuncios—tu ayuda nos permite mantenerlo así.';
+
+  @override
+  String get app_presentation_donation_page_section_3_title =>
+      'Transparencia y privacidad';
+
+  @override
+  String get app_presentation_donation_page_section_3_subtitle =>
+      'Apóyanos si crees en la privacidad y el software libre para todos.';
 
   @override
   String get navbar_play_button_label => 'Jugar';
@@ -51,10 +178,77 @@ class AppLocalizationsEs extends AppLocalizations {
   String get navbar_settings_button_label => 'Configuración';
 
   @override
+  String get online_play_disclaimer_dialog_title => '¡Advertencia!';
+
+  @override
+  String get online_play_disclaimer_dialog_content =>
+      'Ten cuidado al compartir material íntimo en línea\n\nLa seguridad es lo primero. Recuerda que cualquier contenido compartido en Internet podría permanecer en línea para siempre, sin forma de eliminarlo por completo. Evita incluir datos personales y asegúrate de que la persona con la que estás jugando sea de confianza antes de enviar cualquier material íntimo.\n\nLoverquest no asume ninguna responsabilidad por actividades ilegales cometidas en línea, como la distribución no consensuada de material íntimo, la difusión de contenido de explotación infantil u otras violaciones de la ley.\n';
+
+  @override
+  String get online_play_disclaimer_dialog_close_button_label => 'Cerrar';
+
+  @override
+  String get donation_reminder_page_donate_button_label => 'Donar';
+
+  @override
+  String get review_reminder_page_title => 'Tu opinión es importante';
+
+  @override
+  String get review_reminder_page_section_1_title => 'Comparte tus ideas';
+
+  @override
+  String get review_reminder_page_section_1_subtitle =>
+      '¡Tu opinión es fundamental! Cuéntanos qué funciones te gustaría ver en futuras actualizaciones.';
+
+  @override
+  String get review_reminder_page_section_2_title => 'Ayúdanos a mejorar';
+
+  @override
+  String get review_reminder_page_section_2_subtitle =>
+      'Si encuentras algún problema, infórmanos—lo solucionaremos lo antes posible.';
+
+  @override
+  String get review_reminder_page_section_3_title => 'Apóyanos con una reseña';
+
+  @override
+  String get review_reminder_page_section_3_subtitle =>
+      'Dejar una reseña es una forma estupenda de ayudarnos a crecer y llegar a más personas.';
+
+  @override
+  String get review_reminder_donate_button_label => 'Deja una reseña';
+
+  @override
+  String get download_native_page_title => 'Descarga la app nativa';
+
+  @override
+  String get download_native_page_section_1_title => 'Mejor rendimiento';
+
+  @override
+  String get download_native_page_section_1_subtitle =>
+      'La app nativa es más fluida, rápida y estable de usar.';
+
+  @override
+  String get download_native_page_section_2_title => 'Seguridad de los datos';
+
+  @override
+  String get download_native_page_section_2_subtitle =>
+      'Guarda tus datos valiosos de manera más segura con la app nativa.';
+
+  @override
+  String get download_native_page_section_3_title => 'Funciona sin conexión';
+
+  @override
+  String get download_native_page_section_3_subtitle =>
+      'Con la app nativa puedes jugar incluso sin conexión a Internet.';
+
+  @override
+  String get download_native_donate_button_label => 'Descargar';
+
+  @override
   String get play_main_page_title => 'Loverquest';
 
   @override
-  String get play_main_page_subtitle => 'Camino al placer';
+  String get play_main_page_subtitle => 'Road to pleasure';
 
   @override
   String get play_main_page_new_game_button_label => 'Nuevo juego';
@@ -63,19 +257,54 @@ class AppLocalizationsEs extends AppLocalizations {
   String get play_main_page_load_game_button_label => 'Cargar juego';
 
   @override
+  String get ai_translation_warning_snackbar =>
+      'Esta adaptación ha sido generada mediante traducción automática. Si notas algo extraño, infórmanos y sugiere la corrección.';
+
+  @override
   String get select_game_type_page_title => 'Selecciona el tipo de juego';
 
   @override
   String get select_game_type_presence_mode_title => 'Juego local';
 
   @override
-  String get select_game_type_presence_mode_subtitle => 'Viaje en vivo y asombroso con tu pareja.';
+  String get select_game_type_presence_mode_subtitle =>
+      'Viaje en vivo y asombroso con tu pareja.';
 
   @override
   String get select_game_type_distance_mode_title => 'Juego en línea';
 
   @override
-  String get select_game_type_distance_mode_subtitle => 'Juega a distancia con tu pareja en tu chat favorito y vive momentos mágicos juntos.';
+  String get select_game_type_distance_mode_subtitle =>
+      'Juega a distancia con tu pareja en tu chat favorito y vive momentos mágicos juntos.';
+
+  @override
+  String get online_safety_reminder_page_title => 'La seguridad es lo primero';
+
+  @override
+  String get online_safety_reminder_page_section_1_title =>
+      'Comparte con responsabilidad';
+
+  @override
+  String get online_safety_reminder_page_section_1_subtitle =>
+      'Todo lo que compartas online puede permanecer accesible para siempre.';
+
+  @override
+  String get online_safety_reminder_page_section_2_title =>
+      'Utiliza apps seguras';
+
+  @override
+  String get online_safety_reminder_page_section_2_subtitle =>
+      'Te recomendamos usar apps como Signal para más privacidad y separar tu vida diaria.';
+
+  @override
+  String get online_safety_reminder_page_section_3_title => 'Respeta la ley';
+
+  @override
+  String get online_safety_reminder_page_section_3_subtitle =>
+      'Loverquest no se responsabiliza de actividades ilegales ni del intercambio de contenidos prohibidos.';
+
+  @override
+  String get online_safety_reminder_donate_button_label => 'Entendido';
 
   @override
   String get select_players_type_title => 'Selecciona el sexo de los jugadores';
@@ -84,22 +313,26 @@ class AppLocalizationsEs extends AppLocalizations {
   String get select_players_type_hetero_couple_title => 'Pareja heterosexual';
 
   @override
-  String get select_players_type_hetero_couple_subtitle => 'Una pareja donde los jugadores tienen genitales diferentes.';
+  String get select_players_type_hetero_couple_subtitle =>
+      'Una pareja donde los jugadores tienen genitales diferentes.';
 
   @override
   String get select_players_type_lesbian_couple_title => 'Pareja lésbica';
 
   @override
-  String get select_players_type_lesbian_couple_subtitle => 'Una pareja donde ambos jugadores tienen genitales femeninos.';
+  String get select_players_type_lesbian_couple_subtitle =>
+      'Una pareja donde ambos jugadores tienen genitales femeninos.';
 
   @override
   String get select_players_type_gay_couple_title => 'Pareja gay';
 
   @override
-  String get select_players_type_gay_couple_subtitle => 'Una pareja donde ambos jugadores tienen genitales masculinos.';
+  String get select_players_type_gay_couple_subtitle =>
+      'Una pareja donde ambos jugadores tienen genitales masculinos.';
 
   @override
-  String get define_players_name_page_title => 'Inserta los alias de los jugadores';
+  String get define_players_name_page_title =>
+      'Inserta los alias de los jugadores';
 
   @override
   String get define_players_name_player_one_label => 'Jugador 1';
@@ -111,7 +344,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get define_players_name_textfield_hint_label => 'Inserta el apodo...';
 
   @override
-  String get define_players_name_error_label => 'Es obligatorio completar todos los campos';
+  String get define_players_name_error_label =>
+      'Es obligatorio completar todos los campos';
 
   @override
   String get define_players_name_confirm_button => 'Confirmar';
@@ -249,10 +483,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get deck_info_information_quest_number_label => 'Número de misiones: ';
 
   @override
-  String get deck_info_information_requested_tools_label => 'Herramientas necesarias: ';
+  String get deck_info_information_requested_tools_label =>
+      'Herramientas necesarias: ';
 
   @override
-  String get deck_info_information_designated_player_label => 'Jugador designado: ';
+  String get deck_info_information_designated_player_label =>
+      'Jugador designado: ';
 
   @override
   String get deck_info_information_description_label => 'Descripción: ';
@@ -303,7 +539,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get tags_list_video_chat_tag => 'videollamada';
 
   @override
-  String get deck_info_deck_unplayable_error => '¡No puedes jugar con un mazo sin misiones! Añade algunas misiones a este mazo o selecciona otro para continuar.';
+  String get deck_info_deck_unplayable_error =>
+      '¡No puedes jugar con un mazo sin misiones! Añade algunas misiones a este mazo o selecciona otro para continuar.';
 
   @override
   String get select_game_speed_page_title => 'Selecciona el ritmo del juego';
@@ -321,16 +558,20 @@ class AppLocalizationsEs extends AppLocalizations {
   String get select_game_speed_speed_4_title => 'Quiero probarlo todo';
 
   @override
-  String get select_game_speed_speed_1_subtitle => 'Las misiones pasarán a la siguiente categoría solo después de usar al menos el 25% de la categoría anterior.';
+  String get select_game_speed_speed_1_subtitle =>
+      'Las misiones pasarán a la siguiente categoría solo después de usar al menos el 25% de la categoría anterior.';
 
   @override
-  String get select_game_speed_speed_2_subtitle => 'Las misiones pasarán a la siguiente categoría solo después de usar al menos el 50% de la categoría anterior.';
+  String get select_game_speed_speed_2_subtitle =>
+      'Las misiones pasarán a la siguiente categoría solo después de usar al menos el 50% de la categoría anterior.';
 
   @override
-  String get select_game_speed_speed_3_subtitle => 'Las misiones pasarán a la siguiente categoría solo después de usar al menos el 75% de la categoría anterior.';
+  String get select_game_speed_speed_3_subtitle =>
+      'Las misiones pasarán a la siguiente categoría solo después de usar al menos el 75% de la categoría anterior.';
 
   @override
-  String get select_game_speed_speed_4_subtitle => 'Las misiones pasarán a la siguiente categoría solo después de usar todas las misiones de la categoría anterior.';
+  String get select_game_speed_speed_4_subtitle =>
+      'Las misiones pasarán a la siguiente categoría solo después de usar todas las misiones de la categoría anterior.';
 
   @override
   String get quest_tool_female_lingerie => 'lencería femenina';
@@ -438,13 +679,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get play_page_timer_label => 'Temporizador';
 
   @override
-  String get play_page_quest_no_quest_label => 'No hay más misiones, por favor empieza un nuevo juego.';
+  String get play_page_quest_no_quest_label =>
+      'No hay más misiones, por favor empieza un nuevo juego.';
 
   @override
   String get play_page_end_page_title => '¡Has completado todas las misiones!';
 
   @override
-  String get play_page_end_page_subtitle => 'Gracias por jugar a Loverquest, esperamos que te hayas divertido';
+  String get play_page_end_page_subtitle =>
+      'Gracias por jugar a Loverquest, esperamos que te hayas divertido';
 
   @override
   String get play_page_end_page_go_home_button_label => 'Salir';
@@ -453,25 +696,32 @@ class AppLocalizationsEs extends AppLocalizations {
   String get deck_list_main_page_title => 'Gestionar mazos';
 
   @override
-  String get deck_list_main_page_default_decks_section_title => 'Mazos predeterminados';
+  String get deck_list_main_page_default_decks_section_title =>
+      'Mazos predeterminados';
 
   @override
-  String get deck_list_main_page_default_decks_section_subtitle => 'Lee y gestiona los mazos predeterminados de la app.';
+  String get deck_list_main_page_default_decks_section_subtitle =>
+      'Lee y gestiona los mazos predeterminados de la app.';
 
   @override
-  String get deck_list_main_page_custom_decks_section_title => 'Mazos personalizados';
+  String get deck_list_main_page_custom_decks_section_title =>
+      'Mazos personalizados';
 
   @override
-  String get deck_list_main_page_custom_decks_section_subtitle => 'Crea, gestiona e importa increíbles mazos personalizados.';
+  String get deck_list_main_page_custom_decks_section_subtitle =>
+      'Crea, gestiona e importa increíbles mazos personalizados.';
 
   @override
-  String get deck_management_page_default_deck_list => 'Lista de mazos predeterminados';
+  String get deck_management_page_default_deck_list =>
+      'Lista de mazos predeterminados';
 
   @override
-  String get deck_management_page_custom_deck_list => 'Lista de mazos personalizados';
+  String get deck_management_page_custom_deck_list =>
+      'Lista de mazos personalizados';
 
   @override
-  String get deck_management_page_import_error_text => 'Hubo un error al importar el mazo seleccionado. Por favor elige un archivo válido de Loverquest e inténtalo de nuevo.';
+  String get deck_management_page_import_error_text =>
+      'Hubo un error al importar el mazo seleccionado. Por favor elige un archivo válido de Loverquest e inténtalo de nuevo.';
 
   @override
   String get deck_management_press_menu_delete => 'Eliminar';
@@ -486,28 +736,45 @@ class AppLocalizationsEs extends AppLocalizations {
   String get deck_management_press_menu_edit => 'Editar';
 
   @override
-  String get deck_management_delete_dialog_title => '¿Estás seguro?';
+  String get deck_management_delete_deck_dialog_title => '¿Estás seguro?';
 
   @override
-  String get deck_management_delete_dialog_subtitle => '¿Quieres eliminarlo?';
+  String get deck_management_delete_deck_dialog_subtitle =>
+      'Esta acción eliminará permanentemente el siguiente mazo:';
 
   @override
-  String get deck_management_delete_dialog_yes_button_label => 'Sí';
+  String get deck_management_delete_deck_dialog_yes_button_label => 'Sí';
 
   @override
-  String get deck_management_delete_dialog_no_button_label => 'No';
+  String get deck_management_delete_deck_dialog_no_button_label => 'No';
 
   @override
-  String get deck_management_page_no_decks_text => 'Lo siento, aquí no hay nada';
+  String get deck_management_delete_quest_dialog_title => '¿Estás seguro?';
 
   @override
-  String get deck_management_page_not_done_yet => 'Lo siento, vuelve después de la próxima actualización';
+  String get deck_management_delete_quest_dialog_subtitle =>
+      'Esta acción eliminará permanentemente la siguiente misión:';
+
+  @override
+  String get deck_management_delete_quest_dialog_yes_button_label => 'Sí';
+
+  @override
+  String get deck_management_delete_quest_dialog_no_button_label => 'No';
+
+  @override
+  String get deck_management_page_no_decks_text =>
+      'Lo siento, aquí no hay nada';
+
+  @override
+  String get deck_management_page_not_done_yet =>
+      'Lo siento, vuelve después de la próxima actualización';
 
   @override
   String get deck_management_page_warning_dialog_title => '¡Atención!';
 
   @override
-  String get deck_management_page_warning_dialog_content => 'Los datos de los mazos personalizados se guardarán en la caché del navegador. Te recomendamos descargar siempre tus mazos personalizados para no correr el riesgo de perderlos accidentalmente.';
+  String get deck_management_page_warning_dialog_content =>
+      'Los datos de los mazos personalizados se guardarán en la caché del navegador. Te recomendamos descargar siempre tus mazos personalizados para no correr el riesgo de perderlos accidentalmente.';
 
   @override
   String get deck_management_page_warning_dialog_ok_button => 'Entendido';
@@ -537,16 +804,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get quest_editor_page_quest_type_end => 'Final';
 
   @override
-  String get quest_editor_page_quest_timer_label => 'Límite de tiempo - minutos';
+  String get quest_editor_page_quest_timer_label =>
+      'Límite de tiempo - minutos';
 
   @override
   String get quest_editor_page_quest_content_label => 'Contenido';
 
   @override
-  String get quest_editor_page_tools_dialog_title => 'Selecciona las herramientas';
+  String get quest_editor_page_tools_dialog_title =>
+      'Selecciona las herramientas';
 
   @override
-  String get quest_editor_page_player_type_title => 'Selecciona para qué jugador está diseñada';
+  String get quest_editor_page_player_type_title =>
+      'Selecciona para qué jugador está diseñada';
 
   @override
   String get quest_editor_page_player_type_both => 'Ambos';
@@ -582,6 +852,51 @@ class AppLocalizationsEs extends AppLocalizations {
   String get deck_filter_dialog_distance_tag => 'En línea';
 
   @override
+  String get deck_filter_dialog_with_tools_tag => 'Con herramientas';
+
+  @override
+  String get deck_filter_dialog_without_tools_tag => 'Sin herramientas';
+
+  @override
+  String get deck_filter_dialog_chat_only_tag => 'Solo chat';
+
+  @override
+  String get deck_filter_dialog_videochat_only_tag => 'Solo videollamada';
+
+  @override
+  String get deck_filter_dialog_beginner_tag => 'Principiante';
+
+  @override
+  String get deck_filter_dialog_intermediate_tag => 'Intermedio';
+
+  @override
+  String get deck_filter_dialog_advanced_tag => 'Avanzado';
+
+  @override
+  String get deck_filter_dialog_order_ascending_tag => 'Ascendente';
+
+  @override
+  String get deck_filter_dialog_order_descending_tag => 'Descendente';
+
+  @override
+  String get deck_filter_dialog_moment_early_tag => 'Inicio';
+
+  @override
+  String get deck_filter_dialog_moment_mid_tag => 'Medio';
+
+  @override
+  String get deck_filter_dialog_moment_late_tag => 'Tarde';
+
+  @override
+  String get deck_filter_dialog_moment_end_tag => 'Final';
+
+  @override
+  String get deck_filter_dialog_tools_with_tools_tag => 'Con herramientas';
+
+  @override
+  String get deck_filter_dialog_moment_without_tools_tag => 'Sin herramientas';
+
+  @override
   String get deck_filter_apply_filter_button => 'Aplicar';
 
   @override
@@ -594,10 +909,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settings_main_page_language_button_label => 'Elegir idioma';
 
   @override
+  String get settings_main_page_translation_help_button_label =>
+      'Ayúdanos con la traducción';
+
+  @override
   String get settings_main_page_webapp_section_label => 'Aplicación web';
 
   @override
-  String get settings_main_page_webapp_button_label => 'Abrir el sitio de la aplicación web';
+  String get settings_main_page_webapp_button_label =>
+      'Abrir el sitio de la aplicación web';
 
   @override
   String get settings_main_page_support_section_label => 'Soporte';
@@ -606,25 +926,29 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settings_main_page_feedback_section_label => 'Comentarios';
 
   @override
-  String get settings_main_page_donate_on_github_label => 'Apóyanos en GitHub Sponsor';
+  String get settings_main_page_donate_on_github_label =>
+      'Apóyanos en GitHub Sponsor';
 
   @override
   String get settings_main_page_donate_on_paypal_label => 'Apóyanos en Paypal';
 
   @override
-  String get settings_main_page_donate_on_buy_me_coffee_label => 'Apóyanos en BuyMeACoffee';
+  String get settings_main_page_donate_on_buy_me_coffee_label =>
+      'Apóyanos en BuyMeACoffee';
 
   @override
   String get settings_main_page_bug_report_label => 'Reportar un error';
 
   @override
-  String get settings_main_page_github_page_label => 'Abrir la página de Github';
+  String get settings_main_page_github_page_label =>
+      'Abrir la página de Github';
 
   @override
   String get settings_main_page_credits_section_label => 'Créditos';
 
   @override
-  String get settings_main_page_credits_label => 'Desarrollado con amor por Herzen';
+  String get settings_main_page_credits_label =>
+      'Desarrollado con amor por Herzen';
 
   @override
   String get settings_main_page_other_section_label => 'Varios';
@@ -633,7 +957,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settings_main_page_license_label => 'Licencia de la app';
 
   @override
-  String get settings_main_page_privacy_policy_label => 'Política de privacidad';
+  String get settings_main_page_privacy_policy_label =>
+      'Política de privacidad';
 
   @override
   String get settings_main_page_app_info_label => 'Versión de la app :';

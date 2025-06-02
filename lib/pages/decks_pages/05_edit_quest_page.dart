@@ -4,14 +4,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
+import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
+import 'package:loverquest/pages/decks_pages/dialogs/03_delete_quest_dialog.dart';
+import 'package:loverquest/pages/snackbars/01_snackbar_templates.dart';
+
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
+
 import 'package:loverquest/logics/ui_logics/03_translate_tools_labels.dart';
 
 import 'package:loverquest/logics/settings_logics/02_utility.dart';
+
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 //------------------------------------------------------------------------------
 
@@ -20,19 +28,8 @@ import 'package:loverquest/logics/settings_logics/02_utility.dart';
 // DECK SELECTION PAGE DEFINITION
 class QuestEditPage extends StatefulWidget {
 
-  // CLASS ATTRIBUTES
-  final DeckReader selected_deck;
-  final Quest? selected_quest;
-  final bool show_delete_button;
-
-
   // CLASS CONSTRUCTOR
-  const QuestEditPage({
-    required this.selected_deck,
-    this.selected_quest,
-    this.show_delete_button = true,
-    super.key,
-  });
+  const QuestEditPage({super.key});
 
   // LINK TO CLASS STATE / WIDGET CONTENT
   @override
@@ -42,23 +39,18 @@ class QuestEditPage extends StatefulWidget {
 
 }
 
-
-
-//------------------------------------------------------------------------------
-
-
-
 // CLASS STATE / WIDGET CONTENT
 class _QuestEditPageState extends State<QuestEditPage> {
 
   //------------------------------------------------------------------------------
 
+  // INITIALIZING THE DECK WRAPPER OBJECT VAR
+  DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper();
+
   // DEFINING PLAYERS NAMES TEXT FIELD TEXT CONTROLLER
   TextEditingController _quest_tool_controller = TextEditingController();
   TextEditingController _quest_timer_controller = TextEditingController();
   TextEditingController _quest_content_controller = TextEditingController();
-
-  //------------------------------------------------------------------------------
 
   // DEFINING THE TOOL LIST VAR
   List<String> tools_list = [];
@@ -66,22 +58,14 @@ class _QuestEditPageState extends State<QuestEditPage> {
   // DEFINING THE TRANSLATED TOOL LIST VAR
   List<String> translated_tools_list = [];
 
-  //------------------------------------------------------------------------------
-
   // DEFINING THE QUEST TIMER VAR
   int quest_timer = 0;
-
-  //------------------------------------------------------------------------------
 
   // SETTING THE COUPLE TYPE AND GAME TYPE INITIAL VALUE
   String selected_option_quest_moment = 'early';
 
-  //------------------------------------------------------------------------------
-
   // SETTING THE PLAYER TYPE INITIAL VALUE
   String selected_option_player_type = 'both';
-
-  //------------------------------------------------------------------------------
 
   // INITIALIZING THE GLOBAL SWITCHES VARIABLES
   bool item_1 = false; bool item_2 = false; bool item_3 = false; bool item_4 = false;
@@ -95,134 +79,24 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
   //------------------------------------------------------------------------------
 
-  // SHOWING THE CONFIRMATION OF QUEST DELETION
-  Future<void> show_confirmation_dialog(BuildContext context) {
-    return showDialog(
+// FUNCTION TO SHOW THE DELETE CONFIRMATION DIALOG
+  void show_delete_quest_dialog(BuildContext context) {
+    showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
+      builder: (context) => DeleteQuestDialog(
+        deck: deck_wrapper_object.selected_deck!,
+        selected_quest: deck_wrapper_object.selected_quest!,
+      ),
+    ).then((result) async {
 
-          // DIALOG TITLE
-          title: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_title, style: TextStyle(fontSize: 18.5,), textAlign: TextAlign.center,),
+      if (result) {
 
-          // DIALOG CONTENT
-          content: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_subtitle, style: TextStyle(fontSize: 16,), textAlign: TextAlign.center,),
+        // GOING BACK TO THE PREVIOUS PAGE
+        context.pop();
 
-          // DIALOG BUTTONS
-          actions: [
+      }
 
-            // BUTTONS ROW
-            Row(
-
-              // ALIGNMENT
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-              // ROW CONTENT
-              children: [
-
-                // YES BUTTON
-                TextButton(
-
-                  // BUTTON STYLE PARAMETERS
-                  style: ButtonStyle(
-
-                    // NORMAL TEXT COLOR
-                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                    // NORMAL BACKGROUND COLOR
-                    backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                    // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                    // BORDER RADIUS
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-
-                  ),
-
-                  // FUNCTION
-                  onPressed: () async {
-
-                    // REMOVING THE QUEST FROM THE LIST
-                    widget.selected_deck.quests.remove(widget.selected_quest);
-
-                    // SAVING THE MODIFIED DECK FILE
-                    await DeckManagement.save_deck(
-                      deck_name: widget.selected_deck.summary.name,
-                      deck_description: widget.selected_deck.summary.description,
-                      deck_language: widget.selected_deck.summary.language,
-                      couple_type: widget.selected_deck.summary.couple_type,
-                      play_presence: widget.selected_deck.summary.play_presence,
-                      deck_tags: widget.selected_deck.summary.tags,
-                      selected_deck: widget.selected_deck,
-                    );
-
-                    // CHECKING IF THE INTERFACE IS STILL MOUNTED
-                    if (!mounted) return;
-
-                    // CLOSING THE DIALOG
-                    // ignore: use_build_context_synchronously
-                    Navigator.of(context).pop();
-
-                  },
-
-                  // BUTTON TEXT
-                  child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_yes_button_label),
-
-                ),
-
-                // NO BUTTON
-                TextButton(
-
-                  // BUTTON STYLE PARAMETERS
-                  style: ButtonStyle(
-
-                    // NORMAL TEXT COLOR
-                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                    // NORMAL BACKGROUND COLOR
-                    backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                    // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                    // BORDER RADIUS
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-
-                  ),
-
-                  // FUNCTION
-                  onPressed: () {
-
-                    // CLOSING THE DIALOG
-                    Navigator.of(context).pop();
-
-                  },
-
-                  // BUTTON TEXT
-                  child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_no_button_label),
-
-                ),
-
-              ],
-
-            ),
-
-          ],
-
-        );
-
-      },
-
-    );
+    });
 
   }
 
@@ -233,15 +107,25 @@ class _QuestEditPageState extends State<QuestEditPage> {
   void initState() {
     super.initState();
 
-    // IMPORTING PREVIOUS DATA IF PRESENT
-    tools_list = widget.selected_quest?.required_tools ?? [];
-    selected_option_quest_moment = widget.selected_quest?.moment ?? 'early';
+
 
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
+    // GETTING THE DATA FROM THE PROVIDER
+    deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+
+    // CHECKING IF WE ARE OPENING A PREVIOUS QUEST
+    if (deck_wrapper_object.show_delete_button == true) {
+
+      // IMPORTING PREVIOUS DATA IF PRESENT
+      tools_list = deck_wrapper_object.selected_quest?.required_tools ?? [];
+      selected_option_quest_moment = deck_wrapper_object.selected_quest?.moment ?? 'early';
+
+    }
 
     // TRANSLATING THE TOOLS LIST
     translated_tools_list = translate_tools(context, tools_list);
@@ -251,8 +135,8 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
     // SET-UPPING THE TEXT FIELD CONTROLLERS
     _quest_tool_controller = TextEditingController(text: translated_tools_list.join(", "));
-    _quest_timer_controller = TextEditingController(text: widget.selected_quest?.timer.toString() ?? "0");
-    _quest_content_controller = TextEditingController(text: widget.selected_quest?.content ?? "");
+    _quest_timer_controller = TextEditingController(text: deck_wrapper_object.selected_quest?.timer.toString() ?? "0");
+    _quest_content_controller = TextEditingController(text: deck_wrapper_object.selected_quest?.content ?? "");
 
   }
 
@@ -277,65 +161,20 @@ class _QuestEditPageState extends State<QuestEditPage> {
     // CHECKING THAT ALL MANDATORY FIELDS HAS BEEN COMPILED
     if (quest_content == "" && quest_timer == 0 && selected_option_quest_moment == "early" && selected_option_player_type == "both") {
 
+      // EDITING THE WRAPPER WITH THE CORRECT VALUES
+      deck_wrapper_object.show_delete_button = null;
+      deck_wrapper_object.selected_quest = null;
+      deck_wrapper_object.new_deck_creation = false;
+
+      // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+      Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
       return true;
 
     } else if (quest_content == "") {
 
-      // SHOWING ERROR POPUP
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-
-          // POP-UP CONTENT
-          content: Row(
-
-            // ALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            // SIZE
-            mainAxisSize: MainAxisSize.max,
-
-            // ROW CONTENT
-            children: [
-
-              // ERROR TEXT
-              Flexible(
-
-                child: Text(
-                  // TEXT
-                  AppLocalizations.of(context)!.define_players_name_error_label,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromRGBO(226, 226, 226, 1.0),
-                  ),
-
-                  // TEXT GO TO NEXT ROW
-                  softWrap: true,
-
-                  // MAX NUMBERS OF TEXT LINE
-                  maxLines: 3,
-
-                  // WHAT SHOW IF LONGER
-                  overflow: TextOverflow.ellipsis,
-
-                ),
-
-              )
-
-            ],
-
-          ),
-
-          // POP-UP DURATION
-          duration: Duration(seconds: 4),
-
-          // POP-UP BACKGROUND COLOR
-          backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
-
-        ),
-      );
+      // SHOWING ERROR SNACKBAR
+      show_error_snackbar(context, AppLocalizations.of(context)!.define_players_name_error_label);
 
       return false;
 
@@ -344,10 +183,10 @@ class _QuestEditPageState extends State<QuestEditPage> {
       try {
         
         // CHECKING IF THE QUEST IS AN EDITED ONE
-        if (widget.selected_quest != null) {
+        if (deck_wrapper_object.selected_quest != null) {
           
           // DELETING THE QUEST FROM THE LIST
-          widget.selected_deck.quests.remove(widget.selected_quest);
+          deck_wrapper_object.selected_deck!.quests.remove(deck_wrapper_object.selected_quest);
           
         }
 
@@ -362,9 +201,22 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
         // SAVING THE QUEST AND THE DECK
         await DeckManagement.save_quest(
-          selected_deck: widget.selected_deck,
+          already_existing_deck: deck_wrapper_object.selected_deck!,
           new_quest: new_quest,
         );
+
+        // RELOADING THE DECK
+        DeckReader edited_deck = DeckReader(deck_wrapper_object.selected_deck?.deck_key ?? "");
+        await edited_deck.load_deck();
+
+        // EDITING THE WRAPPER WITH THE CORRECT VALUES
+        deck_wrapper_object.show_delete_button = null;
+        deck_wrapper_object.selected_quest = null;
+        deck_wrapper_object.new_deck_creation = false;
+        deck_wrapper_object.selected_deck = edited_deck;
+
+        // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+        Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
         return true;
 
@@ -1830,16 +1682,13 @@ class _QuestEditPageState extends State<QuestEditPage> {
       if (didPop) return;
 
       // SAVING DECK DATA
-      bool success = await check_and_save_quest();
+      await check_and_save_quest();
 
       // CHECKING IF THE INTERFACE IS STILL MOUNTED
       if (!mounted) return;
 
-      // GOING BACK TO THE EDITOR MAIN PAGE
-      if (success) {
-        // ignore: use_build_context_synchronously
-        Navigator.of(context).pop();
-      }
+      // PAGE LINKER
+      context.pop();
 
     },
 
@@ -1851,19 +1700,44 @@ class _QuestEditPageState extends State<QuestEditPage> {
           // DEFINING THE ACTION BUTTONS
           actions: [
 
+            // DUPLICATE DECK ICON BUTTON
+            deck_wrapper_object.show_delete_button! ? IconButton(
+              icon: Icon(Icons.copy),
+              onPressed: () async {
+
+                // CREATING THE NEW DUPLICATED QUEST
+                Quest duplicated_quest = Quest(moment: deck_wrapper_object.selected_quest!.moment, required_tools: deck_wrapper_object.selected_quest!.required_tools, player_type: deck_wrapper_object.selected_quest!.player_type, timer: deck_wrapper_object.selected_quest!.timer, content: "${deck_wrapper_object.selected_quest!.content}_2");
+
+                // ADDING THE QUEST TO THE QUEST LIST
+                deck_wrapper_object.selected_deck!.quests.add(duplicated_quest);
+
+                // SAVING THE EDITED DECK
+                await DeckManagement.save_deck(
+
+                  deck_name: deck_wrapper_object.selected_deck!.summary.name,
+                  deck_description: deck_wrapper_object.selected_deck!.summary.description,
+                  deck_language: deck_wrapper_object.selected_deck!.summary.language,
+                  couple_type: deck_wrapper_object.selected_deck!.summary.couple_type,
+                  play_presence: deck_wrapper_object.selected_deck!.summary.play_presence,
+                  deck_tags: deck_wrapper_object.selected_deck!.summary.tags,
+                  already_existing_deck: deck_wrapper_object.selected_deck!,
+
+                );
+
+                // PAGE LINKER
+                context.pop();
+
+              },
+
+            ): SizedBox(),
+
             // DELETE ICON BUTTON
-            widget.show_delete_button ? IconButton(
+            deck_wrapper_object.show_delete_button! ? IconButton(
               icon: Icon(Icons.delete),
               onPressed: () async {
 
                 // SHOWING THE DELETE DIALOG
-                await show_confirmation_dialog(context);
-
-                // CHECKING IF THE CONTEXT IS STILL VALID
-                if (!context.mounted) {return;}
-
-                // GOING BACK TO THE PREVIOUS PAGE
-                Navigator.of(context).pop();
+                show_delete_quest_dialog(context);
 
               },
 
@@ -2443,9 +2317,8 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
                           if (success) {
 
-                            // GOING BACK TO THE MAIN EDIT PAGE
-                            // ignore: use_build_context_synchronously
-                            Navigator.pop(context);
+                            // PAGE LINKER
+                            context.pop();
 
                           }
 

@@ -3,17 +3,19 @@
 // STANDARD LIBRARIES
 import 'package:flutter/material.dart';
 import 'package:loverquest/l10n/app_localization.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 // CUSTOM FILES
-import 'package:loverquest/pages/decks_pages/01_deck_list_page.dart';
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 
 //------------------------------------------------------------------------------
 
 // SELECT GAME TYPE PAGE DEFINITION
-class DeckSelectionPage extends StatelessWidget {
+class DeckSelectionMainPage extends StatelessWidget {
 
   // CLASS CONSTRUCTOR
-  const DeckSelectionPage({super.key});
+  const DeckSelectionMainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -149,17 +151,14 @@ class DeckSelectionPage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // CREATING THE PAGES WRAPPER OBJECT TO TRANSFER DATA THROUGH PAGES
+                        DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper(load_default_decks_flag: true);
+
+                        // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
                         // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-
-                            // OPEN NEW PAGE
-                            builder: (context) => DeckManagementPage(load_default_decks: true,),
-
-                          ),
-
-                        );
+                        context.push('/decks/stock/default_decks_list');
 
                       },
 
@@ -311,17 +310,14 @@ class DeckSelectionPage extends StatelessWidget {
                       // ON PRESSED CALL
                       onPressed: () {
 
+                        // CREATING THE PAGES WRAPPER OBJECT TO TRANSFER DATA THROUGH PAGES
+                        DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper(load_default_decks_flag: false);
+
+                        // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+                        Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
                         // PAGE LINKER
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-
-                            // OPEN NEW PAGE
-                            builder: (context) => DeckManagementPage(load_default_decks: false ,),
-
-                          ),
-
-                        );
+                        context.push('/decks/user/custom_decks_list');
 
                       },
 
