@@ -72,13 +72,13 @@ class DeckManagement {
         // SETTING THE DECK KEY TO USE FOR SAVING
         deck_key = already_existing_deck.deck_key;
 
-      } else if (legacy_already_existing_deck != null && deck_duplication == false) {
+      } else if (already_existing_deck != null && deck_duplication == true) {
 
         // ACQUIRING THE DECK QUEST NUMBER
-        deck_quest_number = legacy_already_existing_deck.quests.length;
+        deck_quest_number = already_existing_deck.quests.length;
 
         // SETTING THE DECK KEY TO USE FOR SAVING
-        deck_key = legacy_already_existing_deck.deck_file_path;
+        deck_key = deck_name;
 
       } else {
 
@@ -88,7 +88,7 @@ class DeckManagement {
       }
 
       //------------------------------------------------------------------------------
-      
+
       // CHECKING IF IS POSSIBLE TO GET DECK TOOLS DYNAMICALLY FROM THE QUESTS
       if (already_existing_deck != null && already_existing_deck.quests.isNotEmpty) {
 
@@ -236,7 +236,7 @@ class DeckManagement {
       );
 
       // CHECKING IF THE REQUEST HAS BEEN ABORTED
-      if (result == null) return false;
+      if (result == null) return true;
 
       // DEFINING THE JSON VAR
       String json_string;

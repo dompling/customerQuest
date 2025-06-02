@@ -380,6 +380,20 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
                     ),
 
+                    // TRANSLATION HELP LINK BUTTON
+                    ListTile(
+
+                      // BUTTON LABEL
+                      title: Text(AppLocalizations.of(context)!.settings_main_page_translation_help_button_label),
+
+                      // BUTTON ICON
+                      leading: const Icon(Icons.list_alt),
+
+                      // ON TAP FUNCTION CALL
+                      onTap: () => open_link("https://github.com/H3rz3n/loverquest/blob/main/github_pages/tutorial/translation/en_how_translate_app.md"),
+
+                    ),
+
                     //------------------------------------------------------------------------------
 
                     // SECTION DIVIDER

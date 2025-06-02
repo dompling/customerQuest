@@ -47,11 +47,90 @@ class DeleteQuestDialogState extends State<DeleteQuestDialog> {
     // DIALOG CONTENT
     return AlertDialog(
 
+      // SETTING THE CORRECT PADDING
+      insetPadding: EdgeInsets.symmetric(horizontal: 10),
+
       // DIALOG TITLE
-      title: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_title, style: TextStyle(fontSize: 18.5,), textAlign: TextAlign.center,),
+      title: Row(
+
+        // ALIGNMENT
+        mainAxisAlignment: MainAxisAlignment.center,
+
+        children: [
+
+          // ICON
+          Icon(Icons.warning_amber, color: Colors.white, size: 25),
+
+          // SPACER
+          SizedBox(width: 10),
+
+          // TEXT CONTAINER
+          Flexible(
+
+            child: Text(
+
+              // TEXT
+              AppLocalizations.of(context)!.deck_management_delete_quest_dialog_title,
+
+              // TEXT ALIGNMENT
+              textAlign: TextAlign.center,
+
+              // TEXT STYLE
+              style: TextStyle(
+
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+
+              ),
+
+            ),
+
+          ),
+
+        ],
+
+      ),
 
       // DIALOG CONTENT
-      content: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_subtitle, style: TextStyle(fontSize: 16,), textAlign: TextAlign.center,),
+      content: SingleChildScrollView(
+
+        // SCROLLABLE VIEW CONTENT
+        child: Column(
+
+          // COLUMN CONTENT
+          children: [
+
+            //------------------------------------------------------------------------------
+
+            // DECK DELETION MESSAGE
+            Text(
+
+              // TEXT
+              AppLocalizations.of(context)!.deck_management_delete_quest_dialog_subtitle,
+
+              // TEXT ALIGNMENT
+              textAlign: TextAlign.center,
+
+              // TEXT STYLE
+              style: TextStyle(fontSize: 16,),),
+
+            //------------------------------------------------------------------------------
+
+            // SPACER
+            SizedBox(height: 10),
+
+            //------------------------------------------------------------------------------
+
+            // DECK NAME
+            Text(widget.selected_quest.content, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+
+            //------------------------------------------------------------------------------
+
+          ],
+
+        ),
+
+      ),
 
       // DIALOG BUTTONS
       actions: [
@@ -120,12 +199,12 @@ class DeleteQuestDialogState extends State<DeleteQuestDialog> {
                 Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
 
                 // CLOSING THE DIALOG
-                context.pop();
+                context.pop(true);
 
               },
 
               // BUTTON TEXT
-              child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_yes_button_label),
+              child: Text(AppLocalizations.of(context)!.deck_management_delete_quest_dialog_yes_button_label),
 
             ),
 
@@ -157,12 +236,12 @@ class DeleteQuestDialogState extends State<DeleteQuestDialog> {
               onPressed: () {
 
                 // CLOSING THE DIALOG
-                context.pop();
+                context.pop(false);
 
               },
 
               // BUTTON TEXT
-              child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_no_button_label),
+              child: Text(AppLocalizations.of(context)!.deck_management_delete_quest_dialog_no_button_label),
 
             ),
 

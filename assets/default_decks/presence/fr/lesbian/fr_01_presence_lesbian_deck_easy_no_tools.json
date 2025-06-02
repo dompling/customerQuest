@@ -7,7 +7,9 @@
     "language": "fr",
     "total_quests": 20,
     "required_tools": [],
-    "tags": []
+    "tags": [],
+    "difficulty": "beginner"
+
   },
 
   "quests": [

@@ -35,6 +35,7 @@ To translate the decks:
     "total_quests": 30,                 # DON'T CHANGE IT
     "required_tools": [],               # DON'T CHANGE IT
     "tags": ["vaginal_sex"]             # DON'T CHANGE IT
+    "difficulty": "beginner"            # DONT'T CHANGE IT
   },
 
   "quests": [

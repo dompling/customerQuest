@@ -7,6 +7,8 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/pages/snackbars/01_snackbar_templates.dart';
+
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
@@ -82,61 +84,8 @@ class _PlayDeckInfoPageState extends State<PlayDeckInfoPage> {
     // CHECKING IF IS NECESSARY TO SHOW THE ERROR BANNER
     if (early_quests_list.isEmpty && mid_quests_list.isEmpty && late_quests_list.isEmpty && end_quests_list.isEmpty) {
 
-      // SHOWING ERROR POPUP
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-
-          // POP-UP CONTENT
-          content: Row(
-
-            // ALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            // SIZE
-            mainAxisSize: MainAxisSize.max,
-
-            // ROW CONTENT
-            children: [
-
-              // ERROR TEXT
-              Flexible(
-
-                child: Text(
-                  // TEXT
-                  AppLocalizations.of(context)!.deck_info_deck_unplayable_error,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromRGBO(226, 226, 226, 1.0),
-                  ),
-
-                  // TEXT GO TO NEXT ROW
-                  softWrap: true,
-
-                  // MAX NUMBERS OF TEXT LINE
-                  maxLines: 3,
-
-                  // WHAT SHOW IF LONGER
-                  overflow: TextOverflow.ellipsis,
-
-                ),
-
-              )
-
-            ],
-
-          ),
-
-          // POP-UP DURATION
-          duration: Duration(seconds: 4),
-
-          // POP-UP BACKGROUND COLOR
-          backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
-
-        ),
-      );
+    // SHOWING THE FIELD ERROR SNACKBAR
+    show_error_snackbar(context, AppLocalizations.of(context)!.deck_info_deck_unplayable_error);
 
     } else {
 

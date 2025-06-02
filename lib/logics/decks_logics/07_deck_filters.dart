@@ -9,17 +9,11 @@ bool containsAny(List<String> list1, List<String> list2) {
 
 //------------------------------------------------------------------------------
 
-
-
 // FILTERING DECK LIST FOR COUPLE TYPE
 List<DeckReader> filter_decks_for_couple_type (List<DeckReader> loaded_decks_list, String selected_couple_type) {
 
-  //------------------------------------------------------------------------------
-
   // INITIALIZING FILTERED LIST
   List<DeckReader> filtered_list = [];
-
-  //------------------------------------------------------------------------------
 
   // ITERATING THE LOADED DECK LIST
   for (DeckReader loaded_deck in loaded_decks_list) {
@@ -34,30 +28,18 @@ List<DeckReader> filter_decks_for_couple_type (List<DeckReader> loaded_decks_lis
 
   }
 
-  //------------------------------------------------------------------------------
-
   // RETURNING THE FILTERED DECKS LIST
   return filtered_list;
 
-  //------------------------------------------------------------------------------
-
 }
 
-
-
 //------------------------------------------------------------------------------
-
-
 
 // FILTERING DECK LIST FOR PRESENCE - DISTANCE
 List<DeckReader> filter_decks_for_presence_distance (List<DeckReader> loaded_decks_list, bool play_presence) {
 
-  //------------------------------------------------------------------------------
-
   // INITIALIZING FILTERED LIST
   List<DeckReader> filtered_list = [];
-
-  //------------------------------------------------------------------------------
 
   // ITERATING THE LOADED DECK LIST
   for (DeckReader loaded_deck in loaded_decks_list) {
@@ -72,38 +54,29 @@ List<DeckReader> filter_decks_for_presence_distance (List<DeckReader> loaded_dec
 
   }
 
-  //------------------------------------------------------------------------------
-
   // RETURNING THE FILTERED DECKS LIST
   return filtered_list;
 
-  //------------------------------------------------------------------------------
-
 }
-
-
 
 //------------------------------------------------------------------------------
 
-
-
-// FILTERING DECK LIST FOR WANTED TOOLS
-List<DeckReader> filter_decks_for_excluded_tools_presence (List<DeckReader> loaded_decks_list,  List<String> wanted_tools_list) {
-
-  //------------------------------------------------------------------------------
+// FILTERING DECK LIST FOR TOOLS PRESENCE
+List<DeckReader> filter_decks_for_tools_presence (List<DeckReader> loaded_decks_list, bool tools_presence) {
 
   // INITIALIZING FILTERED LIST
   List<DeckReader> filtered_list = [];
 
-  //------------------------------------------------------------------------------
-
   // ITERATING THE LOADED DECK LIST
   for (DeckReader loaded_deck in loaded_decks_list) {
 
-    // CHECKING IF ANY TOOL FROM THE EXCLUDED TOOLS LIST IS CONTAINED INSIDE THE DECK REQUIRED LIST
-    bool contains_excluded_tools = containsAny(loaded_deck.summary.required_tools, wanted_tools_list);
+    // CHECKING IF THE DECK COUPLE IS COMPATIBLE WITH THE ONE SELECTED
+    if (loaded_deck.summary.required_tools.isNotEmpty && tools_presence == true) {
 
-    if (!contains_excluded_tools) {
+      // ADDING THE DECK TO THE FILTERED LIST
+      filtered_list.add(loaded_deck);
+
+    } else if (loaded_deck.summary.required_tools.isEmpty && tools_presence == false) {
 
       // ADDING THE DECK TO THE FILTERED LIST
       filtered_list.add(loaded_deck);
@@ -112,20 +85,74 @@ List<DeckReader> filter_decks_for_excluded_tools_presence (List<DeckReader> load
 
   }
 
-  //------------------------------------------------------------------------------
+  // RETURNING THE FILTERED DECKS LIST
+  return filtered_list;
+
+}
+
+//------------------------------------------------------------------------------
+
+// FILTERING DECK LIST FOR CHAT PRESENCE
+List<DeckReader> filter_decks_for_chat_presence (List<DeckReader> loaded_decks_list, bool chat_presence) {
+
+  // INITIALIZING FILTERED LIST
+  List<DeckReader> filtered_list = [];
+
+  // ITERATING THE LOADED DECK LIST
+  for (DeckReader loaded_deck in loaded_decks_list) {
+
+    // CHECKING IF THE DECK COUPLE IS COMPATIBLE WITH THE ONE SELECTED
+    if (loaded_deck.summary.tags.contains('chat') && chat_presence == true) {
+
+      // ADDING THE DECK TO THE FILTERED LIST
+      filtered_list.add(loaded_deck);
+
+    } else if (loaded_deck.summary.tags.contains('video_call') && chat_presence == false) {
+
+      // ADDING THE DECK TO THE FILTERED LIST
+      filtered_list.add(loaded_deck);
+
+    }
+
+  }
 
   // RETURNING THE FILTERED DECKS LIST
   return filtered_list;
 
-  //------------------------------------------------------------------------------
-
 }
-
-
 
 //------------------------------------------------------------------------------
 
+// FILTERING DECK LIST FOR CHAT PRESENCE
+List<DeckReader> filter_decks_for_difficulty (List<DeckReader> loaded_decks_list, bool chat_presence) {
 
+  // INITIALIZING FILTERED LIST
+  List<DeckReader> filtered_list = [];
+
+  // ITERATING THE LOADED DECK LIST
+  for (DeckReader loaded_deck in loaded_decks_list) {
+
+    // CHECKING IF THE DECK COUPLE IS COMPATIBLE WITH THE ONE SELECTED
+    if (loaded_deck.summary.tags.contains('chat') && chat_presence == true) {
+
+      // ADDING THE DECK TO THE FILTERED LIST
+      filtered_list.add(loaded_deck);
+
+    } else if (loaded_deck.summary.required_tools.contains('video_call') && chat_presence == false) {
+
+      // ADDING THE DECK TO THE FILTERED LIST
+      filtered_list.add(loaded_deck);
+
+    }
+
+  }
+
+  // RETURNING THE FILTERED DECKS LIST
+  return filtered_list;
+
+}
+
+//------------------------------------------------------------------------------
 
 //
 List<DeckReader> filter_decks_for_couple_type_and_game_type (List<DeckReader> loaded_decks_list, String couple_type, bool game_type) {
@@ -158,7 +185,6 @@ List<DeckReader> filter_decks_for_couple_type_and_game_type (List<DeckReader> lo
   //------------------------------------------------------------------------------
 
 }
-
 
 
 //------------------------------------------------------------------------------

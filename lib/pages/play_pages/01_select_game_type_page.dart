@@ -318,7 +318,7 @@ class SelectGameTypePage extends StatelessWidget {
                         Provider.of<MatchDataProvider>(context, listen: false).updateMatchData(match_data);
 
                         // PAGE LINKER
-                        context.push('/play/players_type');
+                        context.push('/play/online_safety_reminder');
 
                       },
 

@@ -227,7 +227,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,                      // THEME TYPE
           primary: Colors.white10,                          // PRIMARY COLOR
           onPrimary: Colors.white,                          // ELEMENTS ON PRIMARY COLOR
-          secondary: Color(0xFF4A3760),                     // SECONDARY COLOR
+          secondary: Color(0xFF614368),                     // SECONDARY COLOR
           onSecondary: Colors.white,                        // ELEMENTS ON SECONDARY COLOR
           error: Colors.red,                                // ERRORS COLOR
           onError: Colors.white,                            // ELEMENTS ON ERRORS COLOR
@@ -252,7 +252,7 @@ class MyApp extends StatelessWidget {
         ),
 
         // ALERT DIALOG THEME
-        dialogTheme: DialogTheme(
+        dialogTheme: DialogThemeData(
 
           // BACKGROUND COLOR
           backgroundColor: Colors.grey[900],

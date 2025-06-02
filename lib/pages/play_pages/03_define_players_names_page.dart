@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 
 
 // CUSTOM FILES
+import 'package:loverquest/pages/snackbars/01_snackbar_templates.dart';
+
 import 'package:loverquest/logics/play_logics/01_match_data_class.dart';
 import 'package:loverquest/logics/play_logics/02_players_class.dart';
 
@@ -61,7 +63,7 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
   //------------------------------------------------------------------------------
 
   // CHECKING CONTINUE TO NEXT PAGE CONDITION
-  void alias_check_to_go(player_1_sex, player_2_sex, player_1_image_path, player_2_image_path, couple_type, game_type) {
+  void alias_check_to_go(bool player_1_sex, bool player_2_sex, String player_1_image_path, String player_2_image_path, String couple_type, bool game_type) {
 
     // ACQUIRING PLAYER ALIAS AVOIDING SPACES
     String player_1_alias = _player_1_controller.text.trim();
@@ -70,61 +72,8 @@ class _DefinePlayersNamesPageState extends State<DefinePlayersNamesPage> {
     // CHECKING IF ALIAS ARE EMPTY
     if (player_1_alias.isEmpty || player_2_alias.isEmpty) {
 
-      // SHOWING ERROR POPUP
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-
-          // POP-UP CONTENT
-          content: Row(
-
-            // ALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            // SIZE
-            mainAxisSize: MainAxisSize.max,
-
-            // ROW CONTENT
-            children: [
-
-              // ERROR TEXT
-              Flexible(
-
-                child: Text(
-                  // TEXT
-                  AppLocalizations.of(context)!.define_players_name_error_label,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromRGBO(226, 226, 226, 1.0),
-                  ),
-
-                  // TEXT GO TO NEXT ROW
-                  softWrap: true,
-
-                  // MAX NUMBERS OF TEXT LINE
-                  maxLines: 3,
-
-                  // WHAT SHOW IF LONGER
-                  overflow: TextOverflow.ellipsis,
-
-                ),
-
-              )
-
-            ],
-
-          ),
-
-          // POP-UP DURATION
-          duration: Duration(seconds: 4),
-
-          // POP-UP BACKGROUND COLOR
-          backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
-
-        ),
-      );
+      // SHOWING THE FIELD ERROR SNACKBAR
+      show_error_snackbar(context, AppLocalizations.of(context)!.define_players_name_error_label);
 
     } else {
 

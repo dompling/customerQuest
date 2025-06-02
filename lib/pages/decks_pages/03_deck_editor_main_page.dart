@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 // CUSTOM FILES
 import 'package:loverquest/pages/decks_pages/dialogs/02_delete_deck_dialog.dart';
 import 'package:loverquest/pages/decks_pages/dialogs/03_delete_quest_dialog.dart';
+import 'package:loverquest/pages/decks_pages/dialogs/04_quest_list_filters_dialog.dart';
 
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
@@ -97,11 +98,12 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
       // CHECKING IF THE WIDGET IS STILL MOUNTED
       if (!mounted) return;
 
-      // RELOADING PAGE DATA
-      await page_data_loading();
+      if(result) {
 
-      // GOING TO THE PREVIOUS PAGE
-      context.pop();
+        // GOING TO THE PREVIOUS PAGE
+        context.pop();
+
+      }
 
     });
 
@@ -131,6 +133,33 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
   }
 
   //------------------------------------------------------------------------------
+
+  // FUNCTION TO SHOW THE FILTER DIALOG
+  void show_quest_filter_dialog() {
+    showDialog(
+      context: context,
+      builder: (context) => QuestFilterDialog(
+        on_filter_selected: (String new_sorting_type, String new_moment_filter, String new_tools_filter) {
+          setState(() {
+
+            // SETTING THE CHOOSE OPTION
+            sorting_type = new_sorting_type;
+
+            // SETTING THE CHOOSE OPTION
+            moment_filter = new_moment_filter;
+
+            // SETTING THE CHOOSE OPTION
+            tools_filter = new_tools_filter;
+
+            // APPLYING THE FILTERS TO THE VIEW
+            page_data_loading();
+
+          });
+        },
+      ),
+    );
+  }
+
 
   // LOADING DECK SUMMARY INFO
   Future<void> deck_summary_info_loading() async {
@@ -903,15 +932,20 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
                                         },
 
                                       ),
-                                      /*
-                                    // FILTER QUEST LIST ICON BUTTON
-                                    IconButton(
 
-                                      icon: Icon(Icons.filter_alt_rounded),
-                                      onPressed: () {},
 
-                                    ),
-                                    */
+                                      // FILTER QUEST LIST ICON BUTTON
+                                      IconButton(
+
+                                        icon: Icon(Icons.filter_alt_rounded),
+                                        onPressed: () {
+
+                                          show_quest_filter_dialog();
+
+                                        },
+
+                                      ),
+
                                     ],
 
                                   ),
@@ -1150,9 +1184,6 @@ class _DeckEditMainPageState extends State<DeckEditMainPage> {
 
                                         // ADDING THE QUEST TO THE QUEST LIST
                                         deck.quests.add(duplicated_quest);
-
-                                        // REPLACING INSIDE THE DECK THE OLD QUEST LIST WITH THE NEW QUEST LIST
-                                        deck.quests = deck.quests;
 
                                         // SAVING THE EDITED DECK
                                         await DeckManagement.save_deck(

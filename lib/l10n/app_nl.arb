@@ -48,18 +48,25 @@
   "app_presentation_donation_page_section_3_title": "Transparant en privé",
   "app_presentation_donation_page_section_3_subtitle": "Steun ons als je gelooft in privacy en open source voor iedereen.",
 
-
-
-
-  "donation_reminder_dialog_title": "Help ons!",
-  "donation_reminder_dialog_content": "Als je van Loverquest genoten hebt en het wilt ondersteunen, overweeg dan om een donatie te doen om ons te helpen het draaiende te houden en verder te verbeteren.",
   "donation_reminder_dialog_donate_button_label": "Doneren",
-  "donation_reminder_dialog_close_button_label": "Sluiten",
 
-  "review_reminder_dialog_title": "Help ons!",
-  "review_reminder_dialog_content": "Als je genoten hebt van Loverquest en het wilt steunen, overweeg dan om een recensie achter te laten.",
-  "review_reminder_dialog_review_button_label": "Steun ons",
-  "review_reminder_dialog_close_button_label": "Sluiten",
+  "review_reminder_page_title": "Jouw mening telt",
+  "review_reminder_page_section_1_title": "Deel je mening",
+  "review_reminder_page_section_1_subtitle": "Jouw feedback is erg waardevol! Laat ons weten welke functies je graag in toekomstige updates wilt zien.",
+  "review_reminder_page_section_2_title": "Help ons verbeteren",
+  "review_reminder_page_section_2_subtitle": "Meld eventuele problemen—wij lossen ze zo snel mogelijk op.",
+  "review_reminder_page_section_3_title": "Steun ons met een review",
+  "review_reminder_page_section_3_subtitle": "Een review achterlaten is een geweldige manier om ons te helpen groeien en meer mensen te bereiken.",
+  "review_reminder_donate_button_label": "Schrijf een review",
+
+  "download_native_page_title": "Download de native app",
+  "download_native_page_section_1_title": "Betere prestaties",
+  "download_native_page_section_1_subtitle": "De native app is sneller, soepeler en stabieler in gebruik.",
+  "download_native_page_section_2_title": "Dataveiligheid",
+  "download_native_page_section_2_subtitle": "Bewaar je waardevolle gegevens nog veiliger met de native app.",
+  "download_native_page_section_3_title": "Werkt offline",
+  "download_native_page_section_3_subtitle": "Met de native app kun je zelfs zonder internetverbinding spelen.",
+  "download_native_donate_button_label": "Downloaden",
 
   "online_play_disclaimer_dialog_title": "Waarschuwing!",
   "online_play_disclaimer_dialog_content": "Wees voorzichtig met het delen van intiem materiaal online\n\nVeiligheid gaat voor. Onthoud dat alles wat online gedeeld wordt mogelijk voor altijd online blijft staan, zonder mogelijkheid om het volledig te verwijderen. Vermijd het delen van persoonlijke gegevens en zorg ervoor dat de persoon met wie je speelt betrouwbaar is voordat je intiem materiaal verzendt.\n\nLoverquest neemt geen verantwoordelijkheid voor illegale activiteiten die online worden gepleegd, zoals het zonder toestemming verspreiden van intiem materiaal, het delen van kinderuitbuitingsmateriaal of andere wettelijke overtredingen.\n",
@@ -74,11 +81,22 @@
   "play_main_page_new_game_button_label": "Nieuw spel",
   "play_main_page_load_game_button_label": "Spel laden",
 
+  "ai_translation_warning_snackbar": "Deze vertaling is gemaakt met behulp van kunstmatige intelligentie. Merk je iets vreemds op? Laat het ons weten en stel een verbetering voor.",
+
   "select_game_type_page_title": "Selecteer het speltype",
   "select_game_type_presence_mode_title": "Lokaal spelen",
   "select_game_type_presence_mode_subtitle": "Een live en geweldige reis met je partner.",
   "select_game_type_distance_mode_title": "Online spelen",
   "select_game_type_distance_mode_subtitle": "Speel op afstand via je favoriete chat en beleef magische momenten samen.",
+
+  "online_safety_reminder_page_title": "Veiligheid voorop",
+  "online_safety_reminder_page_section_1_title": "Deel verantwoord",
+  "online_safety_reminder_page_section_1_subtitle": "Alles wat je online deelt, kan blijvend toegankelijk zijn.",
+  "online_safety_reminder_page_section_2_title": "Gebruik veilige apps",
+  "online_safety_reminder_page_section_2_subtitle": "Wij raden apps als Signal aan voor privacy en om je dagelijkse leven te scheiden.",
+  "online_safety_reminder_page_section_3_title": "Houd je aan de wet",
+  "online_safety_reminder_page_section_3_subtitle": "Loverquest is niet verantwoordelijk voor illegale activiteiten of het delen van verboden content.",
+  "online_safety_reminder_donate_button_label": "Begrepen",
 
   "select_players_type_title": "Selecteer het geslacht van de spelers",
   "select_players_type_hetero_couple_title": "Heterokoppel",
@@ -232,10 +250,17 @@
   "deck_management_press_menu_export": "Exporteren",
   "deck_management_press_menu_duplicate": "Dupliceren",
   "deck_management_press_menu_edit": "Bewerken",
-  "deck_management_delete_dialog_title": "Weet je het zeker?",
-  "deck_management_delete_dialog_subtitle": "Wil je het verwijderen?",
-  "deck_management_delete_dialog_yes_button_label": "Ja",
-  "deck_management_delete_dialog_no_button_label": "Nee",
+
+  "deck_management_delete_deck_dialog_title": "Weet je het zeker?",
+  "deck_management_delete_deck_dialog_subtitle": "Hiermee wordt het volgende deck permanent verwijderd:",
+  "deck_management_delete_deck_dialog_yes_button_label": "Ja",
+  "deck_management_delete_deck_dialog_no_button_label": "Nee",
+
+  "deck_management_delete_quest_dialog_title": "Weet je het zeker?",
+  "deck_management_delete_quest_dialog_subtitle": "Hiermee wordt de volgende quest permanent verwijderd:",
+  "deck_management_delete_quest_dialog_yes_button_label": "Ja",
+  "deck_management_delete_quest_dialog_no_button_label": "Nee",
+
   "deck_management_page_no_decks_text": "Sorry, hier is niets",
   "deck_management_page_not_done_yet": "Sorry, probeer hier te komen na de volgende update",
   "deck_management_page_warning_dialog_title": "Opgelet",
@@ -267,11 +292,30 @@
   "deck_filter_dialog_all_tag": "Alle",
   "deck_filter_dialog_presence_tag": "Lokaal",
   "deck_filter_dialog_distance_tag": "Online",
+
+  "deck_filter_dialog_with_tools_tag": "Met hulpmiddelen",
+  "deck_filter_dialog_without_tools_tag": "Zonder hulpmiddelen",
+  "deck_filter_dialog_chat_only_tag": "Alleen chat",
+  "deck_filter_dialog_videochat_only_tag": "Alleen videochat",
+  "deck_filter_dialog_beginner_tag": "Beginner",
+  "deck_filter_dialog_intermediate_tag": "Gemiddeld",
+  "deck_filter_dialog_advanced_tag": "Gevorderd",
+
+  "deck_filter_dialog_order_ascending_tag": "Oplopend",
+  "deck_filter_dialog_order_descending_tag": "Aflopend",
+  "deck_filter_dialog_moment_early_tag": "Begin",
+  "deck_filter_dialog_moment_mid_tag": "Midden",
+  "deck_filter_dialog_moment_late_tag": "Laat",
+  "deck_filter_dialog_moment_end_tag": "Einde",
+  "deck_filter_dialog_tools_with_tools_tag": "Met hulpmiddelen",
+  "deck_filter_dialog_moment_without_tools_tag": "Zonder hulpmiddelen",
+
   "deck_filter_apply_filter_button": "Toepassen",
 
   "settings_main_page_title": "Instellingen",
   "settings_main_page_language_section_label": "Taal",
   "settings_main_page_language_button_label": "Kies taal",
+  "settings_main_page_translation_help_button_label": "Help ons met vertalen",
   "settings_main_page_webapp_section_label": "Webapp",
   "settings_main_page_webapp_button_label": "Open de webapp-site",
   "settings_main_page_support_section_label": "Ondersteuning",

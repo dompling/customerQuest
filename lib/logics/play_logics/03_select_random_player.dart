@@ -11,7 +11,7 @@ import 'package:loverquest/logics/play_logics/02_players_class.dart';
 
 
 // DEFINING RANDOM PLAYER SELECTION FUNCTION
-Players select_random_player (player_1_object, player_2_object) {
+Players select_random_player (Players player_1_object, Players player_2_object) {
 
   // CREATING RANDOM INSTANCE
   var random = Random();

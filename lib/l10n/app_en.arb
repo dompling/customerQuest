@@ -48,38 +48,55 @@
   "app_presentation_donation_page_section_3_title": "Transparent and private",
   "app_presentation_donation_page_section_3_subtitle": "Support us if you believe in privacy and open source for all.",
 
-
-
-
-
   "navbar_play_button_label": "Play",
   "navbar_decks_button_label": "Decks",
   "navbar_settings_button_label": "Settings",
 
-
-  "online_play_disclaimer_dialog_title": "Warning !",
+  "online_play_disclaimer_dialog_title": "Warning!",
   "online_play_disclaimer_dialog_content": "Beware of sharing intimate material online\n\nSafety comes first. Remember that any content shared on the Internet could remain online forever, with no way to completely erase it. Avoid including personal data and make sure that the person you are playing with is trustworthy before sending any intimate material.\n\nLoverquest assumes no responsibility for any illegal activities committed online, such as the non-consensual distribution of intimate material, the sharing of child exploitation content, or other violations of the law.\n",
   "online_play_disclaimer_dialog_close_button_label": "Close",
 
+  "donation_reminder_page_donate_button_label": "Donate",
 
-  "donation_reminder_dialog_donate_button_label": "Donate",
-  "donation_reminder_dialog_close_button_label": "Close",
+  "review_reminder_page_title": "Your opinion matters",
+  "review_reminder_page_section_1_title": "Share your thoughts",
+  "review_reminder_page_section_1_subtitle": "Your feedback truly matters! Tell us what features you’d like to see in future updates.",
+  "review_reminder_page_section_2_title": "Help us improve",
+  "review_reminder_page_section_2_subtitle": "If you encounter any issues, let us know—we’ll fix them as quickly as possible.",
+  "review_reminder_page_section_3_title": "Show your support",
+  "review_reminder_page_section_3_subtitle": "Leaving a review is a wonderful way to help our project grow and reach more people.",
+  "review_reminder_donate_button_label": "Leave a review",
 
-  "review_reminder_dialog_title": "Help us !",
-  "review_reminder_dialog_content": "If you enjoyed Loverquest and want to support it, consider leaving a review.",
-  "review_reminder_dialog_review_button_label": "Support us",
-  "review_reminder_dialog_close_button_label": "Close",
+  "download_native_page_title": "Download the native app",
+  "download_native_page_section_1_title": "Better performance",
+  "download_native_page_section_1_subtitle": "The native app is smoother, faster, and more stable to use.",
+  "download_native_page_section_2_title": "Data safety",
+  "download_native_page_section_2_subtitle": "Keep your valuable data more securely with the native app.",
+  "download_native_page_section_3_title": "Offline access",
+  "download_native_page_section_3_subtitle": "With the native app, you can play even when you're offline.",
+  "download_native_donate_button_label": "Download",
 
   "play_main_page_title": "Loverquest",
   "play_main_page_subtitle": "Road to pleasure",
   "play_main_page_new_game_button_label": "New game",
   "play_main_page_load_game_button_label": "Load game",
 
+  "ai_translation_warning_snackbar": "This adaptation was generated using AI translation. If you notice anything unusual, please let us know and suggest a correction.",
+
   "select_game_type_page_title": "Select the game type",
   "select_game_type_presence_mode_title": "Local play",
   "select_game_type_presence_mode_subtitle": "Live and amazing journey with your partner.",
   "select_game_type_distance_mode_title": "Online play",
   "select_game_type_distance_mode_subtitle": "Play remotely with your partner on your favorite chat and live some magic moments together.",
+
+  "online_safety_reminder_page_title": "Safety first",
+  "online_safety_reminder_page_section_1_title": "Share responsibly",
+  "online_safety_reminder_page_section_1_subtitle": "Anything shared online may remain accessible forever.",
+  "online_safety_reminder_page_section_2_title": "Use private apps",
+  "online_safety_reminder_page_section_2_subtitle": "We recommend secure apps like Signal for privacy and separation from your daily life.",
+  "online_safety_reminder_page_section_3_title": "Respect the law",
+  "online_safety_reminder_page_section_3_subtitle": "Loverquest is not responsible for illegal activities or sharing prohibited content.",
+  "online_safety_reminder_donate_button_label": "Understood",
 
   "select_players_type_title": "Select the players' sex",
   "select_players_type_hetero_couple_title": "Straight couple",
@@ -93,7 +110,7 @@
   "define_players_name_player_one_label": "Player 1",
   "define_players_name_player_two_label": "Player 2",
   "define_players_name_textfield_hint_label": "Insert the nickname...",
-  "define_players_name_error_label": "It's mandatory to compile all the field",
+  "define_players_name_error_label": "It's mandatory to compile all the fields",
   "define_players_name_confirm_button": "Confirm",
 
   "select_start_player_page_title": "Choose who will be the first player",
@@ -167,7 +184,7 @@
   "tags_list_chat_tag": "chat",
   "tags_list_video_chat_tag": "video call",
 
-  "deck_info_deck_unplayable_error": "You can't play a deck without quests ! Please add some quests to this deck or select another deck to continue.",
+  "deck_info_deck_unplayable_error": "You can't play a deck without quests! Please add some quests to this deck or select another deck to continue.",
 
   "select_game_speed_page_title":"Select the game pace",
   "select_game_speed_speed_1_title": "I'm out of time",
@@ -233,10 +250,17 @@
   "deck_management_press_menu_export": "Export",
   "deck_management_press_menu_duplicate": "Duplicate",
   "deck_management_press_menu_edit": "Edit",
-  "deck_management_delete_dialog_title": "Are you sure?",
-  "deck_management_delete_dialog_subtitle": "Do you want to delete it?",
-  "deck_management_delete_dialog_yes_button_label": "Yes",
-  "deck_management_delete_dialog_no_button_label": "No",
+
+  "deck_management_delete_deck_dialog_title": "Are you sure?",
+  "deck_management_delete_deck_dialog_subtitle": "This will erase permanently the following deck:",
+  "deck_management_delete_deck_dialog_yes_button_label": "Yes",
+  "deck_management_delete_deck_dialog_no_button_label": "No",
+
+  "deck_management_delete_quest_dialog_title": "Are you sure?",
+  "deck_management_delete_quest_dialog_subtitle": "This will erase permanently the following quest:",
+  "deck_management_delete_quest_dialog_yes_button_label": "Yes",
+  "deck_management_delete_quest_dialog_no_button_label": "No",
+
   "deck_management_page_no_decks_text": "Sorry, there is nothing here",
   "deck_management_page_not_done_yet": "Sorry, try to come here after the next update",
   "deck_management_page_warning_dialog_title": "Warning!",
@@ -268,12 +292,32 @@
   "deck_filter_dialog_gay_tag": "Gay",
   "deck_filter_dialog_all_tag": "All",
   "deck_filter_dialog_presence_tag": "Local",
-  "deck_filter_dialog_distance_tag": "Online",
+  "deck_filter_dialog_distance_tag": "Local",
+
+  "deck_filter_dialog_with_tools_tag": "With tools",
+  "deck_filter_dialog_without_tools_tag": "Without tools",
+  "deck_filter_dialog_chat_only_tag": "Chat",
+  "deck_filter_dialog_videochat_only_tag": "Videochat",
+  "deck_filter_dialog_beginner_tag": "Beginner",
+  "deck_filter_dialog_intermediate_tag": "Intermediate",
+  "deck_filter_dialog_advanced_tag": "Advanced",
+
+  "deck_filter_dialog_order_ascending_tag": "Ascending",
+  "deck_filter_dialog_order_descending_tag": "Descending",
+  "deck_filter_dialog_moment_early_tag": "Early",
+  "deck_filter_dialog_moment_mid_tag": "Mid",
+  "deck_filter_dialog_moment_late_tag": "Late",
+  "deck_filter_dialog_moment_end_tag": "End",
+  "deck_filter_dialog_tools_with_tools_tag": "With tools",
+  "deck_filter_dialog_moment_without_tools_tag": "Without tools",
+
+
   "deck_filter_apply_filter_button": "Apply",
 
   "settings_main_page_title": "Settings",
   "settings_main_page_language_section_label": "Language",
   "settings_main_page_language_button_label": "Choose language",
+  "settings_main_page_translation_help_button_label": "Help us with translation",
   "settings_main_page_webapp_section_label": "Web app",
   "settings_main_page_webapp_button_label": "Open the web app site",
   "settings_main_page_support_section_label": "Support",

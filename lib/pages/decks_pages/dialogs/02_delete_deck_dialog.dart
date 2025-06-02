@@ -6,7 +6,9 @@ import 'package:loverquest/l10n/app_localization.dart';
 import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/logics/general/app_router_wrapper_classes.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
+import 'package:provider/provider.dart';
 
 //------------------------------------------------------------------------------
 
@@ -37,14 +39,47 @@ class DeckDeleteDialogState extends State<DeckDeleteDialog> {
     // DIALOG CONTENT
     return AlertDialog(
 
-      //DIALOG TITLE
-      title: Text(
+      // SETTING THE CORRECT PADDING
+      insetPadding: EdgeInsets.symmetric(horizontal: 10),
 
-        // TEXT
-        AppLocalizations.of(context)!.deck_management_delete_dialog_title,
+      //DIALOG TITLE
+      title: Row(
 
         // ALIGNMENT
-        textAlign: TextAlign.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+
+        children: [
+
+          // ICON
+          Icon(Icons.warning_amber, color: Colors.white, size: 25),
+
+          // SPACER
+          SizedBox(width: 10),
+
+          // TEXT CONTAINER
+          Flexible(
+
+            child: Text(
+
+              // TEXT
+              AppLocalizations.of(context)!.deck_management_delete_deck_dialog_title,
+
+              // TEXT ALIGNMENT
+              textAlign: TextAlign.center,
+
+              // TEXT STYLE
+              style: TextStyle(
+
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+
+              ),
+
+            ),
+
+          ),
+
+        ],
 
       ),
 
@@ -60,12 +95,21 @@ class DeckDeleteDialogState extends State<DeckDeleteDialog> {
             //------------------------------------------------------------------------------
 
             // DECK DELETION MESSAGE
-            Text(AppLocalizations.of(context)!.deck_management_delete_dialog_subtitle, style: TextStyle(fontSize: 16,),),
+            Text(
+
+              // TEXT
+              AppLocalizations.of(context)!.deck_management_delete_deck_dialog_subtitle,
+
+              // TEXT ALIGNMENT
+              textAlign: TextAlign.center,
+
+              // TEXT STYLE
+              style: TextStyle(fontSize: 16,),),
 
             //------------------------------------------------------------------------------
 
             // SPACER
-            SizedBox(height: 5,),
+            SizedBox(height: 10),
 
             //------------------------------------------------------------------------------
 
@@ -122,13 +166,23 @@ class DeckDeleteDialogState extends State<DeckDeleteDialog> {
                 // DELETING THE DECK
                 await DeckManagement.delete_custom_deck(widget.deck_key);
 
+                // GETTING THE DATA FROM THE PROVIDER
+                DeckPagesWrapper deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+
+                // REMOVING THE DECK FROM THE PROVIDER
+                deck_wrapper_object.selected_deck = null;
+                deck_wrapper_object.new_deck_creation = false;
+
+                // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
+                Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
+
                 // CLOSING THE DIALOG
-                context.pop();
+                context.pop(true);
 
               },
   
               // BUTTON CONTENT
-              child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_yes_button_label),
+              child: Text(AppLocalizations.of(context)!.deck_management_delete_deck_dialog_yes_button_label),
 
             ),
 
@@ -160,12 +214,12 @@ class DeckDeleteDialogState extends State<DeckDeleteDialog> {
               onPressed: () {
 
                 // CLOSING THE DIALOG
-                context.pop();
+                context.pop(false);
 
               },
 
               // BUTTON CONTENT
-              child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_no_button_label),
+              child: Text(AppLocalizations.of(context)!.deck_management_delete_deck_dialog_no_button_label),
 
             ),
 

@@ -29,6 +29,7 @@ class PresentationDonationPageState extends State<PresentationDonationPage> {
   void initState() {
     super.initState();
 
+
     // AFTER THE FIRST FRAME HAS BEEN DRAW
     WidgetsBinding.instance.addPostFrameCallback((_) {
 
@@ -106,8 +107,8 @@ class PresentationDonationPageState extends State<PresentationDonationPage> {
                         // APP LOGO
                         Image.asset(
                           'assets/images/donation.png',
-                          width: 130,
-                          height: 130,
+                          width: 120,
+                          height: 120,
                           fit: BoxFit.contain,
                         )
 

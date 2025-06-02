@@ -7,6 +7,8 @@ import 'package:loverquest/l10n/app_localization.dart';
 import 'package:provider/provider.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/pages/snackbars/01_snackbar_templates.dart';
+
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/ui_logics/01_tags_ui_class.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
@@ -202,61 +204,8 @@ class _DeckSummaryEditPageState extends State<DeckSummaryEditPage> {
 
     } else if ( (deck_description_field.isNotEmpty || deck_name_field.isNotEmpty || _deck_language_controller.text.isNotEmpty) && has_used_button == true ) {
 
-      // SHOWING ERROR POPUP
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-
-          // POP-UP CONTENT
-          content: Row(
-
-            // ALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            // SIZE
-            mainAxisSize: MainAxisSize.max,
-
-            // ROW CONTENT
-            children: [
-
-              // ERROR TEXT
-              Flexible(
-
-                child: Text(
-                  // TEXT
-                  AppLocalizations.of(context)!.define_players_name_error_label,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromRGBO(226, 226, 226, 1.0),
-                  ),
-
-                  // TEXT GO TO NEXT ROW
-                  softWrap: true,
-
-                  // MAX NUMBERS OF TEXT LINE
-                  maxLines: 3,
-
-                  // WHAT SHOW IF LONGER
-                  overflow: TextOverflow.ellipsis,
-
-                ),
-
-              )
-
-            ],
-
-          ),
-
-          // POP-UP DURATION
-          duration: Duration(seconds: 4),
-
-          // POP-UP BACKGROUND COLOR
-          backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
-
-        ),
-      );
+      // SHOWING ERROR SNACKBAR
+      show_error_snackbar(context, AppLocalizations.of(context)!.define_players_name_error_label);
 
       // RESETTING THE BUTTON FLAG
       has_used_button = false;

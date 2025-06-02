@@ -9,6 +9,9 @@ import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 
 // CUSTOM FILES
+import 'package:loverquest/pages/decks_pages/dialogs/03_delete_quest_dialog.dart';
+import 'package:loverquest/pages/snackbars/01_snackbar_templates.dart';
+
 import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
 
@@ -76,134 +79,24 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
   //------------------------------------------------------------------------------
 
-  // SHOWING THE CONFIRMATION OF QUEST DELETION
-  Future<void> show_confirmation_dialog(BuildContext context) {
-    return showDialog(
+// FUNCTION TO SHOW THE DELETE CONFIRMATION DIALOG
+  void show_delete_quest_dialog(BuildContext context) {
+    showDialog(
       context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
+      builder: (context) => DeleteQuestDialog(
+        deck: deck_wrapper_object.selected_deck!,
+        selected_quest: deck_wrapper_object.selected_quest!,
+      ),
+    ).then((result) async {
 
-          // DIALOG TITLE
-          title: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_title, style: TextStyle(fontSize: 18.5,), textAlign: TextAlign.center,),
+      if (result) {
 
-          // DIALOG CONTENT
-          content: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_subtitle, style: TextStyle(fontSize: 16,), textAlign: TextAlign.center,),
+        // GOING BACK TO THE PREVIOUS PAGE
+        context.pop();
 
-          // DIALOG BUTTONS
-          actions: [
+      }
 
-            // BUTTONS ROW
-            Row(
-
-              // ALIGNMENT
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-              // ROW CONTENT
-              children: [
-
-                // YES BUTTON
-                TextButton(
-
-                  // BUTTON STYLE PARAMETERS
-                  style: ButtonStyle(
-
-                    // NORMAL TEXT COLOR
-                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                    // NORMAL BACKGROUND COLOR
-                    backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                    // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                    // BORDER RADIUS
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-
-                  ),
-
-                  // FUNCTION
-                  onPressed: () async {
-
-                    // REMOVING THE QUEST FROM THE LIST
-                    deck_wrapper_object.selected_deck!.quests.remove(deck_wrapper_object.selected_quest);
-
-                    // SAVING THE MODIFIED DECK FILE
-                    await DeckManagement.save_deck(
-                      deck_name: deck_wrapper_object.selected_deck!.summary.name,
-                      deck_description: deck_wrapper_object.selected_deck!.summary.description,
-                      deck_language: deck_wrapper_object.selected_deck!.summary.language,
-                      couple_type: deck_wrapper_object.selected_deck!.summary.couple_type,
-                      play_presence: deck_wrapper_object.selected_deck!.summary.play_presence,
-                      deck_tags: deck_wrapper_object.selected_deck!.summary.tags,
-                      already_existing_deck: deck_wrapper_object.selected_deck,
-                    );
-
-                    // CHECKING IF THE INTERFACE IS STILL MOUNTED
-                    if (!mounted) return;
-
-                    // CLOSING THE DIALOG
-                    // ignore: use_build_context_synchronously
-                    Navigator.of(context).pop();
-
-                  },
-
-                  // BUTTON TEXT
-                  child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_yes_button_label),
-
-                ),
-
-                // NO BUTTON
-                TextButton(
-
-                  // BUTTON STYLE PARAMETERS
-                  style: ButtonStyle(
-
-                    // NORMAL TEXT COLOR
-                    foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onPrimary),
-
-                    // NORMAL BACKGROUND COLOR
-                    backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.secondary),
-
-                    // PADDING
-                    padding: WidgetStateProperty.all(EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5)),
-
-                    // BORDER RADIUS
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-
-                  ),
-
-                  // FUNCTION
-                  onPressed: () {
-
-                    // CLOSING THE DIALOG
-                    Navigator.of(context).pop();
-
-                  },
-
-                  // BUTTON TEXT
-                  child: Text(AppLocalizations.of(context)!.deck_management_delete_dialog_no_button_label),
-
-                ),
-
-              ],
-
-            ),
-
-          ],
-
-        );
-
-      },
-
-    );
+    });
 
   }
 
@@ -214,9 +107,7 @@ class _QuestEditPageState extends State<QuestEditPage> {
   void initState() {
     super.initState();
 
-    // IMPORTING PREVIOUS DATA IF PRESENT
-    tools_list = deck_wrapper_object.selected_quest?.required_tools ?? [];
-    selected_option_quest_moment = deck_wrapper_object.selected_quest?.moment ?? 'early';
+
 
   }
 
@@ -226,6 +117,15 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
     // GETTING THE DATA FROM THE PROVIDER
     deck_wrapper_object = Provider.of<DeckWrapperProvider>(context, listen: false).wrapperData!;
+
+    // CHECKING IF WE ARE OPENING A PREVIOUS QUEST
+    if (deck_wrapper_object.show_delete_button == true) {
+
+      // IMPORTING PREVIOUS DATA IF PRESENT
+      tools_list = deck_wrapper_object.selected_quest?.required_tools ?? [];
+      selected_option_quest_moment = deck_wrapper_object.selected_quest?.moment ?? 'early';
+
+    }
 
     // TRANSLATING THE TOOLS LIST
     translated_tools_list = translate_tools(context, tools_list);
@@ -273,61 +173,8 @@ class _QuestEditPageState extends State<QuestEditPage> {
 
     } else if (quest_content == "") {
 
-      // SHOWING ERROR POPUP
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-
-          // POP-UP CONTENT
-          content: Row(
-
-            // ALIGNMENT
-            mainAxisAlignment: MainAxisAlignment.center,
-
-            // SIZE
-            mainAxisSize: MainAxisSize.max,
-
-            // ROW CONTENT
-            children: [
-
-              // ERROR TEXT
-              Flexible(
-
-                child: Text(
-                  // TEXT
-                  AppLocalizations.of(context)!.define_players_name_error_label,
-
-                  // TEXT STYLE
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal,
-                    color: Color.fromRGBO(226, 226, 226, 1.0),
-                  ),
-
-                  // TEXT GO TO NEXT ROW
-                  softWrap: true,
-
-                  // MAX NUMBERS OF TEXT LINE
-                  maxLines: 3,
-
-                  // WHAT SHOW IF LONGER
-                  overflow: TextOverflow.ellipsis,
-
-                ),
-
-              )
-
-            ],
-
-          ),
-
-          // POP-UP DURATION
-          duration: Duration(seconds: 4),
-
-          // POP-UP BACKGROUND COLOR
-          backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
-
-        ),
-      );
+      // SHOWING ERROR SNACKBAR
+      show_error_snackbar(context, AppLocalizations.of(context)!.define_players_name_error_label);
 
       return false;
 
@@ -1853,27 +1700,44 @@ class _QuestEditPageState extends State<QuestEditPage> {
           // DEFINING THE ACTION BUTTONS
           actions: [
 
+            // DUPLICATE DECK ICON BUTTON
+            deck_wrapper_object.show_delete_button! ? IconButton(
+              icon: Icon(Icons.copy),
+              onPressed: () async {
+
+                // CREATING THE NEW DUPLICATED QUEST
+                Quest duplicated_quest = Quest(moment: deck_wrapper_object.selected_quest!.moment, required_tools: deck_wrapper_object.selected_quest!.required_tools, player_type: deck_wrapper_object.selected_quest!.player_type, timer: deck_wrapper_object.selected_quest!.timer, content: "${deck_wrapper_object.selected_quest!.content}_2");
+
+                // ADDING THE QUEST TO THE QUEST LIST
+                deck_wrapper_object.selected_deck!.quests.add(duplicated_quest);
+
+                // SAVING THE EDITED DECK
+                await DeckManagement.save_deck(
+
+                  deck_name: deck_wrapper_object.selected_deck!.summary.name,
+                  deck_description: deck_wrapper_object.selected_deck!.summary.description,
+                  deck_language: deck_wrapper_object.selected_deck!.summary.language,
+                  couple_type: deck_wrapper_object.selected_deck!.summary.couple_type,
+                  play_presence: deck_wrapper_object.selected_deck!.summary.play_presence,
+                  deck_tags: deck_wrapper_object.selected_deck!.summary.tags,
+                  already_existing_deck: deck_wrapper_object.selected_deck!,
+
+                );
+
+                // PAGE LINKER
+                context.pop();
+
+              },
+
+            ): SizedBox(),
+
             // DELETE ICON BUTTON
             deck_wrapper_object.show_delete_button! ? IconButton(
               icon: Icon(Icons.delete),
               onPressed: () async {
 
                 // SHOWING THE DELETE DIALOG
-                await show_confirmation_dialog(context);
-
-                // CHECKING IF THE CONTEXT IS STILL VALID
-                if (!context.mounted) {return;}
-
-                // EDITING THE WRAPPER WITH THE CORRECT VALUES
-                deck_wrapper_object.show_delete_button = null;
-                deck_wrapper_object.selected_quest = null;
-                deck_wrapper_object.new_deck_creation = false;
-
-                // SAVING THE WRAPPER DATA CONTENT INSIDE THE PROVIDER
-                Provider.of<DeckWrapperProvider>(context, listen: false).updateWrapperData(deck_wrapper_object);
-
-                // PAGE LINKER
-                context.pop();
+                show_delete_quest_dialog(context);
 
               },
 

@@ -10,8 +10,9 @@ import 'package:go_router/go_router.dart';
 
 
 // CUSTOM FILES
-import 'package:loverquest/pages/decks_pages/dialogs/01_deck_filters_ui_page.dart';
+import 'package:loverquest/pages/decks_pages/dialogs/01_deck_list_filters_dialog.dart';
 import 'package:loverquest/pages/decks_pages/dialogs/02_delete_deck_dialog.dart';
+import 'package:loverquest/pages/snackbars/01_snackbar_templates.dart';
 
 import 'package:loverquest/logics/decks_logics/01_deck_reader_class.dart';
 import 'package:loverquest/logics/decks_logics/04_deck_management_class.dart';
@@ -52,7 +53,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
   // INITIALIZING THE DECK WRAPPER OBJECT VAR
   DeckPagesWrapper deck_wrapper_object = DeckPagesWrapper();
 
-  // DEFINING LOADED DECKS LIST AND FILTERED DECKS LIST
+  // DEFINING LOADED DECKS LIST AND ORIGINAL DECKS LIST
+  List<DeckReader> original_deck_list = [];
   List<DeckReader> decks_list = [];
 
   // DEFINING IS LOADING VARIABLE
@@ -61,6 +63,9 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
   // DEFINING THE FILTERS VAR
   String selected_option_couple_type = 'all';
   String selected_option_game_type = 'both';
+  String selected_option_tools_filter = 'all';
+  String selected_option_chat_filter = 'all';
+  String selected_option_difficulty = 'all';
 
   //------------------------------------------------------------------------------
 
@@ -103,137 +108,20 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
   Future<void> check_warning_screen () async {
 
     // GETTING THE SPLASH SCREEN PREFERENCE, IF THERE ARE NOT SETTING IT TO ZERO
-    bool show_warning_screen = prefs.getBool('show_warning_screen') ?? true;
+    bool show_deck_warning_screen = prefs.getBool('show_web_deck_warning_screen') ?? true;
 
     // CHECKING IF IS NECESSARY TO SHOW THE SPLASH SCREEN
-    if ((show_warning_screen) && (kIsWeb) && !(deck_wrapper_object.load_default_decks_flag ?? false)) {
+    if ((show_deck_warning_screen) && (kIsWeb) && !(deck_wrapper_object.load_default_decks_flag ?? false)) {
 
-      // SHOWING THE SPLASH SCREEN
-      show_warning_screen_dialog(context);
+      await Future.delayed(Duration(milliseconds: 250));
+
+      // SHOWING THE WARNING SNACKBAR
+      show_warning_snackbar(context, AppLocalizations.of(context)!.deck_management_page_warning_dialog_content);
 
       // SETTING THE SPLASH SCREEN AS SHOWED
-      await prefs.setBool('show_warning_screen', false);
+      await prefs.setBool('show_web_deck_warning_screen', false);
 
     }
-
-  }
-
-  // APP SPLASH SCREEN DIALOG
-  void show_warning_screen_dialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-
-        //------------------------------------------------------------------------------
-
-        // DIALOG
-        return AlertDialog(
-
-          // DIALOG TITLE
-          title: Text(
-
-            // TEXT
-            AppLocalizations.of(context)!.deck_management_page_warning_dialog_title,
-
-            // ALIGNMENT
-            textAlign: TextAlign.center,
-
-            // STYLE
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-
-          ),
-
-          // DIALOG CONTENT
-          content: Container(
-
-            // SETTING THE WIDTH LIMIT
-            constraints: BoxConstraints(maxWidth: 500),
-
-            // CONTAINER CONTENT
-            child: SingleChildScrollView(
-
-              child: Text(
-
-                // TEXT
-                AppLocalizations.of(context)!.deck_management_page_warning_dialog_content,
-
-                // ALIGNMENT
-                textAlign: TextAlign.center,
-
-                // STYLE
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.normal,
-                ),
-
-              ),
-
-            ),
-
-          ),
-
-          // DIALOG BUTTONS
-          actions: [
-
-            // BUTTON ROW
-            Row(
-
-              // ALIGN
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-              // ROW CONTENT
-              children: [
-
-                // EXIT BUTTON
-                TextButton(
-
-                  // STYLE
-                  style: ButtonStyle(
-                    foregroundColor: WidgetStateProperty.all(
-                        Theme.of(context).colorScheme.onPrimary),
-                    backgroundColor: WidgetStateProperty.all(
-                        Theme.of(context).colorScheme.primary),
-                    padding: WidgetStateProperty.all(
-                        EdgeInsets.symmetric(horizontal: 15, vertical: 10)),
-                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                    ),
-                  ),
-
-                  // FUNCTION
-                  onPressed: () => Navigator.of(context).pop(),
-
-                  // BUTTON CONTENT
-                  child: Text(
-
-                    // TEXT
-                    AppLocalizations.of(context)!.deck_management_page_warning_dialog_ok_button,
-
-                  ),
-
-                ),
-
-
-
-              ],
-
-            ),
-
-          ],
-
-
-        );
-
-      },
-
-    );
 
   }
 
@@ -249,6 +137,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
     
     // SETTING THE CORRECT LIST WITH THE DATA
     decks_list = default_reed_deck_list;
+    original_deck_list = decks_list;
     decks_list = decks_list;
     
   }
@@ -286,11 +175,44 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
     // SETTING THE CORRECT LIST WITH THE DATA
     decks_list = temp_list;
+    original_deck_list = decks_list;
     decks_list = decks_list;
     
   }
 
   //------------------------------------------------------------------------------
+
+  // FUNCTION TO SHOW THE FILTER DIALOG
+  void show_deck_filter_dialog() {
+    showDialog(
+      context: context,
+      builder: (context) => DeckFilterDialog(
+        on_filter_selected: (String new_couple_type, String new_game_type, String new_tools_filter, String new_chat_filter, String new_difficulty_filter) {
+          setState(()  {
+
+            // SETTING THE CHOOSE OPTION
+            selected_option_couple_type = new_couple_type;
+
+            // SETTING THE CHOOSE OPTION
+            selected_option_game_type = new_game_type;
+
+            // SETTING THE CHOOSE OPTION
+            selected_option_tools_filter = new_tools_filter;
+
+            // SETTING THE CHOOSE OPTION
+            selected_option_chat_filter = new_chat_filter;
+
+            // SETTING THE CHOOSE OPTION
+            selected_option_difficulty = new_difficulty_filter;
+
+            // APPLYING THE FILTERS TO THE VIEW
+            apply_deck_filters();
+
+          });
+        },
+      ),
+    );
+  }
 
   // FUNCTION TO APPLY FILTERS SELECTED IN THE FILTERS DIALOG
   void apply_deck_filters() {
@@ -299,7 +221,7 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
     setState(() {
 
       // GETTING THE LIST OF ALL DECKS
-      List<DeckReader> temp_filtered_list = List.from(decks_list);
+      List<DeckReader> temp_filtered_list = List.from(original_deck_list);
 
       // DEFINING THE PLAY DISTANCE VAR
       bool play_presence = true;
@@ -329,35 +251,56 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
 
       }
 
+      // CHECKING IF THE TOOL PRESENCE FILTER HAS BEEN SET
+      if (selected_option_tools_filter != 'all') {
+
+        // INITIALIZING THE TOOLS VAR
+        bool tools_presence = true;
+
+        // CHECKING IF WHICH IS THE SELECTED FILTER
+        if (selected_option_tools_filter == "with_tools") {
+
+          // SETTING THE FILTER AS WITH TOOLS
+          tools_presence = true;
+
+          // SETTING THE FILTER AS WITHOUT TOOLS
+        } else {tools_presence = false;}
+
+        // GETTING THE FILTERED LIST
+        temp_filtered_list = filter_decks_for_tools_presence(temp_filtered_list, tools_presence);
+
+      }
+
+      // CHECKING IF THE CHAT/VIDEO CHAT FILTER HAS BEEN SET
+      if (selected_option_chat_filter != 'all') {
+
+        // INITIALIZING THE TOOLS VAR
+        bool chat_presence = true;
+
+        // CHECKING IF WHICH IS THE SELECTED FILTER
+        if (selected_option_chat_filter == "chat") {
+
+          // SETTING THE FILTER AS WITH TOOLS
+          chat_presence = true;
+
+          // SETTING THE FILTER AS WITHOUT TOOLS
+        } else {chat_presence = false;}
+
+        // GETTING THE FILTERED LIST
+        temp_filtered_list = filter_decks_for_chat_presence(temp_filtered_list, chat_presence);
+
+      }
+
+      // CHECKING IF THE DIFFICULTY FILTER HAS BEEN SET
+      if (selected_option_difficulty != 'all') {
+
+
+      }
+
       // SETTING THE FILTERED DECK LIST
       decks_list = temp_filtered_list;
 
     });
-  }
-
-  //------------------------------------------------------------------------------
-
-  // FUNCTION TO SHOW THE FILTER DIALOG
-  void show_deck_filter_dialog() {
-    showDialog(
-      context: context,
-      builder: (context) => DeckFilterDialog(
-        on_filter_selected: (String newCoupleType, String newGameType) {
-          setState(() {
-
-            // SETTING THE CHOOSE OPTION
-            selected_option_couple_type = newCoupleType;
-
-            // SETTING THE CHOOSE OPTION
-            selected_option_game_type = newGameType;
-
-            // APPLYING THE FILTERS TO THE VIEW
-            apply_deck_filters();
-
-          });
-        },
-      ),
-    );
   }
 
   //------------------------------------------------------------------------------
@@ -516,63 +459,8 @@ class _DeckManagementPageState extends State<DeckManagementPage> {
               // CHECKING IF THE CUSTOM DECK WAS CORRECTLY IMPORTED
               if (!deck_correct_imported) {
 
-                // SHOWING ERROR POPUP
-                // ignore: use_build_context_synchronously
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-
-                    // POP-UP CONTENT
-                    content: Row(
-
-                      // ALIGNMENT
-                      mainAxisAlignment: MainAxisAlignment.center,
-
-                      // SIZE
-                      mainAxisSize: MainAxisSize.max,
-
-                      // ROW CONTENT
-                      children: [
-
-                        // ERROR TEXT
-                        Flexible(
-
-                          child: Text(
-                            // TEXT
-                            // ignore: use_build_context_synchronously
-                            AppLocalizations.of(context)!.deck_management_page_import_error_text,
-
-                            // TEXT STYLE
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal,
-                              color: Color.fromRGBO(226, 226, 226, 1.0),
-                            ),
-
-                            // TEXT GO TO NEXT ROW
-                            softWrap: true,
-
-                            // MAX NUMBERS OF TEXT LINE
-                            maxLines: 3,
-
-                            // WHAT SHOW IF LONGER
-                            overflow: TextOverflow.ellipsis,
-
-                          ),
-
-                        )
-
-                      ],
-
-                    ),
-
-                    // POP-UP DURATION
-                    duration: Duration(seconds: 4),
-
-                    // POP-UP BACKGROUND COLOR
-                    backgroundColor: Color.fromRGBO(73, 32, 32, 1.0),
-
-                  ),
-                );
+                // SHOWING ERROR SNACKBAR
+                show_error_snackbar(context, AppLocalizations.of(context)!.deck_management_page_import_error_text);
 
               }
 

@@ -15,7 +15,7 @@ import 'package:loverquest/logics/decks_logics/03_quest_class.dart';
 // only_early     | WILL BE SHOWN ONLY THE QUEST WITH MOMENT = EARLY
 // only_mid       | WILL BE SHOWN ONLY THE QUEST WITH MOMENT = MID
 // only_late      | WILL BE SHOWN ONLY THE QUEST WITH MOMENT = LATE
-// only end       | WILL BE SHOWN ONLY THE QUEST WITH MOMENT = END
+// only_end       | WILL BE SHOWN ONLY THE QUEST WITH MOMENT = END
 
 // POSSIBLE TOOLS FILTER TYPE:
 // all            | WILL BE SHOWN ALL THE QUEST
@@ -41,13 +41,21 @@ Future<List<Quest>> quest_filter_sorting (DeckReader deck, {String? sorting_type
       // FILTERING FOR QUEST TOOLS
       if (tools_filter != null && tools_filter == "with_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        early_quests_list.add(quest);
+        if (quest.required_tools.isNotEmpty) {
+
+          // ADDING THE QUEST TO THE LIST
+          early_quests_list.add(quest);
+
+        }
 
       } else if (tools_filter != null && tools_filter == "without_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        early_quests_list.add(quest);
+        if (quest.required_tools.isEmpty) {
+
+          // ADDING THE QUEST TO THE LIST
+          early_quests_list.add(quest);
+
+        }
 
       } else {
 
@@ -61,13 +69,21 @@ Future<List<Quest>> quest_filter_sorting (DeckReader deck, {String? sorting_type
       // FILTERING FOR QUEST TOOLS
       if (tools_filter != null && tools_filter == "with_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        mid_quests_list.add(quest);
+        if (quest.required_tools.isNotEmpty) {
+
+          // ADDING THE QUEST TO THE LIST
+          mid_quests_list.add(quest);
+
+        }
 
       } else if (tools_filter != null && tools_filter == "without_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        mid_quests_list.add(quest);
+        if (quest.required_tools.isEmpty) {
+
+          // ADDING THE QUEST TO THE LIST
+          mid_quests_list.add(quest);
+
+        }
 
       } else {
 
@@ -81,13 +97,22 @@ Future<List<Quest>> quest_filter_sorting (DeckReader deck, {String? sorting_type
       // FILTERING FOR QUEST TOOLS
       if (tools_filter != null && tools_filter == "with_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        late_quests_list.add(quest);
+        if (quest.required_tools.isNotEmpty) {
+
+          // ADDING THE QUEST TO THE LIST
+          late_quests_list.add(quest);
+
+
+        }
 
       } else if (tools_filter != null && tools_filter == "without_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        late_quests_list.add(quest);
+          if (quest.required_tools.isEmpty) {
+
+            // ADDING THE QUEST TO THE LIST
+            late_quests_list.add(quest);
+
+          }
 
       } else {
 
@@ -101,13 +126,21 @@ Future<List<Quest>> quest_filter_sorting (DeckReader deck, {String? sorting_type
       // FILTERING FOR QUEST TOOLS
       if (tools_filter != null && tools_filter == "with_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        end_quests_list.add(quest);
+        if (quest.required_tools.isNotEmpty) {
+
+          // ADDING THE QUEST TO THE LIST
+          end_quests_list.add(quest);
+
+        }
 
       } else if (tools_filter != null && tools_filter == "without_tools") {
 
-        // ADDING THE QUEST TO THE LIST
-        end_quests_list.add(quest);
+        if (quest.required_tools.isEmpty) {
+
+          // ADDING THE QUEST TO THE LIST
+          end_quests_list.add(quest);
+
+        }
 
       } else {
 

@@ -7,7 +7,9 @@
     "language": "es",
     "total_quests": 19,
     "required_tools": [],
-    "tags": ["chat"]
+    "tags": ["chat"],
+    "difficulty": "advanced"
+
   },
   "quests": [
     {

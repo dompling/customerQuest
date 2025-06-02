@@ -18,13 +18,15 @@ import 'package:loverquest/pages/first_start_pages/05_web_app_presentation_page.
 import 'package:loverquest/pages/first_start_pages/06_donation_presentation_page.dart';
 
 import 'package:loverquest/pages/homepage_pages/01_play_main_page.dart';
-import 'package:loverquest/pages/homepage_pages/dialogs/01_donation_dialog.dart';
-import 'package:loverquest/pages/homepage_pages/dialogs/02_review_dialog.dart';
+import 'package:loverquest/pages/homepage_pages/dialogs/01_donation_page.dart';
+import 'package:loverquest/pages/homepage_pages/dialogs/02_review_page.dart';
+import 'package:loverquest/pages/homepage_pages/dialogs/03_download_android_app_page.dart';
 import 'package:loverquest/pages/homepage_pages/02_decks_main_page.dart';
 import 'package:loverquest/pages/homepage_pages/03_settings_main_page.dart';
 
 import 'package:loverquest/pages/play_pages/01_select_game_type_page.dart';
-import 'package:loverquest/pages/play_pages/02_select_players_type_page.dart';
+import 'package:loverquest/pages/play_pages/02A_online_safety_reminder.dart';
+import 'package:loverquest/pages/play_pages/02B_select_players_type_page.dart';
 import 'package:loverquest/pages/play_pages/03_define_players_names_page.dart';
 import 'package:loverquest/pages/play_pages/04_select_start_player_page.dart';
 import 'package:loverquest/pages/play_pages/05_select_deck_to_play_page.dart';
@@ -367,7 +369,7 @@ final GoRouter app_router = GoRouter(
           // SUBROUTES
           routes: [
 
-            // 01 DONATION REMINDER PAGE - donation_reminder
+            // D01 DONATION REMINDER PAGE - donation_reminder
             GoRoute(
 
               // PAGE PATH
@@ -391,7 +393,85 @@ final GoRouter app_router = GoRouter(
 
                     return SlideTransition(
                       position: Tween<Offset>(
-                        begin: Offset(0, 1), // Cambia per la direzione
+                        begin: Offset(0, 1),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // D02 DONATION REMINDER PAGE - donation_reminder
+            GoRoute(
+
+              // PAGE PATH
+              path: 'review_reminder_page',
+
+              // PAGE NAME
+              name: 'review_reminder_page',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: ReviewReminderPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset(0, 1),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // D03 DONATION REMINDER PAGE - donation_reminder
+            GoRoute(
+
+              // PAGE PATH
+              path: 'download_native_page',
+
+              // PAGE NAME
+              name: 'download_native_page',
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: DownloadAndroidAppPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset(0, 1),
                         end: Offset.zero,
                       ).animate(animation),
                       child: child,
@@ -428,7 +508,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -438,7 +524,60 @@ final GoRouter app_router = GoRouter(
 
             ),
 
-            // 02 SELECT PLAYERS TYPE PAGE - players_type
+            // 02A SELECT PLAYERS TYPE PAGE - players_type
+            GoRoute(
+
+              // PAGE PATH
+              path: 'online_safety_reminder',
+
+              // PAGE NAME
+              name: 'online_safety_reminder',
+
+              // PAGE REDIRECT CONDITIONS
+              redirect: (context, state) {
+
+                // GETTING THE DATA WRAPPER
+                final match_data_object = Provider.of<MatchDataProvider>(context, listen: false).matchData;
+
+                // CHECKING IF IS NECESSARY TO REDIRECT THE PAGE
+                if (match_data_object == null) {
+                  return '/play';
+                }
+
+                return null;
+
+              },
+
+              // PAGE CONTENT
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+
+                  // PAGE KEY - AUTOMATICALLY GENERATED
+                  key: state.pageKey,
+
+                  // PAGE TO OPEN
+                  child: OnlineSafetyReminderPage(),
+
+                  // TRANSITION
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
+
+                  },
+
+                );
+
+              },
+
+            ),
+
+            // 02B SELECT PLAYERS TYPE PAGE - players_type
             GoRoute(
 
               // PAGE PATH
@@ -475,7 +614,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -485,7 +630,7 @@ final GoRouter app_router = GoRouter(
 
             ),
 
-            // 03 DEFINE PLAYERS ALIAS PAGE - players_alias
+            // 03B DEFINE PLAYERS ALIAS PAGE - players_alias
             GoRoute(
 
               // PAGE PATH
@@ -522,7 +667,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -532,7 +683,7 @@ final GoRouter app_router = GoRouter(
 
             ),
 
-            // 04 SELECT START PLAYER PAGE - start_player
+            // 04B SELECT START PLAYER PAGE - start_player
             GoRoute(
 
               // PAGE PATH
@@ -569,7 +720,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -579,7 +736,7 @@ final GoRouter app_router = GoRouter(
 
             ),
 
-            // 05 SELECT DECK TO PLAY PAGE - play_deck_choice
+            // 05B SELECT DECK TO PLAY PAGE - play_deck_choice
             GoRoute(
 
               // PAGE PATH
@@ -616,7 +773,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -626,7 +789,7 @@ final GoRouter app_router = GoRouter(
 
             ),
 
-            // 06 DECK INFO PAGE - play_deck_info
+            // 06B DECK INFO PAGE - play_deck_info
             GoRoute(
 
               // PAGE PATH
@@ -663,7 +826,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -673,7 +842,7 @@ final GoRouter app_router = GoRouter(
 
             ),
 
-            // 07 SELECT GAME PACE PAGE - game_pace
+            // 07B SELECT GAME PACE PAGE - game_pace
             GoRoute(
 
               // PAGE PATH
@@ -710,7 +879,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -720,7 +895,7 @@ final GoRouter app_router = GoRouter(
 
             ),
 
-            // 08 PLAY PAGE - play_game
+            // 08B PLAY PAGE - play_game
             GoRoute(
 
               // PAGE PATH
@@ -757,7 +932,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -843,7 +1024,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -890,7 +1077,13 @@ final GoRouter app_router = GoRouter(
                       // TRANSITION
                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                        return FadeTransition(opacity: animation, child: child,);
+                        return SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(1, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: child,
+                        );
 
                       },
 
@@ -941,7 +1134,13 @@ final GoRouter app_router = GoRouter(
                   // TRANSITION
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                    return FadeTransition(opacity: animation, child: child,);
+                    return SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(1, 0),
+                        end: Offset.zero,
+                      ).animate(animation),
+                      child: child,
+                    );
 
                   },
 
@@ -988,7 +1187,13 @@ final GoRouter app_router = GoRouter(
                       // TRANSITION
                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                        return FadeTransition(opacity: animation, child: child,);
+                        return SlideTransition(
+                          position: Tween<Offset>(
+                            begin: const Offset(1, 0),
+                            end: Offset.zero,
+                          ).animate(animation),
+                          child: child,
+                        );
 
                       },
 
@@ -1035,7 +1240,13 @@ final GoRouter app_router = GoRouter(
                         // TRANSITION
                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                          return FadeTransition(opacity: animation, child: child,);
+                          return SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(1, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: child,
+                          );
 
                         },
 
@@ -1082,7 +1293,13 @@ final GoRouter app_router = GoRouter(
                             // TRANSITION
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                              return FadeTransition(opacity: animation, child: child,);
+                              return SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: const Offset(1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: child,
+                              );
 
                             },
 
@@ -1127,7 +1344,13 @@ final GoRouter app_router = GoRouter(
                             // TRANSITION
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
 
-                              return FadeTransition(opacity: animation, child: child,);
+                              return SlideTransition(
+                                position: Tween<Offset>(
+                                  begin: const Offset(1, 0),
+                                  end: Offset.zero,
+                                ).animate(animation),
+                                child: child,
+                              );
 
                             },
 
