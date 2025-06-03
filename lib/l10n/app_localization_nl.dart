@@ -189,7 +189,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get online_play_disclaimer_dialog_close_button_label => 'Sluiten';
 
   @override
-  String get donation_reminder_page_donate_button_label => 'Donate';
+  String get donation_reminder_page_donate_button_label => 'Doneren';
 
   @override
   String get review_reminder_page_title => 'Jouw mening telt';

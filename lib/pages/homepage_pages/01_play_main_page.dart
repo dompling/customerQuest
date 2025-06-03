@@ -1,4 +1,24 @@
 //------------------------------------------------------------------------------
+// Loverquest - https://github.com/H3rz3n/loverquest/
+//
+// Copyright (C) 2025 Lorenzo Maiuri & Contributors
+//
+// This file is part of Loverquest.
+//
+// Loverquest is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Loverquest is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Loverquest.  If not, see <https://www.gnu.org/licenses/>.
+//
+//------------------------------------------------------------------------------
 
 // STANDARD LIBRARIES
 import 'package:flutter/foundation.dart';
@@ -95,8 +115,11 @@ class _PlayMainPageState extends State<PlayMainPage> {
         // CHECKING IF THE WRAPPER OBJECT EXIST
         pop_up_wrapper_object ??= PlayPagePopUpWrapper(session_check: false);
 
+        print("DEBUG | App startup counter: $app_startup_counter");
+        print("DEBUG | Session check: ${pop_up_wrapper_object!.session_check}");
+
         // CHECKING IF IS THE FIRST TIME THAT THE APP HAS BEEN STARTED
-        if (app_startup_counter != 0 && pop_up_wrapper_object!.session_check == false) {
+        if (app_startup_counter == 0 && pop_up_wrapper_object!.session_check == false) {
 
           // CHECKING IF WE ARE USING THE WEB-APP
           if (kIsWeb) {
@@ -136,6 +159,8 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
         } else if (app_startup_counter > 2 && pop_up_wrapper_object!.session_check == false) {
 
+          print("DEBUG | Sono nel primo IF");
+
           // SETTING THE SESSION CHECK
           pop_up_wrapper_object!.session_check = true;
 
@@ -144,6 +169,8 @@ class _PlayMainPageState extends State<PlayMainPage> {
 
           // CHECKING IF THE COUNTER IS DIVISIBLE FOR 3
           if (app_startup_counter % 3 == 0) {
+
+            print("DEBUG | Sono nel secondo IF");
 
             // SHOWING THE DONATION REMINDER PAGE
             await context.push('/play/donation_reminder_page');
@@ -350,8 +377,8 @@ class _PlayMainPageState extends State<PlayMainPage> {
                             // TEXT STYLE
                             style: TextStyle(
 
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
 
                             ),
 
@@ -459,8 +486,8 @@ class _PlayMainPageState extends State<PlayMainPage> {
                             // TEXT STYLE
                             style: TextStyle(
 
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
 
                             ),
 
