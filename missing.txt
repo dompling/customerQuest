@@ -1,5 +1,0 @@
-{
-  "nl": [
-    "donation_reminder_page_donate_button_label"
-  ]
-}
