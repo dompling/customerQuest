@@ -1,0 +1,151 @@
+{
+  "summary": {
+    "name": "Iniziazione a Distanza",
+    "description": "Un mazzo pensato per coppie che vogliono esplorare l’intimità a distanza in modo delicato ma stuzzicante. Nessuna pressione, solo desiderio che cresce messaggio dopo messaggio.",
+    "couple_type": "hetero",
+    "play_presence": false,
+    "language": "it",
+    "total_quests": 19,
+    "required_tools": [],
+    "tags": ["chat"],
+    "difficulty": "beginner"
+  },
+  "quests": [
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Inizia la chat con un messaggio che descriva in modo sensuale cosa stai indossando in questo momento."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Invia una foto suggestiva (non nudo) che faccia intuire ma non mostrare. Il partner può rispondere solo con un emoji."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Manda un vocale sussurrando una frase che trovi erotica, senza spiegazioni."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Descrivi un tuo sogno erotico… ma fermati prima del momento clou."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Scrivi tre parole che descrivono come ti fa sentire il tuo partner. Una deve essere erotica, le altre due dolci."
+    },
+
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Descrivi dove e come ti piacerebbe baciarlo/a se foste insieme ora."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Scatta una foto delle tue labbra e scrivi cosa vorresti fare con esse al tuo partner."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Scrivi una frase erotica, ma usando solo parole eleganti. Niente parole volgari."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Manda un video di massimo 5 secondi in cui ti mordi lentamente il labbro o ti sfiori il collo."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Scrivi un messaggio che faccia arrossire il tuo partner... senza usare emoji."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Completa questa frase via chat: 'Se fossi nel tuo letto ora, inizierei da…'"
+    },
+
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Scrivi un breve racconto erotico con voi due come protagonisti. Massimo 5 righe."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Registra un audio dove sospiri o pronunci lentamente il suo nome in modo sensuale."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Fai un quiz hot: chiedi al partner di indovinare una tua fantasia tra tre opzioni (due false, una vera)."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Descrivi il momento preciso in cui ti sei eccitato/a l’ultima volta pensando al tuo partner."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Scrivetevi in chat senza usare mai il nome dell’altro, solo soprannomi sensuali."
+    },
+
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Scrivi al tuo partner il posto dove vorresti fare l’amore con lui/lei appena vi rivedrete."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Chiudi il gioco scrivendo una promessa erotica da mantenere la prossima volta che vi vedrete."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Manda una foto del tuo sguardo più provocante e concludi dicendo: 'Il resto lo scoprirai dal vivo.'"
+    }
+  ]
+}

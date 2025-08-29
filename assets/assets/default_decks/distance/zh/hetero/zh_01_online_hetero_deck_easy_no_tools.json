@@ -1,0 +1,150 @@
+{
+  "summary": {
+    "name": "远程调情",
+    "description": "专为希望以温和而挑逗的方式探索远距离亲密关系的情侣设计的卡组。没有压力，只有随着消息不断增长的渴望。",
+    "couple_type": "hetero",
+    "play_presence": false,
+    "language": "zh",
+    "total_quests": 19,
+    "required_tools": [],
+    "tags": [
+      "chat"
+    ],
+    "difficulty": "beginner"
+  },
+  "quests": [
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "用一条性感的消息开始聊天，描述你现在的穿着。"
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "发送一张挑逗（非裸露）的照片，暗示但不完全展示。你的伴侣只能用表情符号回复。"
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "发送一条耳语的情色语音信息，无需解释。"
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "描述你做的一个春梦……但在高潮前停下来。"
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "写下三个词来描述你的伴侣给你的感觉。一个必须是情色的，另外两个是甜蜜的。"
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "描述如果你们现在在一起，你想在哪里以及如何亲吻他们。"
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "拍一张你嘴唇的照片，并写下你想用它们对你的伴侣做什么。"
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "只用优雅的词汇写一个情色句子。不使用粗俗语言。"
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "发送一段不超过5秒的视频，视频中你慢慢咬嘴唇或抚摸脖子。"
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "写一条让你的伴侣脸红的讯息……不要使用表情符号。"
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "在聊天中完成这句话：‘如果我现在在你的床上，我会从……开始’"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "写一个以你们俩为主角的短篇情色故事。最多5行。"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "录制一段音频，你用感性的语调叹息或缓慢地说出他们的名字。"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "玩一个性感问答：要求你的伴侣从三个选项（两个假的，一个真的）中猜出你的一个幻想。"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "描述你上一次想到你的伴侣时确切的心动瞬间。"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "彼此聊天时只使用感性的昵称，绝不使用真实姓名。"
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "告诉你的伴侣下次见面时你想在哪里做爱。"
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "通过写下下次见面时你将兑现的一个情色承诺来结束游戏。"
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "发送一张你最撩人的造型照片，并以‘剩下的部分，等你亲自来发现。’结束。"
+    }
+  ]
+}

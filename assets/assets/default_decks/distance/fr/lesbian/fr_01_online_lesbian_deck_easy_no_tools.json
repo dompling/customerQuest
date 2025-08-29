@@ -1,0 +1,148 @@
+{
+  "summary": {
+    "name": "Initiation à Distance",
+    "description": "Un deck pensé pour les couples qui souhaitent explorer l’intimité à distance de manière douce mais stimulante. Aucune pression, juste un désir qui grandit message après message.",
+    "couple_type": "lesbian",
+    "play_presence": false,
+    "language": "fr",
+    "total_quests": 19,
+    "required_tools": [],
+    "tags": ["chat"],
+    "difficulty": "beginner"
+  },
+  "quests": [
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Commence la conversation par un message décrivant de manière sensuelle ce que tu portes en ce moment."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Envoie une photo suggestive (pas nue) qui suggère sans tout montrer. Ta partenaire ne peut répondre qu’avec un emoji."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Envoie un message vocal en chuchotant une phrase érotique, sans aucune explication."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Décris un de tes rêves érotiques… mais arrête-toi avant le moment culminant."
+    },
+    {
+      "moment": "early",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Écris trois mots qui décrivent ce que ta partenaire te fait ressentir. L’un doit être érotique, les deux autres tendres."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Décris où et comment tu aimerais l’embrasser si vous étiez ensemble maintenant."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Prends une photo de tes lèvres et écris ce que tu aimerais leur faire à ta partenaire."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Écris une phrase érotique, mais en utilisant uniquement des mots élégants. Aucun mot vulgaire."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Envoie une vidéo de 5 secondes maximum où tu te mords lentement la lèvre ou caresses ton cou."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Écris un message qui fasse rougir ta partenaire... sans utiliser d’emoji."
+    },
+    {
+      "moment": "mid",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Complète cette phrase dans le chat : 'Si j’étais dans ton lit maintenant, je commencerais par…'"
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Écris une courte histoire érotique avec vous deux comme protagonistes. Maximum 5 lignes."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Enregistre un audio où tu soupires ou prononces lentement son prénom de manière sensuelle."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Fais un quiz sexy : demande à ta partenaire de deviner un de tes fantasmes parmi trois propositions (deux fausses, une vraie)."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Décris le moment précis où tu as été excitée pour la dernière fois en pensant à ta partenaire."
+    },
+    {
+      "moment": "late",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Écrivez-vous par chat sans jamais utiliser le prénom de l’autre, seulement des surnoms sensuels."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Écris à ta partenaire l’endroit où tu voudrais faire l’amour avec elle dès que vous vous reverrez."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Termine le jeu en écrivant une promesse érotique que tu tiendras la prochaine fois que vous vous verrez."
+    },
+    {
+      "moment": "end",
+      "required_tools": [],
+      "player_type": "both",
+      "timer": 0,
+      "content": "Envoie une photo de ton regard le plus provocant et termine en disant : 'Tu découvriras le reste en vrai.'"
+    }
+  ]
+}
