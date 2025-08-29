@@ -361,7 +361,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deck_language_nl => '荷兰语';
 
   @override
-  String get deck_language_zh => 'Chinese';
+  String get deck_language_zh => '中文';
 
   @override
   String get deck_couple_type_tag_label_hetero => '异性恋';
