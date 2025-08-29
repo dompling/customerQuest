@@ -10,26 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 拉取代码
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      # 安装 Flutter
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.2'   # 你自己项目的版本
+          flutter-version: '3.35.2'
           channel: 'stable'
 
-      # 获取依赖
       - name: Install dependencies
         run: flutter pub get
 
-      # 构建 Web
       - name: Build Web
-        run: flutter build web --release
+        run: flutter build web --release --base-href /repo-name/
 
-      # 部署到 gh-pages 分支
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
