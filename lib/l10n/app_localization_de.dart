@@ -397,6 +397,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deck_language_nl => 'Niederländisch';
 
   @override
+  String get deck_language_zh => 'Chinese';
+
+  @override
   String get deck_couple_type_tag_label_hetero => 'Hetero';
 
   @override

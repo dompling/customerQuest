@@ -300,6 +300,7 @@ class MyApp extends StatelessWidget {
         Locale('fr', ''),
         Locale('de', ''),
         Locale('nl', ''),
+        Locale('zh', ''),  // 添加中文支持
       ],
 
       // LOADING THE TRANSLATION
