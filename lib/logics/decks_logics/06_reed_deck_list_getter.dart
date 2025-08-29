@@ -52,7 +52,12 @@ Future<List<DeckReader>> get_default_reed_decks (BuildContext context, {bool? is
   String lang = get_system_language(context);
 
   // CHECKING IF THE LANGUAGE IS ACTUALLY SUPPORTED
-  if (lang != "en" && lang != "it" && lang != "es" && lang != "fr" && lang != "de" && lang != "nl") { lang = "en"; }
+  if (lang != "en" && lang != "it" && lang != "es" && lang != "fr" && lang != "de" && lang != "nl" && lang != "zh") { 
+    lang = "zh";
+  }
+  
+  // Store the original language for fallback
+  String originalLang = lang;
 
   // INITIALIZING THE PRESENCE/DISTANCE FOLDERS SEARCHING LIST
   List<String> folders;
@@ -89,6 +94,30 @@ Future<List<DeckReader>> get_default_reed_decks (BuildContext context, {bool? is
         file_paths.add(key);
       });
 
+    }
+
+    // IF NO DECKS FOUND FOR THE SELECTED LANGUAGE, TRY FALLBACK TO ENGLISH
+    if (file_paths.isEmpty && lang != "en") {
+      // TRY WITH ENGLISH AS FALLBACK
+      lang = "en";
+      file_paths = [];
+      
+      // LOADING THE DECK PATH FOR THE CHOOSE FILTER OPTION - PRESENCE - DISTANCE - BOTH
+      for (String folder in folders) {
+        // DEFINING THE DECK PREFIX IN ORDER TO SEARCH ONLY FOR THE DESIRED DECKS - DEFAULT PATH - PRESENCE/DISTANCE - LANG
+        String deck_path_prefix = "assets/default_decks/$folder/$lang/";
+
+        // FILTERING THE GET ASSETS LIST USING THE PATH PREFIX STRING DEFINED EARLY
+        manifestMap.keys.where((String key) => key.startsWith(deck_path_prefix)).forEach((String key) {
+          // ADDING THE PATH TO THE FILE PATH LIST IF IT IS ADEQUATE
+          file_paths.add(key);
+        });
+      }
+    }
+
+    // IF STILL NO DECKS FOUND, THROW AN ERROR
+    if (file_paths.isEmpty) {
+      throw Exception("No deck files found for language: $originalLang or fallback language: en");
     }
 
     // INITIALIZING THE DEFAULT REED DECKS LIST

@@ -45,9 +45,10 @@ LanguageInfo get_language_info(BuildContext context, String deck_lang) {
 
   // GETTING THE CASE USING DIFFICULTY NUMBER
   switch (deck_lang) {
+    case "zh":
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_zh, Color(0xffa26b58), Color(0xffa26b58), "zh");
     case "it":
-      return LanguageInfo(AppLocalizations.of(context)!.deck_language_it, Color(
-          0xffa26b58), Color(0xffa26b58), "it");
+      return LanguageInfo(AppLocalizations.of(context)!.deck_language_it, Color(0xffa26b58), Color(0xffa26b58), "it");
     case "es":
       return LanguageInfo(AppLocalizations.of(context)!.deck_language_es, Color(0xffa26b58), Color(0xffa26b58), "es");
     case "de":

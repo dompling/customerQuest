@@ -37,7 +37,7 @@ class LocaleProvider extends ChangeNotifier {
   Locale? _locale;
 
   // SUPPORTED LANGUAGES
-  final List<String> supportedLanguages = ['it', 'fr', 'de', 'es', 'en', 'nl'];
+  final List<String> supportedLanguages = ['zh', 'en', 'it', 'fr', 'de', 'es', 'nl'];
 
   //------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ class LocaleProvider extends ChangeNotifier {
 
     // CHECKING IF THE SYSTEM LANGUAGE IS ACTUALLY SUPPORTED
     if (!supportedLanguages.contains(savedLanguage)) {
-      savedLanguage = 'en';
+      savedLanguage = 'zh';
     }
 
     // IF A LANGUAGE IS SAVED, USE IT
@@ -89,8 +89,8 @@ class LocaleProvider extends ChangeNotifier {
 
   // FUNCTION FOR CLEARING THE SELECTED LANGUAGE
   Future<void> clearLocale() async {
-    // SETTING THE STOCK LANGUAGE TO ENGLISH
-    _locale = Locale('en', '');
+    // SETTING THE STOCK LANGUAGE TO CHINESE
+    _locale = Locale('zh', '');
     notifyListeners();
 
     // REMOVING THE PREFERRED LANGUAGE SAVED SETTINGS
