@@ -72,8 +72,16 @@ class _SettingsMainPageState extends State<SettingsMainPage> {
 
               //COLUMN CONTENT
               children: [
-
-                //------------------------------------------------------------------------------
+								//------------------------------------------------------------------------------
+								Chinese OPTION
+								ListTile(
+									  title: Text(AppLocalizations.of(context)!.deck_language_zh, textAlign: TextAlign.center,),
+									  onTap: () {
+									    Provider.of<LocaleProvider>(context, listen: false).setLocale(Locale('zh', ''));
+									    Navigator.pop(context);
+									  },
+									),
+								//------------------------------------------------------------------------------
 
                 // ENGLISH OPTION
                 ListTile(
