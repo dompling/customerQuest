@@ -290,7 +290,7 @@
   "deck_filter_dialog_gay_tag": "男同性恋",
   "deck_filter_dialog_all_tag": "全部",
   "deck_filter_dialog_presence_tag": "本地",
-  "deck_filter_dialog_distance_tag": "在线", // 修正：原文是Local，但根据上下文和常见标签，此处应为“在线”
+  "deck_filter_dialog_distance_tag": "在线",
   "deck_filter_dialog_with_tools_tag": "需要道具",
   "deck_filter_dialog_without_tools_tag": "无需道具",
   "deck_filter_dialog_chat_only_tag": "仅聊天",

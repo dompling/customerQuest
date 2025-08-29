@@ -1,1 +1,5 @@
-{}
+{
+  "nl": [
+    "deck_language_zh"
+  ]
+}
